@@ -1,0 +1,17 @@
+{
+  "name": "@deadline-day/scripts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Deadline Day command line scripts: seed, data validation, migrations (simulation CLI in M1).",
+  "type": "module",
+  "scripts": {
+    "seed": "tsx seed.ts",
+    "data:validate": "tsx validate-data.ts",
+    "db:migrate": "tsx migrate.ts",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@deadline-day/engine": "*",
+    "@deadline-day/server": "*"
+  }
+}

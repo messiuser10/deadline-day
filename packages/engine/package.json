@@ -1,0 +1,17 @@
+{
+  "name": "@deadline-day/engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pure Deadline Day game logic: positions, formations, pool sizing, prices, data validation (more in M1).",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "zod": "^4.1.0"
+  }
+}
