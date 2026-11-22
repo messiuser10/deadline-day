@@ -6,7 +6,13 @@ const config = loadConfig();
 const db = openDb(config.DATABASE_URL);
 runMigrations(db);
 
-const app = buildApp({ db, logger: true });
+const app = buildApp({
+  db,
+  logger: true,
+  adminUsername: config.ADMIN_USERNAME,
+  sessionSecret: config.SESSION_SECRET,
+  secureCookies: config.NODE_ENV === 'production',
+});
 if (!isSeeded(db)) app.log.warn('The database has no players yet. Run: npm run seed');
 
 try {

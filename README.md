@@ -4,7 +4,7 @@ A multiplayer web game. Friends (2 to 12 teams) each get a $1 billion budget and
 
 > Deadline Day is an unofficial fan game. It is not affiliated with, endorsed by or connected to any club, league or player. No official crests, logos or player photos are used.
 
-**Status:** milestones M0 (scaffold and data) and M1 (game engine) are done. See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
+**Status:** milestones M0 (scaffold and data), M1 (game engine) and M2 (server foundation: accounts, guests, lobby, live updates, auction start) are done. The live auction room is next (M3). See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
 
 ## Requirements
 
@@ -24,22 +24,23 @@ The player data is supplied in `data/` and must not be regenerated:
 
 | File | Contents |
 | --- | --- |
-| `auction_players.csv` / `.json` | Master auction pool, 570 men's players (the CSV is authoritative; the JSON must agree) |
+| `auction_players.csv` / `.json` | Master auction pool, 571 men's players (the CSV is authoritative; the JSON must agree). `club_now` is the player's real club as of 22 Nov 2026, shown in the UI only |
 | `clubs.json` | The 20 AI-capable clubs |
-| `players.seed.json` / `players.csv` | The 618 players in those clubs' squads |
+| `players.seed.json` / `players.csv` | The 609 players in those clubs' squads (as of 22 Nov 2026) |
 
 ```bash
 npm run data:validate                  # checks data/, exits 1 on any error
 npm run data:validate -- --dir <path>  # checks another folder with the same five files
 ```
 
-The check covers row counts, duplicate ids, positions and alternates, ratings, the price formula, `seed_club` links (all 265 must resolve to exactly one squad player), CSV and JSON agreement, and that every position group has enough players for 12 teams in the worst case.
+The check covers row counts, duplicate ids, positions and alternates, ratings, the price formula, `seed_club` links (all 264 must resolve to exactly one squad player), CSV and JSON agreement, and that every position group has enough players for 12 teams in the worst case.
 
 ## Database and seed
 
 ```bash
 npm run seed            # applies migrations, then loads clubs, squads, pool and default settings
-npm run seed -- --reset # also overwrites existing clubs, squads and pool players from data/
+npm run seed -- --reset # also overwrites clubs, squads and pool players from data/, deletes squad players
+                        # no longer in data/ and marks pool players no longer in data/ inactive
 npm run db:migrate      # applies pending migrations only
 ```
 
@@ -54,8 +55,29 @@ npm run db:generate     # writes SQLite migrations to apps/server/drizzle/sqlite
 ## Run
 
 ```bash
-npm run dev             # API server on :3001 and web app on http://localhost:5173 (proxies /api)
+npm run dev             # API server on :3001 and web app on http://localhost:5173 (proxies /api and /socket.io)
 ```
+
+Open http://localhost:5173 on a laptop or a phone-sized window. What works now: sign up, log in or play as a guest; create a game or a one-click solo game against three bots; join by code, link, QR or the public lobby list; edit your team (name, colour, badge, formation); watch the live pool preview and AI club list change as teams join; host controls (rules, bots, kick, transfer host, nomination order, cancel); lobby chat; Ready and Start with a 5-second countdown; and the kickoff screen with the frozen pool and AI clubs.
+
+## Accounts and admin
+
+- Accounts use a username and password (bcrypt). Guests get a session with just a display name and can later turn it into an account without losing their games.
+- Sessions are an httpOnly cookie `dd_session` that lasts 30 days and slides on use.
+- Register with the username in `ADMIN_USERNAME` to become an admin. Admins can act as host in any game and use `GET /api/admin/users` and `PATCH /api/admin/users/:id` (role, ban). The admin panel UI arrives in M6.
+
+## API and realtime
+
+All changes go through REST (JSON, validated with the zod schemas in `packages/protocol`); errors look like `{ "error": { "code", "message" } }`. Every lobby change answers with the new lobby state and also pushes it over Socket.IO to everyone watching the game.
+
+| Area | Routes |
+| --- | --- |
+| Auth | `GET /api/auth/me`, `POST /api/auth/register`, `/login`, `/guest`, `/logout` |
+| Games | `POST /api/games`, `POST /api/games/solo`, `GET /api/games/public`, `GET /api/games/:code` |
+| Players | `POST :code/join`, `PATCH :code/team`, `POST :code/leave`, `POST :code/chat` |
+| Host | `PATCH :code/settings`, `POST :code/bots`, `PATCH`/`DELETE :code/participants/:id`, `POST :code/host`, `PUT :code/order`, `POST :code/order/randomize`, `POST :code/start`, `POST :code/cancel` |
+
+Socket.IO (path `/socket.io`, same cookie): the client emits `game:watch { code }` and gets the full snapshot in the reply, then receives `lobby:update`, `presence`, `chat:message`, `game:snapshot` (on start), `game:kicked` and `game:notice`. `time:sync` returns the server clock so countdowns agree across devices.
 
 ## Simulation CLI
 
@@ -92,12 +114,12 @@ A Dockerfile, docker-compose file and single-process production build (server se
 | Variable | Default | Purpose |
 | --- | --- | --- |
 | `NODE_ENV` | `development` | `development`, `test` or `production` |
-| `PORT` | `3001` | API server port (the web dev server proxies to it) |
+| `PORT` | `3001` | API server port. The web dev server reads the same variable to know where to proxy |
 | `HOST` | `0.0.0.0` | API server bind address |
 | `DATABASE_URL` | `file:./var/deadline-day.sqlite` | `file:<path>` for SQLite (relative to the repo root) or `:memory:`. Postgres URLs are recognised, but the Postgres runtime driver is not wired yet (see DECISIONS.md) |
 | `ADMIN_USERNAME` | `admin` | A user who registers with this username becomes admin |
-| `SESSION_SECRET` | dev-only value | Signs session cookies. Required in production (at least 16 characters) |
-| `WEB_ORIGIN` | `http://localhost:5173` | Web app origin, for CORS in development |
+| `SESSION_SECRET` | dev-only value | Signs the `dd_session` cookie. Required in production (at least 16 characters); cookies are also marked Secure there |
+| `WEB_ORIGIN` | `http://localhost:5173` | Reserved, not read yet: in development Vite proxies `/api` and `/socket.io`, so the app is same-origin |
 
 `.env` in the repo root is loaded automatically. Never commit it.
 
@@ -105,8 +127,9 @@ A Dockerfile, docker-compose file and single-process production build (server se
 
 ```
 packages/engine   pure game logic: positions, formations, prices, pool, lineups, auction rules, bots, clubs, fixtures, match and season sim, Monte Carlo, awards; Vitest tests
-apps/server       Fastify server, Drizzle schema (SQLite + Postgres mirror), migrations, seed
-apps/web          React + Vite + Tailwind client
+packages/protocol API contract shared by server and web: zod request schemas, view types, socket events, limits
+apps/server       Fastify server: auth, games and lobby service, Socket.IO hub, admin routes, Drizzle schema (SQLite + Postgres mirror), migrations, seed
+apps/web          React + Vite + Tailwind client, mobile first: home, login, create, lobby, kickoff, how to play
 scripts/          seed, data validation, migrations, simulation CLI
 data/             supplied player and club data
 ```

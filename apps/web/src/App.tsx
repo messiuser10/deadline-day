@@ -1,54 +1,76 @@
-import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router';
+import { Component, useEffect, type ReactNode } from 'react';
+import { Route, Routes, useLocation } from 'react-router';
+import { Header } from './components/Header';
+import { Toaster } from './components/Toaster';
+import { LinkButton } from './components/ui';
+import { AuctionPage } from './pages/Auction';
+import { CreatePage } from './pages/Create';
+import { HomePage } from './pages/Home';
+import { HowToPlayPage } from './pages/HowToPlay';
+import { LobbyPage } from './pages/Lobby';
+import { LoginPage } from './pages/Login';
 
-interface Health {
-  status: string;
-  poolPlayers: number;
-  seeded: boolean;
+/** New page, new scroll: start every route at the top. */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
 }
 
-function Home() {
-  const [health, setHealth] = useState<Health | null>(null);
-  const [error, setError] = useState(false);
+/** Last line of defence: a crash shows a way back instead of a blank page. */
+class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  override state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  override render() {
+    if (!this.state.failed) return this.props.children;
+    return (
+      <main className="mx-auto max-w-md px-4 py-20 text-center">
+        <h1 className="font-display text-4xl font-bold uppercase">Something went wrong</h1>
+        <p className="mt-3 text-white/60">Reload the page. Your game is saved on the server.</p>
+        <button type="button" onClick={() => window.location.reload()} className="mt-6 min-h-11 rounded-xl bg-pitch-500 px-5 font-semibold text-night-950">
+          Reload
+        </button>
+      </main>
+    );
+  }
+}
 
-  useEffect(() => {
-    fetch('/api/health')
-      .then((r) => (r.ok ? (r.json() as Promise<Health>) : Promise.reject(new Error(String(r.status)))))
-      .then(setHealth)
-      .catch(() => setError(true));
-  }, []);
-
+function NotFound() {
   return (
-    <main className="mx-auto flex max-w-3xl flex-1 flex-col items-center justify-center gap-6 px-4 py-16 text-center">
-      <p className="text-sm font-semibold uppercase tracking-[0.3em] text-pitch-400">Live football auction</p>
-      <h1 className="font-display text-6xl font-bold uppercase tracking-tight sm:text-7xl">Deadline Day</h1>
-      <p className="max-w-xl text-lg text-white/70">
-        Grab a $1 billion budget, bid against your friends for real footballers, build a starting XI and see who wins
-        the league.
-      </p>
-      <p className="text-sm text-white/50" role="status">
-        {error
-          ? 'Server not reachable yet.'
-          : health
-            ? health.seeded
-              ? `${health.poolPlayers} players ready for auction.`
-              : 'Server is up. Run npm run seed to load the players.'
-            : 'Checking server...'}
-      </p>
+    <main className="mx-auto max-w-md px-4 py-20 text-center">
+      <h1 className="font-display text-5xl font-bold uppercase">Offside</h1>
+      <p className="mt-3 text-white/60">That page does not exist.</p>
+      <LinkButton to="/" className="mt-6">Back home</LinkButton>
     </main>
   );
 }
 
 export function App() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Routes>
-        <Route path="*" element={<Home />} />
-      </Routes>
+    <div className="flex min-h-dvh flex-col">
+      <ScrollToTop />
+      <Header />
+      <div className="flex flex-1 flex-col">
+        <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/create" element={<CreatePage />} />
+          <Route path="/how-to-play" element={<HowToPlayPage />} />
+          <Route path="/lobby/:code" element={<LobbyPage />} />
+          <Route path="/auction/:code" element={<AuctionPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        </ErrorBoundary>
+      </div>
       <footer className="border-t border-white/10 px-4 py-6 text-center text-xs text-white/50">
-        Deadline Day is an unofficial fan game. It is not affiliated with, endorsed by or connected to any club, league
-        or player.
+        Deadline Day is an unofficial fan game. It is not affiliated with, endorsed by or connected to any club, league or player.
       </footer>
+      <Toaster />
     </div>
   );
 }

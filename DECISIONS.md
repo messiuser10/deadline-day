@@ -20,19 +20,20 @@ Choices the spec leaves open, one line each, newest milestone last.
 - `games.current_lot_id` and `seasons.champion_season_team_id` have no foreign key, to avoid circular references between tables.
 - Club id is the slug of its name (`atletico-madrid`); AI squad player id is `<club-slug>--<name-slug>`; `player_ref` uses these (`seed:<id>`, `pool:<id>`).
 - `pool_players.seed_club` stores the club id rather than the display name; import and export map it back to the name.
-- `clubs.strength_rating` stays empty after the M0 seed; the engine computes and caches it in M1. The strength numbers in `clubs.json` are not used.
+- `clubs.strength_rating` stays empty after the M0 seed; the engine computes and caches it in M1. The strength numbers in `clubs.json` are not read by the app; a test checks the engine reproduces them.
 - Default club monogram: initials of up to three words of the name, skipping "and" (Brighton and Hove Albion is BHA).
-- Seed mode: insert missing rows, keep existing ones (admin edits survive); `--reset` overwrites clubs, squads and pool players from `data/` but keeps monogram, notes and strength override; `app_settings` keys are only ever inserted when missing.
+- Seed mode: insert missing rows, keep existing ones (admin edits survive); `--reset` overwrites clubs, squads and pool players from `data/` but keeps monogram, notes and strength override, deletes squad players no longer in `data/` and marks pool players no longer in `data/` inactive (game history references them); a plain seed only reports such stale rows; `app_settings` keys are only ever inserted when missing.
 - The seed refuses to write anything when data validation reports an error.
-- `data:validate` also fails on: the CSV and JSON disagreeing, `players.csv` and `players.seed.json` disagreeing, club count not 20, squad count not 618, a club colour that is not `#RRGGBB`, a pool id that is not lowercase-dash, a `seed_club` that does not resolve to exactly one squad player, and any group short of players for the 12-team worst case.
+- Data refresh (squads as of 22 Nov 2026): `pool_players.club_now` added (migration `0001_pool_club_now`) and frozen into `game_pool.snapshot`; it is display only. `data:validate` warns, never fails, when `club_now` differs from a filled `seed_club` (none do).
+- `data:validate` also fails on: the CSV and JSON disagreeing, `players.csv` and `players.seed.json` disagreeing, club count not 20, squad count not 609, a club colour that is not `#RRGGBB`, a pool id that is not lowercase-dash, a `seed_club` that does not resolve to exactly one squad player, and any group short of players for the 12-team worst case.
 - `data:validate` only warns (does not fail) on: master depth per position differing from the spec's list, a `rule` player whose alternates differ from the rule default, and a repeated `position_rank` within a position.
 - Tooling: Vite 7 (one copy shared with Vitest), ESLint 9 flat config with typescript-eslint, zod 4, Vitest 3.
 - `maintenance_banner` is stored as `{ "message": null }` because settings values are never SQL NULL.
 
 ## M1: engine
 
-- Club strength is `0.825 x best-XI average + 0.175 x average of the next 11 best players`; the best XI is picked over every enabled formation by main position only. It reproduces the spec's expected order (smallest gap between neighbours 0.11) and the `best_xi_average` and `best_formation` in `clubs.json` for all 20 clubs.
-- Simulation defaults are tuned away from the spec's table: `base_goals` 1.25 (spec 1.35) and `sensitivity` 0.075 (spec 0.05). With the spec values the champion averaged about 80 points and goals ran about 2.9 per match. Tuned, over 100 three-team games: champion 86.6 avg (86% in 80-95), bottom 30.1 (99% in 20-40), 2.74 goals per match (91% in 2.6-2.9), home wins 41%, draws 24%. Both stay admin-editable.
+- Club strength is `best-XI average + 0.1 x min(15, players outside the XI rated 70 or more)`; the best XI is picked over every enabled formation by main position only. This is the formula behind `strength_rating` in the 22 Nov 2026 `clubs.json` (it matches all 20 clubs to 2 decimals) and reproduces the spec's expected order; Bayern, Barcelona and Arsenal share an 86.18 XI and are split only by depth (87.58, 87.48, 87.38). It replaced the M1 blend `0.825 x XI + 0.175 x next 11`, which fit the old squads but not the new order.
+- Simulation defaults are tuned away from the spec's table: `base_goals` 1.25 (spec 1.35) and `sensitivity` 0.075 (spec 0.05). With the spec values the champion averaged about 80 points and goals ran about 2.9 per match. Tuned, over 100 three-team games: champion 86.6 avg (86% in 80-95), bottom 30.1 (99% in 20-40), 2.74 goals per match (91% in 2.6-2.9), home wins 41%, draws 24%. Rechecked on the 22 Nov 2026 squads: champion 85.9 (88%), bottom 30.1 (100%), 2.74 goals (91%). Both stay admin-editable.
 - The "top 20 of every position are in the pool" line is read as: the pool always takes each group's best players first, by overall then `position_rank`. A 12-team all-4-3-3 game needs only 14 players in one-slot groups (CDM, LW, RW), so it cannot hold 20 there.
 - Pool ties on overall are broken by `position_rank`, then by id.
 - Lineups use a min-cost Hungarian assignment: a forbidden cell costs 1e9, moving a player away from his previous slot 100, an alternate position 1. This maximises main positions and keeps players where they were.
@@ -53,3 +54,28 @@ Choices the spec leaves open, one line each, newest milestone last.
 - Auction grade score = 35% pre-season strength rank + 45% final position + 20% (XI market value / starting budget, capped at 1). Grade floors: A+ 90, A 83, A- 77, B+ 71, B 65, B- 59, C+ 53, C 47, C- 41, D 33, else F. The Team Reveal preview uses the strength rank as the finish.
 - Monte Carlo seeds run `i` with `hash(seed, 'montecarlo', i)`; multi-season season `k` uses `hash(seed, 'season', k)` and keeps a cumulative titles table.
 - The final tiebreak ("seeded random draw") gives each team one fixed random key per season from `hash(seed, 'tiebreak', team id)`.
+
+## M2: server foundation
+
+- Passwords use bcryptjs (pure JS, cost 10; tests use 4) so there is no native build step. Login compares against a dummy hash when the username does not exist, so timing does not reveal which usernames exist.
+- Sessions are random tokens in a signed httpOnly cookie (`dd_session`, SameSite Lax, Secure in production); the database stores only the token's SHA-256. 30 days, sliding. A ban deletes the user's sessions.
+- Guests are real `users` rows (`guest_<10 hex>`, no password). Registering while signed in as a guest upgrades that row in place, so their games stay theirs. Usernames starting `guest_` are reserved.
+- The admin is whoever registers with `ADMIN_USERNAME`, even when registrations are closed. Admins pass every host check.
+- REST carries every change; Socket.IO only subscribes (`game:watch` answers with the full snapshot) and pushes. A mutation answers with the new lobby state too, so the acting client updates without waiting for the socket. Clients keep the newer of the two by `serverTime`.
+- Anyone may watch a game by code; spectators have no `participants` row. After joining, the client watches again so its presence is tracked.
+- Join codes are 6 characters from an alphabet without look-alikes (no I, L, O, 0, 1).
+- Join order is stored as strictly increasing `participants.created_at` per game, so teams that join in the same millisecond never swap places.
+- The host never has to press Ready; bots are always ready. "Not ready" is the only start blocker Force start overrides. Fewer than 2 teams, a missing or disallowed formation, or a short pool always block.
+- The 5-second start countdown is owned by the server (`games.countdown_deadline` plus a timer, restored after a restart). The lobby locks while it runs. If the start then fails, the countdown clears and everyone gets a notice.
+- With the forced formation rule and no formation picked, the host's formation is used; forcing sets every team to it.
+- Changing the budget in the lobby resets every team's remaining budget. Max teams cannot drop below the teams already in. Bots cannot be switched off while bots are in the game.
+- Kicked players get a `game:kicked` event and drop to spectator; they may rejoin while the lobby is open (a ban list can come later).
+- When the host leaves, the earliest-joined human becomes host; with no humans left the game is cancelled.
+- Chat: 50 messages of history, at most 280 characters, at most one message every 0.4 seconds per user. Profanity is masked to the first letter. Team, game and user names with profanity are rejected. Matching is whole words after lowercasing, removing accents and mapping leetspeak, plus common suffixes and spaced-out letters, so "Scunthorpe" stays clean.
+- The nomination order uses up and down buttons instead of drag. They work the same on touch, keyboard and mouse. Randomize plays a short shuffle unless reduced motion is on.
+- Public settings (`GET /api/settings/public`) include `gameLimits`, so the create form shows the real allowed ranges.
+- AI clubs in the lobby preview follow the admin's selection method; with the random method the clubs are drawn only at start, from the game seed.
+- `npm audit` reports dev-only advisories in drizzle-kit's bundled esbuild and in Vitest's dependencies. Fixing them needs breaking major upgrades, and none of it ships in the app, so they are left for now.
+- The web app imports the engine only for formation drawings and the shared protocol schemas for form validation; game rules run on the server.
+
+- The web bundle is one 522 KB chunk (162 KB gzipped). Route-level code splitting is left for M7 polish.

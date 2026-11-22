@@ -1,6 +1,6 @@
 {
- "source": "EA SPORTS FC 27 position rating pages (men only), fetched 2026-11-22",
- "price_formula": "market_value_m = floor(60 * 1.075^(overall-80) + 0.5); base_price_m = floor(0.5 * market_value_m + 0.5); all in $ millions (round half up)",
+ "source": "EA SPORTS FC 27 position rating pages (men only); clubs as of 2026-11-22",
+ "price_formula": "market_value_m = floor(60 * 1.075^(overall-80) + 0.5); base_price_m = floor(0.5 * market_value_m + 0.5); $ millions",
  "players": [
   {
    "id": "thibaut-courtois-gk",
@@ -9,11 +9,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 90,
+   "position_rank": 1,
    "market_value_m": 124,
    "base_price_m": 62,
    "seed_club": "Real Madrid",
-   "nationality": "Belgium",
-   "position_rank": 1
+   "club_now": "Real Madrid",
+   "nationality": "Belgium"
   },
   {
    "id": "gianluigi-donnarumma-gk",
@@ -22,11 +23,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 89,
+   "position_rank": 2,
    "market_value_m": 115,
    "base_price_m": 58,
    "seed_club": "Manchester City",
-   "nationality": "Italy",
-   "position_rank": 2
+   "club_now": "Manchester City",
+   "nationality": "Italy"
   },
   {
    "id": "david-raya-gk",
@@ -35,11 +37,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 3,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "Arsenal",
-   "nationality": "Spain",
-   "position_rank": 3
+   "club_now": "Arsenal",
+   "nationality": "Spain"
   },
   {
    "id": "jan-oblak-gk",
@@ -48,11 +51,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 4,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "Atlético Madrid",
-   "nationality": "Slovenia",
-   "position_rank": 4
+   "club_now": "Atlético Madrid",
+   "nationality": "Slovenia"
   },
   {
    "id": "mike-maignan-gk",
@@ -61,11 +65,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 5,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "AC Milan",
-   "nationality": "France",
-   "position_rank": 5
+   "club_now": "AC Milan",
+   "nationality": "France"
   },
   {
    "id": "alisson-gk",
@@ -74,11 +79,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 6,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Liverpool",
-   "nationality": "Brazil",
-   "position_rank": 6
+   "club_now": "Liverpool",
+   "nationality": "Brazil"
   },
   {
    "id": "gregor-kobel-gk",
@@ -87,11 +93,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 7,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Switzerland",
-   "position_rank": 7
+   "club_now": "Borussia Dortmund",
+   "nationality": "Switzerland"
   },
   {
    "id": "joan-garcia-gk",
@@ -100,11 +107,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 8,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 8
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "diogo-costa-gk",
@@ -113,11 +121,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 9,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 9
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "marco-carnesecchi-gk",
@@ -126,11 +135,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 10,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 10
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "jordan-pickford-gk",
@@ -139,11 +149,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 11,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 11
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mile-svilar-gk",
@@ -152,11 +163,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 12,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 12
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "emiliano-martinez-gk",
@@ -165,11 +177,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 13,
    "market_value_m": 86,
    "base_price_m": 43,
-   "seed_club": "Aston Villa",
-   "nationality": "Argentina",
-   "position_rank": 13
+   "seed_club": "Chelsea",
+   "club_now": "Chelsea",
+   "nationality": "Argentina"
   },
   {
    "id": "unai-simon-gk",
@@ -178,11 +191,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 14,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 14
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "yann-sommer-gk",
@@ -191,11 +205,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 15,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 15
+   "club_now": "Club Brugge",
+   "nationality": ""
   },
   {
    "id": "oliver-baumann-gk",
@@ -204,11 +219,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 16,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 16
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "wladimiro-falcone-gk",
@@ -217,11 +233,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 17,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 17
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "matvey-safonov-gk",
@@ -230,11 +247,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 18,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Russia",
-   "position_rank": 18
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Russia"
   },
   {
    "id": "ivan-provedel-gk",
@@ -243,11 +261,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 19,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Inter Milan",
-   "nationality": "Italy",
-   "position_rank": 19
+   "club_now": "Inter Milan",
+   "nationality": "Italy"
   },
   {
    "id": "de-gea-gk",
@@ -256,11 +275,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 20,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 20
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "giorgi-mamardashvili-gk",
@@ -269,11 +289,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 21,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Liverpool",
-   "nationality": "Georgia",
-   "position_rank": 21
+   "club_now": "Liverpool",
+   "nationality": "Georgia"
   },
   {
    "id": "ederson-gk",
@@ -282,11 +303,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 22,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 22
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "dean-henderson-gk",
@@ -295,11 +317,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 23,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 23
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "marc-andre-ter-stegen-gk",
@@ -308,11 +331,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 24,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "senne-lammens-gk",
@@ -321,11 +345,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 25,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Manchester United",
-   "nationality": "Belgium",
-   "position_rank": 25
+   "club_now": "Manchester United",
+   "nationality": "Belgium"
   },
   {
    "id": "koen-casteels-gk",
@@ -334,11 +359,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 26,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "juan-musso-gk",
@@ -347,11 +373,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 27,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Atlético Madrid",
-   "nationality": "Argentina",
-   "position_rank": 27
+   "club_now": "Atlético Madrid",
+   "nationality": "Argentina"
   },
   {
    "id": "yassine-bounou-gk",
@@ -360,11 +387,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 28,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 28
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "peter-gulacsi-gk",
@@ -373,11 +401,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 29,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "brice-samba-gk",
@@ -386,11 +415,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 30,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 30
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "robin-roefs-gk",
@@ -399,11 +429,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 31,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "bart-verbruggen-gk",
@@ -412,11 +443,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 32,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Brighton and Hove Albion",
-   "nationality": "Netherlands",
-   "position_rank": 32
+   "club_now": "Brighton and Hove Albion",
+   "nationality": "Netherlands"
   },
   {
    "id": "kamil-grabara-gk",
@@ -425,11 +457,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 33,
    "market_value_m": 65,
    "base_price_m": 33,
-   "seed_club": "",
-   "nationality": "",
-   "position_rank": 33
+   "seed_club": "Juventus",
+   "club_now": "Juventus",
+   "nationality": "Denmark"
   },
   {
    "id": "matz-sels-gk",
@@ -438,11 +471,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 34,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "alex-remiro-gk",
@@ -451,11 +485,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 35,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 35
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "robin-risser-gk",
@@ -464,11 +499,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 36,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 36
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "alex-meret-gk",
@@ -477,11 +513,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 37,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 37
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "manuel-neuer-gk",
@@ -490,11 +527,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 38,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Bayern Munich",
-   "nationality": "Germany",
-   "position_rank": 38
+   "club_now": "Bayern Munich",
+   "nationality": "Germany"
   },
   {
    "id": "rui-silva-gk",
@@ -503,11 +541,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 39,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "edouard-mendy-gk",
@@ -516,11 +555,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 40,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "wojciech-szczesny-gk",
@@ -529,11 +569,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 41,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "FC Barcelona",
-   "nationality": "Poland",
-   "position_rank": 41
+   "club_now": "FC Barcelona",
+   "nationality": "Poland"
   },
   {
    "id": "dominik-greif-gk",
@@ -542,11 +583,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 42,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 42
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "michele-di-gregorio-gk",
@@ -555,11 +597,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 43,
    "market_value_m": 60,
    "base_price_m": 30,
-   "seed_club": "Juventus",
-   "nationality": "Italy",
-   "position_rank": 43
+   "seed_club": "",
+   "club_now": "AFC Bournemouth",
+   "nationality": "Italy"
   },
   {
    "id": "ugurcan-cak-r-gk",
@@ -568,11 +611,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 44,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 44
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "geronimo-rulli-gk",
@@ -581,11 +625,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 45,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Manchester City",
-   "nationality": "Argentina",
-   "position_rank": 45
+   "club_now": "Manchester City",
+   "nationality": "Argentina"
   },
   {
    "id": "gabriel-cb",
@@ -594,11 +639,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 89,
+   "position_rank": 1,
    "market_value_m": 115,
    "base_price_m": 58,
    "seed_club": "Arsenal",
-   "nationality": "Brazil",
-   "position_rank": 1
+   "club_now": "Arsenal",
+   "nationality": "Brazil"
   },
   {
    "id": "willian-pacho-cb",
@@ -607,11 +653,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 89,
+   "position_rank": 2,
    "market_value_m": 115,
    "base_price_m": 58,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Ecuador",
-   "position_rank": 2
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Ecuador"
   },
   {
    "id": "william-saliba-cb",
@@ -620,11 +667,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 3,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "Arsenal",
-   "nationality": "France",
-   "position_rank": 3
+   "club_now": "Arsenal",
+   "nationality": "France"
   },
   {
    "id": "virgil-van-dijk-cb",
@@ -633,11 +681,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 4,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "Liverpool",
-   "nationality": "Netherlands",
-   "position_rank": 4
+   "club_now": "Liverpool",
+   "nationality": "Netherlands"
   },
   {
    "id": "dayot-upamecano-cb",
@@ -646,11 +695,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 5,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Bayern Munich",
-   "nationality": "France",
-   "position_rank": 5
+   "club_now": "Bayern Munich",
+   "nationality": "France"
   },
   {
    "id": "marquinhos-cb",
@@ -659,11 +709,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 6,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Brazil",
-   "position_rank": 6
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Brazil"
   },
   {
    "id": "nico-schlotterbeck-cb",
@@ -672,11 +723,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 7,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Germany",
-   "position_rank": 7
+   "club_now": "Borussia Dortmund",
+   "nationality": "Germany"
   },
   {
    "id": "ruben-dias-cb",
@@ -685,11 +737,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 8,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Manchester City",
-   "nationality": "Portugal",
-   "position_rank": 8
+   "club_now": "Manchester City",
+   "nationality": "Portugal"
   },
   {
    "id": "jonathan-tah-cb",
@@ -698,11 +751,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 9,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Bayern Munich",
-   "nationality": "Germany",
-   "position_rank": 9
+   "club_now": "Bayern Munich",
+   "nationality": "Germany"
   },
   {
    "id": "pau-cubarsi-cb",
@@ -711,11 +765,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 10,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 10
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "bremer-cb",
@@ -724,11 +779,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 11,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Juventus",
-   "nationality": "Brazil",
-   "position_rank": 11
+   "club_now": "Juventus",
+   "nationality": "Brazil"
   },
   {
    "id": "alessandro-bastoni-cb",
@@ -737,11 +793,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 12,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Inter Milan",
-   "nationality": "Italy",
-   "position_rank": 12
+   "club_now": "Inter Milan",
+   "nationality": "Italy"
   },
   {
    "id": "josko-gvardiol-cb",
@@ -750,11 +807,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 13,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Manchester City",
-   "nationality": "Croatia",
-   "position_rank": 13
+   "club_now": "Manchester City",
+   "nationality": "Croatia"
   },
   {
    "id": "eric-garcia-cb",
@@ -763,11 +821,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 14,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 14
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "marc-guehi-cb",
@@ -776,11 +835,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 15,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Manchester City",
-   "nationality": "England",
-   "position_rank": 15
+   "club_now": "Manchester City",
+   "nationality": "England"
   },
   {
    "id": "eder-militao-cb",
@@ -789,11 +849,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 16,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Real Madrid",
-   "nationality": "Brazil",
-   "position_rank": 16
+   "club_now": "Real Madrid",
+   "nationality": "Brazil"
   },
   {
    "id": "ezri-konsa-cb",
@@ -802,11 +863,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 17,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Arsenal",
-   "nationality": "England",
-   "position_rank": 17
+   "club_now": "Arsenal",
+   "nationality": "England"
   },
   {
    "id": "waldemar-anton-cb",
@@ -815,11 +877,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 18,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Germany",
-   "position_rank": 18
+   "club_now": "Borussia Dortmund",
+   "nationality": "Germany"
   },
   {
    "id": "aymeric-laporte-cb",
@@ -828,11 +891,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 19,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 19
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "gianluca-mancini-cb",
@@ -841,11 +905,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 20,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 20
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ibrahima-konate-cb",
@@ -854,11 +919,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 21,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Real Madrid",
-   "nationality": "France",
-   "position_rank": 21
+   "club_now": "Real Madrid",
+   "nationality": "France"
   },
   {
    "id": "david-hancko-cb",
@@ -867,11 +933,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 22,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Atlético Madrid",
-   "nationality": "Slovakia",
-   "position_rank": 22
+   "club_now": "Atlético Madrid",
+   "nationality": "Slovakia"
   },
   {
    "id": "antonio-rudiger-cb",
@@ -880,11 +947,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 23,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Real Madrid",
-   "nationality": "Germany",
-   "position_rank": 23
+   "club_now": "Real Madrid",
+   "nationality": "Germany"
   },
   {
    "id": "evan-ndicka-cb",
@@ -893,11 +961,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 24,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "manuel-akanji-cb",
@@ -906,11 +975,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 25,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Inter Milan",
-   "nationality": "Switzerland",
-   "position_rank": 25
+   "club_now": "Inter Milan",
+   "nationality": "Switzerland"
   },
   {
    "id": "ibanez-cb",
@@ -919,11 +989,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 26,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "inigo-martinez-cb",
@@ -932,11 +1003,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 27,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Al-Nassr",
-   "nationality": "Spain",
-   "position_rank": 27
+   "club_now": "Al-Nassr",
+   "nationality": "Spain"
   },
   {
    "id": "amir-rrahmani-cb",
@@ -945,11 +1017,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 28,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 28
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "matthias-ginter-cb",
@@ -958,11 +1031,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 29,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kim-min-jae-cb",
@@ -971,11 +1045,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 30,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Bayern Munich",
-   "nationality": "South Korea",
-   "position_rank": 30
+   "club_now": "Bayern Munich",
+   "nationality": "South Korea"
   },
   {
    "id": "willi-orban-cb",
@@ -984,11 +1059,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 31,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "edmond-tapsoba-cb",
@@ -997,11 +1073,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 32,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 32
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "murillo-cb",
@@ -1010,11 +1087,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 33,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 33
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "lisandro-martinez-cb",
@@ -1023,11 +1101,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 34,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Manchester United",
-   "nationality": "Argentina",
-   "position_rank": 34
+   "club_now": "Manchester United",
+   "nationality": "Argentina"
   },
   {
    "id": "maxence-lacroix-cb",
@@ -1036,11 +1115,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 35,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Chelsea",
-   "nationality": "France",
-   "position_rank": 35
+   "club_now": "Chelsea",
+   "nationality": "France"
   },
   {
    "id": "mohamed-simakan-cb",
@@ -1049,11 +1129,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 36,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Al-Nassr",
-   "nationality": "France",
-   "position_rank": 36
+   "club_now": "Al-Nassr",
+   "nationality": "France"
   },
   {
    "id": "abdukodir-khusanov-cb",
@@ -1062,11 +1143,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 37,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Manchester City",
-   "nationality": "Uzbekistan",
-   "position_rank": 37
+   "club_now": "Manchester City",
+   "nationality": "Uzbekistan"
   },
   {
    "id": "jakub-kiwior-cb",
@@ -1075,11 +1157,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 38,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 38
+   "club_now": "Porto",
+   "nationality": ""
   },
   {
    "id": "danilo-pereira-cb",
@@ -1088,11 +1171,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 39,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "vivian-cb",
@@ -1101,11 +1185,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 40,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "matthijs-de-ligt-cb",
@@ -1114,11 +1199,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 41,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Manchester United",
-   "nationality": "Netherlands",
-   "position_rank": 41
+   "club_now": "Manchester United",
+   "nationality": "Netherlands"
   },
   {
    "id": "john-stones-cb",
@@ -1127,11 +1213,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 42,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Inter Milan",
-   "nationality": "England",
-   "position_rank": 42
+   "club_now": "Inter Milan",
+   "nationality": "England"
   },
   {
    "id": "kalidou-koulibaly-cb",
@@ -1140,11 +1227,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 43,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 43
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "marcos-senesi-cb",
@@ -1153,11 +1241,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 44,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "Argentina",
-   "position_rank": 44
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Argentina"
   },
   {
    "id": "stefan-de-vrij-cb",
@@ -1166,11 +1255,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 45,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 45
+   "club_now": "Panathinaikos",
+   "nationality": ""
   },
   {
    "id": "cristian-romero-cb",
@@ -1179,11 +1269,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 46,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Atlético Madrid",
-   "nationality": "Argentina",
-   "position_rank": 46
+   "club_now": "Atlético Madrid",
+   "nationality": "Argentina"
   },
   {
    "id": "jose-maria-gimenez-cb",
@@ -1192,11 +1283,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 47,
    "market_value_m": 69,
    "base_price_m": 35,
-   "seed_club": "Atlético Madrid",
-   "nationality": "Uruguay",
-   "position_rank": 47
+   "seed_club": "",
+   "club_now": "Deportivo A Coruña",
+   "nationality": "Uruguay"
   },
   {
    "id": "harry-maguire-cb",
@@ -1205,11 +1297,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 48,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Manchester United",
-   "nationality": "England",
-   "position_rank": 48
+   "club_now": "Manchester United",
+   "nationality": "England"
   },
   {
    "id": "jan-bednarek-cb",
@@ -1218,11 +1311,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 49,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 49
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "emre-can-cb",
@@ -1231,11 +1325,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 50,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Germany",
-   "position_rank": 50
+   "club_now": "Borussia Dortmund",
+   "nationality": "Germany"
   },
   {
    "id": "micky-van-de-ven-cb",
@@ -1244,11 +1339,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 51,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "Netherlands",
-   "position_rank": 51
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Netherlands"
   },
   {
    "id": "pubill-cb",
@@ -1257,11 +1353,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 52,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Atlético Madrid",
-   "nationality": "Spain",
-   "position_rank": 52
+   "club_now": "Atlético Madrid",
+   "nationality": "Spain"
   },
   {
    "id": "mario-gila-cb",
@@ -1270,11 +1367,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 53,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "AC Milan",
-   "nationality": "Spain",
-   "position_rank": 53
+   "club_now": "AC Milan",
+   "nationality": "Spain"
   },
   {
    "id": "pierre-kalulu-cb",
@@ -1283,11 +1381,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 54,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Juventus",
-   "nationality": "France",
-   "position_rank": 54
+   "club_now": "Juventus",
+   "nationality": "France"
   },
   {
    "id": "dean-huijsen-cb",
@@ -1296,11 +1395,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 55,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Real Madrid",
-   "nationality": "Spain",
-   "position_rank": 55
+   "club_now": "Real Madrid",
+   "nationality": "Spain"
   },
   {
    "id": "fabian-schar-cb",
@@ -1309,11 +1409,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 56,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Newcastle United",
-   "nationality": "Switzerland",
-   "position_rank": 56
+   "club_now": "Newcastle United",
+   "nationality": "Switzerland"
   },
   {
    "id": "castello-lukeba-cb",
@@ -1322,11 +1423,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 57,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 57
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "lucas-hernandez-cb",
@@ -1335,11 +1437,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 58,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "France",
-   "position_rank": 58
+   "club_now": "Paris Saint-Germain",
+   "nationality": "France"
   },
   {
    "id": "mario-hermoso-cb",
@@ -1348,11 +1451,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 59,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 59
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "malick-thiaw-cb",
@@ -1361,11 +1465,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 60,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Newcastle United",
-   "nationality": "Germany",
-   "position_rank": 60
+   "club_now": "Newcastle United",
+   "nationality": "Germany"
   },
   {
    "id": "achraf-hakimi-rb",
@@ -1374,11 +1479,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 1,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Morocco",
-   "position_rank": 1
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Morocco"
   },
   {
    "id": "konrad-laimer-rb",
@@ -1387,11 +1493,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 2,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Bayern Munich",
-   "nationality": "Austria",
-   "position_rank": 2
+   "club_now": "Bayern Munich",
+   "nationality": "Austria"
   },
   {
    "id": "marcos-llorente-rb",
@@ -1400,11 +1507,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 3,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Atlético Madrid",
-   "nationality": "Spain",
-   "position_rank": 3
+   "club_now": "Atlético Madrid",
+   "nationality": "Spain"
   },
   {
    "id": "jules-kounde-rb",
@@ -1413,11 +1521,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 4,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "FC Barcelona",
-   "nationality": "France",
-   "position_rank": 4
+   "club_now": "FC Barcelona",
+   "nationality": "France"
   },
   {
    "id": "reece-james-rb",
@@ -1426,11 +1535,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 5,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Chelsea",
-   "nationality": "England",
-   "position_rank": 5
+   "club_now": "Chelsea",
+   "nationality": "England"
   },
   {
    "id": "trent-alexander-arnold-rb",
@@ -1439,11 +1549,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 6,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Real Madrid",
-   "nationality": "England",
-   "position_rank": 6
+   "club_now": "Real Madrid",
+   "nationality": "England"
   },
   {
    "id": "jurrien-timber-rb",
@@ -1452,11 +1563,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 7,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Arsenal",
-   "nationality": "Netherlands",
-   "position_rank": 7
+   "club_now": "Arsenal",
+   "nationality": "Netherlands"
   },
   {
    "id": "denzel-dumfries-rb",
@@ -1465,11 +1577,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 8,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Real Madrid",
-   "nationality": "Netherlands",
-   "position_rank": 8
+   "club_now": "Real Madrid",
+   "nationality": "Netherlands"
   },
   {
    "id": "matheus-nunes-rb",
@@ -1478,11 +1591,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 9,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Manchester City",
-   "nationality": "Portugal",
-   "position_rank": 9
+   "club_now": "Manchester City",
+   "nationality": "Portugal"
   },
   {
    "id": "pedro-porro-rb",
@@ -1491,11 +1605,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 10,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "Spain",
-   "position_rank": 10
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Spain"
   },
   {
    "id": "giovanni-di-lorenzo-rb",
@@ -1504,11 +1619,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 11,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 11
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "daniel-munoz-rb",
@@ -1517,11 +1633,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 12,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 12
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "julian-ryerson-rb",
@@ -1530,11 +1647,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 13,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Norway",
-   "position_rank": 13
+   "club_now": "Borussia Dortmund",
+   "nationality": "Norway"
   },
   {
    "id": "jeremie-frimpong-rb",
@@ -1543,11 +1661,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 14,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Liverpool",
-   "nationality": "Netherlands",
-   "position_rank": 14
+   "club_now": "Liverpool",
+   "nationality": "Netherlands"
   },
   {
    "id": "matty-cash-rb",
@@ -1556,11 +1675,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 15,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Aston Villa",
-   "nationality": "Poland",
-   "position_rank": 15
+   "club_now": "Aston Villa",
+   "nationality": "Poland"
   },
   {
    "id": "tino-livramento-rb",
@@ -1569,11 +1689,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 16,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Newcastle United",
-   "nationality": "England",
-   "position_rank": 16
+   "club_now": "Newcastle United",
+   "nationality": "England"
   },
   {
    "id": "michael-kayode-rb",
@@ -1582,11 +1703,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 17,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 17
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "nordi-mukiele-rb",
@@ -1595,11 +1717,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 18,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 18
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "benjamin-white-rb",
@@ -1608,11 +1731,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 19,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Arsenal",
-   "nationality": "England",
-   "position_rank": 19
+   "club_now": "Arsenal",
+   "nationality": "England"
   },
   {
    "id": "andrei-ratiu-rb",
@@ -1621,11 +1745,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 20,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 20
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mingueza-rb",
@@ -1634,11 +1759,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 21,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 21
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "noussair-mazraoui-rb",
@@ -1647,11 +1773,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 22,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Manchester United",
-   "nationality": "Morocco",
-   "position_rank": 22
+   "club_now": "Manchester United",
+   "nationality": "Morocco"
   },
   {
    "id": "alexis-saelemaekers-rb",
@@ -1660,11 +1787,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 23,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "AC Milan",
-   "nationality": "Belgium",
-   "position_rank": 23
+   "club_now": "AC Milan",
+   "nationality": "Belgium"
   },
   {
    "id": "vladimir-coufal-rb",
@@ -1673,11 +1801,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 24,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "josip-stanisic-rb",
@@ -1686,11 +1815,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 25,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Bayern Munich",
-   "nationality": "Croatia",
-   "position_rank": 25
+   "club_now": "Bayern Munich",
+   "nationality": "Croatia"
   },
   {
    "id": "ridle-baku-rb",
@@ -1699,11 +1829,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 26,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "sergino-dest-rb",
@@ -1712,11 +1843,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 27,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 27
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ola-aina-rb",
@@ -1725,11 +1857,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 28,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 28
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mats-wieffer-rb",
@@ -1738,11 +1871,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 29,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Brighton and Hove Albion",
-   "nationality": "Netherlands",
-   "position_rank": 29
+   "club_now": "Brighton and Hove Albion",
+   "nationality": "Netherlands"
   },
   {
    "id": "malo-gusto-rb",
@@ -1751,11 +1885,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 30,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Chelsea",
-   "nationality": "France",
-   "position_rank": 30
+   "club_now": "Chelsea",
+   "nationality": "France"
   },
   {
    "id": "rasmus-kristensen-rb",
@@ -1764,11 +1899,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 31,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "conor-bradley-rb",
@@ -1777,11 +1913,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 32,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Liverpool",
-   "nationality": "Northern Ireland",
-   "position_rank": 32
+   "club_now": "Liverpool",
+   "nationality": "Northern Ireland"
   },
   {
    "id": "zeki-celik-rb",
@@ -1790,11 +1927,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 33,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Juventus",
-   "nationality": "Turkey",
-   "position_rank": 33
+   "club_now": "Juventus",
+   "nationality": "Turkey"
   },
   {
    "id": "alex-jimenez-rb",
@@ -1803,11 +1941,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 34,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "marco-palestra-rb",
@@ -1816,11 +1955,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 35,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "Chelsea",
-   "nationality": "Italy",
-   "position_rank": 35
+   "club_now": "Chelsea",
+   "nationality": "Italy"
   },
   {
    "id": "alexander-bah-rb",
@@ -1829,11 +1969,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 36,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 36
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "roland-sallai-rb",
@@ -1842,11 +1983,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 37,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 37
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "diogo-dalot-rb",
@@ -1855,11 +1997,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 38,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "Manchester United",
-   "nationality": "Portugal",
-   "position_rank": 38
+   "club_now": "Manchester United",
+   "nationality": "Portugal"
   },
   {
    "id": "valentin-rosier-rb",
@@ -1868,11 +2011,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 39,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "alistair-johnston-rb",
@@ -1881,11 +2025,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 40,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "alberto-costa-rb",
@@ -1894,11 +2039,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 41,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 41
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "zakaria-el-ouahdi-rb",
@@ -1907,11 +2053,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 42,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 42
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "adam-marusic-rb",
@@ -1920,11 +2067,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 43,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 43
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "thomas-meunier-rb",
@@ -1933,11 +2081,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 44,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 44
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "raoul-bellanova-rb",
@@ -1946,11 +2095,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 45,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 45
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "nuno-mendes-lb",
@@ -1959,11 +2109,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 89,
+   "position_rank": 1,
    "market_value_m": 115,
    "base_price_m": 58,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Portugal",
-   "position_rank": 1
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Portugal"
   },
   {
    "id": "cucurella-lb",
@@ -1972,11 +2123,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 2,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Real Madrid",
-   "nationality": "Spain",
-   "position_rank": 2
+   "club_now": "Real Madrid",
+   "nationality": "Spain"
   },
   {
    "id": "federico-dimarco-lb",
@@ -1985,11 +2137,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 3,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Inter Milan",
-   "nationality": "Italy",
-   "position_rank": 3
+   "club_now": "Inter Milan",
+   "nationality": "Italy"
   },
   {
    "id": "piero-hincapie-lb",
@@ -1998,11 +2151,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 4,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Arsenal",
-   "nationality": "Ecuador",
-   "position_rank": 4
+   "club_now": "Arsenal",
+   "nationality": "Ecuador"
   },
   {
    "id": "joao-cancelo-lb",
@@ -2011,11 +2165,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 5,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "FC Barcelona",
-   "nationality": "Portugal",
-   "position_rank": 5
+   "club_now": "FC Barcelona",
+   "nationality": "Portugal"
   },
   {
    "id": "nico-o-reilly-lb",
@@ -2024,11 +2179,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 6,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Manchester City",
-   "nationality": "England",
-   "position_rank": 6
+   "club_now": "Manchester City",
+   "nationality": "England"
   },
   {
    "id": "david-raum-lb",
@@ -2037,11 +2193,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 7,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 7
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "lewis-hall-lb",
@@ -2050,11 +2207,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 8,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Newcastle United",
-   "nationality": "England",
-   "position_rank": 8
+   "club_now": "Newcastle United",
+   "nationality": "England"
   },
   {
    "id": "maximilian-mittelstadt-lb",
@@ -2063,11 +2221,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 9,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 9
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "theo-hernandez-lb",
@@ -2076,11 +2235,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 10,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 10
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "alphonso-davies-lb",
@@ -2089,11 +2249,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 11,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Bayern Munich",
-   "nationality": "Canada",
-   "position_rank": 11
+   "club_now": "Bayern Munich",
+   "nationality": "Canada"
   },
   {
    "id": "riccardo-calafiori-lb",
@@ -2102,11 +2263,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 12,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Arsenal",
-   "nationality": "Italy",
-   "position_rank": 12
+   "club_now": "Arsenal",
+   "nationality": "Italy"
   },
   {
    "id": "balde-lb",
@@ -2115,11 +2277,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 13,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 13
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "alvaro-carreras-lb",
@@ -2128,11 +2291,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 14,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Real Madrid",
-   "nationality": "Spain",
-   "position_rank": 14
+   "club_now": "Real Madrid",
+   "nationality": "Spain"
   },
   {
    "id": "milos-kerkez-lb",
@@ -2141,11 +2305,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 15,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Liverpool",
-   "nationality": "Hungary",
-   "position_rank": 15
+   "club_now": "Liverpool",
+   "nationality": "Hungary"
   },
   {
    "id": "matthieu-udol-lb",
@@ -2154,11 +2319,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 16,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 16
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mauro-junior-lb",
@@ -2167,11 +2333,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 17,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 17
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "rayan-ait-nouri-lb",
@@ -2180,11 +2347,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 18,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Manchester City",
-   "nationality": "Algeria",
-   "position_rank": 18
+   "club_now": "Manchester City",
+   "nationality": "Algeria"
   },
   {
    "id": "nathaniel-brown-lb",
@@ -2193,11 +2361,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 19,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Bayern Munich",
-   "nationality": "Germany",
-   "position_rank": 19
+   "club_now": "Bayern Munich",
+   "nationality": "Germany"
   },
   {
    "id": "carlos-romero-lb",
@@ -2206,11 +2375,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 20,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 20
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "wesley-lb",
@@ -2219,11 +2389,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 21,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 21
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "carlos-augusto-lb",
@@ -2232,11 +2403,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 22,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Inter Milan",
-   "nationality": "Brazil",
-   "position_rank": 22
+   "club_now": "Inter Milan",
+   "nationality": "Brazil"
   },
   {
    "id": "andrea-cambiaso-lb",
@@ -2245,11 +2417,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 23,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Juventus",
-   "nationality": "Italy",
-   "position_rank": 23
+   "club_now": "Juventus",
+   "nationality": "Italy"
   },
   {
    "id": "miguel-gutierrez-lb",
@@ -2258,11 +2431,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 24,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "leonardo-spinazzola-lb",
@@ -2271,11 +2445,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 25,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 25
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ferland-mendy-lb",
@@ -2284,11 +2459,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 26,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Real Madrid",
-   "nationality": "France",
-   "position_rank": 26
+   "club_now": "Real Madrid",
+   "nationality": "France"
   },
   {
    "id": "antonee-robinson-lb",
@@ -2297,11 +2473,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 27,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 27
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ferdi-kad-oglu-lb",
@@ -2310,11 +2487,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 28,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Brighton and Hove Albion",
-   "nationality": "Turkey",
-   "position_rank": 28
+   "club_now": "Brighton and Hove Albion",
+   "nationality": "Turkey"
   },
   {
    "id": "djed-spence-lb",
@@ -2323,11 +2501,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 29,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Inter Milan",
-   "nationality": "England",
-   "position_rank": 29
+   "club_now": "Inter Milan",
+   "nationality": "England"
   },
   {
    "id": "lucas-digne-lb",
@@ -2336,11 +2515,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 30,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "France",
-   "position_rank": 30
+   "club_now": "Paris Saint-Germain",
+   "nationality": "France"
   },
   {
    "id": "andrew-robertson-lb",
@@ -2349,11 +2529,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 31,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "Scotland",
-   "position_rank": 31
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Scotland"
   },
   {
    "id": "adrien-truffert-lb",
@@ -2362,11 +2543,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 32,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 32
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "reinildo-lb",
@@ -2375,11 +2557,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 33,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 33
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "neco-williams-lb",
@@ -2388,11 +2571,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 34,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "pep-chavarria-lb",
@@ -2401,11 +2585,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 35,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Chelsea",
-   "nationality": "Spain",
-   "position_rank": 35
+   "club_now": "Chelsea",
+   "nationality": "Spain"
   },
   {
    "id": "destiny-udogie-lb",
@@ -2414,11 +2599,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 36,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "Italy",
-   "position_rank": 36
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Italy"
   },
   {
    "id": "yuri-berchiche-lb",
@@ -2427,11 +2613,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 37,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 37
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ian-maatsen-lb",
@@ -2440,11 +2627,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 38,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Aston Villa",
-   "nationality": "Netherlands",
-   "position_rank": 38
+   "club_now": "Aston Villa",
+   "nationality": "Netherlands"
   },
   {
    "id": "sergi-cardona-lb",
@@ -2453,11 +2641,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 39,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "daniel-svensson-lb",
@@ -2466,11 +2655,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 40,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Sweden",
-   "position_rank": 40
+   "club_now": "Borussia Dortmund",
+   "nationality": "Sweden"
   },
   {
    "id": "luke-shaw-lb",
@@ -2479,11 +2669,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 41,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Manchester United",
-   "nationality": "England",
-   "position_rank": 41
+   "club_now": "Manchester United",
+   "nationality": "England"
   },
   {
    "id": "tyrick-mitchell-lb",
@@ -2492,11 +2683,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 42,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 42
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "sergio-gomez-lb",
@@ -2505,11 +2697,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 43,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 43
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "maxim-de-cuyper-lb",
@@ -2518,11 +2711,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 44,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "Brighton and Hove Albion",
-   "nationality": "Belgium",
-   "position_rank": 44
+   "club_now": "Brighton and Hove Albion",
+   "nationality": "Belgium"
   },
   {
    "id": "gabriel-gudmundsson-lb",
@@ -2531,11 +2725,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 45,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 45
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "rodri-cdm",
@@ -2544,11 +2739,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 90,
+   "position_rank": 1,
    "market_value_m": 124,
    "base_price_m": 62,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 1
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "joshua-kimmich-cdm",
@@ -2557,11 +2753,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 2,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "Bayern Munich",
-   "nationality": "Germany",
-   "position_rank": 2
+   "club_now": "Bayern Munich",
+   "nationality": "Germany"
   },
   {
    "id": "declan-rice-cdm",
@@ -2570,11 +2767,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 3,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "Arsenal",
-   "nationality": "England",
-   "position_rank": 3
+   "club_now": "Arsenal",
+   "nationality": "England"
   },
   {
    "id": "moises-caicedo-cdm",
@@ -2583,11 +2781,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 4,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Chelsea",
-   "nationality": "Ecuador",
-   "position_rank": 4
+   "club_now": "Chelsea",
+   "nationality": "Ecuador"
   },
   {
    "id": "sandro-tonali-cdm",
@@ -2596,11 +2795,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 5,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "Italy",
-   "position_rank": 5
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Italy"
   },
   {
    "id": "ryan-gravenberch-cdm",
@@ -2609,11 +2809,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 6,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Liverpool",
-   "nationality": "Netherlands",
-   "position_rank": 6
+   "club_now": "Liverpool",
+   "nationality": "Netherlands"
   },
   {
    "id": "hakan-calhanoglu-cdm",
@@ -2622,11 +2823,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 7,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Inter Milan",
-   "nationality": "Turkey",
-   "position_rank": 7
+   "club_now": "Inter Milan",
+   "nationality": "Turkey"
   },
   {
    "id": "ruben-neves-cdm",
@@ -2635,11 +2837,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 8,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 8
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "granit-xhaka-cdm",
@@ -2648,11 +2851,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 9,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 9
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "aurelien-tchouameni-cdm",
@@ -2661,11 +2865,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 10,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Real Madrid",
-   "nationality": "France",
-   "position_rank": 10
+   "club_now": "Real Madrid",
+   "nationality": "France"
   },
   {
    "id": "elliot-anderson-cdm",
@@ -2674,11 +2879,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 11,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Manchester City",
-   "nationality": "England",
-   "position_rank": 11
+   "club_now": "Manchester City",
+   "nationality": "England"
   },
   {
    "id": "zubimendi-cdm",
@@ -2687,11 +2893,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 12,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Arsenal",
-   "nationality": "Spain",
-   "position_rank": 12
+   "club_now": "Arsenal",
+   "nationality": "Spain"
   },
   {
    "id": "manuel-locatelli-cdm",
@@ -2700,11 +2907,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 13,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Juventus",
-   "nationality": "Italy",
-   "position_rank": 13
+   "club_now": "Juventus",
+   "nationality": "Italy"
   },
   {
    "id": "boubacar-kamara-cdm",
@@ -2713,11 +2921,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 14,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Aston Villa",
-   "nationality": "France",
-   "position_rank": 14
+   "club_now": "Aston Villa",
+   "nationality": "France"
   },
   {
    "id": "morten-hjulmand-cdm",
@@ -2726,11 +2935,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 15,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Atlético Madrid",
-   "nationality": "Denmark",
-   "position_rank": 15
+   "club_now": "Atlético Madrid",
+   "nationality": "Denmark"
   },
   {
    "id": "aleksandar-pavlovic-cdm",
@@ -2739,11 +2949,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 16,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Bayern Munich",
-   "nationality": "Germany",
-   "position_rank": 16
+   "club_now": "Bayern Munich",
+   "nationality": "Germany"
   },
   {
    "id": "n-golo-kante-cdm",
@@ -2752,11 +2963,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 17,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 17
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "angelo-stiller-cdm",
@@ -2765,11 +2977,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 18,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 18
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "casemiro-cdm",
@@ -2778,11 +2991,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 19,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Inter Miami",
-   "nationality": "Brazil",
-   "position_rank": 19
+   "club_now": "Inter Miami",
+   "nationality": "Brazil"
   },
   {
    "id": "james-garner-cdm",
@@ -2791,11 +3005,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 20,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 20
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "fabinho-cdm",
@@ -2804,11 +3019,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 21,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 21
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "palhinha-cdm",
@@ -2817,11 +3033,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 22,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Bayern Munich",
-   "nationality": "Portugal",
-   "position_rank": 22
+   "club_now": "Bayern Munich",
+   "nationality": "Portugal"
   },
   {
    "id": "denis-zakaria-cdm",
@@ -2830,11 +3047,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 23,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 23
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "matteo-guendouzi-cdm",
@@ -2843,11 +3061,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 24,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "amadou-onana-cdm",
@@ -2856,11 +3075,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 25,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Aston Villa",
-   "nationality": "Belgium",
-   "position_rank": 25
+   "club_now": "Aston Villa",
+   "nationality": "Belgium"
   },
   {
    "id": "lucas-torreira-cdm",
@@ -2869,11 +3089,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 26,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "nicolas-seiwald-cdm",
@@ -2882,11 +3103,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 27,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 27
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kobbie-mainoo-cdm",
@@ -2895,11 +3117,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 28,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Manchester United",
-   "nationality": "England",
-   "position_rank": 28
+   "club_now": "Manchester United",
+   "nationality": "England"
   },
   {
    "id": "kaishu-sano-cdm",
@@ -2908,11 +3131,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 29,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "nico-gonzalez-cdm",
@@ -2921,11 +3145,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 30,
    "market_value_m": 65,
    "base_price_m": 33,
-   "seed_club": "Manchester City",
-   "nationality": "Spain",
-   "position_rank": 30
+   "seed_club": "Newcastle United",
+   "club_now": "Newcastle United",
+   "nationality": "Spain"
   },
   {
    "id": "remo-freuler-cdm",
@@ -2934,11 +3159,26 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 31,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
+  },
+  {
+   "id": "leon-goretzka-cdm",
+   "name": "Leon Goretzka",
+   "position": "CDM",
+   "alt_positions": "CM|CAM",
+   "alt_source": "ea",
+   "overall": 81,
+   "position_rank": 32,
+   "market_value_m": 65,
+   "base_price_m": 33,
+   "seed_club": "Aston Villa",
+   "club_now": "Aston Villa",
+   "nationality": "Germany"
   },
   {
    "id": "carlos-baleba-cdm",
@@ -2947,11 +3187,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 33,
    "market_value_m": 60,
    "base_price_m": 30,
-   "seed_club": "Brighton and Hove Albion",
-   "nationality": "Cameroon",
-   "position_rank": 32
+   "seed_club": "Manchester United",
+   "club_now": "Manchester United",
+   "nationality": "Cameroon"
   },
   {
    "id": "noah-sadiki-cdm",
@@ -2960,11 +3201,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 34,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 33
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "johnny-cardoso-cdm",
@@ -2973,11 +3215,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 35,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Atlético Madrid",
-   "nationality": "United States",
-   "position_rank": 34
+   "club_now": "Atlético Madrid",
+   "nationality": "United States"
   },
   {
    "id": "alan-varela-cdm",
@@ -2986,11 +3229,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 36,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 35
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ayyoub-bouaddi-cdm",
@@ -2999,11 +3243,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 37,
    "market_value_m": 60,
    "base_price_m": 30,
-   "seed_club": "",
-   "nationality": "",
-   "position_rank": 36
+   "seed_club": "Manchester City",
+   "club_now": "Manchester City",
+   "nationality": "France"
   },
   {
    "id": "valentin-rongier-cdm",
@@ -3012,11 +3257,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 38,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 37
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "benjamin-andre-cdm",
@@ -3025,11 +3271,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 39,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 38
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ethan-ampadu-cdm",
@@ -3038,11 +3285,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 40,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "pierre-emile-h-jbjerg-cdm",
@@ -3051,11 +3299,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 41,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "sofyan-amrabat-cdm",
@@ -3064,11 +3313,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 42,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 41
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "patrick-berg-cdm",
@@ -3077,11 +3327,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 43,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 42
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "maximilian-arnold-cdm",
@@ -3090,11 +3341,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 44,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 43
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "nicolas-raskin-cdm",
@@ -3103,11 +3355,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 45,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 44
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "tyler-adams-cdm",
@@ -3116,11 +3369,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 46,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 45
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "yasin-ayari-cdm",
@@ -3129,11 +3383,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 47,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Brighton and Hove Albion",
-   "nationality": "Sweden",
-   "position_rank": 46
+   "club_now": "Brighton and Hove Albion",
+   "nationality": "Sweden"
   },
   {
    "id": "tyler-morton-cdm",
@@ -3142,11 +3397,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 48,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 47
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "leon-avdullahu-cdm",
@@ -3155,11 +3411,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 49,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 48
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "bryan-heynen-cdm",
@@ -3168,11 +3425,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 50,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 49
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "santiago-hezze-cdm",
@@ -3181,11 +3439,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 51,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 50
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "pedri-cm",
@@ -3194,11 +3453,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 90,
+   "position_rank": 1,
    "market_value_m": 124,
    "base_price_m": 62,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 1
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "vitinha-cm",
@@ -3207,11 +3467,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 90,
+   "position_rank": 2,
    "market_value_m": 124,
    "base_price_m": 62,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Portugal",
-   "position_rank": 2
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Portugal"
   },
   {
    "id": "joao-neves-cm",
@@ -3220,11 +3481,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 3,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Portugal",
-   "position_rank": 3
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Portugal"
   },
   {
    "id": "federico-valverde-cm",
@@ -3233,11 +3495,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 4,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Real Madrid",
-   "nationality": "Uruguay",
-   "position_rank": 4
+   "club_now": "Real Madrid",
+   "nationality": "Uruguay"
   },
   {
    "id": "nicolo-barella-cm",
@@ -3246,11 +3509,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 5,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Inter Milan",
-   "nationality": "Italy",
-   "position_rank": 5
+   "club_now": "Inter Milan",
+   "nationality": "Italy"
   },
   {
    "id": "fabian-ruiz-cm",
@@ -3259,11 +3523,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 6,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Spain",
-   "position_rank": 6
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Spain"
   },
   {
    "id": "scott-mctominay-cm",
@@ -3272,11 +3537,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 7,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 7
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "bruno-guimaraes-cm",
@@ -3285,11 +3551,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 8,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Arsenal",
-   "nationality": "Brazil",
-   "position_rank": 8
+   "club_now": "Arsenal",
+   "nationality": "Brazil"
   },
   {
    "id": "enzo-fernandez-cm",
@@ -3298,11 +3565,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 9,
    "market_value_m": 93,
    "base_price_m": 47,
-   "seed_club": "Chelsea",
-   "nationality": "Argentina",
-   "position_rank": 9
+   "seed_club": "Manchester City",
+   "club_now": "Manchester City",
+   "nationality": "Argentina"
   },
   {
    "id": "martin-degaard-cm",
@@ -3311,11 +3579,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 10,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Arsenal",
-   "nationality": "Norway",
-   "position_rank": 10
+   "club_now": "Arsenal",
+   "nationality": "Norway"
   },
   {
    "id": "frenkie-de-jong-cm",
@@ -3324,11 +3593,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 11,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "FC Barcelona",
-   "nationality": "Netherlands",
-   "position_rank": 11
+   "club_now": "FC Barcelona",
+   "nationality": "Netherlands"
   },
   {
    "id": "felix-nmecha-cm",
@@ -3337,11 +3607,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 12,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Germany",
-   "position_rank": 12
+   "club_now": "Borussia Dortmund",
+   "nationality": "Germany"
   },
   {
    "id": "adrien-rabiot-cm",
@@ -3350,11 +3621,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 13,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "AC Milan",
-   "nationality": "France",
-   "position_rank": 13
+   "club_now": "AC Milan",
+   "nationality": "France"
   },
   {
    "id": "luka-modric-cm",
@@ -3363,11 +3635,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 14,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "AC Milan",
-   "nationality": "Croatia",
-   "position_rank": 14
+   "club_now": "AC Milan",
+   "nationality": "Croatia"
   },
   {
    "id": "youri-tielemans-cm",
@@ -3376,11 +3649,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 15,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Manchester United",
-   "nationality": "Belgium",
-   "position_rank": 15
+   "club_now": "Manchester United",
+   "nationality": "Belgium"
   },
   {
    "id": "sergej-milinkovic-savic-cm",
@@ -3389,11 +3663,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 16,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 16
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "aleix-garcia-cm",
@@ -3402,11 +3677,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 17,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 17
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "tijjani-reijnders-cm",
@@ -3415,11 +3691,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 18,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 18
+   "club_now": "Al-Qadsiah",
+   "nationality": ""
   },
   {
    "id": "alexis-mac-allister-cm",
@@ -3428,11 +3705,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 19,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Liverpool",
-   "nationality": "Argentina",
-   "position_rank": 19
+   "club_now": "Liverpool",
+   "nationality": "Argentina"
   },
   {
    "id": "bernardo-silva-cm",
@@ -3441,11 +3719,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 20,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Real Madrid",
-   "nationality": "Portugal",
-   "position_rank": 20
+   "club_now": "Real Madrid",
+   "nationality": "Portugal"
   },
   {
    "id": "rodrigo-de-paul-cm",
@@ -3454,11 +3733,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 21,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Inter Miami",
-   "nationality": "Argentina",
-   "position_rank": 21
+   "club_now": "Inter Miami",
+   "nationality": "Argentina"
   },
   {
    "id": "warren-zaire-emery-cm",
@@ -3467,11 +3747,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 22,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "France",
-   "position_rank": 22
+   "club_now": "Paris Saint-Germain",
+   "nationality": "France"
   },
   {
    "id": "pablo-barrios-cm",
@@ -3480,11 +3761,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 23,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Atlético Madrid",
-   "nationality": "Spain",
-   "position_rank": 23
+   "club_now": "Atlético Madrid",
+   "nationality": "Spain"
   },
   {
    "id": "exequiel-palacios-cm",
@@ -3493,11 +3775,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 24,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mikel-merino-cm",
@@ -3506,11 +3789,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 25,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Arsenal",
-   "nationality": "Spain",
-   "position_rank": 25
+   "club_now": "Arsenal",
+   "nationality": "Spain"
   },
   {
    "id": "gavi-cm",
@@ -3519,11 +3803,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 26,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 26
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "stanislav-lobotka-cm",
@@ -3532,11 +3817,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 27,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 27
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ederson-cm",
@@ -3545,11 +3831,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 28,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 28
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "victor-froholdt-cm",
@@ -3558,11 +3845,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 29,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "andre-franck-zambo-anguissa-cm",
@@ -3571,11 +3859,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 30,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 30
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "orkun-kokcu-cm",
@@ -3584,11 +3873,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 31,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "corentin-tolisso-cm",
@@ -3597,11 +3887,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 32,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 32
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "piotr-zielinski-cm",
@@ -3610,11 +3901,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 33,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Inter Milan",
-   "nationality": "Poland",
-   "position_rank": 33
+   "club_now": "Inter Milan",
+   "nationality": "Poland"
   },
   {
    "id": "adam-wharton-cm",
@@ -3623,11 +3915,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 34,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "james-maddison-cm",
@@ -3636,11 +3929,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 35,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "England",
-   "position_rank": 35
+   "club_now": "Tottenham Hotspur",
+   "nationality": "England"
   },
   {
    "id": "joey-veerman-cm",
@@ -3649,11 +3943,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 36,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Netherlands",
-   "position_rank": 36
+   "club_now": "Borussia Dortmund",
+   "nationality": "Netherlands"
   },
   {
    "id": "khephren-thuram-cm",
@@ -3662,11 +3957,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 37,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Juventus",
-   "nationality": "France",
-   "position_rank": 37
+   "club_now": "Juventus",
+   "nationality": "France"
   },
   {
    "id": "marcel-sabitzer-cm",
@@ -3675,11 +3971,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 38,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Austria",
-   "position_rank": 38
+   "club_now": "Borussia Dortmund",
+   "nationality": "Austria"
   },
   {
    "id": "kouadio-manu-kone-cm",
@@ -3688,11 +3985,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 39,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "eduardo-camavinga-cm",
@@ -3701,11 +3999,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 40,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Real Madrid",
-   "nationality": "France",
-   "position_rank": 40
+   "club_now": "Real Madrid",
+   "nationality": "France"
   },
   {
    "id": "fredrik-aursnes-cm",
@@ -3714,11 +4013,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 41,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 41
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "leandro-paredes-cm",
@@ -3727,11 +4027,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 42,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 42
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "luis-milla-cm",
@@ -3740,11 +4041,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 43,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 43
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mamadou-sangare-cm",
@@ -3753,11 +4055,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 44,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 44
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "henrikh-mkhitaryan-cm",
@@ -3766,11 +4069,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 45,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Inter Milan",
-   "nationality": "Armenia",
-   "position_rank": 45
+   "club_now": "Inter Milan",
+   "nationality": "Armenia"
   },
   {
    "id": "alex-scott-cm",
@@ -3779,11 +4083,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 46,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 46
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "fornals-cm",
@@ -3792,11 +4097,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 47,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 47
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "dejan-kulusevski-cm",
@@ -3805,11 +4111,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 48,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "Sweden",
-   "position_rank": 48
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Sweden"
   },
   {
    "id": "bryan-cristante-cm",
@@ -3818,11 +4125,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 49,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 49
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "adrien-thomasson-cm",
@@ -3831,11 +4139,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 50,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 50
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "koke-cm",
@@ -3844,11 +4153,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 51,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Atlético Madrid",
-   "nationality": "Spain",
-   "position_rank": 51
+   "club_now": "Atlético Madrid",
+   "nationality": "Spain"
   },
   {
    "id": "mateo-kovacic-cm",
@@ -3857,11 +4167,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 52,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Manchester City",
-   "nationality": "Croatia",
-   "position_rank": 52
+   "club_now": "Manchester City",
+   "nationality": "Croatia"
   },
   {
    "id": "weston-mckennie-cm",
@@ -3870,11 +4181,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 53,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Juventus",
-   "nationality": "United States",
-   "position_rank": 53
+   "club_now": "Juventus",
+   "nationality": "United States"
   },
   {
    "id": "joelinton-cm",
@@ -3883,11 +4195,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 54,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Newcastle United",
-   "nationality": "Brazil",
-   "position_rank": 54
+   "club_now": "Newcastle United",
+   "nationality": "Brazil"
   },
   {
    "id": "gabriel-sara-cm",
@@ -3896,11 +4209,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 55,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 55
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mauro-arambarri-cm",
@@ -3909,11 +4223,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 56,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 56
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "davide-frattesi-cm",
@@ -3922,11 +4237,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 57,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 57
+   "club_now": "Lazio",
+   "nationality": ""
   },
   {
    "id": "pape-gueye-cm",
@@ -3935,11 +4251,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 58,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 58
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "anton-stach-cm",
@@ -3948,11 +4265,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 59,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 59
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "otavio-cm",
@@ -3961,11 +4279,12 @@
    "alt_positions": "CDM|CAM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 60,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 60
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "jude-bellingham-cam",
@@ -3974,11 +4293,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 90,
+   "position_rank": 1,
    "market_value_m": 124,
    "base_price_m": 62,
    "seed_club": "Real Madrid",
-   "nationality": "England",
-   "position_rank": 1
+   "club_now": "Real Madrid",
+   "nationality": "England"
   },
   {
    "id": "lionel-messi-cam",
@@ -3987,11 +4307,12 @@
    "alt_positions": "ST|RW|RM",
    "alt_source": "ea",
    "overall": 89,
+   "position_rank": 2,
    "market_value_m": 115,
    "base_price_m": 58,
    "seed_club": "Inter Miami",
-   "nationality": "Argentina",
-   "position_rank": 2
+   "club_now": "Inter Miami",
+   "nationality": "Argentina"
   },
   {
    "id": "bruno-fernandes-cam",
@@ -4000,11 +4321,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 89,
+   "position_rank": 3,
    "market_value_m": 115,
    "base_price_m": 58,
    "seed_club": "Manchester United",
-   "nationality": "Portugal",
-   "position_rank": 3
+   "club_now": "Manchester United",
+   "nationality": "Portugal"
   },
   {
    "id": "jamal-musiala-cam",
@@ -4013,11 +4335,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 4,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Bayern Munich",
-   "nationality": "Germany",
-   "position_rank": 4
+   "club_now": "Bayern Munich",
+   "nationality": "Germany"
   },
   {
    "id": "dominik-szoboszlai-cam",
@@ -4026,11 +4349,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 5,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Liverpool",
-   "nationality": "Hungary",
-   "position_rank": 5
+   "club_now": "Liverpool",
+   "nationality": "Hungary"
   },
   {
    "id": "florian-wirtz-cam",
@@ -4039,11 +4363,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 6,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Liverpool",
-   "nationality": "Germany",
-   "position_rank": 6
+   "club_now": "Liverpool",
+   "nationality": "Germany"
   },
   {
    "id": "paulo-dybala-cam",
@@ -4052,11 +4377,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 7,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 7
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "fermin-cam",
@@ -4065,11 +4391,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 8,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 8
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "kevin-de-bruyne-cam",
@@ -4078,11 +4405,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 9,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 9
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "cole-palmer-cam",
@@ -4091,11 +4419,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 10,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Chelsea",
-   "nationality": "England",
-   "position_rank": 10
+   "club_now": "Chelsea",
+   "nationality": "England"
   },
   {
    "id": "morgan-rogers-cam",
@@ -4104,11 +4433,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 11,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Chelsea",
-   "nationality": "England",
-   "position_rank": 11
+   "club_now": "Chelsea",
+   "nationality": "England"
   },
   {
    "id": "kenan-y-ld-z-cam",
@@ -4117,11 +4447,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 12,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Juventus",
-   "nationality": "Turkey",
-   "position_rank": 12
+   "club_now": "Juventus",
+   "nationality": "Turkey"
   },
   {
    "id": "eberechi-eze-cam",
@@ -4130,11 +4461,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 13,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Arsenal",
-   "nationality": "England",
-   "position_rank": 13
+   "club_now": "Arsenal",
+   "nationality": "England"
   },
   {
    "id": "nico-paz-cam",
@@ -4143,11 +4475,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 14,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 14
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "phil-foden-cam",
@@ -4156,11 +4489,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 15,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Manchester City",
-   "nationality": "England",
-   "position_rank": 15
+   "club_now": "Manchester City",
+   "nationality": "England"
   },
   {
    "id": "dani-olmo-cam",
@@ -4169,11 +4503,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 16,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 16
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "morgan-gibbs-white-cam",
@@ -4182,11 +4517,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 17,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 17
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ismael-saibari-cam",
@@ -4195,11 +4531,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 18,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Bayern Munich",
-   "nationality": "Morocco",
-   "position_rank": 18
+   "club_now": "Bayern Munich",
+   "nationality": "Morocco"
   },
   {
    "id": "christian-pulisic-cam",
@@ -4208,11 +4545,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 19,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "AC Milan",
-   "nationality": "United States",
-   "position_rank": 19
+   "club_now": "AC Milan",
+   "nationality": "United States"
   },
   {
    "id": "joao-felix-cam",
@@ -4221,11 +4559,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 20,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Al-Nassr",
-   "nationality": "Portugal",
-   "position_rank": 20
+   "club_now": "Al-Nassr",
+   "nationality": "Portugal"
   },
   {
    "id": "konstantinos-fortounis-cam",
@@ -4234,11 +4573,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 21,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 21
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "trincao-cam",
@@ -4247,11 +4587,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 22,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 22
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "serge-gnabry-cam",
@@ -4260,11 +4601,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 23,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Bayern Munich",
-   "nationality": "Germany",
-   "position_rank": 23
+   "club_now": "Bayern Munich",
+   "nationality": "Germany"
   },
   {
    "id": "isco-cam",
@@ -4273,11 +4615,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 24,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "sancet-cam",
@@ -4286,11 +4629,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 25,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 25
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "rodrigo-zalazar-cam",
@@ -4299,11 +4643,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 26,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ricardo-horta-cam",
@@ -4312,11 +4657,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 27,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 27
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "christoph-baumgartner-cam",
@@ -4325,11 +4671,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 28,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 28
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "julian-brandt-cam",
@@ -4338,11 +4685,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 29,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "Ajax",
+   "nationality": ""
   },
   {
    "id": "marco-asensio-cam",
@@ -4351,11 +4699,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 30,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 30
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kiernan-dewsbury-hall-cam",
@@ -4364,11 +4713,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 31,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "maximilian-beier-cam",
@@ -4377,11 +4727,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 32,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Germany",
-   "position_rank": 32
+   "club_now": "Borussia Dortmund",
+   "nationality": "Germany"
   },
   {
    "id": "xavi-simons-cam",
@@ -4390,11 +4741,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 33,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "Netherlands",
-   "position_rank": 33
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Netherlands"
   },
   {
    "id": "charles-de-ketelaere-cam",
@@ -4403,11 +4755,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 34,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "anderson-talisca-cam",
@@ -4416,11 +4769,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 35,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 35
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "maghnes-akliouche-cam",
@@ -4429,11 +4783,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 36,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "France",
-   "position_rank": 36
+   "club_now": "Paris Saint-Germain",
+   "nationality": "France"
   },
   {
    "id": "hans-vanaken-cam",
@@ -4442,11 +4797,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 37,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 37
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "andrej-kramaric-cam",
@@ -4455,11 +4811,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 38,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 38
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "giovani-lo-celso-cam",
@@ -4468,11 +4825,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 39,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "nikola-vlasic-cam",
@@ -4481,11 +4839,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 40,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ibrahim-maza-cam",
@@ -4494,11 +4853,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 41,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 41
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kaku-cam",
@@ -4507,11 +4867,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 42,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 42
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mikkel-damsgaard-cam",
@@ -4520,11 +4881,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 43,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 43
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "enzo-le-fee-cam",
@@ -4533,11 +4895,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 44,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 44
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "matias-soule-cam",
@@ -4546,11 +4909,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 45,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 45
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "rafa-cam",
@@ -4559,11 +4923,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 46,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 46
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "lucas-zelarayan-cam",
@@ -4572,11 +4937,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 47,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 47
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "isi-cam",
@@ -4585,11 +4951,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 48,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 48
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "francisco-conceicao-cam",
@@ -4598,11 +4965,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 49,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Juventus",
-   "nationality": "Portugal",
-   "position_rank": 49
+   "club_now": "Juventus",
+   "nationality": "Portugal"
   },
   {
    "id": "thomas-muller-cam",
@@ -4611,11 +4979,12 @@
    "alt_positions": "CM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 50,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 50
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kylian-mbappe-st",
@@ -4624,11 +4993,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 91,
+   "position_rank": 1,
    "market_value_m": 133,
    "base_price_m": 67,
    "seed_club": "Real Madrid",
-   "nationality": "France",
-   "position_rank": 1
+   "club_now": "Real Madrid",
+   "nationality": "France"
   },
   {
    "id": "erling-haaland-st",
@@ -4637,11 +5007,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 91,
+   "position_rank": 2,
    "market_value_m": 133,
    "base_price_m": 67,
    "seed_club": "Manchester City",
-   "nationality": "Norway",
-   "position_rank": 2
+   "club_now": "Manchester City",
+   "nationality": "Norway"
   },
   {
    "id": "harry-kane-st",
@@ -4650,11 +5021,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 90,
+   "position_rank": 3,
    "market_value_m": 124,
    "base_price_m": 62,
    "seed_club": "Bayern Munich",
-   "nationality": "England",
-   "position_rank": 3
+   "club_now": "Bayern Munich",
+   "nationality": "England"
   },
   {
    "id": "ousmane-dembele-st",
@@ -4663,11 +5035,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 90,
+   "position_rank": 4,
    "market_value_m": 124,
    "base_price_m": 62,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "France",
-   "position_rank": 4
+   "club_now": "Paris Saint-Germain",
+   "nationality": "France"
   },
   {
    "id": "lautaro-martinez-st",
@@ -4676,11 +5049,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 5,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Inter Milan",
-   "nationality": "Argentina",
-   "position_rank": 5
+   "club_now": "Inter Milan",
+   "nationality": "Argentina"
   },
   {
    "id": "julian-alvarez-st",
@@ -4689,11 +5063,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 6,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Atlético Madrid",
-   "nationality": "Argentina",
-   "position_rank": 6
+   "club_now": "Atlético Madrid",
+   "nationality": "Argentina"
   },
   {
    "id": "alexander-isak-st",
@@ -4702,11 +5077,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 7,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Liverpool",
-   "nationality": "Sweden",
-   "position_rank": 7
+   "club_now": "Liverpool",
+   "nationality": "Sweden"
   },
   {
    "id": "viktor-gyokeres-st",
@@ -4715,11 +5091,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 8,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Arsenal",
-   "nationality": "Sweden",
-   "position_rank": 8
+   "club_now": "Arsenal",
+   "nationality": "Sweden"
   },
   {
    "id": "marcus-thuram-st",
@@ -4728,11 +5105,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 9,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Inter Milan",
-   "nationality": "France",
-   "position_rank": 9
+   "club_now": "Inter Milan",
+   "nationality": "France"
   },
   {
    "id": "victor-osimhen-st",
@@ -4741,11 +5119,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 10,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 10
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "serhou-guirassy-st",
@@ -4754,11 +5133,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 11,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Borussia Dortmund",
-   "nationality": "Guinea",
-   "position_rank": 11
+   "club_now": "Borussia Dortmund",
+   "nationality": "Guinea"
   },
   {
    "id": "hugo-ekitike-st",
@@ -4767,11 +5147,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 12,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Liverpool",
-   "nationality": "France",
-   "position_rank": 12
+   "club_now": "Liverpool",
+   "nationality": "France"
   },
   {
    "id": "deniz-undav-st",
@@ -4780,11 +5161,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 13,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 13
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "antoine-griezmann-st",
@@ -4793,11 +5175,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 14,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 14
+   "club_now": "Orlando City",
+   "nationality": ""
   },
   {
    "id": "ferran-torres-st",
@@ -4806,11 +5189,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 15,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Spain",
-   "position_rank": 15
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Spain"
   },
   {
    "id": "julian-quinones-st",
@@ -4819,11 +5203,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 16,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 16
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "oyarzabal-st",
@@ -4832,11 +5217,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 17,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 17
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "robert-lewandowski-st",
@@ -4845,11 +5231,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 18,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 18
+   "club_now": "Chicago Fire",
+   "nationality": ""
   },
   {
    "id": "cristiano-ronaldo-st",
@@ -4858,11 +5245,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 19,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Al-Nassr",
-   "nationality": "Portugal",
-   "position_rank": 19
+   "club_now": "Al-Nassr",
+   "nationality": "Portugal"
   },
   {
    "id": "ivan-toney-st",
@@ -4871,11 +5259,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 20,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 20
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ollie-watkins-st",
@@ -4884,11 +5273,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 21,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Aston Villa",
-   "nationality": "England",
-   "position_rank": 21
+   "club_now": "Aston Villa",
+   "nationality": "England"
   },
   {
    "id": "donyell-malen-st",
@@ -4897,11 +5287,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 22,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 22
+   "club_now": "Roma",
+   "nationality": ""
   },
   {
    "id": "joao-pedro-st",
@@ -4910,11 +5301,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 23,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Chelsea",
-   "nationality": "Brazil",
-   "position_rank": 23
+   "club_now": "Chelsea",
+   "nationality": "Brazil"
   },
   {
    "id": "ademola-lookman-st",
@@ -4923,11 +5315,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 24,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Atlético Madrid",
-   "nationality": "Nigeria",
-   "position_rank": 24
+   "club_now": "Atlético Madrid",
+   "nationality": "Nigeria"
   },
   {
    "id": "alexander-s-rloth-st",
@@ -4936,11 +5329,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 25,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Atlético Madrid",
-   "nationality": "Norway",
-   "position_rank": 25
+   "club_now": "Atlético Madrid",
+   "nationality": "Norway"
   },
   {
    "id": "patrik-schick-st",
@@ -4949,11 +5343,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 26,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "vangelis-pavlidis-st",
@@ -4962,11 +5357,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 27,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 27
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "benjamin-sesko-st",
@@ -4975,11 +5371,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 28,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Manchester United",
-   "nationality": "Slovenia",
-   "position_rank": 28
+   "club_now": "Manchester United",
+   "nationality": "Slovenia"
   },
   {
    "id": "luis-javier-suarez-st",
@@ -4988,11 +5385,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 29,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "jonathan-burkardt-st",
@@ -5001,11 +5399,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 30,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 30
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "igor-thiago-st",
@@ -5014,11 +5413,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 31,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "romelu-lukaku-st",
@@ -5027,11 +5427,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 32,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 32
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "moise-kean-st",
@@ -5040,11 +5441,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 33,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 33
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "karim-benzema-st",
@@ -5053,11 +5455,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 34,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ante-budimir-st",
@@ -5066,11 +5469,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 35,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 35
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "son-heung-min-st",
@@ -5079,11 +5483,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 36,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 36
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "gerard-moreno-st",
@@ -5092,11 +5497,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 37,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 37
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kai-havertz-st",
@@ -5105,11 +5511,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 38,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Arsenal",
-   "nationality": "Germany",
-   "position_rank": 38
+   "club_now": "Arsenal",
+   "nationality": "Germany"
   },
   {
    "id": "jean-philippe-mateta-st",
@@ -5118,11 +5525,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 39,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "dusan-vlahovic-st",
@@ -5131,11 +5539,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 40,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "Beşiktaş",
+   "nationality": ""
   },
   {
    "id": "mateo-retegui-st",
@@ -5144,11 +5553,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 41,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 41
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "esteban-lepaul-st",
@@ -5157,11 +5567,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 42,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 42
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "vedat-muriqi-st",
@@ -5170,11 +5581,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 43,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 43
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "chris-wood-st",
@@ -5183,11 +5595,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 44,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 44
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ayoze-st",
@@ -5196,11 +5609,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 45,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 45
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "amine-gouiri-st",
@@ -5209,11 +5623,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 46,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 46
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "eli-junior-kroupi-st",
@@ -5222,11 +5637,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 47,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 47
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "lois-openda-st",
@@ -5235,11 +5651,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 48,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 48
+   "club_now": "Lyon",
+   "nationality": ""
   },
   {
    "id": "ayoub-el-kaabi-st",
@@ -5248,11 +5665,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 49,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 49
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ermedin-demirovic-st",
@@ -5261,11 +5679,12 @@
    "alt_positions": "",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 50,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 50
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "michael-olise-rm",
@@ -5274,11 +5693,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 90,
+   "position_rank": 1,
    "market_value_m": 124,
    "base_price_m": 62,
    "seed_club": "Bayern Munich",
-   "nationality": "France",
-   "position_rank": 1
+   "club_now": "Bayern Munich",
+   "nationality": "France"
   },
   {
    "id": "mohamed-salah-rm",
@@ -5287,11 +5707,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 2,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 2
+   "club_now": "Trabzonspor",
+   "nationality": ""
   },
   {
    "id": "bryan-mbeumo-rm",
@@ -5300,11 +5721,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 3,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Manchester United",
-   "nationality": "Cameroon",
-   "position_rank": 3
+   "club_now": "Manchester United",
+   "nationality": "Cameroon"
   },
   {
    "id": "john-mcginn-rm",
@@ -5313,11 +5735,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 4,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Aston Villa",
-   "nationality": "Scotland",
-   "position_rank": 4
+   "club_now": "Aston Villa",
+   "nationality": "Scotland"
   },
   {
    "id": "arda-guler-rm",
@@ -5326,11 +5749,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 5,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Real Madrid",
-   "nationality": "Turkey",
-   "position_rank": 5
+   "club_now": "Real Madrid",
+   "nationality": "Turkey"
   },
   {
    "id": "jarrod-bowen-rm",
@@ -5339,11 +5763,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 6,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 6
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mason-greenwood-rm",
@@ -5352,11 +5777,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 7,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 7
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kingsley-coman-rm",
@@ -5365,11 +5791,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 8,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Al-Nassr",
-   "nationality": "France",
-   "position_rank": 8
+   "club_now": "Al-Nassr",
+   "nationality": "France"
   },
   {
    "id": "giuliano-rm",
@@ -5378,11 +5805,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 9,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Atlético Madrid",
-   "nationality": "Argentina",
-   "position_rank": 9
+   "club_now": "Atlético Madrid",
+   "nationality": "Argentina"
   },
   {
    "id": "riccardo-orsolini-rm",
@@ -5391,11 +5819,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 10,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 10
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "karim-adeyemi-rm",
@@ -5404,11 +5833,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 11,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "FC Barcelona",
-   "nationality": "Germany",
-   "position_rank": 11
+   "club_now": "FC Barcelona",
+   "nationality": "Germany"
   },
   {
    "id": "moussa-diaby-rm",
@@ -5417,11 +5847,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 12,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 12
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mohammed-kudus-rm",
@@ -5430,11 +5861,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 13,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "Ghana",
-   "position_rank": 13
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Ghana"
   },
   {
    "id": "pedro-neto-rm",
@@ -5443,11 +5875,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 14,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Chelsea",
-   "nationality": "Portugal",
-   "position_rank": 14
+   "club_now": "Chelsea",
+   "nationality": "Portugal"
   },
   {
    "id": "brahim-rm",
@@ -5456,11 +5889,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 15,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Real Madrid",
-   "nationality": "Morocco",
-   "position_rank": 15
+   "club_now": "Real Madrid",
+   "nationality": "Morocco"
   },
   {
    "id": "federico-chiesa-rm",
@@ -5469,11 +5903,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 16,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Liverpool",
-   "nationality": "Italy",
-   "position_rank": 16
+   "club_now": "Liverpool",
+   "nationality": "Italy"
   },
   {
    "id": "yankuba-minteh-rm",
@@ -5482,11 +5917,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 17,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Brighton and Hove Albion",
-   "nationality": "Gambia",
-   "position_rank": 17
+   "club_now": "Brighton and Hove Albion",
+   "nationality": "Gambia"
   },
   {
    "id": "takefusa-kubo-rm",
@@ -5495,11 +5931,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 18,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 18
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "leroy-sane-rm",
@@ -5508,11 +5945,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 19,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 19
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ritsu-doan-rm",
@@ -5521,11 +5959,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 20,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 20
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "estevao-rm",
@@ -5534,11 +5973,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 21,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Chelsea",
-   "nationality": "Brazil",
-   "position_rank": 21
+   "club_now": "Chelsea",
+   "nationality": "Brazil"
   },
   {
    "id": "diego-moreira-rm",
@@ -5547,11 +5987,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 22,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "AC Milan",
-   "nationality": "Belgium",
-   "position_rank": 22
+   "club_now": "AC Milan",
+   "nationality": "Belgium"
   },
   {
    "id": "davide-zappacosta-rm",
@@ -5560,11 +6001,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 23,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 23
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "geny-catamo-rm",
@@ -5573,11 +6015,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 24,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "dango-ouattara-rm",
@@ -5586,11 +6029,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 25,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 25
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "rayan-rm",
@@ -5599,11 +6043,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 26,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "amad-rm",
@@ -5612,11 +6057,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 27,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Manchester United",
-   "nationality": "Côte d'Ivoire",
-   "position_rank": 27
+   "club_now": "Manchester United",
+   "nationality": "Côte d'Ivoire"
   },
   {
    "id": "zlatko-tripic-rm",
@@ -5625,11 +6071,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 28,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 28
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "timothy-weah-rm",
@@ -5638,11 +6085,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 29,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "Marseille",
+   "nationality": ""
   },
   {
    "id": "anan-khalaili-rm",
@@ -5651,11 +6099,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 30,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 30
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "sergio-canales-rm",
@@ -5664,11 +6113,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 31,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "roberto-alvarado-rm",
@@ -5677,11 +6127,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 32,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 32
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "franck-honorat-rm",
@@ -5690,11 +6141,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 33,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 33
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "jamie-leweling-rm",
@@ -5703,11 +6155,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 34,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "gelson-martins-rm",
@@ -5716,11 +6169,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 35,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 35
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "nathan-tella-rm",
@@ -5729,11 +6183,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 36,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 36
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "samuel-chukwueze-rm",
@@ -5742,11 +6197,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 37,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "AC Milan",
-   "nationality": "Nigeria",
-   "position_rank": 37
+   "club_now": "AC Milan",
+   "nationality": "Nigeria"
   },
   {
    "id": "edon-zhegrova-rm",
@@ -5755,11 +6211,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 38,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "Juventus",
-   "nationality": "Kosovo",
-   "position_rank": 38
+   "club_now": "Juventus",
+   "nationality": "Kosovo"
   },
   {
    "id": "aitor-ruibal-rm",
@@ -5768,11 +6225,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 39,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "rodinei-rm",
@@ -5781,11 +6239,12 @@
    "alt_positions": "RW",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 40,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "luis-diaz-lm",
@@ -5794,11 +6253,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 1,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "Bayern Munich",
-   "nationality": "Colombia",
-   "position_rank": 1
+   "club_now": "Bayern Munich",
+   "nationality": "Colombia"
   },
   {
    "id": "grimaldo-lm",
@@ -5807,11 +6267,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 2,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Atlético Madrid",
-   "nationality": "Spain",
-   "position_rank": 2
+   "club_now": "Atlético Madrid",
+   "nationality": "Spain"
   },
   {
    "id": "matheus-cunha-lm",
@@ -5820,11 +6281,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 3,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Manchester United",
-   "nationality": "Brazil",
-   "position_rank": 3
+   "club_now": "Manchester United",
+   "nationality": "Brazil"
   },
   {
    "id": "alex-baena-lm",
@@ -5833,11 +6295,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 4,
    "market_value_m": 75,
    "base_price_m": 38,
    "seed_club": "Atlético Madrid",
-   "nationality": "Spain",
-   "position_rank": 4
+   "club_now": "Atlético Madrid",
+   "nationality": "Spain"
   },
   {
    "id": "pedro-goncalves-lm",
@@ -5846,11 +6309,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 5,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 5
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "sadio-mane-lm",
@@ -5859,11 +6323,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 6,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Al-Nassr",
-   "nationality": "Senegal",
-   "position_rank": 6
+   "club_now": "Al-Nassr",
+   "nationality": "Senegal"
   },
   {
    "id": "cody-gakpo-lm",
@@ -5872,11 +6337,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 7,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Liverpool",
-   "nationality": "Netherlands",
-   "position_rank": 7
+   "club_now": "Liverpool",
+   "nationality": "Netherlands"
   },
   {
    "id": "moleiro-lm",
@@ -5885,11 +6351,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 8,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 8
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "jack-grealish-lm",
@@ -5898,11 +6365,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 9,
    "market_value_m": 69,
    "base_price_m": 35,
-   "seed_club": "Manchester City",
-   "nationality": "England",
-   "position_rank": 9
+   "seed_club": "",
+   "club_now": "Everton",
+   "nationality": "England"
   },
   {
    "id": "iliman-ndiaye-lm",
@@ -5911,11 +6379,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 10,
    "market_value_m": 69,
    "base_price_m": 35,
-   "seed_club": "",
-   "nationality": "",
-   "position_rank": 10
+   "seed_club": "Manchester City",
+   "club_now": "Manchester City",
+   "nationality": "Senegal"
   },
   {
    "id": "maximiliano-araujo-lm",
@@ -5924,11 +6393,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 11,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 11
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kaoru-mitoma-lm",
@@ -5937,11 +6407,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 12,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "Brighton and Hove Albion",
-   "nationality": "Japan",
-   "position_rank": 12
+   "club_now": "Brighton and Hove Albion",
+   "nationality": "Japan"
   },
   {
    "id": "galeno-lm",
@@ -5950,11 +6421,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 13,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 13
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "bar-s-alper-y-lmaz-lm",
@@ -5963,11 +6435,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 14,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 14
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "salem-al-dawsari-lm",
@@ -5976,11 +6449,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 15,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 15
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "alex-iwobi-lm",
@@ -5989,11 +6463,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 16,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 16
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "emiliano-buendia-lm",
@@ -6002,11 +6477,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 17,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Aston Villa",
-   "nationality": "Argentina",
-   "position_rank": 17
+   "club_now": "Aston Villa",
+   "nationality": "Argentina"
   },
   {
    "id": "marcus-tavernier-lm",
@@ -6015,11 +6491,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 18,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 18
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "nico-gonzalez-lm",
@@ -6028,11 +6505,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 19,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Juventus",
-   "nationality": "Argentina",
-   "position_rank": 19
+   "club_now": "Juventus",
+   "nationality": "Argentina"
   },
   {
    "id": "victor-munoz-lm",
@@ -6041,11 +6519,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 20,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Liverpool",
-   "nationality": "Spain",
-   "position_rank": 20
+   "club_now": "Liverpool",
+   "nationality": "Spain"
   },
   {
    "id": "noa-lang-lm",
@@ -6054,11 +6533,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 21,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 21
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "igor-paixao-lm",
@@ -6067,11 +6547,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 22,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 22
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kevin-schade-lm",
@@ -6080,11 +6561,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 23,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 23
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "kerem-akturkoglu-lm",
@@ -6093,11 +6575,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 24,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "vincenzo-grifo-lm",
@@ -6106,11 +6589,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 25,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 25
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "daizen-maeda-lm",
@@ -6119,11 +6603,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 26,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "patrick-dorgu-lm",
@@ -6132,11 +6617,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 27,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "Manchester United",
-   "nationality": "Denmark",
-   "position_rank": 27
+   "club_now": "Manchester United",
+   "nationality": "Denmark"
   },
   {
    "id": "nicola-zalewski-lm",
@@ -6145,11 +6631,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 28,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 28
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "afonso-moreira-lm",
@@ -6158,11 +6645,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 29,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "said-el-mala-lm",
@@ -6171,11 +6659,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 30,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 30
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "chris-fuhrich-lm",
@@ -6184,11 +6673,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 31,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "callum-hudson-odoi-lm",
@@ -6197,11 +6687,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 32,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 32
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "georges-kevin-nkoudou-lm",
@@ -6210,11 +6701,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 33,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 33
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "matias-vargas-lm",
@@ -6223,11 +6715,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 34,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mathys-tel-lm",
@@ -6236,11 +6729,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 35,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "France",
-   "position_rank": 35
+   "club_now": "Tottenham Hotspur",
+   "nationality": "France"
   },
   {
    "id": "crysencio-summerville-lm",
@@ -6249,11 +6743,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 36,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 36
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "wilson-odobert-lm",
@@ -6262,11 +6757,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 37,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "Tottenham Hotspur",
-   "nationality": "France",
-   "position_rank": 37
+   "club_now": "Tottenham Hotspur",
+   "nationality": "France"
   },
   {
    "id": "dan-ndoye-lm",
@@ -6275,11 +6771,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 38,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 38
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mousa-al-tamari-lm",
@@ -6288,11 +6785,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 39,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "patrick-wimmer-lm",
@@ -6301,11 +6799,12 @@
    "alt_positions": "LW",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 40,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "lamine-yamal-rw",
@@ -6314,11 +6813,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 90,
+   "position_rank": 1,
    "market_value_m": 124,
    "base_price_m": 62,
    "seed_club": "FC Barcelona",
-   "nationality": "Spain",
-   "position_rank": 1
+   "club_now": "FC Barcelona",
+   "nationality": "Spain"
   },
   {
    "id": "bukayo-saka-rw",
@@ -6327,11 +6827,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 87,
+   "position_rank": 2,
    "market_value_m": 100,
    "base_price_m": 50,
    "seed_club": "Arsenal",
-   "nationality": "England",
-   "position_rank": 2
+   "club_now": "Arsenal",
+   "nationality": "England"
   },
   {
    "id": "desire-doue-rw",
@@ -6340,11 +6841,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 3,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "France",
-   "position_rank": 3
+   "club_now": "Paris Saint-Germain",
+   "nationality": "France"
   },
   {
    "id": "rayan-cherki-rw",
@@ -6353,11 +6855,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 86,
+   "position_rank": 4,
    "market_value_m": 93,
    "base_price_m": 47,
    "seed_club": "Manchester City",
-   "nationality": "France",
-   "position_rank": 4
+   "club_now": "Manchester City",
+   "nationality": "France"
   },
   {
    "id": "antoine-semenyo-rw",
@@ -6366,11 +6869,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 5,
    "market_value_m": 86,
    "base_price_m": 43,
    "seed_club": "Manchester City",
-   "nationality": "Ghana",
-   "position_rank": 5
+   "club_now": "Manchester City",
+   "nationality": "Ghana"
   },
   {
    "id": "yan-diomande-rw",
@@ -6379,11 +6883,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 6,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Real Madrid",
-   "nationality": "Côte d'Ivoire",
-   "position_rank": 6
+   "club_now": "Real Madrid",
+   "nationality": "Côte d'Ivoire"
   },
   {
    "id": "florian-thauvin-rw",
@@ -6392,11 +6897,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 7,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 7
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "domenico-berardi-rw",
@@ -6405,11 +6911,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 8,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 8
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "angel-di-maria-rw",
@@ -6418,11 +6925,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 9,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 9
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "antony-rw",
@@ -6431,11 +6939,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 10,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 10
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "de-frutos-rw",
@@ -6444,11 +6953,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 11,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 11
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ismaila-sarr-rw",
@@ -6457,11 +6967,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 12,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 12
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "nicolas-pepe-rw",
@@ -6470,11 +6981,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 13,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 13
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "harry-wilson-rw",
@@ -6483,11 +6995,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 14,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 14
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "iago-aspas-rw",
@@ -6496,11 +7009,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 15,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 15
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "inaki-williams-rw",
@@ -6509,11 +7023,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 16,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 16
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "noni-madueke-rw",
@@ -6522,11 +7037,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 17,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Arsenal",
-   "nationality": "England",
-   "position_rank": 17
+   "club_now": "Arsenal",
+   "nationality": "England"
   },
   {
    "id": "lee-kang-in-rw",
@@ -6535,11 +7051,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 18,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Atlético Madrid",
-   "nationality": "South Korea",
-   "position_rank": 18
+   "club_now": "Atlético Madrid",
+   "nationality": "South Korea"
   },
   {
    "id": "matteo-politano-rw",
@@ -6548,11 +7065,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 19,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 19
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "dodi-lukebakio-rw",
@@ -6561,11 +7079,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 20,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 20
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "savinho-rw",
@@ -6574,11 +7093,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 21,
    "market_value_m": 60,
    "base_price_m": 30,
-   "seed_club": "Manchester City",
-   "nationality": "Brazil",
-   "position_rank": 21
+   "seed_club": "Tottenham Hotspur",
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Brazil"
   },
   {
    "id": "berenguer-rw",
@@ -6587,11 +7107,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 22,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 22
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "jacob-murphy-rw",
@@ -6600,11 +7121,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 23,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Newcastle United",
-   "nationality": "England",
-   "position_rank": 23
+   "club_now": "Newcastle United",
+   "nationality": "England"
   },
   {
    "id": "anthony-elanga-rw",
@@ -6613,11 +7135,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 24,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "Newcastle United",
-   "nationality": "Sweden",
-   "position_rank": 24
+   "club_now": "Newcastle United",
+   "nationality": "Sweden"
   },
   {
    "id": "anders-dreyer-rw",
@@ -6626,11 +7149,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 25,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 25
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "alejandro-zendejas-rw",
@@ -6639,11 +7163,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 26,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "viktor-tsygankov-rw",
@@ -6652,11 +7177,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 27,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 27
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "evann-guessand-rw",
@@ -6665,11 +7191,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 28,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 28
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "brennan-johnson-rw",
@@ -6678,11 +7205,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 29,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "dennis-man-rw",
@@ -6691,11 +7219,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 30,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 30
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "philip-zinckernagel-rw",
@@ -6704,11 +7233,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 31,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 31
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "andres-martin-rw",
@@ -6717,11 +7247,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 32,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 32
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "pepe-rw",
@@ -6730,11 +7261,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 33,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 33
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "anis-hadj-moussa-rw",
@@ -6743,11 +7275,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 34,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "william-gomes-rw",
@@ -6756,11 +7289,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 35,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 35
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "brenden-aaronson-rw",
@@ -6769,11 +7303,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 36,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 36
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "robert-navarro-rw",
@@ -6782,11 +7317,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 37,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 37
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "diego-lainez-rw",
@@ -6795,11 +7331,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 38,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 38
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "steven-berghuis-rw",
@@ -6808,11 +7345,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 39,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "gustav-isaksen-rw",
@@ -6821,11 +7359,12 @@
    "alt_positions": "RM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 40,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "khvicha-kvaratskhelia-lw",
@@ -6834,11 +7373,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 89,
+   "position_rank": 1,
    "market_value_m": 115,
    "base_price_m": 58,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Georgia",
-   "position_rank": 1
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Georgia"
   },
   {
    "id": "vini-jr-lw",
@@ -6847,11 +7387,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 89,
+   "position_rank": 2,
    "market_value_m": 115,
    "base_price_m": 58,
    "seed_club": "Real Madrid",
-   "nationality": "Brazil",
-   "position_rank": 2
+   "club_now": "Real Madrid",
+   "nationality": "Brazil"
   },
   {
    "id": "raphinha-lw",
@@ -6860,11 +7401,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 88,
+   "position_rank": 3,
    "market_value_m": 107,
    "base_price_m": 54,
    "seed_club": "FC Barcelona",
-   "nationality": "Brazil",
-   "position_rank": 3
+   "club_now": "FC Barcelona",
+   "nationality": "Brazil"
   },
   {
    "id": "bradley-barcola-lw",
@@ -6873,11 +7415,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 85,
+   "position_rank": 4,
    "market_value_m": 86,
    "base_price_m": 43,
-   "seed_club": "Paris Saint-Germain",
-   "nationality": "France",
-   "position_rank": 4
+   "seed_club": "Liverpool",
+   "club_now": "Liverpool",
+   "nationality": "France"
   },
   {
    "id": "jeremy-doku-lw",
@@ -6886,11 +7429,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 5,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Manchester City",
-   "nationality": "Belgium",
-   "position_rank": 5
+   "club_now": "Manchester City",
+   "nationality": "Belgium"
   },
   {
    "id": "nico-williams-lw",
@@ -6899,11 +7443,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 6,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 6
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "rodrygo-lw",
@@ -6912,11 +7457,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 84,
+   "position_rank": 7,
    "market_value_m": 80,
    "base_price_m": 40,
    "seed_club": "Real Madrid",
-   "nationality": "Brazil",
-   "position_rank": 7
+   "club_now": "Real Madrid",
+   "nationality": "Brazil"
   },
   {
    "id": "rafael-leao-lw",
@@ -6925,11 +7471,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 83,
+   "position_rank": 8,
    "market_value_m": 75,
    "base_price_m": 38,
-   "seed_club": "AC Milan",
-   "nationality": "Portugal",
-   "position_rank": 8
+   "seed_club": "",
+   "club_now": "Galatasaray",
+   "nationality": "Portugal"
   },
   {
    "id": "yannick-carrasco-lw",
@@ -6938,11 +7485,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 9,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 9
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "anthony-gordon-lw",
@@ -6951,11 +7499,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 10,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "FC Barcelona",
-   "nationality": "England",
-   "position_rank": 10
+   "club_now": "FC Barcelona",
+   "nationality": "England"
   },
   {
    "id": "mattia-zaccagni-lw",
@@ -6964,11 +7513,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 11,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 11
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "marcus-rashford-lw",
@@ -6977,11 +7527,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 12,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Manchester United",
-   "nationality": "England",
-   "position_rank": 12
+   "club_now": "Manchester United",
+   "nationality": "England"
   },
   {
    "id": "christos-tzolis-lw",
@@ -6990,11 +7541,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 13,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "Arsenal",
-   "nationality": "Greece",
-   "position_rank": 13
+   "club_now": "Arsenal",
+   "nationality": "Greece"
   },
   {
    "id": "omar-marmoush-lw",
@@ -7003,11 +7555,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 14,
    "market_value_m": 69,
    "base_price_m": 35,
-   "seed_club": "Manchester City",
-   "nationality": "Egypt",
-   "position_rank": 14
+   "seed_club": "Tottenham Hotspur",
+   "club_now": "Tottenham Hotspur",
+   "nationality": "Egypt"
   },
   {
    "id": "leandro-trossard-lw",
@@ -7016,11 +7569,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 82,
+   "position_rank": 15,
    "market_value_m": 69,
    "base_price_m": 35,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 15
+   "club_now": "Beşiktaş",
+   "nationality": ""
   },
   {
    "id": "ivan-perisic-lw",
@@ -7029,11 +7583,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 16,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 16
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "abde-lw",
@@ -7042,11 +7597,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 17,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 17
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "david-neres-lw",
@@ -7055,11 +7611,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 18,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 18
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "alvaro-garcia-lw",
@@ -7068,11 +7625,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 81,
+   "position_rank": 19,
    "market_value_m": 65,
    "base_price_m": 33,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 19
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "gabriel-martinelli-lw",
@@ -7081,11 +7639,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 20,
    "market_value_m": 60,
    "base_price_m": 30,
-   "seed_club": "Arsenal",
-   "nationality": "Brazil",
-   "position_rank": 20
+   "seed_club": "",
+   "club_now": "Al-Hilal",
+   "nationality": "Brazil"
   },
   {
    "id": "harvey-barnes-lw",
@@ -7094,11 +7653,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 21,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "Newcastle United",
-   "nationality": "England",
-   "position_rank": 21
+   "club_now": "Newcastle United",
+   "nationality": "England"
   },
   {
    "id": "guedes-lw",
@@ -7107,11 +7667,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 22,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 22
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "andreas-schjelderup-lw",
@@ -7120,11 +7681,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 23,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 23
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "armand-lauriente-lw",
@@ -7133,11 +7695,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 80,
+   "position_rank": 24,
    "market_value_m": 60,
    "base_price_m": 30,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 24
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "denis-bouanga-lw",
@@ -7146,11 +7709,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 25,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 25
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "barrenetxea-lw",
@@ -7159,11 +7723,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 26,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 26
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "lukas-haraslin-lw",
@@ -7172,11 +7737,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 27,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 27
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "yeremy-pino-lw",
@@ -7185,11 +7751,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 79,
+   "position_rank": 28,
    "market_value_m": 56,
    "base_price_m": 28,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 28
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "ruben-vargas-lw",
@@ -7198,11 +7765,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 29,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 29
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "antonio-nusa-lw",
@@ -7211,11 +7779,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 30,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 30
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "mika-godts-lw",
@@ -7224,11 +7793,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 31,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "Paris Saint-Germain",
-   "nationality": "Belgium",
-   "position_rank": 31
+   "club_now": "Paris Saint-Germain",
+   "nationality": "Belgium"
   },
   {
    "id": "musa-barrow-lw",
@@ -7237,11 +7807,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 32,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 32
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "bazoumana-toure-lw",
@@ -7250,11 +7821,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 78,
+   "position_rank": 33,
    "market_value_m": 52,
    "base_price_m": 26,
    "seed_club": "Newcastle United",
-   "nationality": "Côte d'Ivoire",
-   "position_rank": 33
+   "club_now": "Newcastle United",
+   "nationality": "Côte d'Ivoire"
   },
   {
    "id": "puado-lw",
@@ -7263,11 +7835,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 34,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 34
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "noah-okafor-lw",
@@ -7276,11 +7849,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 35,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 35
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "alexis-vega-lw",
@@ -7289,11 +7863,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 36,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 36
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "diego-lopez-lw",
@@ -7302,11 +7877,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 37,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 37
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "yann-gboho-lw",
@@ -7315,11 +7891,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 38,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 38
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "brian-rodriguez-lw",
@@ -7328,11 +7905,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 77,
+   "position_rank": 39,
    "market_value_m": 48,
    "base_price_m": 24,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 39
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "lucas-ocampos-lw",
@@ -7341,11 +7919,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 40,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 40
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "borja-sainz-lw",
@@ -7354,11 +7933,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 41,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 41
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "williot-swedberg-lw",
@@ -7367,11 +7947,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 42,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 42
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "largie-ramazani-lw",
@@ -7380,11 +7961,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 43,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 43
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "jens-petter-hauge-lw",
@@ -7393,11 +7975,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 44,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 44
+   "club_now": "",
+   "nationality": ""
   },
   {
    "id": "chidera-ejuke-lw",
@@ -7406,11 +7989,12 @@
    "alt_positions": "LM",
    "alt_source": "rule",
    "overall": 76,
+   "position_rank": 45,
    "market_value_m": 45,
    "base_price_m": 23,
    "seed_club": "",
-   "nationality": "",
-   "position_rank": 45
+   "club_now": "",
+   "nationality": ""
   }
  ]
 }

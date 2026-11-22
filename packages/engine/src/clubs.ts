@@ -130,37 +130,32 @@ export interface ClubStrength {
   name: string;
   /** Average overall of the best XI. */
   xiAverage: number;
-  /** Average overall of the best 11 players outside the XI (a second XI; reserves fill gaps). */
-  benchAverage: number;
+  /** Players outside the best XI rated DEPTH_MIN_RATING or more (before the cap). */
+  depthCount: number;
   strength: number;
   formation: FormationId;
 }
 
-export const BENCH_SIZE = 11;
-export const BENCH_WEIGHT = 0.175;
+export const DEPTH_MIN_RATING = 70;
+export const DEPTH_BONUS = 0.1;
+export const DEPTH_CAP = 15;
 
 /**
- * Pre-auction squad strength: XI average blended with depth,
- * strength = 0.825 x best XI average + 0.175 x average of the next 11 best players.
- * Calibrated so the 20 clubs rank in the order the spec expects (see DECISIONS.md).
+ * Pre-auction squad strength: XI average plus a depth bonus,
+ * strength = best XI average + 0.1 x min(15, players outside the XI rated 70 or more).
+ * This is the formula behind strength_rating in data/clubs.json and reproduces the spec's
+ * expected order (see DECISIONS.md).
  */
 export function clubStrength(club: ClubSquad, options: XiOptions = {}): ClubStrength {
   const xi = pickBestXi(club.squad, options);
   const inXi = new Set(xi.slots.map((s) => s.player?.id).filter(Boolean));
-  const bench = club.squad
-    .filter((p) => !inXi.has(p.id))
-    .map((p) => p.overall)
-    .sort((a, b) => b - a)
-    .slice(0, BENCH_SIZE);
-  const reserve = options.reserveRating ?? DEFAULT_SIM_PARAMS.reserveRating;
-  while (bench.length < BENCH_SIZE) bench.push(reserve);
-  const benchAverage = bench.reduce((s, v) => s + v, 0) / BENCH_SIZE;
+  const depthCount = club.squad.filter((p) => !inXi.has(p.id) && p.overall >= DEPTH_MIN_RATING).length;
   return {
     clubId: club.id,
     name: club.name,
     xiAverage: xi.average,
-    benchAverage,
-    strength: (1 - BENCH_WEIGHT) * xi.average + BENCH_WEIGHT * benchAverage,
+    depthCount,
+    strength: xi.average + DEPTH_BONUS * Math.min(DEPTH_CAP, depthCount),
     formation: xi.formation,
   };
 }

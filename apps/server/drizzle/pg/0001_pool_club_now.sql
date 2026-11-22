@@ -1,0 +1,1 @@
+ALTER TABLE "pool_players" ADD COLUMN "club_now" text;

@@ -97,6 +97,7 @@ export const poolPlayers = pgTable(
     marketValueM: integer('market_value_m').notNull(),
     basePriceM: integer('base_price_m').notNull(),
     seedClub: text('seed_club').references(() => clubs.id, { onDelete: 'set null' }),
+    clubNow: text('club_now'),
     nationality: text('nationality'),
     isActive: boolean('is_active').notNull().default(true),
   },

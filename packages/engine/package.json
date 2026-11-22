@@ -2,7 +2,7 @@
   "name": "@deadline-day/engine",
   "version": "0.1.0",
   "private": true,
-  "description": "Pure Deadline Day game logic: positions, formations, pool sizing, prices, data validation (more in M1).",
+  "description": "Pure Deadline Day game logic: positions, formations, pool, prices, lineups, auction rules, bots, clubs, fixtures, match and season sim, awards.",
   "type": "module",
   "exports": {
     ".": "./src/index.ts"

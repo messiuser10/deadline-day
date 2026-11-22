@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { clubSquads, pickBestXi, rankClubs, removeBoughtPlayers, selectAiClubs, type SquadPlayer } from '../src';
+import { clubStrength, clubSquads, pickBestXi, rankClubs, removeBoughtPlayers, selectAiClubs, type SquadPlayer } from '../src';
 import { loadDataInput } from './fixtures';
 import { realData } from './helpers';
 
@@ -9,19 +9,19 @@ const squads = clubSquads(data.clubs, data.seedPlayers);
 const EXPECTED_ORDER = [
   'Paris Saint-Germain',
   'Real Madrid',
-  'Arsenal',
   'Bayern Munich',
-  'Manchester City',
   'FC Barcelona',
+  'Arsenal',
+  'Manchester City',
   'Liverpool',
   'Inter Milan',
   'Atlético Madrid',
   'Manchester United',
   'Chelsea',
   'Borussia Dortmund',
-  'AC Milan',
   'Juventus',
   'Tottenham Hotspur',
+  'AC Milan',
   'Aston Villa',
   'Newcastle United',
   'Brighton and Hove Albion',
@@ -34,12 +34,13 @@ describe('club strength', () => {
     expect(rankClubs(squads).map((c) => c.name)).toEqual(EXPECTED_ORDER);
   });
 
-  it('finds the same best XI average and formation as the supplied club data', () => {
-    const raw = loadDataInput().clubs as { name: string; best_formation: string; best_xi_average: number }[];
+  it('finds the same best XI average, formation and strength as the supplied club data', () => {
+    const raw = loadDataInput().clubs as { name: string; best_formation: string; best_xi_average: number; strength_rating: number }[];
     for (const club of squads) {
       const xi = pickBestXi(club.squad);
       const ref = raw.find((c) => c.name === club.name)!;
       expect(xi.average, club.name).toBeCloseTo(ref.best_xi_average, 2);
+      expect(clubStrength(club).strength, club.name).toBeCloseTo(ref.strength_rating, 2);
       expect(xi.formation, club.name).toBe(ref.best_formation);
       expect(xi.outOfPositionCount).toBe(0);
       expect(xi.reserveCount).toBe(0);

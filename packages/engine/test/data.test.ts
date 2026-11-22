@@ -21,15 +21,15 @@ describe('supplied data', () => {
   it('passes validation with no errors', () => {
     const report = validateData(data);
     expect(report.errors).toEqual([]);
-    expect(report.masterCount).toBe(570);
+    expect(report.masterCount).toBe(571);
     expect(report.clubCount).toBe(20);
-    expect(report.seedPlayerCount).toBe(618);
+    expect(report.seedPlayerCount).toBe(609);
     expect(report.masterByGroup).toEqual({
-      GK: 45, CB: 60, RB: 45, LB: 45, CDM: 50, CM: 60, CAM: 50, ST: 50, RM: 40, LM: 40, RW: 40, LW: 45,
+      GK: 45, CB: 60, RB: 45, LB: 45, CDM: 51, CM: 60, CAM: 50, ST: 50, RM: 40, LM: 40, RW: 40, LW: 45,
     });
   });
 
-  it('resolves all 265 seed_club players to exactly one AI squad player', () => {
+  it('resolves all 264 seed_club players to exactly one AI squad player', () => {
     const master = parseMasterRows(data.masterCsv).rows;
     const seed = parseSeedPlayers(data.seedPlayers).rows;
     const linked = master.filter((p) => p.seedClub !== null);
@@ -54,7 +54,7 @@ describe('validation catches broken data', () => {
   const firstError = (input: DataInput) => validateData(input).errors.join('\n');
 
   it('a wrong row count', () => {
-    expect(firstError({ ...data, masterCsv: data.masterCsv.slice(1), masterJson: undefined })).toMatch(/expected 570 rows, found 569/);
+    expect(firstError({ ...data, masterCsv: data.masterCsv.slice(1), masterJson: undefined })).toMatch(/expected 571 rows, found 570/);
   });
 
   it('a duplicate id', () => {

@@ -102,6 +102,8 @@ export const poolPlayers = sqliteTable(
     basePriceM: integer('base_price_m').notNull(),
     /** Club id (clubs.id) when the player is in one of the 20 AI squads. */
     seedClub: text('seed_club').references(() => clubs.id, { onDelete: 'set null' }),
+    /** The player's real club as of the data date (any club, not only the 20). Display only. */
+    clubNow: text('club_now'),
     nationality: text('nationality'),
     isActive: bool('is_active').notNull().default(true),
   },

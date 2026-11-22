@@ -1,571 +1,572 @@
-﻿id,name,position,alt_positions,alt_source,overall,position_rank,market_value_m,base_price_m,seed_club,nationality
-thibaut-courtois-gk,Thibaut Courtois,GK,,rule,90,1,124,62,Real Madrid,Belgium
-gianluigi-donnarumma-gk,Gianluigi Donnarumma,GK,,rule,89,2,115,58,Manchester City,Italy
-david-raya-gk,David Raya,GK,,rule,88,3,107,54,Arsenal,Spain
-jan-oblak-gk,Jan Oblak,GK,,rule,88,4,107,54,Atlético Madrid,Slovenia
-mike-maignan-gk,Mike Maignan,GK,,rule,87,5,100,50,AC Milan,France
-alisson-gk,Alisson,GK,,rule,87,6,100,50,Liverpool,Brazil
-gregor-kobel-gk,Gregor Kobel,GK,,rule,87,7,100,50,Borussia Dortmund,Switzerland
-joan-garcia-gk,Joan García,GK,,rule,86,8,93,47,FC Barcelona,Spain
-diogo-costa-gk,Diogo Costa,GK,,rule,86,9,93,47,,
-marco-carnesecchi-gk,Marco Carnesecchi,GK,,rule,86,10,93,47,,
-jordan-pickford-gk,Jordan Pickford,GK,,rule,85,11,86,43,,
-mile-svilar-gk,Mile Svilar,GK,,rule,85,12,86,43,,
-emiliano-martinez-gk,Emiliano Martínez,GK,,rule,85,13,86,43,Aston Villa,Argentina
-unai-simon-gk,Unai Simón,GK,,rule,85,14,86,43,,
-yann-sommer-gk,Yann Sommer,GK,,rule,84,15,80,40,,
-oliver-baumann-gk,Oliver Baumann,GK,,rule,84,16,80,40,,
-wladimiro-falcone-gk,Wladimiro Falcone,GK,,rule,84,17,80,40,,
-matvey-safonov-gk,Matvey Safonov,GK,,rule,83,18,75,38,Paris Saint-Germain,Russia
-ivan-provedel-gk,Ivan Provedel,GK,,rule,83,19,75,38,Inter Milan,Italy
-de-gea-gk,De Gea,GK,,rule,83,20,75,38,,
-giorgi-mamardashvili-gk,Giorgi Mamardashvili,GK,,rule,83,21,75,38,Liverpool,Georgia
-ederson-gk,Ederson,GK,,rule,82,22,69,35,,
-dean-henderson-gk,Dean Henderson,GK,,rule,82,23,69,35,,
-marc-andre-ter-stegen-gk,Marc-André ter Stegen,GK,,rule,82,24,69,35,,
-senne-lammens-gk,Senne Lammens,GK,,rule,82,25,69,35,Manchester United,Belgium
-koen-casteels-gk,Koen Casteels,GK,,rule,82,26,69,35,,
-juan-musso-gk,Juan Musso,GK,,rule,82,27,69,35,Atlético Madrid,Argentina
-yassine-bounou-gk,Yassine Bounou,GK,,rule,82,28,69,35,,
-peter-gulacsi-gk,Péter Gulácsi,GK,,rule,82,29,69,35,,
-brice-samba-gk,Brice Samba,GK,,rule,81,30,65,33,,
-robin-roefs-gk,Robin Roefs,GK,,rule,81,31,65,33,,
-bart-verbruggen-gk,Bart Verbruggen,GK,,rule,81,32,65,33,Brighton and Hove Albion,Netherlands
-kamil-grabara-gk,Kamil Grabara,GK,,rule,81,33,65,33,,
-matz-sels-gk,Matz Sels,GK,,rule,81,34,65,33,,
-alex-remiro-gk,Álex Remiro,GK,,rule,81,35,65,33,,
-robin-risser-gk,Robin Risser,GK,,rule,81,36,65,33,,
-alex-meret-gk,Alex Meret,GK,,rule,81,37,65,33,,
-manuel-neuer-gk,Manuel Neuer,GK,,rule,81,38,65,33,Bayern Munich,Germany
-rui-silva-gk,Rui Silva,GK,,rule,81,39,65,33,,
-edouard-mendy-gk,Édouard Mendy,GK,,rule,81,40,65,33,,
-wojciech-szczesny-gk,Wojciech Szczęsny,GK,,rule,81,41,65,33,FC Barcelona,Poland
-dominik-greif-gk,Dominik Greif,GK,,rule,81,42,65,33,,
-michele-di-gregorio-gk,Michele Di Gregorio,GK,,rule,80,43,60,30,Juventus,Italy
-ugurcan-cak-r-gk,Uğurcan Çakır,GK,,rule,80,44,60,30,,
-geronimo-rulli-gk,Gerónimo Rulli,GK,,rule,80,45,60,30,Manchester City,Argentina
-gabriel-cb,Gabriel,CB,,rule,89,1,115,58,Arsenal,Brazil
-willian-pacho-cb,Willian Pacho,CB,,rule,89,2,115,58,Paris Saint-Germain,Ecuador
-william-saliba-cb,William Saliba,CB,,rule,88,3,107,54,Arsenal,France
-virgil-van-dijk-cb,Virgil van Dijk,CB,,rule,88,4,107,54,Liverpool,Netherlands
-dayot-upamecano-cb,Dayot Upamecano,CB,,rule,87,5,100,50,Bayern Munich,France
-marquinhos-cb,Marquinhos,CB,,rule,87,6,100,50,Paris Saint-Germain,Brazil
-nico-schlotterbeck-cb,Nico Schlotterbeck,CB,,rule,87,7,100,50,Borussia Dortmund,Germany
-ruben-dias-cb,Rúben Dias,CB,,rule,87,8,100,50,Manchester City,Portugal
-jonathan-tah-cb,Jonathan Tah,CB,,rule,87,9,100,50,Bayern Munich,Germany
-pau-cubarsi-cb,Pau Cubarsí,CB,,rule,86,10,93,47,FC Barcelona,Spain
-bremer-cb,Bremer,CB,,rule,86,11,93,47,Juventus,Brazil
-alessandro-bastoni-cb,Alessandro Bastoni,CB,,rule,86,12,93,47,Inter Milan,Italy
-josko-gvardiol-cb,Joško Gvardiol,CB,,rule,85,13,86,43,Manchester City,Croatia
-eric-garcia-cb,Eric García,CB,,rule,85,14,86,43,FC Barcelona,Spain
-marc-guehi-cb,Marc Guéhi,CB,,rule,85,15,86,43,Manchester City,England
-eder-militao-cb,Éder Militão,CB,,rule,84,16,80,40,Real Madrid,Brazil
-ezri-konsa-cb,Ezri Konsa,CB,,rule,84,17,80,40,Arsenal,England
-waldemar-anton-cb,Waldemar Anton,CB,,rule,84,18,80,40,Borussia Dortmund,Germany
-aymeric-laporte-cb,Aymeric Laporte,CB,,rule,84,19,80,40,,
-gianluca-mancini-cb,Gianluca Mancini,CB,,rule,84,20,80,40,,
-ibrahima-konate-cb,Ibrahima Konaté,CB,,rule,84,21,80,40,Real Madrid,France
-david-hancko-cb,Dávid Hancko,CB,,rule,83,22,75,38,Atlético Madrid,Slovakia
-antonio-rudiger-cb,Antonio Rüdiger,CB,,rule,83,23,75,38,Real Madrid,Germany
-evan-ndicka-cb,Evan Ndicka,CB,,rule,83,24,75,38,,
-manuel-akanji-cb,Manuel Akanji,CB,,rule,83,25,75,38,Inter Milan,Switzerland
-ibanez-cb,Ibañez,CB,,rule,83,26,75,38,,
-inigo-martinez-cb,Iñigo Martínez,CB,,rule,83,27,75,38,Al-Nassr,Spain
-amir-rrahmani-cb,Amir Rrahmani,CB,,rule,83,28,75,38,,
-matthias-ginter-cb,Matthias Ginter,CB,,rule,83,29,75,38,,
-kim-min-jae-cb,Kim Min Jae,CB,,rule,83,30,75,38,Bayern Munich,South Korea
-willi-orban-cb,Willi Orbán,CB,,rule,83,31,75,38,,
-edmond-tapsoba-cb,Edmond Tapsoba,CB,,rule,82,32,69,35,,
-murillo-cb,Murillo,CB,,rule,82,33,69,35,,
-lisandro-martinez-cb,Lisandro Martínez,CB,,rule,82,34,69,35,Manchester United,Argentina
-maxence-lacroix-cb,Maxence Lacroix,CB,,rule,82,35,69,35,Chelsea,France
-mohamed-simakan-cb,Mohamed Simakan,CB,,rule,82,36,69,35,Al-Nassr,France
-abdukodir-khusanov-cb,Abdukodir Khusanov,CB,,rule,82,37,69,35,Manchester City,Uzbekistan
-jakub-kiwior-cb,Jakub Kiwior,CB,,rule,82,38,69,35,,
-danilo-pereira-cb,Danilo Pereira,CB,,rule,82,39,69,35,,
-vivian-cb,Vivian,CB,,rule,82,40,69,35,,
-matthijs-de-ligt-cb,Matthijs de Ligt,CB,,rule,82,41,69,35,Manchester United,Netherlands
-john-stones-cb,John Stones,CB,,rule,82,42,69,35,Inter Milan,England
-kalidou-koulibaly-cb,Kalidou Koulibaly,CB,,rule,82,43,69,35,,
-marcos-senesi-cb,Marcos Senesi,CB,,rule,82,44,69,35,Tottenham Hotspur,Argentina
-stefan-de-vrij-cb,Stefan de Vrij,CB,,rule,82,45,69,35,,
-cristian-romero-cb,Cristian Romero,CB,,rule,82,46,69,35,Atlético Madrid,Argentina
-jose-maria-gimenez-cb,José María Giménez,CB,,rule,82,47,69,35,Atlético Madrid,Uruguay
-harry-maguire-cb,Harry Maguire,CB,,rule,82,48,69,35,Manchester United,England
-jan-bednarek-cb,Jan Bednarek,CB,,rule,82,49,69,35,,
-emre-can-cb,Emre Can,CB,,rule,81,50,65,33,Borussia Dortmund,Germany
-micky-van-de-ven-cb,Micky van de Ven,CB,,rule,81,51,65,33,Tottenham Hotspur,Netherlands
-pubill-cb,Pubill,CB,,rule,81,52,65,33,Atlético Madrid,Spain
-mario-gila-cb,Mario Gila,CB,,rule,81,53,65,33,AC Milan,Spain
-pierre-kalulu-cb,Pierre Kalulu,CB,,rule,81,54,65,33,Juventus,France
-dean-huijsen-cb,Dean Huijsen,CB,,rule,81,55,65,33,Real Madrid,Spain
-fabian-schar-cb,Fabian Schär,CB,,rule,81,56,65,33,Newcastle United,Switzerland
-castello-lukeba-cb,Castello Lukeba,CB,,rule,81,57,65,33,,
-lucas-hernandez-cb,Lucas Hernández,CB,,rule,81,58,65,33,Paris Saint-Germain,France
-mario-hermoso-cb,Mario Hermoso,CB,,rule,81,59,65,33,,
-malick-thiaw-cb,Malick Thiaw,CB,,rule,81,60,65,33,Newcastle United,Germany
-achraf-hakimi-rb,Achraf Hakimi,RB,,rule,88,1,107,54,Paris Saint-Germain,Morocco
-konrad-laimer-rb,Konrad Laimer,RB,,rule,85,2,86,43,Bayern Munich,Austria
-marcos-llorente-rb,Marcos Llorente,RB,,rule,85,3,86,43,Atlético Madrid,Spain
-jules-kounde-rb,Jules Koundé,RB,,rule,85,4,86,43,FC Barcelona,France
-reece-james-rb,Reece James,RB,,rule,84,5,80,40,Chelsea,England
-trent-alexander-arnold-rb,Trent Alexander-Arnold,RB,,rule,84,6,80,40,Real Madrid,England
-jurrien-timber-rb,Jurriën Timber,RB,,rule,84,7,80,40,Arsenal,Netherlands
-denzel-dumfries-rb,Denzel Dumfries,RB,,rule,83,8,75,38,Real Madrid,Netherlands
-matheus-nunes-rb,Matheus Nunes,RB,,rule,83,9,75,38,Manchester City,Portugal
-pedro-porro-rb,Pedro Porro,RB,,rule,83,10,75,38,Tottenham Hotspur,Spain
-giovanni-di-lorenzo-rb,Giovanni Di Lorenzo,RB,,rule,82,11,69,35,,
-daniel-munoz-rb,Daniel Muñoz,RB,,rule,82,12,69,35,,
-julian-ryerson-rb,Julian Ryerson,RB,,rule,82,13,69,35,Borussia Dortmund,Norway
-jeremie-frimpong-rb,Jeremie Frimpong,RB,,rule,81,14,65,33,Liverpool,Netherlands
-matty-cash-rb,Matty Cash,RB,,rule,81,15,65,33,Aston Villa,Poland
-tino-livramento-rb,Tino Livramento,RB,,rule,81,16,65,33,Newcastle United,England
-michael-kayode-rb,Michael Kayode,RB,,rule,81,17,65,33,,
-nordi-mukiele-rb,Nordi Mukiele,RB,,rule,81,18,65,33,,
-benjamin-white-rb,Benjamin White,RB,,rule,81,19,65,33,Arsenal,England
-andrei-ratiu-rb,Andrei Rațiu,RB,,rule,80,20,60,30,,
-mingueza-rb,Mingueza,RB,,rule,80,21,60,30,,
-noussair-mazraoui-rb,Noussair Mazraoui,RB,,rule,80,22,60,30,Manchester United,Morocco
-alexis-saelemaekers-rb,Alexis Saelemaekers,RB,,rule,80,23,60,30,AC Milan,Belgium
-vladimir-coufal-rb,Vladimír Coufal,RB,,rule,80,24,60,30,,
-josip-stanisic-rb,Josip Stanišić,RB,,rule,80,25,60,30,Bayern Munich,Croatia
-ridle-baku-rb,Ridle Baku,RB,,rule,79,26,56,28,,
-sergino-dest-rb,Sergiño Dest,RB,,rule,79,27,56,28,,
-ola-aina-rb,Ola Aina,RB,,rule,79,28,56,28,,
-mats-wieffer-rb,Mats Wieffer,RB,,rule,79,29,56,28,Brighton and Hove Albion,Netherlands
-malo-gusto-rb,Malo Gusto,RB,,rule,79,30,56,28,Chelsea,France
-rasmus-kristensen-rb,Rasmus Kristensen,RB,,rule,79,31,56,28,,
-conor-bradley-rb,Conor Bradley,RB,,rule,79,32,56,28,Liverpool,Northern Ireland
-zeki-celik-rb,Zeki Çelik,RB,,rule,79,33,56,28,Juventus,Turkey
-alex-jimenez-rb,Álex Jiménez,RB,,rule,79,34,56,28,,
-marco-palestra-rb,Marco Palestra,RB,,rule,78,35,52,26,Chelsea,Italy
-alexander-bah-rb,Alexander Bah,RB,,rule,78,36,52,26,,
-roland-sallai-rb,Roland Sallai,RB,,rule,78,37,52,26,,
-diogo-dalot-rb,Diogo Dalot,RB,,rule,78,38,52,26,Manchester United,Portugal
-valentin-rosier-rb,Valentin Rosier,RB,,rule,78,39,52,26,,
-alistair-johnston-rb,Alistair Johnston,RB,,rule,78,40,52,26,,
-alberto-costa-rb,Alberto Costa,RB,,rule,78,41,52,26,,
-zakaria-el-ouahdi-rb,Zakaria El Ouahdi,RB,,rule,78,42,52,26,,
-adam-marusic-rb,Adam Marušić,RB,,rule,78,43,52,26,,
-thomas-meunier-rb,Thomas Meunier,RB,,rule,78,44,52,26,,
-raoul-bellanova-rb,Raoul Bellanova,RB,,rule,78,45,52,26,,
-nuno-mendes-lb,Nuno Mendes,LB,,rule,89,1,115,58,Paris Saint-Germain,Portugal
-cucurella-lb,Cucurella,LB,,rule,86,2,93,47,Real Madrid,Spain
-federico-dimarco-lb,Federico Dimarco,LB,,rule,86,3,93,47,Inter Milan,Italy
-piero-hincapie-lb,Piero Hincapié,LB,,rule,84,4,80,40,Arsenal,Ecuador
-joao-cancelo-lb,João Cancelo,LB,,rule,83,5,75,38,FC Barcelona,Portugal
-nico-o-reilly-lb,Nico O'Reilly,LB,,rule,83,6,75,38,Manchester City,England
-david-raum-lb,David Raum,LB,,rule,83,7,75,38,,
-lewis-hall-lb,Lewis Hall,LB,,rule,83,8,75,38,Newcastle United,England
-maximilian-mittelstadt-lb,Maximilian Mittelstädt,LB,,rule,83,9,75,38,,
-theo-hernandez-lb,Theo Hernández,LB,,rule,82,10,69,35,,
-alphonso-davies-lb,Alphonso Davies,LB,,rule,82,11,69,35,Bayern Munich,Canada
-riccardo-calafiori-lb,Riccardo Calafiori,LB,,rule,82,12,69,35,Arsenal,Italy
-balde-lb,Balde,LB,,rule,82,13,69,35,FC Barcelona,Spain
-alvaro-carreras-lb,Álvaro Carreras,LB,,rule,81,14,65,33,Real Madrid,Spain
-milos-kerkez-lb,Milos Kerkez,LB,,rule,81,15,65,33,Liverpool,Hungary
-matthieu-udol-lb,Matthieu Udol,LB,,rule,81,16,65,33,,
-mauro-junior-lb,Mauro Júnior,LB,,rule,81,17,65,33,,
-rayan-ait-nouri-lb,Rayan Aït-Nouri,LB,,rule,81,18,65,33,Manchester City,Algeria
-nathaniel-brown-lb,Nathaniel Brown,LB,,rule,81,19,65,33,Bayern Munich,Germany
-carlos-romero-lb,Carlos Romero,LB,,rule,80,20,60,30,,
-wesley-lb,Wesley,LB,,rule,80,21,60,30,,
-carlos-augusto-lb,Carlos Augusto,LB,,rule,80,22,60,30,Inter Milan,Brazil
-andrea-cambiaso-lb,Andrea Cambiaso,LB,,rule,80,23,60,30,Juventus,Italy
-miguel-gutierrez-lb,Miguel Gutiérrez,LB,,rule,80,24,60,30,,
-leonardo-spinazzola-lb,Leonardo Spinazzola,LB,,rule,80,25,60,30,,
-ferland-mendy-lb,Ferland Mendy,LB,,rule,80,26,60,30,Real Madrid,France
-antonee-robinson-lb,Antonee Robinson,LB,,rule,80,27,60,30,,
-ferdi-kad-oglu-lb,Ferdi Kadıoğlu,LB,,rule,80,28,60,30,Brighton and Hove Albion,Turkey
-djed-spence-lb,Djed Spence,LB,,rule,80,29,60,30,Inter Milan,England
-lucas-digne-lb,Lucas Digne,LB,,rule,80,30,60,30,Paris Saint-Germain,France
-andrew-robertson-lb,Andrew Robertson,LB,,rule,80,31,60,30,Tottenham Hotspur,Scotland
-adrien-truffert-lb,Adrien Truffert,LB,,rule,80,32,60,30,,
-reinildo-lb,Reinildo,LB,,rule,80,33,60,30,,
-neco-williams-lb,Neco Williams,LB,,rule,80,34,60,30,,
-pep-chavarria-lb,Pep Chavarría,LB,,rule,79,35,56,28,Chelsea,Spain
-destiny-udogie-lb,Destiny Udogie,LB,,rule,79,36,56,28,Tottenham Hotspur,Italy
-yuri-berchiche-lb,Yuri Berchiche,LB,,rule,79,37,56,28,,
-ian-maatsen-lb,Ian Maatsen,LB,,rule,79,38,56,28,Aston Villa,Netherlands
-sergi-cardona-lb,Sergi Cardona,LB,,rule,79,39,56,28,,
-daniel-svensson-lb,Daniel Svensson,LB,,rule,79,40,56,28,Borussia Dortmund,Sweden
-luke-shaw-lb,Luke Shaw,LB,,rule,79,41,56,28,Manchester United,England
-tyrick-mitchell-lb,Tyrick Mitchell,LB,,rule,79,42,56,28,,
-sergio-gomez-lb,Sergio Gómez,LB,,rule,78,43,52,26,,
-maxim-de-cuyper-lb,Maxim De Cuyper,LB,,rule,78,44,52,26,Brighton and Hove Albion,Belgium
-gabriel-gudmundsson-lb,Gabriel Gudmundsson,LB,,rule,78,45,52,26,,
-rodri-cdm,Rodri,CDM,CM,rule,90,1,124,62,FC Barcelona,Spain
-joshua-kimmich-cdm,Joshua Kimmich,CDM,CM,rule,88,2,107,54,Bayern Munich,Germany
-declan-rice-cdm,Declan Rice,CDM,CM,rule,88,3,107,54,Arsenal,England
-moises-caicedo-cdm,Moisés Caicedo,CDM,CM,rule,86,4,93,47,Chelsea,Ecuador
-sandro-tonali-cdm,Sandro Tonali,CDM,CM,rule,85,5,86,43,Tottenham Hotspur,Italy
-ryan-gravenberch-cdm,Ryan Gravenberch,CDM,CM,rule,85,6,86,43,Liverpool,Netherlands
-hakan-calhanoglu-cdm,Hakan Çalhanoğlu,CDM,CM,rule,85,7,86,43,Inter Milan,Turkey
-ruben-neves-cdm,Rúben Neves,CDM,CM,rule,85,8,86,43,,
-granit-xhaka-cdm,Granit Xhaka,CDM,CM,rule,85,9,86,43,,
-aurelien-tchouameni-cdm,Aurélien Tchouaméni,CDM,CM,rule,84,10,80,40,Real Madrid,France
-elliot-anderson-cdm,Elliot Anderson,CDM,CM,rule,84,11,80,40,Manchester City,England
-zubimendi-cdm,Zubimendi,CDM,CM,rule,84,12,80,40,Arsenal,Spain
-manuel-locatelli-cdm,Manuel Locatelli,CDM,CM,rule,84,13,80,40,Juventus,Italy
-boubacar-kamara-cdm,Boubacar Kamara,CDM,CM,rule,84,14,80,40,Aston Villa,France
-morten-hjulmand-cdm,Morten Hjulmand,CDM,CM,rule,83,15,75,38,Atlético Madrid,Denmark
-aleksandar-pavlovic-cdm,Aleksandar Pavlović,CDM,CM,rule,83,16,75,38,Bayern Munich,Germany
-n-golo-kante-cdm,N'Golo Kanté,CDM,CM,rule,83,17,75,38,,
-angelo-stiller-cdm,Angelo Stiller,CDM,CM,rule,83,18,75,38,,
-casemiro-cdm,Casemiro,CDM,CM,rule,83,19,75,38,Inter Miami,Brazil
-james-garner-cdm,James Garner,CDM,CM,rule,82,20,69,35,,
-fabinho-cdm,Fabinho,CDM,CM,rule,82,21,69,35,,
-palhinha-cdm,Palhinha,CDM,CM,rule,82,22,69,35,Bayern Munich,Portugal
-denis-zakaria-cdm,Denis Zakaria,CDM,CM,rule,81,23,65,33,,
-matteo-guendouzi-cdm,Mattéo Guendouzi,CDM,CM,rule,81,24,65,33,,
-amadou-onana-cdm,Amadou Onana,CDM,CM,rule,81,25,65,33,Aston Villa,Belgium
-lucas-torreira-cdm,Lucas Torreira,CDM,CM,rule,81,26,65,33,,
-nicolas-seiwald-cdm,Nicolas Seiwald,CDM,CM,rule,81,27,65,33,,
-kobbie-mainoo-cdm,Kobbie Mainoo,CDM,CM,rule,81,28,65,33,Manchester United,England
-kaishu-sano-cdm,Kaishū Sano,CDM,CM,rule,81,29,65,33,,
-nico-gonzalez-cdm,Nico González,CDM,CM,rule,81,30,65,33,Manchester City,Spain
-remo-freuler-cdm,Remo Freuler,CDM,CM,rule,81,31,65,33,,
-carlos-baleba-cdm,Carlos Baleba,CDM,CM,rule,80,32,60,30,Brighton and Hove Albion,Cameroon
-noah-sadiki-cdm,Noah Sadiki,CDM,CM,rule,80,33,60,30,,
-johnny-cardoso-cdm,Johnny Cardoso,CDM,CM,rule,80,34,60,30,Atlético Madrid,United States
-alan-varela-cdm,Alan Varela,CDM,CM,rule,80,35,60,30,,
-ayyoub-bouaddi-cdm,Ayyoub Bouaddi,CDM,CM,rule,80,36,60,30,,
-valentin-rongier-cdm,Valentin Rongier,CDM,CM,rule,80,37,60,30,,
-benjamin-andre-cdm,Benjamin André,CDM,CM,rule,80,38,60,30,,
-ethan-ampadu-cdm,Ethan Ampadu,CDM,CM,rule,80,39,60,30,,
-pierre-emile-h-jbjerg-cdm,Pierre-Emile Højbjerg,CDM,CM,rule,80,40,60,30,,
-sofyan-amrabat-cdm,Sofyan Amrabat,CDM,CM,rule,79,41,56,28,,
-patrick-berg-cdm,Patrick Berg,CDM,CM,rule,79,42,56,28,,
-maximilian-arnold-cdm,Maximilian Arnold,CDM,CM,rule,79,43,56,28,,
-nicolas-raskin-cdm,Nicolas Raskin,CDM,CM,rule,79,44,56,28,,
-tyler-adams-cdm,Tyler Adams,CDM,CM,rule,79,45,56,28,,
-yasin-ayari-cdm,Yasin Ayari,CDM,CM,rule,79,46,56,28,Brighton and Hove Albion,Sweden
-tyler-morton-cdm,Tyler Morton,CDM,CM,rule,79,47,56,28,,
-leon-avdullahu-cdm,Leon Avdullahu,CDM,CM,rule,79,48,56,28,,
-bryan-heynen-cdm,Bryan Heynen,CDM,CM,rule,79,49,56,28,,
-santiago-hezze-cdm,Santiago Hezze,CDM,CM,rule,79,50,56,28,,
-pedri-cm,Pedri,CM,CDM|CAM,rule,90,1,124,62,FC Barcelona,Spain
-vitinha-cm,Vitinha,CM,CDM|CAM,rule,90,2,124,62,Paris Saint-Germain,Portugal
-joao-neves-cm,João Neves,CM,CDM|CAM,rule,88,3,107,54,Paris Saint-Germain,Portugal
-federico-valverde-cm,Federico Valverde,CM,CDM|CAM,rule,87,4,100,50,Real Madrid,Uruguay
-nicolo-barella-cm,Nicolò Barella,CM,CDM|CAM,rule,87,5,100,50,Inter Milan,Italy
-fabian-ruiz-cm,Fabián Ruiz,CM,CDM|CAM,rule,86,6,93,47,Paris Saint-Germain,Spain
-scott-mctominay-cm,Scott McTominay,CM,CDM|CAM,rule,86,7,93,47,,
-bruno-guimaraes-cm,Bruno Guimarães,CM,CDM|CAM,rule,86,8,93,47,Arsenal,Brazil
-enzo-fernandez-cm,Enzo Fernández,CM,CDM|CAM,rule,86,9,93,47,Chelsea,Argentina
-martin-degaard-cm,Martin Ødegaard,CM,CDM|CAM,rule,86,10,93,47,Arsenal,Norway
-frenkie-de-jong-cm,Frenkie de Jong,CM,CDM|CAM,rule,86,11,93,47,FC Barcelona,Netherlands
-felix-nmecha-cm,Felix Nmecha,CM,CDM|CAM,rule,85,12,86,43,Borussia Dortmund,Germany
-adrien-rabiot-cm,Adrien Rabiot,CM,CDM|CAM,rule,85,13,86,43,AC Milan,France
-luka-modric-cm,Luka Modrić,CM,CDM|CAM,rule,85,14,86,43,AC Milan,Croatia
-youri-tielemans-cm,Youri Tielemans,CM,CDM|CAM,rule,85,15,86,43,Manchester United,Belgium
-sergej-milinkovic-savic-cm,Sergej Milinković-Savić,CM,CDM|CAM,rule,84,16,80,40,,
-aleix-garcia-cm,Aleix García,CM,CDM|CAM,rule,84,17,80,40,,
-tijjani-reijnders-cm,Tijjani Reijnders,CM,CDM|CAM,rule,84,18,80,40,,
-alexis-mac-allister-cm,Alexis Mac Allister,CM,CDM|CAM,rule,84,19,80,40,Liverpool,Argentina
-bernardo-silva-cm,Bernardo Silva,CM,CDM|CAM,rule,84,20,80,40,Real Madrid,Portugal
-rodrigo-de-paul-cm,Rodrigo De Paul,CM,CDM|CAM,rule,83,21,75,38,Inter Miami,Argentina
-warren-zaire-emery-cm,Warren Zaïre-Emery,CM,CDM|CAM,rule,83,22,75,38,Paris Saint-Germain,France
-pablo-barrios-cm,Pablo Barrios,CM,CDM|CAM,rule,83,23,75,38,Atlético Madrid,Spain
-exequiel-palacios-cm,Exequiel Palacios,CM,CDM|CAM,rule,83,24,75,38,,
-mikel-merino-cm,Mikel Merino,CM,CDM|CAM,rule,83,25,75,38,Arsenal,Spain
-gavi-cm,Gavi,CM,CDM|CAM,rule,83,26,75,38,FC Barcelona,Spain
-stanislav-lobotka-cm,Stanislav Lobotka,CM,CDM|CAM,rule,83,27,75,38,,
-ederson-cm,Éderson,CM,CDM|CAM,rule,82,28,69,35,,
-victor-froholdt-cm,Victor Froholdt,CM,CDM|CAM,rule,82,29,69,35,,
-andre-franck-zambo-anguissa-cm,André-Franck Zambo Anguissa,CM,CDM|CAM,rule,82,30,69,35,,
-orkun-kokcu-cm,Orkun Kökçü,CM,CDM|CAM,rule,82,31,69,35,,
-corentin-tolisso-cm,Corentin Tolisso,CM,CDM|CAM,rule,82,32,69,35,,
-piotr-zielinski-cm,Piotr Zieliński,CM,CDM|CAM,rule,82,33,69,35,Inter Milan,Poland
-adam-wharton-cm,Adam Wharton,CM,CDM|CAM,rule,82,34,69,35,,
-james-maddison-cm,James Maddison,CM,CDM|CAM,rule,82,35,69,35,Tottenham Hotspur,England
-joey-veerman-cm,Joey Veerman,CM,CDM|CAM,rule,82,36,69,35,Borussia Dortmund,Netherlands
-khephren-thuram-cm,Khéphren Thuram,CM,CDM|CAM,rule,81,37,65,33,Juventus,France
-marcel-sabitzer-cm,Marcel Sabitzer,CM,CDM|CAM,rule,81,38,65,33,Borussia Dortmund,Austria
-kouadio-manu-kone-cm,Kouadio Manu Koné,CM,CDM|CAM,rule,81,39,65,33,,
-eduardo-camavinga-cm,Eduardo Camavinga,CM,CDM|CAM,rule,81,40,65,33,Real Madrid,France
-fredrik-aursnes-cm,Fredrik Aursnes,CM,CDM|CAM,rule,81,41,65,33,,
-leandro-paredes-cm,Leandro Paredes,CM,CDM|CAM,rule,81,42,65,33,,
-luis-milla-cm,Luis Milla,CM,CDM|CAM,rule,81,43,65,33,,
-mamadou-sangare-cm,Mamadou Sangaré,CM,CDM|CAM,rule,81,44,65,33,,
-henrikh-mkhitaryan-cm,Henrikh Mkhitaryan,CM,CDM|CAM,rule,81,45,65,33,Inter Milan,Armenia
-alex-scott-cm,Alex Scott,CM,CDM|CAM,rule,81,46,65,33,,
-fornals-cm,Fornals,CM,CDM|CAM,rule,81,47,65,33,,
-dejan-kulusevski-cm,Dejan Kulusevski,CM,CDM|CAM,rule,81,48,65,33,Tottenham Hotspur,Sweden
-bryan-cristante-cm,Bryan Cristante,CM,CDM|CAM,rule,81,49,65,33,,
-adrien-thomasson-cm,Adrien Thomasson,CM,CDM|CAM,rule,81,50,65,33,,
-koke-cm,Koke,CM,CDM|CAM,rule,81,51,65,33,Atlético Madrid,Spain
-mateo-kovacic-cm,Mateo Kovačić,CM,CDM|CAM,rule,81,52,65,33,Manchester City,Croatia
-weston-mckennie-cm,Weston McKennie,CM,CDM|CAM,rule,80,53,60,30,Juventus,United States
-joelinton-cm,Joelinton,CM,CDM|CAM,rule,80,54,60,30,Newcastle United,Brazil
-gabriel-sara-cm,Gabriel Sara,CM,CDM|CAM,rule,80,55,60,30,,
-mauro-arambarri-cm,Mauro Arambarri,CM,CDM|CAM,rule,80,56,60,30,,
-davide-frattesi-cm,Davide Frattesi,CM,CDM|CAM,rule,80,57,60,30,,
-pape-gueye-cm,Pape Gueye,CM,CDM|CAM,rule,80,58,60,30,,
-anton-stach-cm,Anton Stach,CM,CDM|CAM,rule,80,59,60,30,,
-otavio-cm,Otávio,CM,CDM|CAM,rule,80,60,60,30,,
-jude-bellingham-cam,Jude Bellingham,CAM,CM,rule,90,1,124,62,Real Madrid,England
-lionel-messi-cam,Lionel Messi,CAM,ST|RW|RM,ea,89,2,115,58,Inter Miami,Argentina
-bruno-fernandes-cam,Bruno Fernandes,CAM,CM,rule,89,3,115,58,Manchester United,Portugal
-jamal-musiala-cam,Jamal Musiala,CAM,CM,rule,87,4,100,50,Bayern Munich,Germany
-dominik-szoboszlai-cam,Dominik Szoboszlai,CAM,CM,rule,86,5,93,47,Liverpool,Hungary
-florian-wirtz-cam,Florian Wirtz,CAM,CM,rule,86,6,93,47,Liverpool,Germany
-paulo-dybala-cam,Paulo Dybala,CAM,CM,rule,85,7,86,43,,
-fermin-cam,Fermín,CAM,CM,rule,85,8,86,43,FC Barcelona,Spain
-kevin-de-bruyne-cam,Kevin De Bruyne,CAM,CM,rule,85,9,86,43,,
-cole-palmer-cam,Cole Palmer,CAM,CM,rule,85,10,86,43,Chelsea,England
-morgan-rogers-cam,Morgan Rogers,CAM,CM,rule,84,11,80,40,Chelsea,England
-kenan-y-ld-z-cam,Kenan Yıldız,CAM,CM,rule,84,12,80,40,Juventus,Turkey
-eberechi-eze-cam,Eberechi Eze,CAM,CM,rule,84,13,80,40,Arsenal,England
-nico-paz-cam,Nico Paz,CAM,CM,rule,84,14,80,40,,
-phil-foden-cam,Phil Foden,CAM,CM,rule,84,15,80,40,Manchester City,England
-dani-olmo-cam,Dani Olmo,CAM,CM,rule,84,16,80,40,FC Barcelona,Spain
-morgan-gibbs-white-cam,Morgan Gibbs-White,CAM,CM,rule,83,17,75,38,,
-ismael-saibari-cam,Ismael Saibari,CAM,CM,rule,83,18,75,38,Bayern Munich,Morocco
-christian-pulisic-cam,Christian Pulisic,CAM,CM,rule,83,19,75,38,AC Milan,United States
-joao-felix-cam,João Félix,CAM,CM,rule,83,20,75,38,Al-Nassr,Portugal
-konstantinos-fortounis-cam,Konstantinos Fortounis,CAM,CM,rule,83,21,75,38,,
-trincao-cam,Trincão,CAM,CM,rule,83,22,75,38,,
-serge-gnabry-cam,Serge Gnabry,CAM,CM,rule,83,23,75,38,Bayern Munich,Germany
-isco-cam,Isco,CAM,CM,rule,83,24,75,38,,
-sancet-cam,Sancet,CAM,CM,rule,82,25,69,35,,
-rodrigo-zalazar-cam,Rodrigo Zalazar,CAM,CM,rule,82,26,69,35,,
-ricardo-horta-cam,Ricardo Horta,CAM,CM,rule,82,27,69,35,,
-christoph-baumgartner-cam,Christoph Baumgartner,CAM,CM,rule,82,28,69,35,,
-julian-brandt-cam,Julian Brandt,CAM,CM,rule,82,29,69,35,,
-marco-asensio-cam,Marco Asensio,CAM,CM,rule,82,30,69,35,,
-kiernan-dewsbury-hall-cam,Kiernan Dewsbury-Hall,CAM,CM,rule,81,31,65,33,,
-maximilian-beier-cam,Maximilian Beier,CAM,CM,rule,81,32,65,33,Borussia Dortmund,Germany
-xavi-simons-cam,Xavi Simons,CAM,CM,rule,81,33,65,33,Tottenham Hotspur,Netherlands
-charles-de-ketelaere-cam,Charles De Ketelaere,CAM,CM,rule,81,34,65,33,,
-anderson-talisca-cam,Anderson Talisca,CAM,CM,rule,81,35,65,33,,
-maghnes-akliouche-cam,Maghnes Akliouche,CAM,CM,rule,81,36,65,33,Paris Saint-Germain,France
-hans-vanaken-cam,Hans Vanaken,CAM,CM,rule,81,37,65,33,,
-andrej-kramaric-cam,Andrej Kramarić,CAM,CM,rule,81,38,65,33,,
-giovani-lo-celso-cam,Giovani Lo Celso,CAM,CM,rule,80,39,60,30,,
-nikola-vlasic-cam,Nikola Vlašić,CAM,CM,rule,80,40,60,30,,
-ibrahim-maza-cam,Ibrahim Maza,CAM,CM,rule,80,41,60,30,,
-kaku-cam,Kaku,CAM,CM,rule,80,42,60,30,,
-mikkel-damsgaard-cam,Mikkel Damsgaard,CAM,CM,rule,80,43,60,30,,
-enzo-le-fee-cam,Enzo Le Fée,CAM,CM,rule,80,44,60,30,,
-matias-soule-cam,Matías Soulé,CAM,CM,rule,80,45,60,30,,
-rafa-cam,Rafa,CAM,CM,rule,80,46,60,30,,
-lucas-zelarayan-cam,Lucas Zelarayán,CAM,CM,rule,80,47,60,30,,
-isi-cam,Isi,CAM,CM,rule,80,48,60,30,,
-francisco-conceicao-cam,Francisco Conceição,CAM,CM,rule,80,49,60,30,Juventus,Portugal
-thomas-muller-cam,Thomas Müller,CAM,CM,rule,80,50,60,30,,
-kylian-mbappe-st,Kylian Mbappé,ST,,rule,91,1,133,67,Real Madrid,France
-erling-haaland-st,Erling Haaland,ST,,rule,91,2,133,67,Manchester City,Norway
-harry-kane-st,Harry Kane,ST,,rule,90,3,124,62,Bayern Munich,England
-ousmane-dembele-st,Ousmane Dembéle,ST,,rule,90,4,124,62,Paris Saint-Germain,France
-lautaro-martinez-st,Lautaro Martínez,ST,,rule,87,5,100,50,Inter Milan,Argentina
-julian-alvarez-st,Julián Alvarez,ST,,rule,86,6,93,47,Atlético Madrid,Argentina
-alexander-isak-st,Alexander Isak,ST,,rule,86,7,93,47,Liverpool,Sweden
-viktor-gyokeres-st,Viktor Gyökeres,ST,,rule,86,8,93,47,Arsenal,Sweden
-marcus-thuram-st,Marcus Thuram,ST,,rule,85,9,86,43,Inter Milan,France
-victor-osimhen-st,Victor Osimhen,ST,,rule,85,10,86,43,,
-serhou-guirassy-st,Serhou Guirassy,ST,,rule,85,11,86,43,Borussia Dortmund,Guinea
-hugo-ekitike-st,Hugo Ekitiké,ST,,rule,85,12,86,43,Liverpool,France
-deniz-undav-st,Deniz Undav,ST,,rule,85,13,86,43,,
-antoine-griezmann-st,Antoine Griezmann,ST,,rule,84,14,80,40,,
-ferran-torres-st,Ferran Torres,ST,,rule,84,15,80,40,Paris Saint-Germain,Spain
-julian-quinones-st,Julián Quiñones,ST,,rule,84,16,80,40,,
-oyarzabal-st,Oyarzabal,ST,,rule,84,17,80,40,,
-robert-lewandowski-st,Robert Lewandowski,ST,,rule,84,18,80,40,,
-cristiano-ronaldo-st,Cristiano Ronaldo,ST,,rule,84,19,80,40,Al-Nassr,Portugal
-ivan-toney-st,Ivan Toney,ST,,rule,83,20,75,38,,
-ollie-watkins-st,Ollie Watkins,ST,,rule,83,21,75,38,Aston Villa,England
-donyell-malen-st,Donyell Malen,ST,,rule,83,22,75,38,,
-joao-pedro-st,João Pedro,ST,,rule,83,23,75,38,Chelsea,Brazil
-ademola-lookman-st,Ademola Lookman,ST,,rule,83,24,75,38,Atlético Madrid,Nigeria
-alexander-s-rloth-st,Alexander Sørloth,ST,,rule,83,25,75,38,Atlético Madrid,Norway
-patrik-schick-st,Patrik Schick,ST,,rule,83,26,75,38,,
-vangelis-pavlidis-st,Vangelis Pavlidis,ST,,rule,82,27,69,35,,
-benjamin-sesko-st,Benjamin Šeško,ST,,rule,82,28,69,35,Manchester United,Slovenia
-luis-javier-suarez-st,Luis Javier Suárez,ST,,rule,82,29,69,35,,
-jonathan-burkardt-st,Jonathan Burkardt,ST,,rule,82,30,69,35,,
-igor-thiago-st,Igor Thiago,ST,,rule,82,31,69,35,,
-romelu-lukaku-st,Romelu Lukaku,ST,,rule,82,32,69,35,,
-moise-kean-st,Moise Kean,ST,,rule,82,33,69,35,,
-karim-benzema-st,Karim Benzema,ST,,rule,82,34,69,35,,
-ante-budimir-st,Ante Budimir,ST,,rule,82,35,69,35,,
-son-heung-min-st,Son Heung Min,ST,,rule,81,36,65,33,,
-gerard-moreno-st,Gerard Moreno,ST,,rule,81,37,65,33,,
-kai-havertz-st,Kai Havertz,ST,,rule,81,38,65,33,Arsenal,Germany
-jean-philippe-mateta-st,Jean-Philippe Mateta,ST,,rule,81,39,65,33,,
-dusan-vlahovic-st,Dušan Vlahović,ST,,rule,81,40,65,33,,
-mateo-retegui-st,Mateo Retegui,ST,,rule,81,41,65,33,,
-esteban-lepaul-st,Estéban Lepaul,ST,,rule,81,42,65,33,,
-vedat-muriqi-st,Vedat Muriqi,ST,,rule,81,43,65,33,,
-chris-wood-st,Chris Wood,ST,,rule,81,44,65,33,,
-ayoze-st,Ayoze,ST,,rule,80,45,60,30,,
-amine-gouiri-st,Amine Gouiri,ST,,rule,80,46,60,30,,
-eli-junior-kroupi-st,Eli Junior Kroupi,ST,,rule,80,47,60,30,,
-lois-openda-st,Loïs Openda,ST,,rule,80,48,60,30,,
-ayoub-el-kaabi-st,Ayoub El Kaabi,ST,,rule,80,49,60,30,,
-ermedin-demirovic-st,Ermedin Demirović,ST,,rule,80,50,60,30,,
-michael-olise-rm,Michael Olise,RM,RW,rule,90,1,124,62,Bayern Munich,France
-mohamed-salah-rm,Mohamed Salah,RM,RW,rule,87,2,100,50,,
-bryan-mbeumo-rm,Bryan Mbeumo,RM,RW,rule,84,3,80,40,Manchester United,Cameroon
-john-mcginn-rm,John McGinn,RM,RW,rule,83,4,75,38,Aston Villa,Scotland
-arda-guler-rm,Arda Güler,RM,RW,rule,83,5,75,38,Real Madrid,Turkey
-jarrod-bowen-rm,Jarrod Bowen,RM,RW,rule,83,6,75,38,,
-mason-greenwood-rm,Mason Greenwood,RM,RW,rule,83,7,75,38,,
-kingsley-coman-rm,Kingsley Coman,RM,RW,rule,83,8,75,38,Al-Nassr,France
-giuliano-rm,Giuliano,RM,RW,rule,82,9,69,35,Atlético Madrid,Argentina
-riccardo-orsolini-rm,Riccardo Orsolini,RM,RW,rule,82,10,69,35,,
-karim-adeyemi-rm,Karim Adeyemi,RM,RW,rule,82,11,69,35,FC Barcelona,Germany
-moussa-diaby-rm,Moussa Diaby,RM,RW,rule,82,12,69,35,,
-mohammed-kudus-rm,Mohammed Kudus,RM,RW,rule,81,13,65,33,Tottenham Hotspur,Ghana
-pedro-neto-rm,Pedro Neto,RM,RW,rule,81,14,65,33,Chelsea,Portugal
-brahim-rm,Brahim,RM,RW,rule,81,15,65,33,Real Madrid,Morocco
-federico-chiesa-rm,Federico Chiesa,RM,RW,rule,80,16,60,30,Liverpool,Italy
-yankuba-minteh-rm,Yankuba Minteh,RM,RW,rule,80,17,60,30,Brighton and Hove Albion,Gambia
-takefusa-kubo-rm,Takefusa Kubo,RM,RW,rule,80,18,60,30,,
-leroy-sane-rm,Leroy Sané,RM,RW,rule,80,19,60,30,,
-ritsu-doan-rm,Ritsu Doan,RM,RW,rule,80,20,60,30,,
-estevao-rm,Estêvão,RM,RW,rule,80,21,60,30,Chelsea,Brazil
-diego-moreira-rm,Diego Moreira,RM,RW,rule,79,22,56,28,AC Milan,Belgium
-davide-zappacosta-rm,Davide Zappacosta,RM,RW,rule,79,23,56,28,,
-geny-catamo-rm,Geny Catamo,RM,RW,rule,79,24,56,28,,
-dango-ouattara-rm,Dango Ouattara,RM,RW,rule,79,25,56,28,,
-rayan-rm,Rayan,RM,RW,rule,79,26,56,28,,
-amad-rm,Amad,RM,RW,rule,79,27,56,28,Manchester United,Côte d'Ivoire
-zlatko-tripic-rm,Zlatko Tripić,RM,RW,rule,78,28,52,26,,
-timothy-weah-rm,Timothy Weah,RM,RW,rule,78,29,52,26,,
-anan-khalaili-rm,Anan Khalaili,RM,RW,rule,78,30,52,26,,
-sergio-canales-rm,Sergio Canales,RM,RW,rule,78,31,52,26,,
-roberto-alvarado-rm,Roberto Alvarado,RM,RW,rule,78,32,52,26,,
-franck-honorat-rm,Franck Honorat,RM,RW,rule,78,33,52,26,,
-jamie-leweling-rm,Jamie Leweling,RM,RW,rule,78,34,52,26,,
-gelson-martins-rm,Gelson Martins,RM,RW,rule,78,35,52,26,,
-nathan-tella-rm,Nathan Tella,RM,RW,rule,78,36,52,26,,
-samuel-chukwueze-rm,Samuel Chukwueze,RM,RW,rule,78,37,52,26,AC Milan,Nigeria
-edon-zhegrova-rm,Edon Zhegrova,RM,RW,rule,78,38,52,26,Juventus,Kosovo
-aitor-ruibal-rm,Aitor Ruibal,RM,RW,rule,77,39,48,24,,
-rodinei-rm,Rodinei,RM,RW,rule,77,40,48,24,,
-luis-diaz-lm,Luis Díaz,LM,LW,rule,88,1,107,54,Bayern Munich,Colombia
-grimaldo-lm,Grimaldo,LM,LW,rule,85,2,86,43,Atlético Madrid,Spain
-matheus-cunha-lm,Matheus Cunha,LM,LW,rule,84,3,80,40,Manchester United,Brazil
-alex-baena-lm,Álex Baena,LM,LW,rule,83,4,75,38,Atlético Madrid,Spain
-pedro-goncalves-lm,Pedro Gonçalves,LM,LW,rule,82,5,69,35,,
-sadio-mane-lm,Sadio Mané,LM,LW,rule,82,6,69,35,Al-Nassr,Senegal
-cody-gakpo-lm,Cody Gakpo,LM,LW,rule,82,7,69,35,Liverpool,Netherlands
-moleiro-lm,Moleiro,LM,LW,rule,82,8,69,35,,
-jack-grealish-lm,Jack Grealish,LM,LW,rule,82,9,69,35,Manchester City,England
-iliman-ndiaye-lm,Iliman Ndiaye,LM,LW,rule,82,10,69,35,,
-maximiliano-araujo-lm,Maximiliano Araújo,LM,LW,rule,81,11,65,33,,
-kaoru-mitoma-lm,Kaoru Mitoma,LM,LW,rule,81,12,65,33,Brighton and Hove Albion,Japan
-galeno-lm,Galeno,LM,LW,rule,81,13,65,33,,
-bar-s-alper-y-lmaz-lm,Barış Alper Yılmaz,LM,LW,rule,80,14,60,30,,
-salem-al-dawsari-lm,Salem Al Dawsari,LM,LW,rule,80,15,60,30,,
-alex-iwobi-lm,Alex Iwobi,LM,LW,rule,80,16,60,30,,
-emiliano-buendia-lm,Emiliano Buendía,LM,LW,rule,80,17,60,30,Aston Villa,Argentina
-marcus-tavernier-lm,Marcus Tavernier,LM,LW,rule,79,18,56,28,,
-nico-gonzalez-lm,Nico González,LM,LW,rule,79,19,56,28,Juventus,Argentina
-victor-munoz-lm,Víctor Muñoz,LM,LW,rule,79,20,56,28,Liverpool,Spain
-noa-lang-lm,Noa Lang,LM,LW,rule,79,21,56,28,,
-igor-paixao-lm,Igor Paixão,LM,LW,rule,79,22,56,28,,
-kevin-schade-lm,Kevin Schade,LM,LW,rule,79,23,56,28,,
-kerem-akturkoglu-lm,Kerem Aktürkoğlu,LM,LW,rule,79,24,56,28,,
-vincenzo-grifo-lm,Vincenzo Grifo,LM,LW,rule,79,25,56,28,,
-daizen-maeda-lm,Daizen Maeda,LM,LW,rule,78,26,52,26,,
-patrick-dorgu-lm,Patrick Dorgu,LM,LW,rule,78,27,52,26,Manchester United,Denmark
-nicola-zalewski-lm,Nicola Zalewski,LM,LW,rule,78,28,52,26,,
-afonso-moreira-lm,Afonso Moreira,LM,LW,rule,78,29,52,26,,
-said-el-mala-lm,Saïd El Mala,LM,LW,rule,78,30,52,26,,
-chris-fuhrich-lm,Chris Führich,LM,LW,rule,78,31,52,26,,
-callum-hudson-odoi-lm,Callum Hudson-Odoi,LM,LW,rule,78,32,52,26,,
-georges-kevin-nkoudou-lm,Georges-Kévin Nkoudou,LM,LW,rule,78,33,52,26,,
-matias-vargas-lm,Matías Vargas,LM,LW,rule,78,34,52,26,,
-mathys-tel-lm,Mathys Tel,LM,LW,rule,78,35,52,26,Tottenham Hotspur,France
-crysencio-summerville-lm,Crysencio Summerville,LM,LW,rule,78,36,52,26,,
-wilson-odobert-lm,Wilson Odobert,LM,LW,rule,78,37,52,26,Tottenham Hotspur,France
-dan-ndoye-lm,Dan Ndoye,LM,LW,rule,77,38,48,24,,
-mousa-al-tamari-lm,Mousa Al Tamari,LM,LW,rule,77,39,48,24,,
-patrick-wimmer-lm,Patrick Wimmer,LM,LW,rule,77,40,48,24,,
-lamine-yamal-rw,Lamine Yamal,RW,RM,rule,90,1,124,62,FC Barcelona,Spain
-bukayo-saka-rw,Bukayo Saka,RW,RM,rule,87,2,100,50,Arsenal,England
-desire-doue-rw,Désiré Doué,RW,RM,rule,86,3,93,47,Paris Saint-Germain,France
-rayan-cherki-rw,Rayan Cherki,RW,RM,rule,86,4,93,47,Manchester City,France
-antoine-semenyo-rw,Antoine Semenyo,RW,RM,rule,85,5,86,43,Manchester City,Ghana
-yan-diomande-rw,Yan Diomande,RW,RM,rule,84,6,80,40,Real Madrid,Côte d'Ivoire
-florian-thauvin-rw,Florian Thauvin,RW,RM,rule,82,7,69,35,,
-domenico-berardi-rw,Domenico Berardi,RW,RM,rule,82,8,69,35,,
-angel-di-maria-rw,Ángel Di María,RW,RM,rule,82,9,69,35,,
-antony-rw,Antony,RW,RM,rule,81,10,65,33,,
-de-frutos-rw,De Frutos,RW,RM,rule,81,11,65,33,,
-ismaila-sarr-rw,Ismaïla Sarr,RW,RM,rule,81,12,65,33,,
-nicolas-pepe-rw,Nicolas Pépé,RW,RM,rule,81,13,65,33,,
-harry-wilson-rw,Harry Wilson,RW,RM,rule,81,14,65,33,,
-iago-aspas-rw,Iago Aspas,RW,RM,rule,81,15,65,33,,
-inaki-williams-rw,Iñaki Williams,RW,RM,rule,80,16,60,30,,
-noni-madueke-rw,Noni Madueke,RW,RM,rule,80,17,60,30,Arsenal,England
-lee-kang-in-rw,Lee Kang In,RW,RM,rule,80,18,60,30,Atlético Madrid,South Korea
-matteo-politano-rw,Matteo Politano,RW,RM,rule,80,19,60,30,,
-dodi-lukebakio-rw,Dodi Lukébakio,RW,RM,rule,80,20,60,30,,
-savinho-rw,Savinho,RW,RM,rule,80,21,60,30,Manchester City,Brazil
-berenguer-rw,Berenguer,RW,RM,rule,79,22,56,28,,
-jacob-murphy-rw,Jacob Murphy,RW,RM,rule,79,23,56,28,Newcastle United,England
-anthony-elanga-rw,Anthony Elanga,RW,RM,rule,79,24,56,28,Newcastle United,Sweden
-anders-dreyer-rw,Anders Dreyer,RW,RM,rule,79,25,56,28,,
-alejandro-zendejas-rw,Alejandro Zendejas,RW,RM,rule,78,26,52,26,,
-viktor-tsygankov-rw,Viktor Tsygankov,RW,RM,rule,78,27,52,26,,
-evann-guessand-rw,Evann Guessand,RW,RM,rule,78,28,52,26,,
-brennan-johnson-rw,Brennan Johnson,RW,RM,rule,78,29,52,26,,
-dennis-man-rw,Dennis Man,RW,RM,rule,77,30,48,24,,
-philip-zinckernagel-rw,Philip Zinckernagel,RW,RM,rule,77,31,48,24,,
-andres-martin-rw,Andrés Martín,RW,RM,rule,77,32,48,24,,
-pepe-rw,Pepê,RW,RM,rule,77,33,48,24,,
-anis-hadj-moussa-rw,Anis Hadj Moussa,RW,RM,rule,77,34,48,24,,
-william-gomes-rw,William Gomes,RW,RM,rule,77,35,48,24,,
-brenden-aaronson-rw,Brenden Aaronson,RW,RM,rule,76,36,45,23,,
-robert-navarro-rw,Robert Navarro,RW,RM,rule,76,37,45,23,,
-diego-lainez-rw,Diego Lainez,RW,RM,rule,76,38,45,23,,
-steven-berghuis-rw,Steven Berghuis,RW,RM,rule,76,39,45,23,,
-gustav-isaksen-rw,Gustav Isaksen,RW,RM,rule,76,40,45,23,,
-khvicha-kvaratskhelia-lw,Khvicha Kvaratskhelia,LW,LM,rule,89,1,115,58,Paris Saint-Germain,Georgia
-vini-jr-lw,Vini Jr.,LW,LM,rule,89,2,115,58,Real Madrid,Brazil
-raphinha-lw,Raphinha,LW,LM,rule,88,3,107,54,FC Barcelona,Brazil
-bradley-barcola-lw,Bradley Barcola,LW,LM,rule,85,4,86,43,Paris Saint-Germain,France
-jeremy-doku-lw,Jérémy Doku,LW,LM,rule,84,5,80,40,Manchester City,Belgium
-nico-williams-lw,Nico Williams,LW,LM,rule,84,6,80,40,,
-rodrygo-lw,Rodrygo,LW,LM,rule,84,7,80,40,Real Madrid,Brazil
-rafael-leao-lw,Rafael Leão,LW,LM,rule,83,8,75,38,AC Milan,Portugal
-yannick-carrasco-lw,Yannick Carrasco,LW,LM,rule,82,9,69,35,,
-anthony-gordon-lw,Anthony Gordon,LW,LM,rule,82,10,69,35,FC Barcelona,England
-mattia-zaccagni-lw,Mattia Zaccagni,LW,LM,rule,82,11,69,35,,
-marcus-rashford-lw,Marcus Rashford,LW,LM,rule,82,12,69,35,Manchester United,England
-christos-tzolis-lw,Christos Tzolis,LW,LM,rule,82,13,69,35,Arsenal,Greece
-omar-marmoush-lw,Omar Marmoush,LW,LM,rule,82,14,69,35,Manchester City,Egypt
-leandro-trossard-lw,Leandro Trossard,LW,LM,rule,82,15,69,35,,
-ivan-perisic-lw,Ivan Perišić,LW,LM,rule,81,16,65,33,,
-abde-lw,Abde,LW,LM,rule,81,17,65,33,,
-david-neres-lw,David Neres,LW,LM,rule,81,18,65,33,,
-alvaro-garcia-lw,Álvaro García,LW,LM,rule,81,19,65,33,,
-gabriel-martinelli-lw,Gabriel Martinelli,LW,LM,rule,80,20,60,30,Arsenal,Brazil
-harvey-barnes-lw,Harvey Barnes,LW,LM,rule,80,21,60,30,Newcastle United,England
-guedes-lw,Guedes,LW,LM,rule,80,22,60,30,,
-andreas-schjelderup-lw,Andreas Schjelderup,LW,LM,rule,80,23,60,30,,
-armand-lauriente-lw,Armand Laurienté,LW,LM,rule,80,24,60,30,,
-denis-bouanga-lw,Denis Bouanga,LW,LM,rule,79,25,56,28,,
-barrenetxea-lw,Barrenetxea,LW,LM,rule,79,26,56,28,,
-lukas-haraslin-lw,Lukáš Haraslín,LW,LM,rule,79,27,56,28,,
-yeremy-pino-lw,Yeremy Pino,LW,LM,rule,79,28,56,28,,
-ruben-vargas-lw,Rubén Vargas,LW,LM,rule,78,29,52,26,,
-antonio-nusa-lw,Antonio Nusa,LW,LM,rule,78,30,52,26,,
-mika-godts-lw,Mika Godts,LW,LM,rule,78,31,52,26,Paris Saint-Germain,Belgium
-musa-barrow-lw,Musa Barrow,LW,LM,rule,78,32,52,26,,
-bazoumana-toure-lw,Bazoumana Touré,LW,LM,rule,78,33,52,26,Newcastle United,Côte d'Ivoire
-puado-lw,Puado,LW,LM,rule,77,34,48,24,,
-noah-okafor-lw,Noah Okafor,LW,LM,rule,77,35,48,24,,
-alexis-vega-lw,Alexis Vega,LW,LM,rule,77,36,48,24,,
-diego-lopez-lw,Diego López,LW,LM,rule,77,37,48,24,,
-yann-gboho-lw,Yann Gboho,LW,LM,rule,77,38,48,24,,
-brian-rodriguez-lw,Brian Rodríguez,LW,LM,rule,77,39,48,24,,
-lucas-ocampos-lw,Lucas Ocampos,LW,LM,rule,76,40,45,23,,
-borja-sainz-lw,Borja Sainz,LW,LM,rule,76,41,45,23,,
-williot-swedberg-lw,Williot Swedberg,LW,LM,rule,76,42,45,23,,
-largie-ramazani-lw,Largie Ramazani,LW,LM,rule,76,43,45,23,,
-jens-petter-hauge-lw,Jens Petter Hauge,LW,LM,rule,76,44,45,23,,
-chidera-ejuke-lw,Chidera Ejuke,LW,LM,rule,76,45,45,23,,
+﻿id,name,position,alt_positions,alt_source,overall,position_rank,market_value_m,base_price_m,seed_club,club_now,nationality
+thibaut-courtois-gk,Thibaut Courtois,GK,,rule,90,1,124,62,Real Madrid,Real Madrid,Belgium
+gianluigi-donnarumma-gk,Gianluigi Donnarumma,GK,,rule,89,2,115,58,Manchester City,Manchester City,Italy
+david-raya-gk,David Raya,GK,,rule,88,3,107,54,Arsenal,Arsenal,Spain
+jan-oblak-gk,Jan Oblak,GK,,rule,88,4,107,54,Atlético Madrid,Atlético Madrid,Slovenia
+mike-maignan-gk,Mike Maignan,GK,,rule,87,5,100,50,AC Milan,AC Milan,France
+alisson-gk,Alisson,GK,,rule,87,6,100,50,Liverpool,Liverpool,Brazil
+gregor-kobel-gk,Gregor Kobel,GK,,rule,87,7,100,50,Borussia Dortmund,Borussia Dortmund,Switzerland
+joan-garcia-gk,Joan García,GK,,rule,86,8,93,47,FC Barcelona,FC Barcelona,Spain
+diogo-costa-gk,Diogo Costa,GK,,rule,86,9,93,47,,,
+marco-carnesecchi-gk,Marco Carnesecchi,GK,,rule,86,10,93,47,,,
+jordan-pickford-gk,Jordan Pickford,GK,,rule,85,11,86,43,,,
+mile-svilar-gk,Mile Svilar,GK,,rule,85,12,86,43,,,
+emiliano-martinez-gk,Emiliano Martínez,GK,,rule,85,13,86,43,Chelsea,Chelsea,Argentina
+unai-simon-gk,Unai Simón,GK,,rule,85,14,86,43,,,
+yann-sommer-gk,Yann Sommer,GK,,rule,84,15,80,40,,Club Brugge,
+oliver-baumann-gk,Oliver Baumann,GK,,rule,84,16,80,40,,,
+wladimiro-falcone-gk,Wladimiro Falcone,GK,,rule,84,17,80,40,,,
+matvey-safonov-gk,Matvey Safonov,GK,,rule,83,18,75,38,Paris Saint-Germain,Paris Saint-Germain,Russia
+ivan-provedel-gk,Ivan Provedel,GK,,rule,83,19,75,38,Inter Milan,Inter Milan,Italy
+de-gea-gk,De Gea,GK,,rule,83,20,75,38,,,
+giorgi-mamardashvili-gk,Giorgi Mamardashvili,GK,,rule,83,21,75,38,Liverpool,Liverpool,Georgia
+ederson-gk,Ederson,GK,,rule,82,22,69,35,,,
+dean-henderson-gk,Dean Henderson,GK,,rule,82,23,69,35,,,
+marc-andre-ter-stegen-gk,Marc-André ter Stegen,GK,,rule,82,24,69,35,,,
+senne-lammens-gk,Senne Lammens,GK,,rule,82,25,69,35,Manchester United,Manchester United,Belgium
+koen-casteels-gk,Koen Casteels,GK,,rule,82,26,69,35,,,
+juan-musso-gk,Juan Musso,GK,,rule,82,27,69,35,Atlético Madrid,Atlético Madrid,Argentina
+yassine-bounou-gk,Yassine Bounou,GK,,rule,82,28,69,35,,,
+peter-gulacsi-gk,Péter Gulácsi,GK,,rule,82,29,69,35,,,
+brice-samba-gk,Brice Samba,GK,,rule,81,30,65,33,,,
+robin-roefs-gk,Robin Roefs,GK,,rule,81,31,65,33,,,
+bart-verbruggen-gk,Bart Verbruggen,GK,,rule,81,32,65,33,Brighton and Hove Albion,Brighton and Hove Albion,Netherlands
+kamil-grabara-gk,Kamil Grabara,GK,,rule,81,33,65,33,Juventus,Juventus,Denmark
+matz-sels-gk,Matz Sels,GK,,rule,81,34,65,33,,,
+alex-remiro-gk,Álex Remiro,GK,,rule,81,35,65,33,,,
+robin-risser-gk,Robin Risser,GK,,rule,81,36,65,33,,,
+alex-meret-gk,Alex Meret,GK,,rule,81,37,65,33,,,
+manuel-neuer-gk,Manuel Neuer,GK,,rule,81,38,65,33,Bayern Munich,Bayern Munich,Germany
+rui-silva-gk,Rui Silva,GK,,rule,81,39,65,33,,,
+edouard-mendy-gk,Édouard Mendy,GK,,rule,81,40,65,33,,,
+wojciech-szczesny-gk,Wojciech Szczęsny,GK,,rule,81,41,65,33,FC Barcelona,FC Barcelona,Poland
+dominik-greif-gk,Dominik Greif,GK,,rule,81,42,65,33,,,
+michele-di-gregorio-gk,Michele Di Gregorio,GK,,rule,80,43,60,30,,AFC Bournemouth,Italy
+ugurcan-cak-r-gk,Uğurcan Çakır,GK,,rule,80,44,60,30,,,
+geronimo-rulli-gk,Gerónimo Rulli,GK,,rule,80,45,60,30,Manchester City,Manchester City,Argentina
+gabriel-cb,Gabriel,CB,,rule,89,1,115,58,Arsenal,Arsenal,Brazil
+willian-pacho-cb,Willian Pacho,CB,,rule,89,2,115,58,Paris Saint-Germain,Paris Saint-Germain,Ecuador
+william-saliba-cb,William Saliba,CB,,rule,88,3,107,54,Arsenal,Arsenal,France
+virgil-van-dijk-cb,Virgil van Dijk,CB,,rule,88,4,107,54,Liverpool,Liverpool,Netherlands
+dayot-upamecano-cb,Dayot Upamecano,CB,,rule,87,5,100,50,Bayern Munich,Bayern Munich,France
+marquinhos-cb,Marquinhos,CB,,rule,87,6,100,50,Paris Saint-Germain,Paris Saint-Germain,Brazil
+nico-schlotterbeck-cb,Nico Schlotterbeck,CB,,rule,87,7,100,50,Borussia Dortmund,Borussia Dortmund,Germany
+ruben-dias-cb,Rúben Dias,CB,,rule,87,8,100,50,Manchester City,Manchester City,Portugal
+jonathan-tah-cb,Jonathan Tah,CB,,rule,87,9,100,50,Bayern Munich,Bayern Munich,Germany
+pau-cubarsi-cb,Pau Cubarsí,CB,,rule,86,10,93,47,FC Barcelona,FC Barcelona,Spain
+bremer-cb,Bremer,CB,,rule,86,11,93,47,Juventus,Juventus,Brazil
+alessandro-bastoni-cb,Alessandro Bastoni,CB,,rule,86,12,93,47,Inter Milan,Inter Milan,Italy
+josko-gvardiol-cb,Joško Gvardiol,CB,,rule,85,13,86,43,Manchester City,Manchester City,Croatia
+eric-garcia-cb,Eric García,CB,,rule,85,14,86,43,FC Barcelona,FC Barcelona,Spain
+marc-guehi-cb,Marc Guéhi,CB,,rule,85,15,86,43,Manchester City,Manchester City,England
+eder-militao-cb,Éder Militão,CB,,rule,84,16,80,40,Real Madrid,Real Madrid,Brazil
+ezri-konsa-cb,Ezri Konsa,CB,,rule,84,17,80,40,Arsenal,Arsenal,England
+waldemar-anton-cb,Waldemar Anton,CB,,rule,84,18,80,40,Borussia Dortmund,Borussia Dortmund,Germany
+aymeric-laporte-cb,Aymeric Laporte,CB,,rule,84,19,80,40,,,
+gianluca-mancini-cb,Gianluca Mancini,CB,,rule,84,20,80,40,,,
+ibrahima-konate-cb,Ibrahima Konaté,CB,,rule,84,21,80,40,Real Madrid,Real Madrid,France
+david-hancko-cb,Dávid Hancko,CB,,rule,83,22,75,38,Atlético Madrid,Atlético Madrid,Slovakia
+antonio-rudiger-cb,Antonio Rüdiger,CB,,rule,83,23,75,38,Real Madrid,Real Madrid,Germany
+evan-ndicka-cb,Evan Ndicka,CB,,rule,83,24,75,38,,,
+manuel-akanji-cb,Manuel Akanji,CB,,rule,83,25,75,38,Inter Milan,Inter Milan,Switzerland
+ibanez-cb,Ibañez,CB,,rule,83,26,75,38,,,
+inigo-martinez-cb,Iñigo Martínez,CB,,rule,83,27,75,38,Al-Nassr,Al-Nassr,Spain
+amir-rrahmani-cb,Amir Rrahmani,CB,,rule,83,28,75,38,,,
+matthias-ginter-cb,Matthias Ginter,CB,,rule,83,29,75,38,,,
+kim-min-jae-cb,Kim Min Jae,CB,,rule,83,30,75,38,Bayern Munich,Bayern Munich,South Korea
+willi-orban-cb,Willi Orbán,CB,,rule,83,31,75,38,,,
+edmond-tapsoba-cb,Edmond Tapsoba,CB,,rule,82,32,69,35,,,
+murillo-cb,Murillo,CB,,rule,82,33,69,35,,,
+lisandro-martinez-cb,Lisandro Martínez,CB,,rule,82,34,69,35,Manchester United,Manchester United,Argentina
+maxence-lacroix-cb,Maxence Lacroix,CB,,rule,82,35,69,35,Chelsea,Chelsea,France
+mohamed-simakan-cb,Mohamed Simakan,CB,,rule,82,36,69,35,Al-Nassr,Al-Nassr,France
+abdukodir-khusanov-cb,Abdukodir Khusanov,CB,,rule,82,37,69,35,Manchester City,Manchester City,Uzbekistan
+jakub-kiwior-cb,Jakub Kiwior,CB,,rule,82,38,69,35,,Porto,
+danilo-pereira-cb,Danilo Pereira,CB,,rule,82,39,69,35,,,
+vivian-cb,Vivian,CB,,rule,82,40,69,35,,,
+matthijs-de-ligt-cb,Matthijs de Ligt,CB,,rule,82,41,69,35,Manchester United,Manchester United,Netherlands
+john-stones-cb,John Stones,CB,,rule,82,42,69,35,Inter Milan,Inter Milan,England
+kalidou-koulibaly-cb,Kalidou Koulibaly,CB,,rule,82,43,69,35,,,
+marcos-senesi-cb,Marcos Senesi,CB,,rule,82,44,69,35,Tottenham Hotspur,Tottenham Hotspur,Argentina
+stefan-de-vrij-cb,Stefan de Vrij,CB,,rule,82,45,69,35,,Panathinaikos,
+cristian-romero-cb,Cristian Romero,CB,,rule,82,46,69,35,Atlético Madrid,Atlético Madrid,Argentina
+jose-maria-gimenez-cb,José María Giménez,CB,,rule,82,47,69,35,,Deportivo A Coruña,Uruguay
+harry-maguire-cb,Harry Maguire,CB,,rule,82,48,69,35,Manchester United,Manchester United,England
+jan-bednarek-cb,Jan Bednarek,CB,,rule,82,49,69,35,,,
+emre-can-cb,Emre Can,CB,,rule,81,50,65,33,Borussia Dortmund,Borussia Dortmund,Germany
+micky-van-de-ven-cb,Micky van de Ven,CB,,rule,81,51,65,33,Tottenham Hotspur,Tottenham Hotspur,Netherlands
+pubill-cb,Pubill,CB,,rule,81,52,65,33,Atlético Madrid,Atlético Madrid,Spain
+mario-gila-cb,Mario Gila,CB,,rule,81,53,65,33,AC Milan,AC Milan,Spain
+pierre-kalulu-cb,Pierre Kalulu,CB,,rule,81,54,65,33,Juventus,Juventus,France
+dean-huijsen-cb,Dean Huijsen,CB,,rule,81,55,65,33,Real Madrid,Real Madrid,Spain
+fabian-schar-cb,Fabian Schär,CB,,rule,81,56,65,33,Newcastle United,Newcastle United,Switzerland
+castello-lukeba-cb,Castello Lukeba,CB,,rule,81,57,65,33,,,
+lucas-hernandez-cb,Lucas Hernández,CB,,rule,81,58,65,33,Paris Saint-Germain,Paris Saint-Germain,France
+mario-hermoso-cb,Mario Hermoso,CB,,rule,81,59,65,33,,,
+malick-thiaw-cb,Malick Thiaw,CB,,rule,81,60,65,33,Newcastle United,Newcastle United,Germany
+achraf-hakimi-rb,Achraf Hakimi,RB,,rule,88,1,107,54,Paris Saint-Germain,Paris Saint-Germain,Morocco
+konrad-laimer-rb,Konrad Laimer,RB,,rule,85,2,86,43,Bayern Munich,Bayern Munich,Austria
+marcos-llorente-rb,Marcos Llorente,RB,,rule,85,3,86,43,Atlético Madrid,Atlético Madrid,Spain
+jules-kounde-rb,Jules Koundé,RB,,rule,85,4,86,43,FC Barcelona,FC Barcelona,France
+reece-james-rb,Reece James,RB,,rule,84,5,80,40,Chelsea,Chelsea,England
+trent-alexander-arnold-rb,Trent Alexander-Arnold,RB,,rule,84,6,80,40,Real Madrid,Real Madrid,England
+jurrien-timber-rb,Jurriën Timber,RB,,rule,84,7,80,40,Arsenal,Arsenal,Netherlands
+denzel-dumfries-rb,Denzel Dumfries,RB,,rule,83,8,75,38,Real Madrid,Real Madrid,Netherlands
+matheus-nunes-rb,Matheus Nunes,RB,,rule,83,9,75,38,Manchester City,Manchester City,Portugal
+pedro-porro-rb,Pedro Porro,RB,,rule,83,10,75,38,Tottenham Hotspur,Tottenham Hotspur,Spain
+giovanni-di-lorenzo-rb,Giovanni Di Lorenzo,RB,,rule,82,11,69,35,,,
+daniel-munoz-rb,Daniel Muñoz,RB,,rule,82,12,69,35,,,
+julian-ryerson-rb,Julian Ryerson,RB,,rule,82,13,69,35,Borussia Dortmund,Borussia Dortmund,Norway
+jeremie-frimpong-rb,Jeremie Frimpong,RB,,rule,81,14,65,33,Liverpool,Liverpool,Netherlands
+matty-cash-rb,Matty Cash,RB,,rule,81,15,65,33,Aston Villa,Aston Villa,Poland
+tino-livramento-rb,Tino Livramento,RB,,rule,81,16,65,33,Newcastle United,Newcastle United,England
+michael-kayode-rb,Michael Kayode,RB,,rule,81,17,65,33,,,
+nordi-mukiele-rb,Nordi Mukiele,RB,,rule,81,18,65,33,,,
+benjamin-white-rb,Benjamin White,RB,,rule,81,19,65,33,Arsenal,Arsenal,England
+andrei-ratiu-rb,Andrei Rațiu,RB,,rule,80,20,60,30,,,
+mingueza-rb,Mingueza,RB,,rule,80,21,60,30,,,
+noussair-mazraoui-rb,Noussair Mazraoui,RB,,rule,80,22,60,30,Manchester United,Manchester United,Morocco
+alexis-saelemaekers-rb,Alexis Saelemaekers,RB,,rule,80,23,60,30,AC Milan,AC Milan,Belgium
+vladimir-coufal-rb,Vladimír Coufal,RB,,rule,80,24,60,30,,,
+josip-stanisic-rb,Josip Stanišić,RB,,rule,80,25,60,30,Bayern Munich,Bayern Munich,Croatia
+ridle-baku-rb,Ridle Baku,RB,,rule,79,26,56,28,,,
+sergino-dest-rb,Sergiño Dest,RB,,rule,79,27,56,28,,,
+ola-aina-rb,Ola Aina,RB,,rule,79,28,56,28,,,
+mats-wieffer-rb,Mats Wieffer,RB,,rule,79,29,56,28,Brighton and Hove Albion,Brighton and Hove Albion,Netherlands
+malo-gusto-rb,Malo Gusto,RB,,rule,79,30,56,28,Chelsea,Chelsea,France
+rasmus-kristensen-rb,Rasmus Kristensen,RB,,rule,79,31,56,28,,,
+conor-bradley-rb,Conor Bradley,RB,,rule,79,32,56,28,Liverpool,Liverpool,Northern Ireland
+zeki-celik-rb,Zeki Çelik,RB,,rule,79,33,56,28,Juventus,Juventus,Turkey
+alex-jimenez-rb,Álex Jiménez,RB,,rule,79,34,56,28,,,
+marco-palestra-rb,Marco Palestra,RB,,rule,78,35,52,26,Chelsea,Chelsea,Italy
+alexander-bah-rb,Alexander Bah,RB,,rule,78,36,52,26,,,
+roland-sallai-rb,Roland Sallai,RB,,rule,78,37,52,26,,,
+diogo-dalot-rb,Diogo Dalot,RB,,rule,78,38,52,26,Manchester United,Manchester United,Portugal
+valentin-rosier-rb,Valentin Rosier,RB,,rule,78,39,52,26,,,
+alistair-johnston-rb,Alistair Johnston,RB,,rule,78,40,52,26,,,
+alberto-costa-rb,Alberto Costa,RB,,rule,78,41,52,26,,,
+zakaria-el-ouahdi-rb,Zakaria El Ouahdi,RB,,rule,78,42,52,26,,,
+adam-marusic-rb,Adam Marušić,RB,,rule,78,43,52,26,,,
+thomas-meunier-rb,Thomas Meunier,RB,,rule,78,44,52,26,,,
+raoul-bellanova-rb,Raoul Bellanova,RB,,rule,78,45,52,26,,,
+nuno-mendes-lb,Nuno Mendes,LB,,rule,89,1,115,58,Paris Saint-Germain,Paris Saint-Germain,Portugal
+cucurella-lb,Cucurella,LB,,rule,86,2,93,47,Real Madrid,Real Madrid,Spain
+federico-dimarco-lb,Federico Dimarco,LB,,rule,86,3,93,47,Inter Milan,Inter Milan,Italy
+piero-hincapie-lb,Piero Hincapié,LB,,rule,84,4,80,40,Arsenal,Arsenal,Ecuador
+joao-cancelo-lb,João Cancelo,LB,,rule,83,5,75,38,FC Barcelona,FC Barcelona,Portugal
+nico-o-reilly-lb,Nico O'Reilly,LB,,rule,83,6,75,38,Manchester City,Manchester City,England
+david-raum-lb,David Raum,LB,,rule,83,7,75,38,,,
+lewis-hall-lb,Lewis Hall,LB,,rule,83,8,75,38,Newcastle United,Newcastle United,England
+maximilian-mittelstadt-lb,Maximilian Mittelstädt,LB,,rule,83,9,75,38,,,
+theo-hernandez-lb,Theo Hernández,LB,,rule,82,10,69,35,,,
+alphonso-davies-lb,Alphonso Davies,LB,,rule,82,11,69,35,Bayern Munich,Bayern Munich,Canada
+riccardo-calafiori-lb,Riccardo Calafiori,LB,,rule,82,12,69,35,Arsenal,Arsenal,Italy
+balde-lb,Balde,LB,,rule,82,13,69,35,FC Barcelona,FC Barcelona,Spain
+alvaro-carreras-lb,Álvaro Carreras,LB,,rule,81,14,65,33,Real Madrid,Real Madrid,Spain
+milos-kerkez-lb,Milos Kerkez,LB,,rule,81,15,65,33,Liverpool,Liverpool,Hungary
+matthieu-udol-lb,Matthieu Udol,LB,,rule,81,16,65,33,,,
+mauro-junior-lb,Mauro Júnior,LB,,rule,81,17,65,33,,,
+rayan-ait-nouri-lb,Rayan Aït-Nouri,LB,,rule,81,18,65,33,Manchester City,Manchester City,Algeria
+nathaniel-brown-lb,Nathaniel Brown,LB,,rule,81,19,65,33,Bayern Munich,Bayern Munich,Germany
+carlos-romero-lb,Carlos Romero,LB,,rule,80,20,60,30,,,
+wesley-lb,Wesley,LB,,rule,80,21,60,30,,,
+carlos-augusto-lb,Carlos Augusto,LB,,rule,80,22,60,30,Inter Milan,Inter Milan,Brazil
+andrea-cambiaso-lb,Andrea Cambiaso,LB,,rule,80,23,60,30,Juventus,Juventus,Italy
+miguel-gutierrez-lb,Miguel Gutiérrez,LB,,rule,80,24,60,30,,,
+leonardo-spinazzola-lb,Leonardo Spinazzola,LB,,rule,80,25,60,30,,,
+ferland-mendy-lb,Ferland Mendy,LB,,rule,80,26,60,30,Real Madrid,Real Madrid,France
+antonee-robinson-lb,Antonee Robinson,LB,,rule,80,27,60,30,,,
+ferdi-kad-oglu-lb,Ferdi Kadıoğlu,LB,,rule,80,28,60,30,Brighton and Hove Albion,Brighton and Hove Albion,Turkey
+djed-spence-lb,Djed Spence,LB,,rule,80,29,60,30,Inter Milan,Inter Milan,England
+lucas-digne-lb,Lucas Digne,LB,,rule,80,30,60,30,Paris Saint-Germain,Paris Saint-Germain,France
+andrew-robertson-lb,Andrew Robertson,LB,,rule,80,31,60,30,Tottenham Hotspur,Tottenham Hotspur,Scotland
+adrien-truffert-lb,Adrien Truffert,LB,,rule,80,32,60,30,,,
+reinildo-lb,Reinildo,LB,,rule,80,33,60,30,,,
+neco-williams-lb,Neco Williams,LB,,rule,80,34,60,30,,,
+pep-chavarria-lb,Pep Chavarría,LB,,rule,79,35,56,28,Chelsea,Chelsea,Spain
+destiny-udogie-lb,Destiny Udogie,LB,,rule,79,36,56,28,Tottenham Hotspur,Tottenham Hotspur,Italy
+yuri-berchiche-lb,Yuri Berchiche,LB,,rule,79,37,56,28,,,
+ian-maatsen-lb,Ian Maatsen,LB,,rule,79,38,56,28,Aston Villa,Aston Villa,Netherlands
+sergi-cardona-lb,Sergi Cardona,LB,,rule,79,39,56,28,,,
+daniel-svensson-lb,Daniel Svensson,LB,,rule,79,40,56,28,Borussia Dortmund,Borussia Dortmund,Sweden
+luke-shaw-lb,Luke Shaw,LB,,rule,79,41,56,28,Manchester United,Manchester United,England
+tyrick-mitchell-lb,Tyrick Mitchell,LB,,rule,79,42,56,28,,,
+sergio-gomez-lb,Sergio Gómez,LB,,rule,78,43,52,26,,,
+maxim-de-cuyper-lb,Maxim De Cuyper,LB,,rule,78,44,52,26,Brighton and Hove Albion,Brighton and Hove Albion,Belgium
+gabriel-gudmundsson-lb,Gabriel Gudmundsson,LB,,rule,78,45,52,26,,,
+rodri-cdm,Rodri,CDM,CM,rule,90,1,124,62,FC Barcelona,FC Barcelona,Spain
+joshua-kimmich-cdm,Joshua Kimmich,CDM,CM,rule,88,2,107,54,Bayern Munich,Bayern Munich,Germany
+declan-rice-cdm,Declan Rice,CDM,CM,rule,88,3,107,54,Arsenal,Arsenal,England
+moises-caicedo-cdm,Moisés Caicedo,CDM,CM,rule,86,4,93,47,Chelsea,Chelsea,Ecuador
+sandro-tonali-cdm,Sandro Tonali,CDM,CM,rule,85,5,86,43,Tottenham Hotspur,Tottenham Hotspur,Italy
+ryan-gravenberch-cdm,Ryan Gravenberch,CDM,CM,rule,85,6,86,43,Liverpool,Liverpool,Netherlands
+hakan-calhanoglu-cdm,Hakan Çalhanoğlu,CDM,CM,rule,85,7,86,43,Inter Milan,Inter Milan,Turkey
+ruben-neves-cdm,Rúben Neves,CDM,CM,rule,85,8,86,43,,,
+granit-xhaka-cdm,Granit Xhaka,CDM,CM,rule,85,9,86,43,,,
+aurelien-tchouameni-cdm,Aurélien Tchouaméni,CDM,CM,rule,84,10,80,40,Real Madrid,Real Madrid,France
+elliot-anderson-cdm,Elliot Anderson,CDM,CM,rule,84,11,80,40,Manchester City,Manchester City,England
+zubimendi-cdm,Zubimendi,CDM,CM,rule,84,12,80,40,Arsenal,Arsenal,Spain
+manuel-locatelli-cdm,Manuel Locatelli,CDM,CM,rule,84,13,80,40,Juventus,Juventus,Italy
+boubacar-kamara-cdm,Boubacar Kamara,CDM,CM,rule,84,14,80,40,Aston Villa,Aston Villa,France
+morten-hjulmand-cdm,Morten Hjulmand,CDM,CM,rule,83,15,75,38,Atlético Madrid,Atlético Madrid,Denmark
+aleksandar-pavlovic-cdm,Aleksandar Pavlović,CDM,CM,rule,83,16,75,38,Bayern Munich,Bayern Munich,Germany
+n-golo-kante-cdm,N'Golo Kanté,CDM,CM,rule,83,17,75,38,,,
+angelo-stiller-cdm,Angelo Stiller,CDM,CM,rule,83,18,75,38,,,
+casemiro-cdm,Casemiro,CDM,CM,rule,83,19,75,38,Inter Miami,Inter Miami,Brazil
+james-garner-cdm,James Garner,CDM,CM,rule,82,20,69,35,,,
+fabinho-cdm,Fabinho,CDM,CM,rule,82,21,69,35,,,
+palhinha-cdm,Palhinha,CDM,CM,rule,82,22,69,35,Bayern Munich,Bayern Munich,Portugal
+denis-zakaria-cdm,Denis Zakaria,CDM,CM,rule,81,23,65,33,,,
+matteo-guendouzi-cdm,Mattéo Guendouzi,CDM,CM,rule,81,24,65,33,,,
+amadou-onana-cdm,Amadou Onana,CDM,CM,rule,81,25,65,33,Aston Villa,Aston Villa,Belgium
+lucas-torreira-cdm,Lucas Torreira,CDM,CM,rule,81,26,65,33,,,
+nicolas-seiwald-cdm,Nicolas Seiwald,CDM,CM,rule,81,27,65,33,,,
+kobbie-mainoo-cdm,Kobbie Mainoo,CDM,CM,rule,81,28,65,33,Manchester United,Manchester United,England
+kaishu-sano-cdm,Kaishū Sano,CDM,CM,rule,81,29,65,33,,,
+nico-gonzalez-cdm,Nico González,CDM,CM,rule,81,30,65,33,Newcastle United,Newcastle United,Spain
+remo-freuler-cdm,Remo Freuler,CDM,CM,rule,81,31,65,33,,,
+leon-goretzka-cdm,Leon Goretzka,CDM,CM|CAM,ea,81,32,65,33,Aston Villa,Aston Villa,Germany
+carlos-baleba-cdm,Carlos Baleba,CDM,CM,rule,80,33,60,30,Manchester United,Manchester United,Cameroon
+noah-sadiki-cdm,Noah Sadiki,CDM,CM,rule,80,34,60,30,,,
+johnny-cardoso-cdm,Johnny Cardoso,CDM,CM,rule,80,35,60,30,Atlético Madrid,Atlético Madrid,United States
+alan-varela-cdm,Alan Varela,CDM,CM,rule,80,36,60,30,,,
+ayyoub-bouaddi-cdm,Ayyoub Bouaddi,CDM,CM,rule,80,37,60,30,Manchester City,Manchester City,France
+valentin-rongier-cdm,Valentin Rongier,CDM,CM,rule,80,38,60,30,,,
+benjamin-andre-cdm,Benjamin André,CDM,CM,rule,80,39,60,30,,,
+ethan-ampadu-cdm,Ethan Ampadu,CDM,CM,rule,80,40,60,30,,,
+pierre-emile-h-jbjerg-cdm,Pierre-Emile Højbjerg,CDM,CM,rule,80,41,60,30,,,
+sofyan-amrabat-cdm,Sofyan Amrabat,CDM,CM,rule,79,42,56,28,,,
+patrick-berg-cdm,Patrick Berg,CDM,CM,rule,79,43,56,28,,,
+maximilian-arnold-cdm,Maximilian Arnold,CDM,CM,rule,79,44,56,28,,,
+nicolas-raskin-cdm,Nicolas Raskin,CDM,CM,rule,79,45,56,28,,,
+tyler-adams-cdm,Tyler Adams,CDM,CM,rule,79,46,56,28,,,
+yasin-ayari-cdm,Yasin Ayari,CDM,CM,rule,79,47,56,28,Brighton and Hove Albion,Brighton and Hove Albion,Sweden
+tyler-morton-cdm,Tyler Morton,CDM,CM,rule,79,48,56,28,,,
+leon-avdullahu-cdm,Leon Avdullahu,CDM,CM,rule,79,49,56,28,,,
+bryan-heynen-cdm,Bryan Heynen,CDM,CM,rule,79,50,56,28,,,
+santiago-hezze-cdm,Santiago Hezze,CDM,CM,rule,79,51,56,28,,,
+pedri-cm,Pedri,CM,CDM|CAM,rule,90,1,124,62,FC Barcelona,FC Barcelona,Spain
+vitinha-cm,Vitinha,CM,CDM|CAM,rule,90,2,124,62,Paris Saint-Germain,Paris Saint-Germain,Portugal
+joao-neves-cm,João Neves,CM,CDM|CAM,rule,88,3,107,54,Paris Saint-Germain,Paris Saint-Germain,Portugal
+federico-valverde-cm,Federico Valverde,CM,CDM|CAM,rule,87,4,100,50,Real Madrid,Real Madrid,Uruguay
+nicolo-barella-cm,Nicolò Barella,CM,CDM|CAM,rule,87,5,100,50,Inter Milan,Inter Milan,Italy
+fabian-ruiz-cm,Fabián Ruiz,CM,CDM|CAM,rule,86,6,93,47,Paris Saint-Germain,Paris Saint-Germain,Spain
+scott-mctominay-cm,Scott McTominay,CM,CDM|CAM,rule,86,7,93,47,,,
+bruno-guimaraes-cm,Bruno Guimarães,CM,CDM|CAM,rule,86,8,93,47,Arsenal,Arsenal,Brazil
+enzo-fernandez-cm,Enzo Fernández,CM,CDM|CAM,rule,86,9,93,47,Manchester City,Manchester City,Argentina
+martin-degaard-cm,Martin Ødegaard,CM,CDM|CAM,rule,86,10,93,47,Arsenal,Arsenal,Norway
+frenkie-de-jong-cm,Frenkie de Jong,CM,CDM|CAM,rule,86,11,93,47,FC Barcelona,FC Barcelona,Netherlands
+felix-nmecha-cm,Felix Nmecha,CM,CDM|CAM,rule,85,12,86,43,Borussia Dortmund,Borussia Dortmund,Germany
+adrien-rabiot-cm,Adrien Rabiot,CM,CDM|CAM,rule,85,13,86,43,AC Milan,AC Milan,France
+luka-modric-cm,Luka Modrić,CM,CDM|CAM,rule,85,14,86,43,AC Milan,AC Milan,Croatia
+youri-tielemans-cm,Youri Tielemans,CM,CDM|CAM,rule,85,15,86,43,Manchester United,Manchester United,Belgium
+sergej-milinkovic-savic-cm,Sergej Milinković-Savić,CM,CDM|CAM,rule,84,16,80,40,,,
+aleix-garcia-cm,Aleix García,CM,CDM|CAM,rule,84,17,80,40,,,
+tijjani-reijnders-cm,Tijjani Reijnders,CM,CDM|CAM,rule,84,18,80,40,,Al-Qadsiah,
+alexis-mac-allister-cm,Alexis Mac Allister,CM,CDM|CAM,rule,84,19,80,40,Liverpool,Liverpool,Argentina
+bernardo-silva-cm,Bernardo Silva,CM,CDM|CAM,rule,84,20,80,40,Real Madrid,Real Madrid,Portugal
+rodrigo-de-paul-cm,Rodrigo De Paul,CM,CDM|CAM,rule,83,21,75,38,Inter Miami,Inter Miami,Argentina
+warren-zaire-emery-cm,Warren Zaïre-Emery,CM,CDM|CAM,rule,83,22,75,38,Paris Saint-Germain,Paris Saint-Germain,France
+pablo-barrios-cm,Pablo Barrios,CM,CDM|CAM,rule,83,23,75,38,Atlético Madrid,Atlético Madrid,Spain
+exequiel-palacios-cm,Exequiel Palacios,CM,CDM|CAM,rule,83,24,75,38,,,
+mikel-merino-cm,Mikel Merino,CM,CDM|CAM,rule,83,25,75,38,Arsenal,Arsenal,Spain
+gavi-cm,Gavi,CM,CDM|CAM,rule,83,26,75,38,FC Barcelona,FC Barcelona,Spain
+stanislav-lobotka-cm,Stanislav Lobotka,CM,CDM|CAM,rule,83,27,75,38,,,
+ederson-cm,Éderson,CM,CDM|CAM,rule,82,28,69,35,,,
+victor-froholdt-cm,Victor Froholdt,CM,CDM|CAM,rule,82,29,69,35,,,
+andre-franck-zambo-anguissa-cm,André-Franck Zambo Anguissa,CM,CDM|CAM,rule,82,30,69,35,,,
+orkun-kokcu-cm,Orkun Kökçü,CM,CDM|CAM,rule,82,31,69,35,,,
+corentin-tolisso-cm,Corentin Tolisso,CM,CDM|CAM,rule,82,32,69,35,,,
+piotr-zielinski-cm,Piotr Zieliński,CM,CDM|CAM,rule,82,33,69,35,Inter Milan,Inter Milan,Poland
+adam-wharton-cm,Adam Wharton,CM,CDM|CAM,rule,82,34,69,35,,,
+james-maddison-cm,James Maddison,CM,CDM|CAM,rule,82,35,69,35,Tottenham Hotspur,Tottenham Hotspur,England
+joey-veerman-cm,Joey Veerman,CM,CDM|CAM,rule,82,36,69,35,Borussia Dortmund,Borussia Dortmund,Netherlands
+khephren-thuram-cm,Khéphren Thuram,CM,CDM|CAM,rule,81,37,65,33,Juventus,Juventus,France
+marcel-sabitzer-cm,Marcel Sabitzer,CM,CDM|CAM,rule,81,38,65,33,Borussia Dortmund,Borussia Dortmund,Austria
+kouadio-manu-kone-cm,Kouadio Manu Koné,CM,CDM|CAM,rule,81,39,65,33,,,
+eduardo-camavinga-cm,Eduardo Camavinga,CM,CDM|CAM,rule,81,40,65,33,Real Madrid,Real Madrid,France
+fredrik-aursnes-cm,Fredrik Aursnes,CM,CDM|CAM,rule,81,41,65,33,,,
+leandro-paredes-cm,Leandro Paredes,CM,CDM|CAM,rule,81,42,65,33,,,
+luis-milla-cm,Luis Milla,CM,CDM|CAM,rule,81,43,65,33,,,
+mamadou-sangare-cm,Mamadou Sangaré,CM,CDM|CAM,rule,81,44,65,33,,,
+henrikh-mkhitaryan-cm,Henrikh Mkhitaryan,CM,CDM|CAM,rule,81,45,65,33,Inter Milan,Inter Milan,Armenia
+alex-scott-cm,Alex Scott,CM,CDM|CAM,rule,81,46,65,33,,,
+fornals-cm,Fornals,CM,CDM|CAM,rule,81,47,65,33,,,
+dejan-kulusevski-cm,Dejan Kulusevski,CM,CDM|CAM,rule,81,48,65,33,Tottenham Hotspur,Tottenham Hotspur,Sweden
+bryan-cristante-cm,Bryan Cristante,CM,CDM|CAM,rule,81,49,65,33,,,
+adrien-thomasson-cm,Adrien Thomasson,CM,CDM|CAM,rule,81,50,65,33,,,
+koke-cm,Koke,CM,CDM|CAM,rule,81,51,65,33,Atlético Madrid,Atlético Madrid,Spain
+mateo-kovacic-cm,Mateo Kovačić,CM,CDM|CAM,rule,81,52,65,33,Manchester City,Manchester City,Croatia
+weston-mckennie-cm,Weston McKennie,CM,CDM|CAM,rule,80,53,60,30,Juventus,Juventus,United States
+joelinton-cm,Joelinton,CM,CDM|CAM,rule,80,54,60,30,Newcastle United,Newcastle United,Brazil
+gabriel-sara-cm,Gabriel Sara,CM,CDM|CAM,rule,80,55,60,30,,,
+mauro-arambarri-cm,Mauro Arambarri,CM,CDM|CAM,rule,80,56,60,30,,,
+davide-frattesi-cm,Davide Frattesi,CM,CDM|CAM,rule,80,57,60,30,,Lazio,
+pape-gueye-cm,Pape Gueye,CM,CDM|CAM,rule,80,58,60,30,,,
+anton-stach-cm,Anton Stach,CM,CDM|CAM,rule,80,59,60,30,,,
+otavio-cm,Otávio,CM,CDM|CAM,rule,80,60,60,30,,,
+jude-bellingham-cam,Jude Bellingham,CAM,CM,rule,90,1,124,62,Real Madrid,Real Madrid,England
+lionel-messi-cam,Lionel Messi,CAM,ST|RW|RM,ea,89,2,115,58,Inter Miami,Inter Miami,Argentina
+bruno-fernandes-cam,Bruno Fernandes,CAM,CM,rule,89,3,115,58,Manchester United,Manchester United,Portugal
+jamal-musiala-cam,Jamal Musiala,CAM,CM,rule,87,4,100,50,Bayern Munich,Bayern Munich,Germany
+dominik-szoboszlai-cam,Dominik Szoboszlai,CAM,CM,rule,86,5,93,47,Liverpool,Liverpool,Hungary
+florian-wirtz-cam,Florian Wirtz,CAM,CM,rule,86,6,93,47,Liverpool,Liverpool,Germany
+paulo-dybala-cam,Paulo Dybala,CAM,CM,rule,85,7,86,43,,,
+fermin-cam,Fermín,CAM,CM,rule,85,8,86,43,FC Barcelona,FC Barcelona,Spain
+kevin-de-bruyne-cam,Kevin De Bruyne,CAM,CM,rule,85,9,86,43,,,
+cole-palmer-cam,Cole Palmer,CAM,CM,rule,85,10,86,43,Chelsea,Chelsea,England
+morgan-rogers-cam,Morgan Rogers,CAM,CM,rule,84,11,80,40,Chelsea,Chelsea,England
+kenan-y-ld-z-cam,Kenan Yıldız,CAM,CM,rule,84,12,80,40,Juventus,Juventus,Turkey
+eberechi-eze-cam,Eberechi Eze,CAM,CM,rule,84,13,80,40,Arsenal,Arsenal,England
+nico-paz-cam,Nico Paz,CAM,CM,rule,84,14,80,40,,,
+phil-foden-cam,Phil Foden,CAM,CM,rule,84,15,80,40,Manchester City,Manchester City,England
+dani-olmo-cam,Dani Olmo,CAM,CM,rule,84,16,80,40,FC Barcelona,FC Barcelona,Spain
+morgan-gibbs-white-cam,Morgan Gibbs-White,CAM,CM,rule,83,17,75,38,,,
+ismael-saibari-cam,Ismael Saibari,CAM,CM,rule,83,18,75,38,Bayern Munich,Bayern Munich,Morocco
+christian-pulisic-cam,Christian Pulisic,CAM,CM,rule,83,19,75,38,AC Milan,AC Milan,United States
+joao-felix-cam,João Félix,CAM,CM,rule,83,20,75,38,Al-Nassr,Al-Nassr,Portugal
+konstantinos-fortounis-cam,Konstantinos Fortounis,CAM,CM,rule,83,21,75,38,,,
+trincao-cam,Trincão,CAM,CM,rule,83,22,75,38,,,
+serge-gnabry-cam,Serge Gnabry,CAM,CM,rule,83,23,75,38,Bayern Munich,Bayern Munich,Germany
+isco-cam,Isco,CAM,CM,rule,83,24,75,38,,,
+sancet-cam,Sancet,CAM,CM,rule,82,25,69,35,,,
+rodrigo-zalazar-cam,Rodrigo Zalazar,CAM,CM,rule,82,26,69,35,,,
+ricardo-horta-cam,Ricardo Horta,CAM,CM,rule,82,27,69,35,,,
+christoph-baumgartner-cam,Christoph Baumgartner,CAM,CM,rule,82,28,69,35,,,
+julian-brandt-cam,Julian Brandt,CAM,CM,rule,82,29,69,35,,Ajax,
+marco-asensio-cam,Marco Asensio,CAM,CM,rule,82,30,69,35,,,
+kiernan-dewsbury-hall-cam,Kiernan Dewsbury-Hall,CAM,CM,rule,81,31,65,33,,,
+maximilian-beier-cam,Maximilian Beier,CAM,CM,rule,81,32,65,33,Borussia Dortmund,Borussia Dortmund,Germany
+xavi-simons-cam,Xavi Simons,CAM,CM,rule,81,33,65,33,Tottenham Hotspur,Tottenham Hotspur,Netherlands
+charles-de-ketelaere-cam,Charles De Ketelaere,CAM,CM,rule,81,34,65,33,,,
+anderson-talisca-cam,Anderson Talisca,CAM,CM,rule,81,35,65,33,,,
+maghnes-akliouche-cam,Maghnes Akliouche,CAM,CM,rule,81,36,65,33,Paris Saint-Germain,Paris Saint-Germain,France
+hans-vanaken-cam,Hans Vanaken,CAM,CM,rule,81,37,65,33,,,
+andrej-kramaric-cam,Andrej Kramarić,CAM,CM,rule,81,38,65,33,,,
+giovani-lo-celso-cam,Giovani Lo Celso,CAM,CM,rule,80,39,60,30,,,
+nikola-vlasic-cam,Nikola Vlašić,CAM,CM,rule,80,40,60,30,,,
+ibrahim-maza-cam,Ibrahim Maza,CAM,CM,rule,80,41,60,30,,,
+kaku-cam,Kaku,CAM,CM,rule,80,42,60,30,,,
+mikkel-damsgaard-cam,Mikkel Damsgaard,CAM,CM,rule,80,43,60,30,,,
+enzo-le-fee-cam,Enzo Le Fée,CAM,CM,rule,80,44,60,30,,,
+matias-soule-cam,Matías Soulé,CAM,CM,rule,80,45,60,30,,,
+rafa-cam,Rafa,CAM,CM,rule,80,46,60,30,,,
+lucas-zelarayan-cam,Lucas Zelarayán,CAM,CM,rule,80,47,60,30,,,
+isi-cam,Isi,CAM,CM,rule,80,48,60,30,,,
+francisco-conceicao-cam,Francisco Conceição,CAM,CM,rule,80,49,60,30,Juventus,Juventus,Portugal
+thomas-muller-cam,Thomas Müller,CAM,CM,rule,80,50,60,30,,,
+kylian-mbappe-st,Kylian Mbappé,ST,,rule,91,1,133,67,Real Madrid,Real Madrid,France
+erling-haaland-st,Erling Haaland,ST,,rule,91,2,133,67,Manchester City,Manchester City,Norway
+harry-kane-st,Harry Kane,ST,,rule,90,3,124,62,Bayern Munich,Bayern Munich,England
+ousmane-dembele-st,Ousmane Dembéle,ST,,rule,90,4,124,62,Paris Saint-Germain,Paris Saint-Germain,France
+lautaro-martinez-st,Lautaro Martínez,ST,,rule,87,5,100,50,Inter Milan,Inter Milan,Argentina
+julian-alvarez-st,Julián Alvarez,ST,,rule,86,6,93,47,Atlético Madrid,Atlético Madrid,Argentina
+alexander-isak-st,Alexander Isak,ST,,rule,86,7,93,47,Liverpool,Liverpool,Sweden
+viktor-gyokeres-st,Viktor Gyökeres,ST,,rule,86,8,93,47,Arsenal,Arsenal,Sweden
+marcus-thuram-st,Marcus Thuram,ST,,rule,85,9,86,43,Inter Milan,Inter Milan,France
+victor-osimhen-st,Victor Osimhen,ST,,rule,85,10,86,43,,,
+serhou-guirassy-st,Serhou Guirassy,ST,,rule,85,11,86,43,Borussia Dortmund,Borussia Dortmund,Guinea
+hugo-ekitike-st,Hugo Ekitiké,ST,,rule,85,12,86,43,Liverpool,Liverpool,France
+deniz-undav-st,Deniz Undav,ST,,rule,85,13,86,43,,,
+antoine-griezmann-st,Antoine Griezmann,ST,,rule,84,14,80,40,,Orlando City,
+ferran-torres-st,Ferran Torres,ST,,rule,84,15,80,40,Paris Saint-Germain,Paris Saint-Germain,Spain
+julian-quinones-st,Julián Quiñones,ST,,rule,84,16,80,40,,,
+oyarzabal-st,Oyarzabal,ST,,rule,84,17,80,40,,,
+robert-lewandowski-st,Robert Lewandowski,ST,,rule,84,18,80,40,,Chicago Fire,
+cristiano-ronaldo-st,Cristiano Ronaldo,ST,,rule,84,19,80,40,Al-Nassr,Al-Nassr,Portugal
+ivan-toney-st,Ivan Toney,ST,,rule,83,20,75,38,,,
+ollie-watkins-st,Ollie Watkins,ST,,rule,83,21,75,38,Aston Villa,Aston Villa,England
+donyell-malen-st,Donyell Malen,ST,,rule,83,22,75,38,,Roma,
+joao-pedro-st,João Pedro,ST,,rule,83,23,75,38,Chelsea,Chelsea,Brazil
+ademola-lookman-st,Ademola Lookman,ST,,rule,83,24,75,38,Atlético Madrid,Atlético Madrid,Nigeria
+alexander-s-rloth-st,Alexander Sørloth,ST,,rule,83,25,75,38,Atlético Madrid,Atlético Madrid,Norway
+patrik-schick-st,Patrik Schick,ST,,rule,83,26,75,38,,,
+vangelis-pavlidis-st,Vangelis Pavlidis,ST,,rule,82,27,69,35,,,
+benjamin-sesko-st,Benjamin Šeško,ST,,rule,82,28,69,35,Manchester United,Manchester United,Slovenia
+luis-javier-suarez-st,Luis Javier Suárez,ST,,rule,82,29,69,35,,,
+jonathan-burkardt-st,Jonathan Burkardt,ST,,rule,82,30,69,35,,,
+igor-thiago-st,Igor Thiago,ST,,rule,82,31,69,35,,,
+romelu-lukaku-st,Romelu Lukaku,ST,,rule,82,32,69,35,,,
+moise-kean-st,Moise Kean,ST,,rule,82,33,69,35,,,
+karim-benzema-st,Karim Benzema,ST,,rule,82,34,69,35,,,
+ante-budimir-st,Ante Budimir,ST,,rule,82,35,69,35,,,
+son-heung-min-st,Son Heung Min,ST,,rule,81,36,65,33,,,
+gerard-moreno-st,Gerard Moreno,ST,,rule,81,37,65,33,,,
+kai-havertz-st,Kai Havertz,ST,,rule,81,38,65,33,Arsenal,Arsenal,Germany
+jean-philippe-mateta-st,Jean-Philippe Mateta,ST,,rule,81,39,65,33,,,
+dusan-vlahovic-st,Dušan Vlahović,ST,,rule,81,40,65,33,,Beşiktaş,
+mateo-retegui-st,Mateo Retegui,ST,,rule,81,41,65,33,,,
+esteban-lepaul-st,Estéban Lepaul,ST,,rule,81,42,65,33,,,
+vedat-muriqi-st,Vedat Muriqi,ST,,rule,81,43,65,33,,,
+chris-wood-st,Chris Wood,ST,,rule,81,44,65,33,,,
+ayoze-st,Ayoze,ST,,rule,80,45,60,30,,,
+amine-gouiri-st,Amine Gouiri,ST,,rule,80,46,60,30,,,
+eli-junior-kroupi-st,Eli Junior Kroupi,ST,,rule,80,47,60,30,,,
+lois-openda-st,Loïs Openda,ST,,rule,80,48,60,30,,Lyon,
+ayoub-el-kaabi-st,Ayoub El Kaabi,ST,,rule,80,49,60,30,,,
+ermedin-demirovic-st,Ermedin Demirović,ST,,rule,80,50,60,30,,,
+michael-olise-rm,Michael Olise,RM,RW,rule,90,1,124,62,Bayern Munich,Bayern Munich,France
+mohamed-salah-rm,Mohamed Salah,RM,RW,rule,87,2,100,50,,Trabzonspor,
+bryan-mbeumo-rm,Bryan Mbeumo,RM,RW,rule,84,3,80,40,Manchester United,Manchester United,Cameroon
+john-mcginn-rm,John McGinn,RM,RW,rule,83,4,75,38,Aston Villa,Aston Villa,Scotland
+arda-guler-rm,Arda Güler,RM,RW,rule,83,5,75,38,Real Madrid,Real Madrid,Turkey
+jarrod-bowen-rm,Jarrod Bowen,RM,RW,rule,83,6,75,38,,,
+mason-greenwood-rm,Mason Greenwood,RM,RW,rule,83,7,75,38,,,
+kingsley-coman-rm,Kingsley Coman,RM,RW,rule,83,8,75,38,Al-Nassr,Al-Nassr,France
+giuliano-rm,Giuliano,RM,RW,rule,82,9,69,35,Atlético Madrid,Atlético Madrid,Argentina
+riccardo-orsolini-rm,Riccardo Orsolini,RM,RW,rule,82,10,69,35,,,
+karim-adeyemi-rm,Karim Adeyemi,RM,RW,rule,82,11,69,35,FC Barcelona,FC Barcelona,Germany
+moussa-diaby-rm,Moussa Diaby,RM,RW,rule,82,12,69,35,,,
+mohammed-kudus-rm,Mohammed Kudus,RM,RW,rule,81,13,65,33,Tottenham Hotspur,Tottenham Hotspur,Ghana
+pedro-neto-rm,Pedro Neto,RM,RW,rule,81,14,65,33,Chelsea,Chelsea,Portugal
+brahim-rm,Brahim,RM,RW,rule,81,15,65,33,Real Madrid,Real Madrid,Morocco
+federico-chiesa-rm,Federico Chiesa,RM,RW,rule,80,16,60,30,Liverpool,Liverpool,Italy
+yankuba-minteh-rm,Yankuba Minteh,RM,RW,rule,80,17,60,30,Brighton and Hove Albion,Brighton and Hove Albion,Gambia
+takefusa-kubo-rm,Takefusa Kubo,RM,RW,rule,80,18,60,30,,,
+leroy-sane-rm,Leroy Sané,RM,RW,rule,80,19,60,30,,,
+ritsu-doan-rm,Ritsu Doan,RM,RW,rule,80,20,60,30,,,
+estevao-rm,Estêvão,RM,RW,rule,80,21,60,30,Chelsea,Chelsea,Brazil
+diego-moreira-rm,Diego Moreira,RM,RW,rule,79,22,56,28,AC Milan,AC Milan,Belgium
+davide-zappacosta-rm,Davide Zappacosta,RM,RW,rule,79,23,56,28,,,
+geny-catamo-rm,Geny Catamo,RM,RW,rule,79,24,56,28,,,
+dango-ouattara-rm,Dango Ouattara,RM,RW,rule,79,25,56,28,,,
+rayan-rm,Rayan,RM,RW,rule,79,26,56,28,,,
+amad-rm,Amad,RM,RW,rule,79,27,56,28,Manchester United,Manchester United,Côte d'Ivoire
+zlatko-tripic-rm,Zlatko Tripić,RM,RW,rule,78,28,52,26,,,
+timothy-weah-rm,Timothy Weah,RM,RW,rule,78,29,52,26,,Marseille,
+anan-khalaili-rm,Anan Khalaili,RM,RW,rule,78,30,52,26,,,
+sergio-canales-rm,Sergio Canales,RM,RW,rule,78,31,52,26,,,
+roberto-alvarado-rm,Roberto Alvarado,RM,RW,rule,78,32,52,26,,,
+franck-honorat-rm,Franck Honorat,RM,RW,rule,78,33,52,26,,,
+jamie-leweling-rm,Jamie Leweling,RM,RW,rule,78,34,52,26,,,
+gelson-martins-rm,Gelson Martins,RM,RW,rule,78,35,52,26,,,
+nathan-tella-rm,Nathan Tella,RM,RW,rule,78,36,52,26,,,
+samuel-chukwueze-rm,Samuel Chukwueze,RM,RW,rule,78,37,52,26,AC Milan,AC Milan,Nigeria
+edon-zhegrova-rm,Edon Zhegrova,RM,RW,rule,78,38,52,26,Juventus,Juventus,Kosovo
+aitor-ruibal-rm,Aitor Ruibal,RM,RW,rule,77,39,48,24,,,
+rodinei-rm,Rodinei,RM,RW,rule,77,40,48,24,,,
+luis-diaz-lm,Luis Díaz,LM,LW,rule,88,1,107,54,Bayern Munich,Bayern Munich,Colombia
+grimaldo-lm,Grimaldo,LM,LW,rule,85,2,86,43,Atlético Madrid,Atlético Madrid,Spain
+matheus-cunha-lm,Matheus Cunha,LM,LW,rule,84,3,80,40,Manchester United,Manchester United,Brazil
+alex-baena-lm,Álex Baena,LM,LW,rule,83,4,75,38,Atlético Madrid,Atlético Madrid,Spain
+pedro-goncalves-lm,Pedro Gonçalves,LM,LW,rule,82,5,69,35,,,
+sadio-mane-lm,Sadio Mané,LM,LW,rule,82,6,69,35,Al-Nassr,Al-Nassr,Senegal
+cody-gakpo-lm,Cody Gakpo,LM,LW,rule,82,7,69,35,Liverpool,Liverpool,Netherlands
+moleiro-lm,Moleiro,LM,LW,rule,82,8,69,35,,,
+jack-grealish-lm,Jack Grealish,LM,LW,rule,82,9,69,35,,Everton,England
+iliman-ndiaye-lm,Iliman Ndiaye,LM,LW,rule,82,10,69,35,Manchester City,Manchester City,Senegal
+maximiliano-araujo-lm,Maximiliano Araújo,LM,LW,rule,81,11,65,33,,,
+kaoru-mitoma-lm,Kaoru Mitoma,LM,LW,rule,81,12,65,33,Brighton and Hove Albion,Brighton and Hove Albion,Japan
+galeno-lm,Galeno,LM,LW,rule,81,13,65,33,,,
+bar-s-alper-y-lmaz-lm,Barış Alper Yılmaz,LM,LW,rule,80,14,60,30,,,
+salem-al-dawsari-lm,Salem Al Dawsari,LM,LW,rule,80,15,60,30,,,
+alex-iwobi-lm,Alex Iwobi,LM,LW,rule,80,16,60,30,,,
+emiliano-buendia-lm,Emiliano Buendía,LM,LW,rule,80,17,60,30,Aston Villa,Aston Villa,Argentina
+marcus-tavernier-lm,Marcus Tavernier,LM,LW,rule,79,18,56,28,,,
+nico-gonzalez-lm,Nico González,LM,LW,rule,79,19,56,28,Juventus,Juventus,Argentina
+victor-munoz-lm,Víctor Muñoz,LM,LW,rule,79,20,56,28,Liverpool,Liverpool,Spain
+noa-lang-lm,Noa Lang,LM,LW,rule,79,21,56,28,,,
+igor-paixao-lm,Igor Paixão,LM,LW,rule,79,22,56,28,,,
+kevin-schade-lm,Kevin Schade,LM,LW,rule,79,23,56,28,,,
+kerem-akturkoglu-lm,Kerem Aktürkoğlu,LM,LW,rule,79,24,56,28,,,
+vincenzo-grifo-lm,Vincenzo Grifo,LM,LW,rule,79,25,56,28,,,
+daizen-maeda-lm,Daizen Maeda,LM,LW,rule,78,26,52,26,,,
+patrick-dorgu-lm,Patrick Dorgu,LM,LW,rule,78,27,52,26,Manchester United,Manchester United,Denmark
+nicola-zalewski-lm,Nicola Zalewski,LM,LW,rule,78,28,52,26,,,
+afonso-moreira-lm,Afonso Moreira,LM,LW,rule,78,29,52,26,,,
+said-el-mala-lm,Saïd El Mala,LM,LW,rule,78,30,52,26,,,
+chris-fuhrich-lm,Chris Führich,LM,LW,rule,78,31,52,26,,,
+callum-hudson-odoi-lm,Callum Hudson-Odoi,LM,LW,rule,78,32,52,26,,,
+georges-kevin-nkoudou-lm,Georges-Kévin Nkoudou,LM,LW,rule,78,33,52,26,,,
+matias-vargas-lm,Matías Vargas,LM,LW,rule,78,34,52,26,,,
+mathys-tel-lm,Mathys Tel,LM,LW,rule,78,35,52,26,Tottenham Hotspur,Tottenham Hotspur,France
+crysencio-summerville-lm,Crysencio Summerville,LM,LW,rule,78,36,52,26,,,
+wilson-odobert-lm,Wilson Odobert,LM,LW,rule,78,37,52,26,Tottenham Hotspur,Tottenham Hotspur,France
+dan-ndoye-lm,Dan Ndoye,LM,LW,rule,77,38,48,24,,,
+mousa-al-tamari-lm,Mousa Al Tamari,LM,LW,rule,77,39,48,24,,,
+patrick-wimmer-lm,Patrick Wimmer,LM,LW,rule,77,40,48,24,,,
+lamine-yamal-rw,Lamine Yamal,RW,RM,rule,90,1,124,62,FC Barcelona,FC Barcelona,Spain
+bukayo-saka-rw,Bukayo Saka,RW,RM,rule,87,2,100,50,Arsenal,Arsenal,England
+desire-doue-rw,Désiré Doué,RW,RM,rule,86,3,93,47,Paris Saint-Germain,Paris Saint-Germain,France
+rayan-cherki-rw,Rayan Cherki,RW,RM,rule,86,4,93,47,Manchester City,Manchester City,France
+antoine-semenyo-rw,Antoine Semenyo,RW,RM,rule,85,5,86,43,Manchester City,Manchester City,Ghana
+yan-diomande-rw,Yan Diomande,RW,RM,rule,84,6,80,40,Real Madrid,Real Madrid,Côte d'Ivoire
+florian-thauvin-rw,Florian Thauvin,RW,RM,rule,82,7,69,35,,,
+domenico-berardi-rw,Domenico Berardi,RW,RM,rule,82,8,69,35,,,
+angel-di-maria-rw,Ángel Di María,RW,RM,rule,82,9,69,35,,,
+antony-rw,Antony,RW,RM,rule,81,10,65,33,,,
+de-frutos-rw,De Frutos,RW,RM,rule,81,11,65,33,,,
+ismaila-sarr-rw,Ismaïla Sarr,RW,RM,rule,81,12,65,33,,,
+nicolas-pepe-rw,Nicolas Pépé,RW,RM,rule,81,13,65,33,,,
+harry-wilson-rw,Harry Wilson,RW,RM,rule,81,14,65,33,,,
+iago-aspas-rw,Iago Aspas,RW,RM,rule,81,15,65,33,,,
+inaki-williams-rw,Iñaki Williams,RW,RM,rule,80,16,60,30,,,
+noni-madueke-rw,Noni Madueke,RW,RM,rule,80,17,60,30,Arsenal,Arsenal,England
+lee-kang-in-rw,Lee Kang In,RW,RM,rule,80,18,60,30,Atlético Madrid,Atlético Madrid,South Korea
+matteo-politano-rw,Matteo Politano,RW,RM,rule,80,19,60,30,,,
+dodi-lukebakio-rw,Dodi Lukébakio,RW,RM,rule,80,20,60,30,,,
+savinho-rw,Savinho,RW,RM,rule,80,21,60,30,Tottenham Hotspur,Tottenham Hotspur,Brazil
+berenguer-rw,Berenguer,RW,RM,rule,79,22,56,28,,,
+jacob-murphy-rw,Jacob Murphy,RW,RM,rule,79,23,56,28,Newcastle United,Newcastle United,England
+anthony-elanga-rw,Anthony Elanga,RW,RM,rule,79,24,56,28,Newcastle United,Newcastle United,Sweden
+anders-dreyer-rw,Anders Dreyer,RW,RM,rule,79,25,56,28,,,
+alejandro-zendejas-rw,Alejandro Zendejas,RW,RM,rule,78,26,52,26,,,
+viktor-tsygankov-rw,Viktor Tsygankov,RW,RM,rule,78,27,52,26,,,
+evann-guessand-rw,Evann Guessand,RW,RM,rule,78,28,52,26,,,
+brennan-johnson-rw,Brennan Johnson,RW,RM,rule,78,29,52,26,,,
+dennis-man-rw,Dennis Man,RW,RM,rule,77,30,48,24,,,
+philip-zinckernagel-rw,Philip Zinckernagel,RW,RM,rule,77,31,48,24,,,
+andres-martin-rw,Andrés Martín,RW,RM,rule,77,32,48,24,,,
+pepe-rw,Pepê,RW,RM,rule,77,33,48,24,,,
+anis-hadj-moussa-rw,Anis Hadj Moussa,RW,RM,rule,77,34,48,24,,,
+william-gomes-rw,William Gomes,RW,RM,rule,77,35,48,24,,,
+brenden-aaronson-rw,Brenden Aaronson,RW,RM,rule,76,36,45,23,,,
+robert-navarro-rw,Robert Navarro,RW,RM,rule,76,37,45,23,,,
+diego-lainez-rw,Diego Lainez,RW,RM,rule,76,38,45,23,,,
+steven-berghuis-rw,Steven Berghuis,RW,RM,rule,76,39,45,23,,,
+gustav-isaksen-rw,Gustav Isaksen,RW,RM,rule,76,40,45,23,,,
+khvicha-kvaratskhelia-lw,Khvicha Kvaratskhelia,LW,LM,rule,89,1,115,58,Paris Saint-Germain,Paris Saint-Germain,Georgia
+vini-jr-lw,Vini Jr.,LW,LM,rule,89,2,115,58,Real Madrid,Real Madrid,Brazil
+raphinha-lw,Raphinha,LW,LM,rule,88,3,107,54,FC Barcelona,FC Barcelona,Brazil
+bradley-barcola-lw,Bradley Barcola,LW,LM,rule,85,4,86,43,Liverpool,Liverpool,France
+jeremy-doku-lw,Jérémy Doku,LW,LM,rule,84,5,80,40,Manchester City,Manchester City,Belgium
+nico-williams-lw,Nico Williams,LW,LM,rule,84,6,80,40,,,
+rodrygo-lw,Rodrygo,LW,LM,rule,84,7,80,40,Real Madrid,Real Madrid,Brazil
+rafael-leao-lw,Rafael Leão,LW,LM,rule,83,8,75,38,,Galatasaray,Portugal
+yannick-carrasco-lw,Yannick Carrasco,LW,LM,rule,82,9,69,35,,,
+anthony-gordon-lw,Anthony Gordon,LW,LM,rule,82,10,69,35,FC Barcelona,FC Barcelona,England
+mattia-zaccagni-lw,Mattia Zaccagni,LW,LM,rule,82,11,69,35,,,
+marcus-rashford-lw,Marcus Rashford,LW,LM,rule,82,12,69,35,Manchester United,Manchester United,England
+christos-tzolis-lw,Christos Tzolis,LW,LM,rule,82,13,69,35,Arsenal,Arsenal,Greece
+omar-marmoush-lw,Omar Marmoush,LW,LM,rule,82,14,69,35,Tottenham Hotspur,Tottenham Hotspur,Egypt
+leandro-trossard-lw,Leandro Trossard,LW,LM,rule,82,15,69,35,,Beşiktaş,
+ivan-perisic-lw,Ivan Perišić,LW,LM,rule,81,16,65,33,,,
+abde-lw,Abde,LW,LM,rule,81,17,65,33,,,
+david-neres-lw,David Neres,LW,LM,rule,81,18,65,33,,,
+alvaro-garcia-lw,Álvaro García,LW,LM,rule,81,19,65,33,,,
+gabriel-martinelli-lw,Gabriel Martinelli,LW,LM,rule,80,20,60,30,,Al-Hilal,Brazil
+harvey-barnes-lw,Harvey Barnes,LW,LM,rule,80,21,60,30,Newcastle United,Newcastle United,England
+guedes-lw,Guedes,LW,LM,rule,80,22,60,30,,,
+andreas-schjelderup-lw,Andreas Schjelderup,LW,LM,rule,80,23,60,30,,,
+armand-lauriente-lw,Armand Laurienté,LW,LM,rule,80,24,60,30,,,
+denis-bouanga-lw,Denis Bouanga,LW,LM,rule,79,25,56,28,,,
+barrenetxea-lw,Barrenetxea,LW,LM,rule,79,26,56,28,,,
+lukas-haraslin-lw,Lukáš Haraslín,LW,LM,rule,79,27,56,28,,,
+yeremy-pino-lw,Yeremy Pino,LW,LM,rule,79,28,56,28,,,
+ruben-vargas-lw,Rubén Vargas,LW,LM,rule,78,29,52,26,,,
+antonio-nusa-lw,Antonio Nusa,LW,LM,rule,78,30,52,26,,,
+mika-godts-lw,Mika Godts,LW,LM,rule,78,31,52,26,Paris Saint-Germain,Paris Saint-Germain,Belgium
+musa-barrow-lw,Musa Barrow,LW,LM,rule,78,32,52,26,,,
+bazoumana-toure-lw,Bazoumana Touré,LW,LM,rule,78,33,52,26,Newcastle United,Newcastle United,Côte d'Ivoire
+puado-lw,Puado,LW,LM,rule,77,34,48,24,,,
+noah-okafor-lw,Noah Okafor,LW,LM,rule,77,35,48,24,,,
+alexis-vega-lw,Alexis Vega,LW,LM,rule,77,36,48,24,,,
+diego-lopez-lw,Diego López,LW,LM,rule,77,37,48,24,,,
+yann-gboho-lw,Yann Gboho,LW,LM,rule,77,38,48,24,,,
+brian-rodriguez-lw,Brian Rodríguez,LW,LM,rule,77,39,48,24,,,
+lucas-ocampos-lw,Lucas Ocampos,LW,LM,rule,76,40,45,23,,,
+borja-sainz-lw,Borja Sainz,LW,LM,rule,76,41,45,23,,,
+williot-swedberg-lw,Williot Swedberg,LW,LM,rule,76,42,45,23,,,
+largie-ramazani-lw,Largie Ramazani,LW,LM,rule,76,43,45,23,,,
+jens-petter-hauge-lw,Jens Petter Hauge,LW,LM,rule,76,44,45,23,,,
+chidera-ejuke-lw,Chidera Ejuke,LW,LM,rule,76,45,45,23,,,

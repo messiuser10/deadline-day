@@ -9,8 +9,8 @@
   --color-pitch-500: #22c36b;
   --color-pitch-600: #179a53;
   --color-gold-400: #f5c542;
-  --font-display: 'Oswald', 'Arial Narrow', 'Roboto Condensed', ui-sans-serif, system-ui, sans-serif;
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Oswald Variable', 'Oswald', 'Arial Narrow', 'Roboto Condensed', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
 html,
@@ -19,6 +19,62 @@ body,
   min-height: 100%;
 }
 
+html {
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   @apply bg-night-900 font-sans text-white antialiased;
+}
+
+/* Subtle mowing stripes for pitch-themed surfaces. */
+.pitch-stripes {
+  background-color: #0d3321;
+  background-image: repeating-linear-gradient(90deg, rgb(255 255 255 / 0.035) 0 48px, transparent 48px 96px),
+    radial-gradient(ellipse at top, rgb(61 220 132 / 0.18), transparent 60%);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shuffle {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(10px) rotate(1deg);
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0.2;
+    transform: scale(1.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
 }

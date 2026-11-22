@@ -15,7 +15,7 @@ describe('health', () => {
       seedDatabase(db, loadData());
       const res = await app.inject({ method: 'GET', url: '/api/health' });
       expect(res.statusCode).toBe(200);
-      expect(res.json()).toEqual({ status: 'ok', app: 'Deadline Day', poolPlayers: 570, seeded: true });
+      expect(res.json()).toEqual({ status: 'ok', app: 'Deadline Day', poolPlayers: 571, seeded: true });
     } finally {
       await app.close();
       closeDb(db);

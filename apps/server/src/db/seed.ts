@@ -2,10 +2,12 @@
  * Loads the supplied data into the database (section 5). Idempotent.
  *
  * Default mode inserts missing rows and leaves existing rows alone, so admin edits survive.
- * `reset: true` also overwrites existing clubs, squad players and pool players from the files.
+ * `reset: true` also overwrites existing clubs, squad players and pool players from the files,
+ * deletes squad players that are no longer in the files, and marks pool players that are no
+ * longer in the files inactive (game history still points at them).
  * app_settings keys are only ever inserted when missing.
  */
-import { count, sql } from 'drizzle-orm';
+import { and, count, eq, notInArray, sql } from 'drizzle-orm';
 import { clubId, defaultMonogram } from '@deadline-day/engine';
 import type { LoadedData } from '../data/load';
 import { defaultAppSettings } from '../settings/defaults';
@@ -28,6 +30,8 @@ export interface SeedResult {
   poolPlayers: TableSeedResult;
   appSettings: TableSeedResult;
   reset: boolean;
+  /** Rows in the database that are not in data/: removed or retired on reset, only counted otherwise. */
+  stale: { seedPlayers: number; poolPlayers: number };
 }
 
 export class DataValidationError extends Error {
@@ -49,6 +53,7 @@ export function seedDatabase(db: Db, data: LoadedData, options: SeedOptions = {}
     appSettings: countOf(appSettings),
   };
 
+  const stale = { seedPlayers: 0, poolPlayers: 0 };
   db.transaction((tx) => {
     for (const c of data.clubs) {
       const row = {
@@ -102,6 +107,7 @@ export function seedDatabase(db: Db, data: LoadedData, options: SeedOptions = {}
         marketValueM: p.marketValueM,
         basePriceM: p.basePriceM,
         seedClub: p.seedClub === null ? null : clubId(p.seedClub),
+        clubNow: p.clubNow,
         nationality: p.nationality,
         isActive: true,
       };
@@ -112,6 +118,17 @@ export function seedDatabase(db: Db, data: LoadedData, options: SeedOptions = {}
       } else {
         q.onConflictDoNothing().run();
       }
+    }
+
+    const seedIds = data.seedPlayers.map((p) => p.id);
+    const poolIds = data.masterPlayers.map((p) => p.id);
+    const staleSeed = notInArray(seedPlayers.id, seedIds);
+    const stalePool = and(notInArray(poolPlayers.id, poolIds), eq(poolPlayers.isActive, true));
+    stale.seedPlayers = tx.select({ n: count() }).from(seedPlayers).where(staleSeed).get()?.n ?? 0;
+    stale.poolPlayers = tx.select({ n: count() }).from(poolPlayers).where(stalePool).get()?.n ?? 0;
+    if (reset) {
+      tx.delete(seedPlayers).where(staleSeed).run();
+      tx.update(poolPlayers).set({ isActive: false }).where(stalePool).run();
     }
 
     for (const [key, value] of Object.entries(defaultAppSettings())) {
@@ -139,6 +156,7 @@ export function seedDatabase(db: Db, data: LoadedData, options: SeedOptions = {}
     poolPlayers: result('poolPlayers'),
     appSettings: result('appSettings'),
     reset,
+    stale,
   };
 }
 

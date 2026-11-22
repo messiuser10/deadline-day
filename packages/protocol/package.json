@@ -1,0 +1,18 @@
+{
+  "name": "@deadline-day/protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Deadline Day API contract shared by server and web: zod request schemas, view types, socket events.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@deadline-day/engine": "*",
+    "zod": "^4.1.0"
+  }
+}

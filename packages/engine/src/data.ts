@@ -8,16 +8,16 @@ import { DEFAULT_POOL_PARAMS, MAX_TEAMS, planFromNeeds, supplyShortfalls, worstC
 import { DEFAULT_PRICE_PARAMS, prices, type PriceParams } from './pricing';
 import { normalizeName, slugify } from './text';
 
-export const EXPECTED_MASTER_COUNT = 570;
+export const EXPECTED_MASTER_COUNT = 571;
 export const EXPECTED_CLUB_COUNT = 20;
-export const EXPECTED_SEED_PLAYER_COUNT = 618;
-export const EXPECTED_SEED_CLUB_LINKS = 265;
+export const EXPECTED_SEED_PLAYER_COUNT = 609;
+export const EXPECTED_SEED_CLUB_LINKS = 264;
 export const EXPECTED_MASTER_DEPTH: Record<Group, number> = {
   GK: 45,
   CB: 60,
   RB: 45,
   LB: 45,
-  CDM: 50,
+  CDM: 51,
   CM: 60,
   CAM: 50,
   ST: 50,
@@ -46,6 +46,8 @@ export interface MasterRow {
   marketValueM: number;
   basePriceM: number;
   seedClub: string | null;
+  /** The player's real club (as of the data date) where known. Display only, never used for rules. */
+  clubNow: string | null;
   nationality: string | null;
 }
 
@@ -105,6 +107,7 @@ const masterRowSchema = z
     market_value_m: numeric,
     base_price_m: numeric,
     seed_club: z.preprocess(blankToNull, z.string().nullable()).optional(),
+    club_now: z.preprocess(blankToNull, z.string().nullable()).optional(),
     nationality: z.preprocess(blankToNull, z.string().nullable()).optional(),
   })
   .transform(
@@ -119,6 +122,7 @@ const masterRowSchema = z
       marketValueM: r.market_value_m,
       basePriceM: r.base_price_m,
       seedClub: r.seed_club ?? null,
+      clubNow: r.club_now?.trim() ?? null,
       nationality: r.nationality ?? null,
     }),
   );
@@ -411,6 +415,9 @@ export function validateData(input: DataInput): DataReport {
         const matches = findSeedMatches(p, seed.rows);
         if (matches.length === 1) seedClubLinksResolved += 1;
         else errors.push(`${label}: seed_club ${p.seedClub} resolves to ${matches.length} seed players (expected exactly 1)`);
+      }
+      if (p.clubNow !== null && p.clubNow !== p.seedClub) {
+        warnings.push(`${label}: club_now ${p.clubNow} differs from seed_club ${p.seedClub}`);
       }
     }
   }
