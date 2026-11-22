@@ -4,7 +4,7 @@ A multiplayer web game. Friends (2 to 12 teams) each get a $1 billion budget and
 
 > Deadline Day is an unofficial fan game. It is not affiliated with, endorsed by or connected to any club, league or player. No official crests, logos or player photos are used.
 
-**Status:** milestone M0 (scaffold and data) is done. See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
+**Status:** milestones M0 (scaffold and data) and M1 (game engine) are done. See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
 
 ## Requirements
 
@@ -57,6 +57,24 @@ npm run db:generate     # writes SQLite migrations to apps/server/drizzle/sqlite
 npm run dev             # API server on :3001 and web app on http://localhost:5173 (proxies /api)
 ```
 
+## Simulation CLI
+
+Runs a whole game with bot teams and no server: random formations, pool build, bot auction, AI club selection, season sim and the final table.
+
+```bash
+npm run sim -- --teams 3 --seed 42
+```
+
+| Option | Default | Meaning |
+| --- | --- | --- |
+| `--teams N` | 3 | Auction teams, 2 to 12 |
+| `--seed S` | 42 | Game seed; the same seed always gives the same game |
+| `--bots LEVEL` | mixed | `easy`, `medium`, `hard` or `mixed` |
+| `--budget M` | 1000 | Starting budget in $M |
+| `--montecarlo K` | off | Also simulate K seasons of the final league and print the expected-strength table |
+| `--runs R` | off | Run R games on seeds S to S+R-1 and print realism stats (champion and bottom points, goals per match) instead |
+| `--base-goals`, `--home-advantage`, `--sensitivity`, `--chaos` | see DECISIONS.md | Override simulation parameters for tuning |
+
 ## Test, typecheck, lint
 
 ```bash
@@ -86,9 +104,9 @@ A Dockerfile, docker-compose file and single-process production build (server se
 ## Layout
 
 ```
-packages/engine   pure game logic (positions, formations, prices, pool sizing, data validation; more in M1), Vitest tests
+packages/engine   pure game logic: positions, formations, prices, pool, lineups, auction rules, bots, clubs, fixtures, match and season sim, Monte Carlo, awards; Vitest tests
 apps/server       Fastify server, Drizzle schema (SQLite + Postgres mirror), migrations, seed
 apps/web          React + Vite + Tailwind client
-scripts/          seed, data validation, migrations (simulation CLI in M1)
+scripts/          seed, data validation, migrations, simulation CLI
 data/             supplied player and club data
 ```

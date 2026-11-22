@@ -87,6 +87,65 @@ export function worstCaseNeeds(
   return need;
 }
 
+export interface PoolCandidate {
+  id: string;
+  position: Group;
+  overall: number;
+  positionRank: number;
+  isActive?: boolean;
+}
+
+export interface GroupSelection extends GroupPlan {
+  /** Players actually taken (less than size only when the master pool is short). */
+  taken: number;
+  minOverall: number | null;
+  maxOverall: number | null;
+}
+
+export interface AuctionPoolBuild<T extends PoolCandidate> {
+  plan: PoolPlan;
+  groups: GroupSelection[];
+  players: T[];
+  shortfalls: SupplyShortfall[];
+}
+
+/**
+ * pool[g] = the best (need[g] + extra[g]) active players whose main position is g,
+ * by overall, ties by position_rank (then id, so the result is fully deterministic).
+ */
+export function buildAuctionPool<T extends PoolCandidate>(
+  master: readonly T[],
+  formations: readonly FormationId[],
+  params: PoolParams = DEFAULT_POOL_PARAMS,
+): AuctionPoolBuild<T> {
+  const plan = poolPlan(formations, params);
+  const byGroup = new Map<Group, T[]>();
+  for (const p of master) {
+    if (p.isActive === false) continue;
+    const list = byGroup.get(p.position) ?? [];
+    list.push(p);
+    byGroup.set(p.position, list);
+  }
+  const players: T[] = [];
+  const groups: GroupSelection[] = [];
+  const shortfalls: SupplyShortfall[] = [];
+  for (const g of plan.groups) {
+    const ranked = (byGroup.get(g.group) ?? [])
+      .slice()
+      .sort((a, b) => b.overall - a.overall || a.positionRank - b.positionRank || a.id.localeCompare(b.id));
+    const taken = ranked.slice(0, g.size);
+    players.push(...taken);
+    if (taken.length < g.size) shortfalls.push({ group: g.group, required: g.size, available: taken.length });
+    groups.push({
+      ...g,
+      taken: taken.length,
+      maxOverall: taken.length ? taken[0]!.overall : null,
+      minOverall: taken.length ? taken[taken.length - 1]!.overall : null,
+    });
+  }
+  return { plan, groups, players, shortfalls };
+}
+
 export interface SupplyShortfall {
   group: Group;
   required: number;

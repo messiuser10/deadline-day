@@ -21,7 +21,8 @@
     "seed": "npm run seed -w @deadline-day/scripts --",
     "data:validate": "npm run data:validate -w @deadline-day/scripts --",
     "db:generate": "npm run db:generate -w @deadline-day/server",
-    "db:migrate": "npm run db:migrate -w @deadline-day/scripts"
+    "db:migrate": "npm run db:migrate -w @deadline-day/scripts",
+    "sim": "npm run sim -w @deadline-day/scripts --"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
