@@ -361,6 +361,34 @@ describe('pause', () => {
     expect(auditActions(s.gameId)).toEqual(expect.arrayContaining(['game.pause', 'game.resume']));
   });
 
+  it('pauses between lots too: nominations and the nomination clock freeze, and the time left comes back', async () => {
+    const s = await startGame(1);
+    const [a] = s.order as [string, string];
+    const player = available(await view(s))[0];
+    t.db.update(games).set({ nominationDeadline: Date.now() + 20_000 }).where(eq(games.id, s.gameId)).run();
+
+    const paused = await s.host.post(`/api/games/${s.code}/auction/pause`);
+    expect(paused.status).toBe(200);
+    const pv = paused.body.auction.paused;
+    expect(pv.timer).toBe('nomination');
+    expect(pv.remainingMs).toBeGreaterThan(18_000);
+    expect(paused.body.auction.nominationDeadline).toBeNull();
+
+    expect((await nominate(s, a, player)).body.error.code).toBe('PAUSED');
+    // A timer firing while paused changes nothing: no auto-nomination.
+    t.db.update(games).set({ nominationDeadline: Date.now() - 1 }).where(eq(games.id, s.gameId)).run();
+    await t.app.games.auction.tick(s.gameId);
+    t.db.update(games).set({ nominationDeadline: null }).where(eq(games.id, s.gameId)).run();
+    expect((await view(s)).lot).toBeNull();
+    await new Promise((r) => setTimeout(r, 300));
+
+    const resumed = await s.host.post(`/api/games/${s.code}/auction/resume`);
+    const left = resumed.body.auction.nominationDeadline - Date.now();
+    expect(left).toBeGreaterThan(pv.remainingMs - 2_000);
+    expect(left).toBeLessThanOrEqual(pv.remainingMs + 50);
+    expect((await nominate(s, a, player)).status).toBe(200);
+  });
+
   it('lets an admin pause someone else’s game', async () => {
     const s = await startGame(1);
     const admin = await signUp(t.app, ADMIN_NAME);
@@ -462,6 +490,57 @@ describe('host controls', () => {
     expect(back.status).toBe(200);
     expect(t.db.select().from(participants).where(eq(participants.id, b)).get()!.control).toBe('human');
     expect(auditActions(s.gameId).filter((x) => x === 'game.team.control')).toHaveLength(2);
+  });
+});
+
+describe('refresh and takeover (section 14)', () => {
+  it('restores the exact live lot and time left on a refresh or a server restart', async () => {
+    const s = await startGame(1);
+    const [a, b] = s.order as [string, string];
+    const player = available(await view(s))[3];
+    await nominate(s, a, player);
+    await bid(s, b, player.basePriceM + 2);
+    const live = await view(s);
+    expect(live.lot).toMatchObject({ playerId: player.id, currentBidM: player.basePriceM + 2, leaderId: b });
+
+    // A refresh is a fresh fetch of the snapshot: same lot, same bids, same deadline.
+    const refreshed = (await s.clients.get(b)!.get(`/api/games/${s.code}`)).body.snapshot.auction;
+    expect(refreshed.lot).toEqual(live.lot);
+    expect(refreshed.lotDeadline).toBe(live.lotDeadline);
+    expect(refreshed.teams).toEqual(live.teams);
+
+    // A restarted server reads the same state back and keeps the lot clock.
+    const again = buildApp({ db: t.db, botDelayMs: null, startCountdownMs: 0 });
+    await again.ready();
+    const res = await again.inject({ method: 'GET', url: `/api/games/${s.code}` });
+    const restored = JSON.parse(res.body).snapshot.auction;
+    expect(restored.lot).toEqual(live.lot);
+    expect(restored.lotDeadline).toBe(live.lotDeadline);
+    expect(restored.lotDeadline - Date.now()).toBeGreaterThan(10_000);
+    await again.close();
+  });
+
+  it('can put a team on auto-nominate only: it nominates on its turn but never bids', async () => {
+    const s = await startGame(1);
+    const [a, b] = s.order as [string, string];
+    const res = await s.host.post(`/api/games/${s.code}/participants/${b}/control`, { mode: 'auto' });
+    expect(res.status).toBe(200);
+    expect((await s.host.get(`/api/games/${s.code}`)).body.snapshot.participants.find((p: any) => p.id === b).control).toBe('auto');
+
+    // On A's lot the auto team does not bid, so A buys at the opening price.
+    const player = available(await view(s))[0];
+    await nominate(s, a, player);
+    expect(await t.app.games.auction.botTick(s.gameId)).toBe(false);
+    await expire(s, 'lot');
+    const sold = (await view(s)).players.find((p: any) => p.id === player.id);
+    expect(sold).toMatchObject({ status: 'sold', soldTo: a, priceM: player.basePriceM });
+
+    // On B's turn the server nominates for it: a legal player at base price.
+    expect(await t.app.games.auction.botTick(s.gameId)).toBe(true);
+    const v = await view(s);
+    expect(v.lot).toMatchObject({ nominatorId: b, autoNominated: true });
+    const picked = v.players.find((p: any) => p.id === v.lot.playerId);
+    expect(v.lot.currentBidM).toBe(picked.basePriceM);
   });
 });
 

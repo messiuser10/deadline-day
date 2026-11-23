@@ -4,7 +4,7 @@ A multiplayer web game. Friends (2 to 12 teams) each get a $1 billion budget and
 
 > Deadline Day is an unofficial fan game. It is not affiliated with, endorsed by or connected to any club, league or player. No official crests, logos or player photos are used.
 
-**Status:** milestones M0 (scaffold and data), M1 (game engine), M2 (server foundation: accounts, guests, lobby, live updates, auction start), M3 (live auction and Team Reveal), M4 (season simulation and playback), M5 (results, awards, profiles and history) M6 (admin panel and audit log) and M7 (polish, Docker, single-process production build, smoke test) are done. See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
+**Status:** milestones M0 (scaffold and data), M1 (game engine), M2 (server foundation: accounts, guests, lobby, live updates, auction start), M3 (live auction and Team Reveal), M4 (season simulation and playback), M5 (results, awards, profiles and history) M6 (admin panel and audit log) and M7 (polish, Docker, single-process production build, smoke test) are done, and `ACCEPTANCE.md` maps every item of the section 14 acceptance checklist to the test that proves it. See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
 
 ## Requirements
 

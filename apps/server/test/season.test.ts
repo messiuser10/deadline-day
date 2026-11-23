@@ -146,6 +146,49 @@ describe('season simulation', () => {
   });
 });
 
+describe('league size (section 14)', () => {
+  it.each([
+    [2, 40, 18],
+    [12, 154, 8],
+  ])('a %i-team all-4-3-3 game builds a %i-player pool, takes %i AI clubs and plays a 20-team, 380-match season', async (teams, poolSize, aiClubs) => {
+    const host = await signUp(t.app, `host${teams}`);
+    const code = await createGame(host, `Size ${teams}`, { maxTeams: teams });
+    for (let i = 1; i < teams; i++) {
+      const res = await host.post(`/api/games/${code}/bots`, { level: 'easy', formation: '4-3-3' });
+      expect(res.status).toBe(201);
+    }
+    const start = await host.post(`/api/games/${code}/start`, { force: true });
+    expect(start.status).toBe(202);
+    const s: Setup = { code, gameId: (await host.get(`/api/games/${code}`)).body.snapshot.game.id, host, player: host };
+    const g = gameRow(s);
+    expect(g.aiClubIds).toHaveLength(aiClubs);
+    expect((await snapshot(s)).pool.totalSize).toBe(poolSize);
+    expect((await snapshot(s)).auction.teams.every((x: any) => x.budgetM === 1000)).toBe(true);
+
+    expect((await host.post(`/api/games/${code}/auction/end`)).status).toBe(200);
+    expect((await snapshot(s)).auction.teams.every((x: any) => x.filled === 11 && x.budgetM >= 0)).toBe(true);
+    await startSeason(s);
+
+    const v = await seasonView(s);
+    expect(v.teams).toHaveLength(20);
+    expect(v.teams.filter((x: any) => x.kind === 'ai')).toHaveLength(aiClubs);
+    expect(v.fixtures).toHaveLength(380);
+    expect(new Set(v.fixtures.map((f: any) => f.matchday)).size).toBe(38);
+    for (const team of v.teams) {
+      const mine = v.fixtures.filter((f: any) => f.homeId === team.id || f.awayId === team.id);
+      expect(mine).toHaveLength(38);
+      expect(mine.filter((f: any) => f.homeId === team.id)).toHaveLength(19);
+      const opponents = new Map<string, number>();
+      for (const f of mine) {
+        const other = f.homeId === team.id ? f.awayId : f.homeId;
+        opponents.set(other, (opponents.get(other) ?? 0) + 1);
+      }
+      expect(opponents.size).toBe(19);
+      expect([...opponents.values()].every((n) => n === 2)).toBe(true);
+    }
+  });
+});
+
 describe('playback', () => {
   it('lets the host drive one shared clock that others cannot touch', async () => {
     const s = await finishedAuction();

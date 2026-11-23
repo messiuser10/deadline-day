@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { FORBIDDEN, Rng, buildAuctionPool, hungarian, maxBipartiteMatching, poolPlan, type PoolCandidate } from '../src';
+import { FORBIDDEN, FORMATION_IDS, GROUPS, Rng, buildAuctionPool, hungarian, maxBipartiteMatching, poolPlan, type FormationId, type PoolCandidate } from '../src';
 import { realData } from './helpers';
 
 /** Brute force: minimum total cost over every injective row -> column map. */
@@ -59,6 +59,32 @@ describe('maxBipartiteMatching', () => {
 
 describe('buildAuctionPool', () => {
   const data = realData();
+
+  it('has the top 20 of every position in the master data, and the best of each group in every 12-team pool (section 14)', () => {
+    for (const g of GROUPS) {
+      const ranks = new Set(data.master.filter((p) => p.position === g).map((p) => p.positionRank));
+      for (let r = 1; r <= 20; r++) expect(ranks.has(r), `${g} rank ${r} in the master data`).toBe(true);
+    }
+    const mixes: FormationId[][] = [
+      Array(12).fill('4-3-3'),
+      [...FORMATION_IDS, '4-3-3', '4-4-2'],
+      Array(12).fill('3-5-2'),
+      Array(12).fill('4-2-3-1'),
+    ];
+    for (const formations of mixes) {
+      const build = buildAuctionPool(data.master, formations);
+      expect(build.shortfalls).toEqual([]);
+      expect(new Set(build.players.map((p) => p.id)).size).toBe(build.players.length);
+      for (const g of build.groups) {
+        const inPool = build.players.filter((p) => p.position === g.group);
+        // Never fewer than need plus extra (and never more).
+        expect(inPool, `${g.group} in ${formations.join(',')}`).toHaveLength(g.need + g.extra);
+        // The group's best players are all in: the whole top 20 once the group takes 20 or more.
+        const ranks = new Set(inPool.map((p) => p.positionRank));
+        for (let r = 1; r <= Math.min(20, g.size); r++) expect(ranks.has(r), `${g.group} rank ${r} in the pool`).toBe(true);
+      }
+    }
+  });
 
   it('takes each group\'s best players by overall, breaking ties by position rank', () => {
     const build = buildAuctionPool(data.master, ['4-3-3', '4-3-3', '4-3-3']);

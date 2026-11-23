@@ -81,6 +81,31 @@ describe('realtime', () => {
     expect(await offline).toMatchObject({ isConnected: false });
   });
 
+  it('pushes the new pool preview live when a team joins or changes formation (section 14)', async () => {
+    const host = await signUp(t.app, 'hosty');
+    const code = await createGame(host);
+    const hs = await open(host);
+    const first = (await watch(hs, code)) as { snapshot: GameSnapshot };
+    const before = first.snapshot.pool;
+
+    const p2 = await guest(t.app, 'Two');
+    const joined = next(hs, 'lobby:update');
+    await p2.post(`/api/games/${code}/join`, team('Second City', { formation: '4-3-3' }));
+    const afterJoin = (await joined).pool;
+    expect(afterJoin.totalSize).toBeGreaterThan(before.totalSize);
+    expect((await joined).aiClubs.inLeague).toHaveLength(18);
+
+    const need = (pool: typeof before, group: string) => pool.groups.find((g) => g.group === group)?.need ?? 0;
+    const changed = next(hs, 'lobby:update');
+    await p2.patch(`/api/games/${code}/team`, { formation: '5-4-1' });
+    const afterFormation = (await changed).pool;
+    // 4-3-3 + 4-3-3 has no LM or RM; 4-3-3 + 5-4-1 needs one of each and a third CB.
+    expect(need(afterJoin, 'LM')).toBe(0);
+    expect(need(afterFormation, 'LM')).toBe(1);
+    expect(need(afterFormation, 'CB')).toBe(need(afterJoin, 'CB') + 1);
+    hs.disconnect();
+  });
+
   it('lets anyone spectate, and errors on unknown codes', async () => {
     const host = await signUp(t.app, 'hosty');
     const code = await createGame(host);
