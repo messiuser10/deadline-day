@@ -9,6 +9,7 @@ import { HomePage } from './pages/Home';
 import { HowToPlayPage } from './pages/HowToPlay';
 import { LobbyPage } from './pages/Lobby';
 import { LoginPage } from './pages/Login';
+import { RevealPage } from './pages/Reveal';
 
 /** New page, new scroll: start every route at the top. */
 function ScrollToTop() {
@@ -63,6 +64,7 @@ export function App() {
           <Route path="/how-to-play" element={<HowToPlayPage />} />
           <Route path="/lobby/:code" element={<LobbyPage />} />
           <Route path="/auction/:code" element={<AuctionPage />} />
+          <Route path="/reveal/:code" element={<RevealPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         </ErrorBoundary>

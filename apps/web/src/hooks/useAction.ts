@@ -1,11 +1,11 @@
 import { useCallback, useState } from 'react';
-import type { LobbyUpdate } from '@deadline-day/protocol';
+import type { AuctionView, BidEvent, LobbyUpdate } from '@deadline-day/protocol';
 import { errorMessage } from '../lib/api';
 import { useGameStore } from '../stores/game';
 import { toast } from '../stores/toast';
 
 /**
- * Runs a lobby mutation: applies the returned state at once (the socket update follows), shows
+ * Runs a game mutation: applies the returned lobby or auction state at once (the socket update follows), shows
  * server errors as toasts, and tracks which action is pending so its button can spin.
  */
 export function useAction() {
@@ -14,8 +14,11 @@ export function useAction() {
     setPending(key);
     try {
       const res = await fn();
-      const state = (res as { state?: LobbyUpdate } | undefined)?.state;
-      if (state) useGameStore.getState().applyState(state);
+      const out = res as { state?: LobbyUpdate; auction?: AuctionView; bid?: BidEvent } | undefined;
+      const store = useGameStore.getState();
+      if (out?.state) store.applyState(out.state);
+      if (out?.auction) store.applyAuction(out.auction);
+      if (out?.bid) store.applyBid(out.bid);
       if (success) toast(success, 'success');
       return res;
     } catch (err) {

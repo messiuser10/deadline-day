@@ -9,6 +9,7 @@ import type { Db } from './db/client';
 import { poolPlayers } from './db/schema';
 import { installErrorHandler } from './errors';
 import { ReferenceData } from './games/reference';
+import { registerAuctionRoutes } from './games/auctionRoutes';
 import { registerGameRoutes } from './games/routes';
 import { GameService } from './games/service';
 import { Timers } from './games/timers';
@@ -28,6 +29,10 @@ export interface AppOptions {
   /** Pre-auction countdown; 0 starts at once. */
   startCountdownMs?: number;
   chatMinIntervalMs?: number;
+  /** Bot think time in ms (default 1 to 4 s); null turns automatic bot actions off (tests). */
+  botDelayMs?: readonly [number, number] | null;
+  /** Delay before an auto-nominate-only team nominates (default 1.5 s). */
+  autoNominateDelayMs?: number;
 }
 
 export interface DeadlineDayApp extends FastifyInstance {
@@ -51,6 +56,8 @@ export function buildApp(options: AppOptions): DeadlineDayApp {
     timers,
     startCountdownMs: options.startCountdownMs ?? START_COUNTDOWN_MS,
     chatMinIntervalMs: options.chatMinIntervalMs,
+    botDelayMs: options.botDelayMs,
+    autoNominateDelayMs: options.autoNominateDelayMs,
   });
   const hub = new Hub(app.server, games, (header) => userFromCookieHeader(app, db, header));
   games.broadcaster = hub;
@@ -67,6 +74,7 @@ export function buildApp(options: AppOptions): DeadlineDayApp {
     passwordCost: options.passwordCost ?? 10,
   });
   registerGameRoutes(app, games);
+  registerAuctionRoutes(app, games);
   registerAdminRoutes(app, db);
 
   app.addHook('preClose', async () => {

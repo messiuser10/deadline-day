@@ -1,0 +1,1 @@
+ALTER TABLE "participants" ADD COLUMN "control" text DEFAULT 'human' NOT NULL;

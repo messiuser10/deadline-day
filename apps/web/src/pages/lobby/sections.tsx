@@ -488,7 +488,7 @@ export function InviteCard({ code }: { code: string }) {
 // ---------------------------------------------------------------------------
 // Chat
 
-export function ChatCard({ ctx, className }: { ctx: LobbyCtx; className?: string }) {
+export function ChatCard({ ctx, className }: { ctx: Pick<LobbyCtx, 'snap' | 'me' | 'mine' | 'base'>; className?: string }) {
   const { snap, mine, base } = ctx;
   const [body, setBody] = useState('');
   const { run, pending } = useAction();

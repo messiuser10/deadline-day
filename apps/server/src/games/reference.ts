@@ -37,12 +37,36 @@ export interface RankingOptions {
 export class ReferenceData {
   private pool: PoolEntry[] | null = null;
   private ranking: { key: string; clubs: RankedClub[] } | null = null;
+  private squads: ClubSquad[] | null = null;
 
   constructor(private readonly db: Db) {}
 
   invalidate(): void {
     this.pool = null;
     this.ranking = null;
+    this.squads = null;
+  }
+
+  /** The 20 clubs with their full squads (seed players). */
+  clubSquads(): ClubSquad[] {
+    if (this.squads) return this.squads;
+    const clubRows = this.db.select().from(clubs).all();
+    const players = this.db.select().from(seedPlayers).all();
+    this.squads = clubRows.map((c) => ({
+      id: c.id,
+      name: c.name,
+      squad: players
+        .filter((p) => p.clubId === c.id)
+        .map((p) => ({
+          id: p.id,
+          name: p.fullName,
+          position: p.primaryPosition as Position,
+          altPositions: p.altPositions as Position[],
+          overall: p.overall,
+          nationality: p.nationality,
+        })),
+    }));
+    return this.squads;
   }
 
   /** Active master-pool players as engine pool candidates. */
@@ -61,21 +85,7 @@ export class ReferenceData {
     const key = JSON.stringify(options);
     if (this.ranking?.key === key) return this.ranking.clubs;
     const clubRows = this.db.select().from(clubs).all();
-    const players = this.db.select().from(seedPlayers).all();
-    const squads: ClubSquad[] = clubRows.map((c) => ({
-      id: c.id,
-      name: c.name,
-      squad: players
-        .filter((p) => p.clubId === c.id)
-        .map((p) => ({
-          id: p.id,
-          name: p.fullName,
-          position: p.primaryPosition as Position,
-          altPositions: p.altPositions as Position[],
-          overall: p.overall,
-          nationality: p.nationality,
-        })),
-    }));
+    const squads = this.clubSquads();
     const computed = new Map(rankClubs(squads, { formations: options.formations, compatibility: options.compatibility }).map((s) => [s.clubId, s]));
     const ranked = clubRows
       .map((c) => {

@@ -1,7 +1,7 @@
 /**
  * Game lifecycle up to the start of the auction (section 7): create, join, lobby edits, host controls,
  * the live pool preview, snapshots, and the start transaction. Every mutation is synchronous SQLite
- * work, so requests for one game never interleave.
+ * work, so requests for one game never interleave. The live auction itself is in auction.ts.
  */
 import { and, asc, desc, eq, inArray, isNotNull, max } from 'drizzle-orm';
 import {
@@ -20,6 +20,8 @@ import {
   joinCodeSchema,
   type AddBotInput,
   type AiClubsPreview,
+  type AuctionView,
+  type BidEvent,
   type BotPatchInput,
   type ChatMessageView,
   type GameSettings,
@@ -28,7 +30,9 @@ import {
   type LobbyUpdate,
   type ParticipantView,
   type PoolPreview,
+  type PresenceEvent,
   type PublicLobby,
+  type SaleView,
   type StartBlocker,
   type TeamInput,
   type TeamPatchInput,
@@ -41,6 +45,7 @@ import { ApiError, badRequest, conflict, forbidden, notFound } from '../errors';
 import { DEFAULT_GAME_SETTINGS, type AppSettings } from '../settings/defaults';
 import { readAppSettings } from '../settings/store';
 import { findProfanity, maskProfanity } from '../text/profanity';
+import { AuctionService } from './auction';
 import { cryptoShuffle, randomJoinCode } from './codes';
 import { selectAiClubIds, type RankedClub, type ReferenceData } from './reference';
 import type { Timers } from './timers';
@@ -52,10 +57,13 @@ export type ParticipantRow = typeof participants.$inferSelect;
 export interface Broadcaster {
   lobbyUpdate(gameId: string, update: LobbyUpdate): void;
   snapshot(gameId: string, snapshot: GameSnapshot): void;
-  presence(gameId: string, p: { participantId: string; isConnected: boolean }): void;
+  presence(gameId: string, p: PresenceEvent): void;
   chat(gameId: string, message: ChatMessageView): void;
   kicked(userId: string, gameId: string, code: string): void;
   notice(gameId: string, notice: { code: string; level: 'info' | 'error'; message: string }): void;
+  auctionState(gameId: string, view: AuctionView): void;
+  auctionBid(gameId: string, bid: BidEvent): void;
+  auctionSold(gameId: string, sale: SaleView): void;
 }
 
 const SILENT: Broadcaster = {
@@ -65,6 +73,9 @@ const SILENT: Broadcaster = {
   chat: () => {},
   kicked: () => {},
   notice: () => {},
+  auctionState: () => {},
+  auctionBid: () => {},
+  auctionSold: () => {},
 };
 
 export interface StrengthSnapshot {
@@ -86,6 +97,9 @@ export interface GameServiceOptions {
   timers: Timers;
   startCountdownMs: number;
   chatMinIntervalMs?: number;
+  /** Bot think time; null switches automatic bot actions off (tests drive them with botTick). */
+  botDelayMs?: readonly [number, number] | null;
+  autoNominateDelayMs?: number;
 }
 
 const startTimerKey = (gameId: string) => `start:${gameId}`;
@@ -93,11 +107,19 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export class GameService {
   broadcaster: Broadcaster = SILENT;
+  readonly auction: AuctionService;
   private readonly db: Db;
   private readonly lastChat = new Map<string, number>();
 
   constructor(private readonly opts: GameServiceOptions) {
     this.db = opts.db;
+    this.auction = new AuctionService(this, {
+      db: opts.db,
+      reference: opts.reference,
+      timers: opts.timers,
+      botDelayMs: opts.botDelayMs,
+      autoNominateDelayMs: opts.autoNominateDelayMs,
+    });
   }
 
   // -------------------------------------------------------------------------
@@ -114,7 +136,7 @@ export class GameService {
     return game;
   }
 
-  private gameById(id: string): GameRow {
+  gameById(id: string): GameRow {
     const game = this.db.select().from(games).where(eq(games.id, id)).get();
     if (!game) throw notFound('GAME_NOT_FOUND', 'No such game');
     return game;
@@ -140,6 +162,11 @@ export class GameService {
     return Math.max(Date.now(), last + 1);
   }
 
+  /** The user's participant row in a game, if any. */
+  participantRow(gameId: string, userId: string): ParticipantRow | undefined {
+    return this.participantOf(gameId, userId);
+  }
+
   private participantOf(gameId: string, userId: string): ParticipantRow | undefined {
     return this.db
       .select()
@@ -154,7 +181,8 @@ export class GameService {
     return p;
   }
 
-  private requireHost(game: GameRow, user: UserRow): void {
+  /** Host of the game, or an admin. */
+  requireHost(game: GameRow, user: UserRow): void {
     if (game.hostUserId !== user.id && user.role !== 'admin') throw forbidden('HOST_ONLY', 'Only the host can do that');
   }
 
@@ -246,8 +274,14 @@ export class GameService {
         isGuest: u?.isGuest ?? false,
         budgetRemainingM: t.budgetRemainingM,
         joinedAt: t.createdAt,
+        control: t.isBot ? 'bot' : t.control,
+        disconnectedAt: t.isBot || t.isConnected ? null : t.disconnectedAt,
       };
     });
+  }
+
+  participantViewsFor(game: GameRow): ParticipantView[] {
+    return this.participantViews(game, this.teams(game.id));
   }
 
   private gameView(game: GameRow, teams: ParticipantRow[]): GameView {
@@ -376,14 +410,14 @@ export class GameService {
   }
 
   snapshot(game: GameRow): GameSnapshot {
-    return { ...this.lobbyState(game), chat: this.chatHistory(game.id) };
+    return { ...this.lobbyState(game), chat: this.chatHistory(game.id), auction: this.auction.viewFor(game) };
   }
 
   snapshotByCode(code: string): GameSnapshot {
     return this.snapshot(this.findGame(code));
   }
 
-  private broadcastLobby(gameId: string): void {
+  broadcastLobby(gameId: string): void {
     this.broadcaster.lobbyUpdate(gameId, this.lobbyState(this.gameById(gameId)));
   }
 
@@ -709,7 +743,12 @@ export class GameService {
     this.requireHost(game, user);
     if (game.status === 'cancelled' || game.status === 'completed') throw conflict('GAME_OVER', 'This game is already over');
     this.opts.timers.cancel(startTimerKey(game.id));
-    this.db.update(games).set({ status: 'cancelled', countdownDeadline: null, updatedAt: Date.now() }).where(eq(games.id, game.id)).run();
+    this.auction.stopTimers(game.id);
+    this.db
+      .update(games)
+      .set({ status: 'cancelled', countdownDeadline: null, nominationDeadline: null, lotDeadline: null, updatedAt: Date.now() })
+      .where(eq(games.id, game.id))
+      .run();
     audit(this.db, { actorUserId: user.id, action: 'game.cancel', target: game.joinCode, gameId: game.id });
     this.broadcaster.notice(game.id, { code: 'CANCELLED', level: 'info', message: 'The host cancelled this game' });
     this.broadcastLobby(game.id);
@@ -739,12 +778,13 @@ export class GameService {
   }
 
   setConnected(gameId: string, participantId: string, isConnected: boolean): void {
+    const disconnectedAt = isConnected ? null : Date.now();
     this.db
       .update(participants)
-      .set({ isConnected, disconnectedAt: isConnected ? null : Date.now() })
+      .set({ isConnected, disconnectedAt })
       .where(and(eq(participants.id, participantId), eq(participants.isBot, false)))
       .run();
-    this.broadcaster.presence(gameId, { participantId, isConnected });
+    this.broadcaster.presence(gameId, { participantId, isConnected, disconnectedAt });
   }
 
   // -------------------------------------------------------------------------
@@ -849,6 +889,7 @@ export class GameService {
           strengthSnapshot: strength as unknown as Record<string, unknown>,
           aiClubIds,
           countdownDeadline: null,
+          nominationDeadline: now + s.nominationTimerS * 1000,
           updatedAt: now,
         })
         .where(eq(games.id, game.id))
@@ -862,20 +903,28 @@ export class GameService {
       });
     });
     this.broadcaster.snapshot(game.id, this.snapshot(this.gameById(game.id)));
+    this.auction.resumeTimers(game.id);
   }
 
   // -------------------------------------------------------------------------
   // Boot
 
-  /** After a restart: nobody is connected yet, and pending start countdowns resume. */
+  /** After a restart: nobody is connected yet, start countdowns and auction clocks resume, paused games stay paused. */
   restore(): void {
-    this.db.update(participants).set({ isConnected: false }).where(eq(participants.isBot, false)).run();
+    const now = Date.now();
+    this.db.update(participants).set({ isConnected: false, disconnectedAt: now }).where(eq(participants.isBot, false)).run();
     const pending = this.db
       .select()
       .from(games)
       .where(and(eq(games.status, 'lobby'), isNotNull(games.countdownDeadline)))
       .all();
     for (const g of pending) this.scheduleStart(g.id, (g.countdownDeadline ?? 0) - Date.now());
+    const live = this.db
+      .select({ id: games.id })
+      .from(games)
+      .where(inArray(games.status, ['auctioning', 'auction_complete']))
+      .all();
+    for (const g of live) this.auction.resumeTimers(g.id);
   }
 
   private touch(gameId: string): void {

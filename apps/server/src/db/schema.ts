@@ -166,6 +166,8 @@ export const participants = sqliteTable(
     isConnected: bool('is_connected').notNull().default(false),
     isSpectator: bool('is_spectator').notNull().default(false),
     disconnectedAt: integer('disconnected_at', { mode: 'number' }),
+    /** Who runs the team during the auction: its manager, a bot (takeover) or auto-nominate only. */
+    control: text('control', { enum: ['human', 'bot', 'auto'] }).notNull().default('human'),
     createdAt: createdAt(),
   },
   (t) => [

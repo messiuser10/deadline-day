@@ -1,11 +1,13 @@
 /** Shapes the server sends: REST responses, the game snapshot, and Socket.IO events. */
-import type { FormationId, Group } from '@deadline-day/engine';
+import type { FormationId, Group, SlotType } from '@deadline-day/engine';
 import type { GameLimits } from './limits';
 import type { GameSettings } from './schemas';
 
 export type Role = 'admin' | 'user';
 export type GameStatus = 'lobby' | 'auctioning' | 'paused' | 'auction_complete' | 'simulating' | 'completed' | 'cancelled';
 export type BotLevel = 'easy' | 'medium' | 'hard';
+/** Who runs a human team during the auction: its manager, a bot that took over, or auto-nominate only. */
+export type TeamControl = 'human' | 'bot' | 'auto';
 
 export interface UserView {
   id: string;
@@ -55,6 +57,9 @@ export interface ParticipantView {
   isGuest: boolean;
   budgetRemainingM: number;
   joinedAt: number;
+  control: TeamControl;
+  /** When a human manager's last tab disconnected (null while connected, and for bots). */
+  disconnectedAt: number | null;
 }
 
 export interface PoolGroupPreview {
@@ -125,6 +130,185 @@ export interface StartBlocker {
   forceable: boolean;
 }
 
+// ---------------------------------------------------------------------------
+// Live auction (section 8)
+
+export type PlayerStatus = 'available' | 'live' | 'sold' | 'unsold';
+
+export interface AuctionPlayerView {
+  id: string;
+  name: string;
+  position: Group;
+  altPositions: Group[];
+  overall: number;
+  marketValueM: number;
+  basePriceM: number;
+  positionRank: number;
+  /** Real club as of the data date (display only). */
+  clubNow: string | null;
+  nationality: string | null;
+  status: PlayerStatus;
+  soldTo: string | null;
+  priceM: number | null;
+  autoFilled: boolean;
+}
+
+export interface AuctionSlotView {
+  key: string;
+  type: SlotType;
+  playerId: string | null;
+  priceM: number | null;
+  autoFilled: boolean;
+  /** Playing an alternate position in this slot. */
+  outOfPosition: boolean;
+}
+
+export interface AuctionTeamView {
+  participantId: string;
+  budgetM: number;
+  spentM: number;
+  /** Largest bid the team could make on a single player right now (reserve rule). */
+  maxBidM: number;
+  filled: number;
+  slots: AuctionSlotView[];
+  /** Mean overall of the players bought so far. */
+  averageOverall: number | null;
+}
+
+export interface LotBidView {
+  participantId: string;
+  amountM: number;
+  at: number;
+  isBot: boolean;
+}
+
+/** Whether a team may bid on the live lot, and its max bid for this player. */
+export interface LotEligibility {
+  ok: boolean;
+  code: 'NO_SLOT' | 'WOULD_STRAND_TEAM' | 'TEAM_FULL' | null;
+  maxBidM: number;
+}
+
+export interface LotView {
+  id: string;
+  sequence: number;
+  playerId: string;
+  nominatorId: string;
+  openingBidM: number;
+  currentBidM: number;
+  leaderId: string;
+  autoNominated: boolean;
+  startedAt: number;
+  bids: LotBidView[];
+  eligibility: Record<string, LotEligibility>;
+}
+
+export interface SaleView {
+  /** Lot sequence, or null for an auto-fill. */
+  sequence: number | null;
+  playerId: string;
+  participantId: string;
+  priceM: number;
+  autoFilled: boolean;
+  autoNominated: boolean;
+  at: number;
+}
+
+export interface PauseView {
+  byUserId: string | null;
+  byName: string;
+  timer: 'nomination' | 'lot' | 'countdown';
+  remainingMs: number;
+}
+
+export interface AuctionView {
+  /** Increases with every auction change; clients ignore anything older than what they hold. */
+  version: number;
+  phase: 'nominating' | 'bidding' | 'complete';
+  nominatorId: string | null;
+  nominationDeadline: number | null;
+  lotDeadline: number | null;
+  /** Post-auction countdown to the season (null while held or when auto-start is off). */
+  countdownDeadline: number | null;
+  paused: PauseView | null;
+  lot: LotView | null;
+  players: AuctionPlayerView[];
+  /** In nomination order. */
+  teams: AuctionTeamView[];
+  sales: SaleView[];
+  bought: number;
+  totalSlots: number;
+  canUndo: boolean;
+  revealStartedAt: number | null;
+  timers: { nominationMs: number; lotMs: number; antiSnipeMs: number; minIncrementM: number };
+}
+
+/** One accepted bid: the live lot's new price, leader and deadline. */
+export interface BidEvent {
+  version: number;
+  lotId: string;
+  sequence: number;
+  bid: LotBidView;
+  currentBidM: number;
+  leaderId: string;
+  lotDeadline: number;
+}
+
+export interface RevealSlot {
+  key: string;
+  type: SlotType;
+  playerId: string;
+  name: string;
+  position: Group;
+  overall: number;
+  priceM: number;
+  marketValueM: number;
+  autoFilled: boolean;
+  outOfPosition: boolean;
+}
+
+export interface RevealTeam {
+  participantId: string;
+  teamName: string;
+  managerName: string;
+  color: string;
+  monogram: string;
+  formation: FormationId;
+  isBot: boolean;
+  slots: RevealSlot[];
+  spentM: number;
+  leftM: number;
+  attack: number;
+  defense: number;
+  strength: number;
+  rank: number;
+  grade: string;
+  gradeScore: number;
+}
+
+export interface RevealLeagueRow {
+  id: string;
+  name: string;
+  kind: 'human' | 'bot' | 'ai';
+  participantId: string | null;
+  color: string;
+  monogram: string;
+  attack: number;
+  defense: number;
+  strength: number;
+  rank: number;
+}
+
+export interface RevealView {
+  revealStartedAt: number;
+  /** How long each team is shown when the reveal plays by itself. */
+  stepMs: number;
+  /** Reveal order: weakest first, strongest last. */
+  teams: RevealTeam[];
+  unsold: { id: string; name: string; position: Group; overall: number; basePriceM: number }[];
+  league: RevealLeagueRow[];
+}
+
 export interface GameSnapshot {
   serverTime: number;
   game: GameView;
@@ -134,16 +318,27 @@ export interface GameSnapshot {
   aiClubs: AiClubsPreview;
   startBlockers: StartBlocker[];
   chat: ChatMessageView[];
+  /** Live auction state once the auction has started. */
+  auction: AuctionView | null;
 }
 
-/** Lobby state pushed after every lobby change: the snapshot without chat history. */
-export type LobbyUpdate = Omit<GameSnapshot, 'chat'>;
+/** Lobby state pushed after every lobby change: the snapshot without chat history or auction state. */
+export type LobbyUpdate = Omit<GameSnapshot, 'chat' | 'auction'>;
+
+export interface PresenceEvent {
+  participantId: string;
+  isConnected: boolean;
+  disconnectedAt: number | null;
+}
 
 export interface ServerToClientEvents {
   'game:snapshot': (snapshot: GameSnapshot) => void;
   'lobby:update': (update: LobbyUpdate) => void;
-  presence: (p: { participantId: string; isConnected: boolean }) => void;
+  presence: (p: PresenceEvent) => void;
   'chat:message': (message: ChatMessageView) => void;
+  'auction:state': (view: AuctionView) => void;
+  'auction:bid': (bid: BidEvent) => void;
+  'auction:sold': (sale: SaleView) => void;
   'game:kicked': (p: { code: string }) => void;
   'game:notice': (p: { code: string; level: 'info' | 'error'; message: string }) => void;
 }

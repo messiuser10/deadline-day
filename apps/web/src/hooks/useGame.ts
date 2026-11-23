@@ -5,7 +5,8 @@ import { toast } from '../stores/toast';
 
 /**
  * Watch a game over Socket.IO: get the snapshot on watch (and again after every reconnect), then
- * apply lobby updates, presence and chat. Returns `rewatch` for after joining or being kicked.
+ * apply lobby updates, auction states, bids, sales, presence and chat. Returns `rewatch` for after
+ * joining or being kicked.
  */
 export function useGame(rawCode: string) {
   const code = rawCode.toUpperCase();
@@ -39,6 +40,9 @@ export function useGame(rawCode: string) {
     socket.on('chat:message', store.addChat);
     socket.on('game:kicked', onKicked);
     socket.on('game:notice', onNotice);
+    socket.on('auction:state', store.applyAuction);
+    socket.on('auction:bid', store.applyBid);
+    socket.on('auction:sold', store.applySold);
     if (socket.connected) rewatch();
 
     return () => {
@@ -49,6 +53,9 @@ export function useGame(rawCode: string) {
       socket.off('chat:message', store.addChat);
       socket.off('game:kicked', onKicked);
       socket.off('game:notice', onNotice);
+      socket.off('auction:state', store.applyAuction);
+      socket.off('auction:bid', store.applyBid);
+      socket.off('auction:sold', store.applySold);
       socket.emit('game:unwatch', { code });
     };
   }, [code, rewatch]);

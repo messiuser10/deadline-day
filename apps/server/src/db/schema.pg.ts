@@ -156,6 +156,8 @@ export const participants = pgTable(
     isConnected: boolean('is_connected').notNull().default(false),
     isSpectator: boolean('is_spectator').notNull().default(false),
     disconnectedAt: ms('disconnected_at'),
+    /** Who runs the team during the auction: its manager, a bot (takeover) or auto-nominate only. */
+    control: text('control', { enum: ['human', 'bot', 'auto'] }).notNull().default('human'),
     createdAt: createdAt(),
   },
   (t) => [

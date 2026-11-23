@@ -145,6 +145,33 @@ export const chatSchema = z.object({
 });
 export type ChatInput = z.input<typeof chatSchema>;
 
+// Auction ---------------------------------------------------------------------
+
+const playerIdSchema = z.string().min(1).max(64);
+/** Amounts are numbers here; the rules return NOT_WHOLE_NUMBER for fractions with a clear message. */
+const amountSchema = z.number().finite().min(0).max(100_000);
+
+export const nominateSchema = z.object({ playerId: playerIdSchema, openingBidM: amountSchema });
+export type NominateInput = z.input<typeof nominateSchema>;
+
+export const bidSchema = z.object({
+  amountM: amountSchema,
+  /** The price the bidder's screen showed: a bid that lost a race gets OUTBID instead of BID_TOO_LOW. */
+  seenBidM: amountSchema.optional(),
+  /** The lot the bidder meant; a bid for a lot that has closed is rejected with LOT_CLOSED. */
+  lotSequence: z.number().int().min(1).optional(),
+});
+export type BidInput = z.input<typeof bidSchema>;
+
+export const swapSlotsSchema = z.object({ slotA: z.string().min(1).max(8), slotB: z.string().min(1).max(8) });
+export type SwapSlotsInput = z.input<typeof swapSlotsSchema>;
+
+export const teamControlSchema = z.object({
+  mode: z.enum(['human', 'bot', 'auto']),
+  level: botLevelSchema.optional(),
+});
+export type TeamControlInput = z.input<typeof teamControlSchema>;
+
 export const joinCodeSchema = z
   .string()
   .trim()

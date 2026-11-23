@@ -15,6 +15,13 @@
       "when": 1795369011608,
       "tag": "0001_pool_club_now",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1795374190465,
+      "tag": "0002_participant_control",
+      "breakpoints": true
     }
   ]
 }

@@ -78,4 +78,22 @@ Choices the spec leaves open, one line each, newest milestone last.
 - `npm audit` reports dev-only advisories in drizzle-kit's bundled esbuild and in Vitest's dependencies. Fixing them needs breaking major upgrades, and none of it ships in the app, so they are left for now.
 - The web app imports the engine only for formation drawings and the shared protocol schemas for form validation; game rules run on the server.
 
-- The web bundle is one 522 KB chunk (162 KB gzipped). Route-level code splitting is left for M7 polish.
+- The web bundle is one chunk: 522 KB (162 KB gzipped) after M2, 581 KB (178 KB gzipped) after M3. Route-level code splitting is left for M7 polish.
+
+## M3: live auction
+
+- The server keeps no auction state in memory. Each action loads the game from the database, applies one engine transition and writes the difference in one transaction. A per-game promise queue runs bids, nominations, host actions and timer callbacks one at a time, so two bids at the same moment can never both win.
+- Every auction change gets a version `max(now, previous + 1)`. Clients apply a full `auction:state` or a small `auction:bid` only when its version is newer, so a late socket message never rolls the screen back.
+- A bid that arrives at or after the lot deadline, or names an old lot sequence, gets `LOT_CLOSED`. Timer callbacks re-check the stored deadline (15 ms early tolerance), so a stale timer does nothing.
+- Engine rule errors (`OUTBID`, `ALREADY_LEADING`, `NO_SLOT`, `OVER_MAX_BID` and so on) are HTTP 409 with the engine's code, plus `details` such as `minBidM` or `maxBidM` for the UI.
+- Anti-snipe: a bid with less than the anti-snipe time left resets the clock to exactly the anti-snipe time; it never shortens a longer clock.
+- Pause stores which timer was running and the exact milliseconds left; resume restarts that timer with the same remainder. A paused game stays paused after a server restart.
+- Pausing during the post-auction countdown holds the countdown ("Hold" on the reveal screen); resuming continues it.
+- Undo also reverts the auto-filled slots that sale triggered (those rows store the lot that triggered them; end-early fills store none). Undo is not allowed once the auction is complete. Undo while paused leaves the game paused on a fresh nomination timer.
+- Team control is `human`, `bot` or `auto` (auto-nominate only). The host may hand a team to a bot or auto only while its manager is disconnected; the host is prompted after 60 seconds away. The owner (or the host) can switch back to human at any time.
+- Bot bids wait a random 1 to 4 seconds; "auto" teams nominate after 1.5 seconds. Tests switch bot scheduling off (`botDelayMs: null`) and drive bots step by step.
+- Bot valuations are drawn once per lot from `hash(seed, 'value', lot sequence, team id)`, so a bot does not change its mind mid-lot. Lot eligibility per team is also computed once per lot.
+- The reveal countdown is `teams x 4 s + 8 s` of reveal plus 10 seconds of visible countdown, and runs only when "auto start season" is on.
+- Starting the season is a placeholder until M4: it clears the countdown, records the request, writes an audit entry and tells players the simulation arrives in the next update.
+- "Can buy" in the pool and the max-bid hints are an engine preview in the browser, recomputed only when the market changes. The server re-checks every bid and nomination.
+- Price and SOLD animations scale or slide without fading, so they stay readable if the browser pauses animations in a background tab.
