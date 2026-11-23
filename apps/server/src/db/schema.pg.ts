@@ -133,6 +133,8 @@ export const games = pgTable(
     completedAt: ms('completed_at'),
     /** Join code of the rematch lobby, once the host starts one. */
     rematchCode: text('rematch_code'),
+    /** Admin Test Auction game: all bots, never published to results or history. */
+    isTest: boolean('is_test').notNull().default(false),
     createdAt: createdAt(),
     updatedAt: ms('updated_at')
       .notNull()

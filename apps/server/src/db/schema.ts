@@ -143,6 +143,8 @@ export const games = sqliteTable(
     completedAt: integer('completed_at', { mode: 'number' }),
     /** Join code of the rematch lobby, once the host starts one. */
     rematchCode: text('rematch_code'),
+    /** Admin Test Auction game: all bots, never published to results or history. */
+    isTest: bool('is_test').notNull().default(false),
     createdAt: createdAt(),
     updatedAt: integer('updated_at', { mode: 'number' })
       .notNull()

@@ -306,9 +306,20 @@ export class ResultsService {
    * Publish season 1 as the game's official result, once. Called when the game first reaches `completed`
    * (end of synchronized playback, or straight away in own-pace mode) and at boot for older games.
    */
+  /** Drop cached results of a game's seasons. */
+  forget(gameId: string): void {
+    const ids = new Set(this.games.season.seasonRows(gameId).map((r) => r.id));
+    for (const key of [...this.cache.keys()]) if (ids.has(key.split(':')[0]!)) this.cache.delete(key);
+  }
+
   publish(gameId: string): void {
     const game = this.games.gameById(gameId);
     if (game.completedAt) return;
+    if (game.isTest) {
+      // Admin Test Auction games are all bots and never count for history.
+      this.db.update(games).set({ completedAt: Date.now() }).where(eq(games.id, gameId)).run();
+      return;
+    }
     const first = this.games.season.seasonRows(gameId).find((r) => r.seasonNumber === 1);
     if (!first) return;
     const view = this.games.season.view(game.joinCode, 1);

@@ -10,13 +10,8 @@ import {
   DEFAULT_SLOT_COMPATIBILITY,
   FORMATION_IDS,
   MAX_TEAMS,
-  type FormationId,
-  type PoolParams,
-  type PriceParams,
-  type SimParams,
-  type SlotCompatibility,
 } from '@deadline-day/engine';
-import { DEFAULT_GAME_LIMITS, type GameLimits, type GameSettings, type TableBand } from '@deadline-day/protocol';
+import { DEFAULT_GAME_LIMITS, type AppSettings, type GameSettings, type TableBand } from '@deadline-day/protocol';
 import { DEFAULT_PROFANITY_WORDS } from '../text/profanity';
 
 export const DEFAULT_GAME_SETTINGS: GameSettings = {
@@ -44,27 +39,7 @@ export const DEFAULT_TABLE_BANDS: TableBand[] = [
   { from: 18, to: 20, label: 'Bottom three', tone: 'red', enabled: true },
 ];
 
-export type AiClubSelectionMethod = 'top_by_strength' | 'manual' | 'random';
-
-export interface AppSettings {
-  league_name: string;
-  slot_compatibility: SlotCompatibility;
-  formations_enabled: FormationId[];
-  price_curve: PriceParams;
-  pool_params: PoolParams;
-  game_defaults: GameSettings;
-  game_limits: GameLimits;
-  remove_bought_from_ai: boolean;
-  /** Section 9 simulation parameters, snapshotted into every season. */
-  sim_params: SimParams;
-  /** Final-table colour bands (section 10). */
-  table_bands: TableBand[];
-  ai_club_selection: { method: AiClubSelectionMethod; manualClubIds: string[] };
-  public_lobbies_enabled: boolean;
-  registrations_open: boolean;
-  profanity_words: string[];
-  maintenance_banner: { message: string | null };
-}
+export type { AiClubSelectionMethod, AppSettings } from '@deadline-day/protocol';
 
 export function defaultAppSettings(): AppSettings {
   return structuredClone({

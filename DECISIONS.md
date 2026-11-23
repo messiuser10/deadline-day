@@ -139,3 +139,25 @@ Choices the spec leaves open, one line each, newest milestone last.
 - The record book keeps the top 5 for most points in a season, most goals by a bought player and best goal difference, counting auction teams only.
 - Team page links use the participant id (auction teams) or club id (AI clubs), so the same link works for every season of a game; `?s=N` picks the season.
 - The form timeline is league position after each matchday plus a W/D/L strip, in the same validated green (#179a53) as the other single-series charts.
+
+## M6: admin
+
+- Every admin endpoint is registered through one loop that calls `requireAdmin` before parsing anything, so a normal user always gets `403 ADMIN_ONLY` and a visitor `401`; a test tries every route as a visitor, a user and a guest. The web `/admin` guard only hides the page.
+- Most game actions in the Games tab reuse the host endpoints, which already let an admin act as host in any game. "Open as spectator" is a link to the game's current page; "Re-run simulation" is Run It Back; "Force complete (auto-fill)" is End auction early.
+- Admins may replace a connected manager with a bot (hosts can only take over teams that dropped). A mid-auction reorder keeps the team that is due to nominate on the clock, and the new order continues from there.
+- Change seed is allowed after the auction starts and not while a season is playing back. Played seasons keep their stored seeds; the new seed drives later seasons, Expected Strength and multi-season runs.
+- Deleting a game removes everything in it (cascade); watchers get a notice. Its audit entry keeps the join code in `target` so the audit filter still finds it.
+- Test Auction games are flagged `games.is_test`: private, own-pace, every team a bot, the auction fast-forwarded on the server, then the season simulated. They never reach game_results (no Hall of Fame, leaderboard or records) and show under the "Test games" filter.
+- Pool prices always follow the price curve: edits and imports recompute them from overall (a mismatched price in a file is only a warning). The curve changes only through the Reprice tool, which saves `price_curve` and reprices every pool player; frozen game pools keep their snapshot prices.
+- Position ranks are recomputed after every pool change: by overall, then the old rank, then id. Blank rank and price cells are fine in an import.
+- A pool player who is in any game's auction pool cannot be deleted (409 PLAYER_IN_USE); deactivate them instead.
+- Import modes: add or update (upsert), replace (also deactivates active players missing from the file) and alt positions (reads only id, alt_positions and alt_source, which defaults to ea). Any error blocks Apply. Exports defuse cells starting with `= + - @` with a leading `'`, and imports strip it again.
+- Possible duplicates are pool players with the same normalized name and position; two different players can share a name (for example a goalkeeper and a midfielder both called Ederson).
+- Strength overrides replace the computed value in the ranking that picks AI clubs. AI squad players keep their id when edited, so stored seasons that name them still resolve; a new squad player gets an id from club and name, with a number added if it is taken.
+- Each settings key is saved on its own and checked against the others: new limits must still fit the default game settings, the forced default formation must stay enabled, default public visibility needs public lobbies, manual AI clubs must exist, and enabled table bands cannot overlap. Saving the default game settings also updates the `pool_params` and `remove_bought_from_ai` mirrors.
+- The banner is the `maintenance_banner` setting; setting and clearing it are audited as `admin.announcement.set` / `.clear`. Changes to the profanity list are audited as counts (added, removed, total), not the full list.
+- Simulation Lab runs are not saved or audited. Run 0 uses the seed itself and keeps a loaded game's stored team ids (tiebreaks are seeded by team id), so one run with a game's 20 teams and season seed reproduces that season exactly; later runs use `deriveSeed(seed, 'lab', i)`. Seeds are any uint32.
+- Deleting a user's data: refused for yourself and while the user is in an unfinished game (replace them with a bot first). Sessions and chat messages are deleted, games they host pass to the acting admin, and finished teams and results stay with the account link cleared. Confirmation is typing the username.
+- The overview's data health checks: pool supply for a 12-team game in the worst case, prices off the curve, possible duplicates, clubs with fewer than 11 squad players, the banner being on and registrations being closed.
+- The audit CSV export holds the newest 10,000 matching entries, oldest first.
+- The admin panel is a lazy-loaded chunk (about 86 kB), so players never download it.

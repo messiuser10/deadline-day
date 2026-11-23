@@ -37,11 +37,13 @@ import {
   type StartBlocker,
   type TeamInput,
   type TeamPatchInput,
+  type TestAuctionInput,
+  type TestAuctionResult,
 } from '@deadline-day/protocol';
 import { audit } from '../audit';
 import type { UserRow } from '../auth/sessions';
 import type { Db } from '../db/client';
-import { chatMessages, clubs, gamePool, games, lineupSlots, participants, users } from '../db/schema';
+import { bids, chatMessages, clubs, gamePool, games, lineupSlots, lots, participants, users } from '../db/schema';
 import { ApiError, badRequest, conflict, forbidden, notFound } from '../errors';
 import { DEFAULT_GAME_SETTINGS, type AppSettings } from '../settings/defaults';
 import { readAppSettings } from '../settings/store';
@@ -135,6 +137,11 @@ export class GameService {
 
   // -------------------------------------------------------------------------
   // Lookups
+
+  /** Master pool and club ranking cache; admin edits call invalidate(). */
+  get reference(): ReferenceData {
+    return this.opts.reference;
+  }
 
   appSettings(): AppSettings {
     return readAppSettings(this.db);
@@ -766,6 +773,136 @@ export class GameService {
     audit(this.db, { actorUserId: user.id, action: 'game.cancel', target: game.joinCode, gameId: game.id });
     this.broadcaster.notice(game.id, { code: 'CANCELLED', level: 'info', message: 'The host cancelled this game' });
     this.broadcastLobby(game.id);
+  }
+
+  // -------------------------------------------------------------------------
+  // Admin
+
+  /**
+   * Admin Test Auction (section 11): a private game with N bots, started at once, the whole auction run
+   * without clocks, then the season simulated. Test games are never published to results or history.
+   */
+  async createTestGame(admin: UserRow, input: Required<Pick<TestAuctionInput, 'teams'>> & TestAuctionInput): Promise<TestAuctionResult> {
+    const started = Date.now();
+    const app = this.appSettings();
+    const enabled = app.formations_enabled;
+    const forced = input.formation && input.formation !== 'mixed' ? input.formation : null;
+    if (forced && !enabled.includes(forced)) throw badRequest('FORMATION_DISABLED', `${forced} is not enabled`);
+    const settings = this.validateSettings(
+      {
+        ...app.game_defaults,
+        maxTeams: Math.max(app.game_defaults.maxTeams, input.teams),
+        botsAllowed: true,
+        playbackMode: 'own_pace',
+        autoStartSeason: false,
+        visibility: 'private',
+        formationRule: forced ? 'forced' : 'each',
+        forcedFormation: forced,
+      },
+      app,
+    );
+    const levels = ['easy', 'medium', 'hard'] as const;
+    const code = this.uniqueCode();
+    const gameId = this.db.transaction((tx) => {
+      const game = tx
+        .insert(games)
+        .values({ joinCode: code, name: `Test Auction, ${input.teams} bots`, hostUserId: admin.id, settings, nominationOrder: [], isTest: true })
+        .returning()
+        .get();
+      const ids: string[] = [];
+      const formations = cryptoShuffle(enabled);
+      for (let i = 0; i < input.teams; i++) {
+        const teamName = BOT_TEAM_NAMES[i] ?? `Bot Team ${i + 1}`;
+        const level = !input.botLevel || input.botLevel === 'mixed' ? levels[i % levels.length]! : input.botLevel;
+        const row = tx
+          .insert(participants)
+          .values({
+            gameId: game.id,
+            userId: null,
+            teamName,
+            color: TEAM_COLORS[i % TEAM_COLORS.length]!,
+            monogram: defaultMonogram(teamName),
+            formation: forced ?? formations[i % formations.length]!,
+            isBot: true,
+            botLevel: level,
+            isReady: true,
+            isConnected: true,
+            budgetRemainingM: settings.budgetM,
+            createdAt: started + i,
+          })
+          .returning()
+          .get();
+        ids.push(row.id);
+      }
+      tx.update(games).set({ nominationOrder: cryptoShuffle(ids) }).where(eq(games.id, game.id)).run();
+      audit(tx, { actorUserId: admin.id, action: 'admin.lab.test_auction', target: code, gameId: game.id, details: { teams: input.teams, botLevel: input.botLevel ?? 'mixed', formation: input.formation ?? 'mixed' } });
+      return game.id;
+    });
+
+    this.startNow(gameId, admin.id);
+    await this.auction.fastForward(gameId);
+    await this.auction.startSeason(admin, code);
+
+    const pool = this.db.select({ status: gamePool.status }).from(gamePool).where(eq(gamePool.gameId, gameId)).all();
+    const teams = this.teams(gameId);
+    const nameOf = new Map(teams.map((t) => [t.id, t.teamName ?? 'Team']));
+    const bought = this.db
+      .select({ participantId: lineupSlots.participantId, priceM: lineupSlots.priceM, name: gamePool.snapshot })
+      .from(lineupSlots)
+      .innerJoin(gamePool, and(eq(gamePool.gameId, gameId), eq(gamePool.poolPlayerId, lineupSlots.poolPlayerId)))
+      .where(inArray(lineupSlots.participantId, teams.map((t) => t.id)))
+      .all()
+      .filter((r) => r.priceM !== null)
+      .map((r) => ({ name: String((r.name as { name?: string }).name ?? '?'), priceM: r.priceM!, teamName: nameOf.get(r.participantId)! }))
+      .sort((a, b) => b.priceM - a.priceM);
+    const lotCount = this.db.select({ id: lots.id }).from(lots).where(eq(lots.gameId, gameId)).all().length;
+    const bidCount = this.db
+      .select({ id: bids.id })
+      .from(bids)
+      .innerJoin(lots, eq(lots.id, bids.lotId))
+      .where(eq(lots.gameId, gameId))
+      .all().length;
+    const info = this.season.info(this.gameById(gameId));
+    return {
+      code,
+      teams: input.teams,
+      poolSize: pool.length,
+      unsold: pool.filter((r) => r.status === 'unsold').length,
+      lots: lotCount,
+      bids: bidCount,
+      totalSpentM: bought.reduce((sum, b) => sum + b.priceM, 0),
+      biggest: bought[0] ?? null,
+      smallest: bought.at(-1) ?? null,
+      championName: info?.seasons.at(-1)?.championName ?? null,
+      ms: Date.now() - started,
+    };
+  }
+
+  /** Admin: a new game seed for future seasons (Run It Back, Expected Strength, multi-season). */
+  changeSeed(admin: UserRow, code: string, seed: number | undefined): number {
+    const game = this.findGame(code);
+    if (game.status === 'lobby' || game.status === 'cancelled') throw conflict('NOT_STARTED', 'The seed is set when the auction starts');
+    if (game.status === 'simulating') throw conflict('SIMULATING', 'Wait for the season playback to finish');
+    const next = seed ?? randomSeed();
+    this.db.update(games).set({ seed: next, updatedAt: Date.now() }).where(eq(games.id, game.id)).run();
+    this.season.forget(game.id);
+    audit(this.db, { actorUserId: admin.id, action: 'admin.game.seed', target: game.joinCode, gameId: game.id, details: { from: game.seed, to: next } });
+    return next;
+  }
+
+  /** Admin: delete a game and everything in it. Anyone watching is told and sent home. */
+  deleteGame(admin: UserRow, code: string): void {
+    const game = this.findGame(code);
+    this.opts.timers.cancel(startTimerKey(game.id));
+    this.auction.stopTimers(game.id);
+    this.season.stopTimer(game.id);
+    this.season.forget(game.id);
+    this.results.forget(game.id);
+    this.broadcaster.notice(game.id, { code: 'GAME_DELETED', level: 'error', message: 'An admin deleted this game' });
+    this.db.transaction((tx) => {
+      tx.delete(games).where(eq(games.id, game.id)).run();
+      audit(tx, { actorUserId: admin.id, action: 'admin.game.delete', target: game.joinCode, details: { name: game.name, status: game.status } });
+    });
   }
 
   // -------------------------------------------------------------------------

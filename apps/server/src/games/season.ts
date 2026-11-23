@@ -440,7 +440,7 @@ export class SeasonService {
   }
 
   /** The stored season's 20 teams as engine input, with engine id -> season team id. */
-  private leagueFromSeason(seasonId: string): { teams: LeagueTeam[]; meta: Record<string, TeamOrigin>; seasonTeamId: Map<string, string> } {
+  leagueFromSeason(seasonId: string): { teams: LeagueTeam[]; meta: Record<string, TeamOrigin>; seasonTeamId: Map<string, string> } {
     const rows = this.teamsOf(seasonId);
     const meta: Record<string, TeamOrigin> = {};
     const seasonTeamId = new Map<string, string>();
@@ -456,6 +456,14 @@ export class SeasonService {
 
   // -------------------------------------------------------------------------
   // Host actions
+
+  /** Drop cached views and Expected Strength for a game (after a seed change or before deleting it). */
+  forget(gameId: string): void {
+    for (const r of this.seasonRows(gameId)) {
+      this.viewCache.delete(r.id);
+      this.expected.delete(r.id);
+    }
+  }
 
   /** Same 20 teams, the next seed, kept in history. */
   runItBack(user: UserRow, code: string): Promise<SeasonInfo> {

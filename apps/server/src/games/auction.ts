@@ -782,7 +782,10 @@ export class AuctionService {
         if (!isOwner) this.games.requireHost(g, user);
       } else {
         this.games.requireHost(g, user);
-        if (target.isConnected) throw conflict('MANAGER_CONNECTED', `${target.teamName ?? 'That team'}'s manager is still connected`);
+        // Admins may replace any team (section 11); hosts only a disconnected one.
+        if (target.isConnected && user.role !== 'admin') {
+          throw conflict('MANAGER_CONNECTED', `${target.teamName ?? 'That team'}'s manager is still connected`);
+        }
       }
       const level: BotLevel = input.level ?? target.botLevel ?? 'medium';
       this.db.transaction((tx) => {
@@ -796,6 +799,54 @@ export class AuctionService {
       this.games.broadcastLobby(g.id);
       return this.afterChange(g.id);
     });
+  }
+
+  /**
+   * Admin: a new nomination order while the auction runs. The team due to nominate next stays the same;
+   * the turns after it follow the new order.
+   */
+  reorder(user: UserRow, code: string, order: string[]): Promise<AuctionView> {
+    const game = this.games.findGame(code);
+    if (user.role !== 'admin') throw forbidden('ADMIN_ONLY', 'Only an admin can reorder a running auction');
+    return this.queue.run(game.id, () => {
+      const l = this.load(game.id);
+      if (!['auctioning', 'paused'].includes(l.game.status)) throw conflict('NOT_AUCTIONING', 'The auction is not running');
+      const ids = l.teams.map((t) => t.id);
+      if (order.length !== ids.length || new Set(order).size !== order.length || !order.every((id) => ids.includes(id))) {
+        throw badRequest('BAD_ORDER', 'The order must list every team exactly once');
+      }
+      const n = l.order.length;
+      const due = l.order[(((l.game.nominationIndex % n) + n) % n)]!;
+      const nominationIndex = Math.max(0, order.indexOf(due));
+      this.db.transaction((tx) => {
+        tx.update(games).set({ nominationOrder: order, nominationIndex, updatedAt: Date.now() }).where(eq(games.id, game.id)).run();
+        audit(tx, { actorUserId: user.id, action: 'admin.game.order', target: l.game.joinCode, gameId: game.id, details: { order } });
+      });
+      this.games.broadcastLobby(game.id);
+      return this.afterChange(game.id);
+    });
+  }
+
+  /**
+   * Admin Test Auction: run the whole auction now. Bots bid until nobody wants to go higher, then the lot is
+   * sold at once instead of waiting for the clock; empty turns are auto-nominated. Yields between steps.
+   */
+  async fastForward(gameId: string): Promise<void> {
+    for (let step = 0; step < 200_000; step++) {
+      const done = await this.queue.run(gameId, () => {
+        const l = this.load(gameId);
+        if (l.game.status !== 'auctioning') return true;
+        if (this.botTickNow(gameId)) return false;
+        const now = this.load(gameId);
+        if (now.game.status !== 'auctioning') return true;
+        if (now.liveLot) this.sell(now);
+        else this.autoNominate(now);
+        return false;
+      });
+      if (done) return;
+      if (step % 20 === 19) await new Promise<void>((resolve) => setImmediate(resolve));
+    }
+    throw new Error('The test auction did not finish');
   }
 
   /** Start the season now (host), or when the post-auction countdown runs out. */

@@ -18,3 +18,12 @@ export function readAppSettings(db: Db): AppSettings {
   }
   return out as unknown as AppSettings;
 }
+
+/** Insert or replace one app_settings row. Callers validate the value first. */
+export function writeAppSetting(db: Pick<Db, 'insert'>, key: keyof AppSettings, value: unknown): void {
+  const now = Date.now();
+  db.insert(appSettings)
+    .values({ key, value, updatedAt: now })
+    .onConflictDoUpdate({ target: appSettings.key, set: { value, updatedAt: now } })
+    .run();
+}

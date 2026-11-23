@@ -2,7 +2,7 @@ import Fastify, { type FastifyInstance } from 'fastify';
 import fastifyCookie from '@fastify/cookie';
 import { count } from 'drizzle-orm';
 import { START_COUNTDOWN_MS } from '@deadline-day/protocol';
-import { registerAdminRoutes } from './admin/routes';
+import { registerAdminRoutes, type AdminRouteInfo } from './admin/routes';
 import { installAuth, userFromCookieHeader } from './auth/plugin';
 import { registerAuthRoutes } from './auth/routes';
 import type { Db } from './db/client';
@@ -42,6 +42,8 @@ export interface AppOptions {
 export interface DeadlineDayApp extends FastifyInstance {
   games: GameService;
   hub: Hub;
+  /** Every admin endpoint, so tests can check the role on each one. */
+  adminRoutes: AdminRouteInfo[];
 }
 
 /** Builds the HTTP API and the Socket.IO server on the same HTTP server. */
@@ -82,7 +84,7 @@ export function buildApp(options: AppOptions): DeadlineDayApp {
   registerAuctionRoutes(app, games);
   registerSeasonRoutes(app, games);
   registerResultsRoutes(app, games, db);
-  registerAdminRoutes(app, db);
+  const adminRoutes = registerAdminRoutes(app, db, games);
 
   app.addHook('preClose', async () => {
     timers.clear();
@@ -90,5 +92,5 @@ export function buildApp(options: AppOptions): DeadlineDayApp {
   });
 
   games.restore();
-  return Object.assign(app, { games, hub });
+  return Object.assign(app, { games, hub, adminRoutes });
 }

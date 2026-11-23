@@ -50,6 +50,11 @@ export function Header() {
             <Link to="/how-to-play" className="hidden rounded-lg px-3 py-2 text-sm text-white/70 hover:text-white sm:block">
               How to play
             </Link>
+            {me?.role === 'admin' && (
+              <Link to="/admin" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-gold-400 hover:text-white lg:block">
+                Admin
+              </Link>
+            )}
             {me ? (
               <div className="relative" ref={menu}>
                 <button
@@ -68,6 +73,11 @@ export function Header() {
                     <MenuLink to="/profile" onClick={() => setOpen(false)}>
                       My profile
                     </MenuLink>
+                    {me.role === 'admin' && (
+                      <MenuLink to="/admin" onClick={() => setOpen(false)} className="text-gold-400">
+                        Admin panel
+                      </MenuLink>
+                    )}
                     <MenuLink to="/hall-of-fame" onClick={() => setOpen(false)} className="md:hidden">
                       Hall of Fame
                     </MenuLink>

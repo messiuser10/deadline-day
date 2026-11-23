@@ -1,8 +1,8 @@
-import { Component, useEffect, type ReactNode } from 'react';
+import { Component, lazy, Suspense, useEffect, type ComponentType, type ReactNode } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 import { Header } from './components/Header';
 import { Toaster } from './components/Toaster';
-import { LinkButton } from './components/ui';
+import { LinkButton, Skeleton } from './components/ui';
 import { AuctionPage } from './pages/Auction';
 import { CreatePage } from './pages/Create';
 import { HallOfFamePage } from './pages/HallOfFame';
@@ -16,6 +16,30 @@ import { MyProfilePage, UserProfilePage } from './pages/Profile';
 import { ResultsPage } from './pages/Results';
 import { RevealPage } from './pages/Reveal';
 import { SeasonPage } from './pages/Season';
+
+/** The admin panel is its own chunk, so players never download it. */
+function lazyNamed<M, K extends keyof M>(load: () => Promise<M>, name: K) {
+  const Lazy = lazy(async () => ({ default: (await load())[name] as ComponentType }));
+  return function Loaded() {
+    return (
+      <Suspense fallback={<Skeleton className="mx-auto mt-6 h-96 w-full max-w-7xl" />}>
+        <Lazy />
+      </Suspense>
+    );
+  };
+}
+const admin = () => import('./pages/admin');
+const AdminLayout = lazyNamed(admin, 'AdminLayout');
+const OverviewTab = lazyNamed(admin, 'OverviewTab');
+const PoolTab = lazyNamed(admin, 'PoolTab');
+const ClubsTab = lazyNamed(admin, 'ClubsTab');
+const GamesTab = lazyNamed(admin, 'GamesTab');
+const GameDetailPage = lazyNamed(admin, 'GameDetailPage');
+const SettingsTab = lazyNamed(admin, 'SettingsTab');
+const LabTab = lazyNamed(admin, 'LabTab');
+const UsersTab = lazyNamed(admin, 'UsersTab');
+const AuditTab = lazyNamed(admin, 'AuditTab');
+const AnnouncementsTab = lazyNamed(admin, 'AnnouncementsTab');
 
 /** New page, new scroll: start every route at the top. */
 function ScrollToTop() {
@@ -79,6 +103,18 @@ export function App() {
           <Route path="/profile/:username" element={<UserProfilePage />} />
           <Route path="/hall-of-fame" element={<HallOfFamePage />} />
           <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<OverviewTab />} />
+            <Route path="pool" element={<PoolTab />} />
+            <Route path="clubs" element={<ClubsTab />} />
+            <Route path="games" element={<GamesTab />} />
+            <Route path="games/:code" element={<GameDetailPage />} />
+            <Route path="settings" element={<SettingsTab />} />
+            <Route path="lab" element={<LabTab />} />
+            <Route path="users" element={<UsersTab />} />
+            <Route path="audit" element={<AuditTab />} />
+            <Route path="announcements" element={<AnnouncementsTab />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
         </ErrorBoundary>

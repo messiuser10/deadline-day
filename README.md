@@ -4,7 +4,7 @@ A multiplayer web game. Friends (2 to 12 teams) each get a $1 billion budget and
 
 > Deadline Day is an unofficial fan game. It is not affiliated with, endorsed by or connected to any club, league or player. No official crests, logos or player photos are used.
 
-**Status:** milestones M0 (scaffold and data), M1 (game engine), M2 (server foundation: accounts, guests, lobby, live updates, auction start), M3 (live auction and Team Reveal), M4 (season simulation and playback) and M5 (results, awards, profiles and history) are done. Admin, moderation and polish are next (M6). See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
+**Status:** milestones M0 (scaffold and data), M1 (game engine), M2 (server foundation: accounts, guests, lobby, live updates, auction start), M3 (live auction and Team Reveal), M4 (season simulation and playback), M5 (results, awards, profiles and history) and M6 (admin panel and audit log) are done. Deploy and polish are next (M7). See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
 
 ## Requirements
 
@@ -44,7 +44,7 @@ npm run seed -- --reset # also overwrites clubs, squads and pool players from da
 npm run db:migrate      # applies pending migrations only
 ```
 
-Seeding is idempotent: by default it inserts missing rows and leaves existing ones alone, so admin edits survive. Settings keys are only ever added when missing. The SQLite file lives at `var/deadline-day.sqlite` (gitignored).
+The server also applies pending migrations when it starts (M6 adds `0004_test_games`, a `games.is_test` flag). Seeding is idempotent: by default it inserts missing rows and leaves existing ones alone, so admin edits survive. Settings keys are only ever added when missing. The SQLite file lives at `var/deadline-day.sqlite` (gitignored).
 
 After changing `apps/server/src/db/schema.ts`, mirror the change in `schema.pg.ts` (a test fails if they drift) and run:
 
@@ -70,7 +70,9 @@ Season Complete (`/results/:code`, opens at each viewer's final whistle): the fi
 
 - Accounts use a username and password (bcrypt). Guests get a session with just a display name and can later turn it into an account without losing their games.
 - Sessions are an httpOnly cookie `dd_session` that lasts 30 days and slides on use.
-- Register with the username in `ADMIN_USERNAME` to become an admin. Admins can act as host in any game and use `GET /api/admin/users` and `PATCH /api/admin/users/:id` (role, ban). The admin panel UI arrives in M6.
+- Register with the username in `ADMIN_USERNAME` to become an admin; admins can promote others from the panel. Admins can act as host in any game.
+- The admin panel lives at `/admin` (an Admin link appears in the header and account menu for admins). Tabs: Overview (counts, data health, recent activity), Pool players (search, filter, inline edit, add, bulk actions, CSV/JSON export, import with a diff preview, duplicate detection, Reprice tool), Clubs (colours, monograms, strength overrides, AI squads, a live ranking with an N slider showing which clubs become AI teams), Games (every game; spectate, force start, pause/resume, skip, extend, undo, end with auto-fill, reset, replace a manager with a bot, reorder nominations, re-run the season, change seed, export, cancel, delete), Settings, Simulation Lab (any 20 teams, 1 or up to 1,000 seasons, plus a one-click Test Auction), Users (search, promote, ban, see games, delete a user's data), Audit log (filters, CSV export) and Announcements (site banner).
+- Every `/api/admin/*` route checks the admin role on the server before anything else (a normal user gets `403 ADMIN_ONLY`), and every admin and host action is written to `audit_log`. The web guard only hides the page.
 
 ## API and realtime
 
@@ -89,6 +91,7 @@ All changes go through REST (JSON, validated with the zod schemas in `packages/p
 | Results | `GET :code/results?number=N` (awards, grades, player stats, team reports, head to head; no login needed) |
 | Results host | `POST :code/rematch`, `GET :code/export?format=json\|csv&table=table\|fixtures\|players\|grades&number=N` |
 | History | `GET /api/profile` (signed in), `GET /api/profiles/:username`, `GET /api/hall-of-fame?before=<ms>`, `GET /api/leaderboard`, `GET /api/records` |
+| Admin | All under `/api/admin`, admin only. `GET /overview`; `GET`/`POST /pool`, `PATCH`/`DELETE /pool/:id`, `POST /pool/bulk`, `GET /pool/export?format=csv\|json`, `POST /pool/import/preview`, `/pool/import/apply`, `/pool/reprice/preview`, `/pool/reprice/apply`; `GET /clubs`, `PATCH /clubs/:id`, `GET`/`POST /clubs/:id/squad`, `PUT`/`DELETE /clubs/:id/squad/:playerId`; `GET /games?status=&q=&before=`, `GET /games/:code`, `PUT /games/:code/order`, `POST /games/:code/seed`, `DELETE /games/:code`; `GET`/`PUT /settings` (`{ key, value }`); `GET /lab/teams?game=`, `POST /lab/run`, `POST /lab/test-auction`; `GET /users?q=&filter=`, `GET`/`PATCH /users/:id`, `POST /users/:id/delete`; `GET /audit?actor=&action=&game=&from=&to=&before=`, `GET /audit/export` |
 
 Socket.IO (path `/socket.io`, same cookie): the client emits `game:watch { code }` and gets the full snapshot in the reply, then receives `lobby:update`, `presence`, `chat:message`, `game:snapshot` (on start), `game:kicked`, `game:notice`, during the auction `auction:state` (the full versioned auction view), `auction:bid` (a small delta per bid) and `auction:sold`, and during the season `season:playback` (the versioned shared playback clock). `time:sync` returns the server clock so countdowns agree across devices.
 
@@ -134,15 +137,15 @@ A Dockerfile, docker-compose file and single-process production build (server se
 | `SESSION_SECRET` | dev-only value | Signs the `dd_session` cookie. Required in production (at least 16 characters); cookies are also marked Secure there |
 | `WEB_ORIGIN` | `http://localhost:5173` | Reserved, not read yet: in development Vite proxies `/api` and `/socket.io`, so the app is same-origin |
 
-M3, M4 and M5 add no environment variables. `.env` in the repo root is loaded automatically. Never commit it.
+M3 to M6 add no environment variables. `.env` in the repo root is loaded automatically. Never commit it.
 
 ## Layout
 
 ```
 packages/engine   pure game logic: positions, formations, prices, pool, lineups, auction rules, bots, clubs, fixtures, match and season sim, Monte Carlo, awards, team reports and head to head; Vitest tests
 packages/protocol API contract shared by server and web: zod request schemas, view types, socket events, limits
-apps/server       Fastify server: auth, games and lobby service, live auction service (serialized per game, server timers, bots), season service (simulate and store, playback clock, Run It Back, Monte Carlo), results service (awards, grades, reports, publishing, rematch, export), history service (profiles, Hall of Fame, leaderboard, records), Socket.IO hub, admin routes, Drizzle schema (SQLite + Postgres mirror), migrations, seed
-apps/web          React + Vite + Tailwind client, mobile first: home, login, create, lobby, kickoff, auction room, Team Reveal, season, League Teams, team pages, Season Complete, profiles, Hall of Fame, leaderboard, how to play
+apps/server       Fastify server: auth, games and lobby service, live auction service (serialized per game, server timers, bots), season service (simulate and store, playback clock, Run It Back, Monte Carlo), results service (awards, grades, reports, publishing, rematch, export), history service (profiles, Hall of Fame, leaderboard, records), Socket.IO hub, admin panel API (pool, clubs, games, settings, lab, users, audit, overview), Drizzle schema (SQLite + Postgres mirror), migrations, seed
+apps/web          React + Vite + Tailwind client, mobile first: home, login, create, lobby, kickoff, auction room, Team Reveal, season, League Teams, team pages, Season Complete, profiles, Hall of Fame, leaderboard, how to play, admin panel (its own lazy-loaded chunk)
 scripts/          seed, data validation, migrations, simulation CLI
 data/             supplied player and club data
 ```
