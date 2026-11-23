@@ -180,3 +180,8 @@ Choices the spec leaves open, one line each, newest milestone last.
 - Basic security headers (`nosniff`, `SAMEORIGIN` framing, a referrer policy) are added when serving the web app. A Content Security Policy is left out for now: the inline theme script and the inline styles for team colours would need nonces or hashes.
 - The Docker image builds with the full dependency set, then reinstalls runtime dependencies only. It runs as the `node` user with the database on a `/data` volume. Docker is not installed on the development machine, so the image itself was not built here; the same steps (install, build, `npm ci --omit=dev`, start) were run in a clean copy of the repo and served the app.
 - The Playwright smoke test runs at a phone size (Pixel 7 in Chromium) against the production build through `e2e/server.ts`. That harness lowers the admin-editable game limits (3 s lots, 5 s nominations) and uses quick bots, so a full game takes about two minutes. It is not part of `npm test`: it needs a downloaded browser and a build.
+
+## Deployment
+
+- Hosting target is Render with a persistent disk for the SQLite file (`render.yaml`), chosen over Render plus Neon: the server's 241 database calls use the synchronous SQLite API, and running on Postgres would mean rewriting that layer as async. The Postgres schema and migrations stay in place for that later move.
+- The container starts as root only to `chown` the mounted `/data` disk (Render and Fly mount disks owned by root) and then drops to the `node` user with `setpriv`.

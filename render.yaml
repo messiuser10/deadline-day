@@ -1,0 +1,25 @@
+# Render Blueprint: one web service built from the Dockerfile, with the SQLite database on a persistent disk.
+# In Render: New > Blueprint, pick this repository, and apply. See README.md, "Deploy on Render".
+services:
+  - type: web
+    name: deadline-day
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    # Disks need a paid instance. Exactly one instance: the game timers run in this one process.
+    plan: starter
+    # Pick the region nearest your players before the first deploy (it cannot change later):
+    # oregon, ohio, virginia, frankfurt or singapore.
+    region: oregon
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: deadline-day-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: PORT
+        value: "3001"

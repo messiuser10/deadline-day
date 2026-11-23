@@ -1,6 +1,7 @@
 # Deadline Day: one container runs the API, the realtime server and the web app.
 #   docker compose up --build        (see docker-compose.yml)
 #   docker build -t deadline-day . && docker run -p 3001:3001 -e SESSION_SECRET=... -v dd-data:/data deadline-day
+#   Render: see render.yaml
 
 # --- Build: install everything and build the web app -------------------------------------------------
 FROM node:22-bookworm-slim AS build
@@ -18,6 +19,7 @@ COPY tsconfig.base.json ./
 COPY packages packages
 COPY apps apps
 COPY scripts scripts
+COPY deploy deploy
 RUN npm run build
 
 # --- Runtime dependencies only (sources and the web build stay in place) ----------------------------
@@ -35,9 +37,10 @@ COPY --from=prod /app /app
 # The player data the database is seeded from on first start (never regenerated).
 COPY data data
 RUN mkdir -p /data && chown node:node /data
-USER node
 VOLUME ["/data"]
 EXPOSE 3001
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
   CMD node -e "fetch('http://127.0.0.1:'+(process.env.PORT||3001)+'/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+# Starts as root only to take ownership of the mounted disk, then runs the server as `node`.
+ENTRYPOINT ["/app/deploy/entrypoint.sh"]
 CMD ["node_modules/.bin/tsx", "apps/server/src/main.ts"]

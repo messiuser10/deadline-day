@@ -142,7 +142,18 @@ With Docker (one container, the SQLite database on a named volume `/data`, seede
 SESSION_SECRET=$(openssl rand -hex 32) docker compose up --build -d
 ```
 
-Then open http://localhost:3001 and register the `ADMIN_USERNAME` account (default `admin`) to get the admin panel. `docker compose down` keeps the volume; `docker compose down -v` deletes the database. The image runs as the unprivileged `node` user and has a health check on `/api/health`.
+Then open http://localhost:3001 and register the `ADMIN_USERNAME` account (default `admin`) to get the admin panel. `docker compose down` keeps the volume; `docker compose down -v` deletes the database. The image runs the server as the unprivileged `node` user (its entrypoint starts as root only to take ownership of the mounted `/data` disk) and has a health check on `/api/health`.
+
+### Deploy on Render
+
+`render.yaml` is a Render Blueprint: one Docker web service with the SQLite database on a 1 GB persistent disk at `/data`. Disks need a paid instance type (the Blueprint uses `starter`). Postgres hosts such as Neon do not work yet: the server's runtime database layer is SQLite only (see DECISIONS.md).
+
+1. Put the repository on GitHub (or GitLab). A private repository is fine.
+2. Optionally change `region` in `render.yaml` to the one nearest your players. It cannot change after the first deploy.
+3. In the Render dashboard choose **New > Blueprint**, connect the repository and apply. Render builds the Dockerfile, creates the disk, generates `SESSION_SECRET` and sets `ADMIN_USERNAME=admin`.
+4. When the deploy is live, open `https://<service-name>.onrender.com` and register the username `admin` first to get the admin panel. The first start fills the database from `data/`.
+
+Every push to the default branch redeploys. A service with a disk restarts in place, so a deploy briefly interrupts live games; they carry on from the database when it is back. Keep the service at one instance. Render takes daily snapshots of the disk; you can also download `/data/deadline-day.sqlite` from the service shell.
 
 Put HTTPS in front (Caddy, nginx, a platform load balancer) and forward WebSocket upgrades on `/socket.io`. Session cookies are Secure in production, so plain-HTTP play only works on `localhost`; to host a game on a home network over plain HTTP, set `COOKIE_SECURE=false`.
 
@@ -173,5 +184,6 @@ apps/web          React + Vite + Tailwind client, mobile first: home, login, cre
 scripts/          seed, data validation, migrations, simulation CLI
 e2e/              Playwright smoke test and the server it runs against
 Dockerfile        multi-stage image (build the web app, keep runtime dependencies only); docker-compose.yml runs it with a data volume
+deploy/           container entrypoint; render.yaml is the Render Blueprint
 data/             supplied player and club data
 ```
