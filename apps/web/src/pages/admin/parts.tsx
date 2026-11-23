@@ -174,7 +174,7 @@ export function StatTile({ label, value, hint, tone }: { label: string; value: R
   return (
     <div className="min-w-0 rounded-2xl bg-night-950/40 p-3 ring-1 ring-white/5">
       <p className="truncate text-[0.7rem] font-semibold uppercase tracking-wide text-white/50">{label}</p>
-      <p className={cx('mt-0.5 font-display text-2xl font-bold tabular-nums sm:text-3xl', tone === 'gold' && 'text-gold-400', tone === 'red' && 'text-red-300')}>{value}</p>
+      <p className={cx('mt-0.5 font-display text-2xl font-bold tabular-nums sm:text-3xl', tone === 'gold' && 'text-gold', tone === 'red' && 'text-red-300')}>{value}</p>
       {hint && <p className="mt-0.5 truncate text-xs text-white/50">{hint}</p>}
     </div>
   );
@@ -255,7 +255,7 @@ export function Histogram({ title, dist, unit, format = (n) => String(n), intege
       ) : (
         <div className="relative">
           <svg viewBox={`0 0 ${W} ${H + 16}`} className="block h-auto w-full" role="img" aria-label={`${title}: ${dist.bins.length} bins, mean ${format(dist.mean)}`} onMouseLeave={() => setHover(null)}>
-            <line x1="0" x2={W} y1={H + 0.5} y2={H + 0.5} stroke="rgba(255,255,255,0.15)" />
+            <line x1="0" x2={W} y1={H + 0.5} y2={H + 0.5} stroke="currentColor" className="text-white/15" />
             {dist.bins.map((b, i) => {
               const h = b.count ? Math.max(2, (b.count / max) * (H - 6)) : 0;
               const x = i * (bw + gap);
@@ -273,10 +273,10 @@ export function Histogram({ title, dist, unit, format = (n) => String(n), intege
                 </g>
               );
             })}
-            <text x="0" y={H + 13} fill="rgba(255,255,255,0.45)" fontSize="10">
+            <text x="0" y={H + 13} fill="currentColor" className="text-white/45" fontSize="10">
               {format(dist.min)}
             </text>
-            <text x={W} y={H + 13} fill="rgba(255,255,255,0.45)" fontSize="10" textAnchor="end">
+            <text x={W} y={H + 13} fill="currentColor" className="text-white/45" fontSize="10" textAnchor="end">
               {format(dist.max)}
             </text>
           </svg>

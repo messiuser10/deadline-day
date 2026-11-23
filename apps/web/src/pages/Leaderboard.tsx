@@ -59,7 +59,7 @@ export function LeaderboardPage() {
                 const mine = me?.username === r.username;
                 return (
                   <tr key={r.username} className={cx('border-t border-white/5', mine && 'bg-pitch-500/10')}>
-                    <td className={cx('py-2 font-display text-base font-bold', r.rank === 1 ? 'text-gold-400' : 'text-white/60')}>{r.rank}</td>
+                    <td className={cx('py-2 font-display text-base font-bold', r.rank === 1 ? 'text-gold' : 'text-white/60')}>{r.rank}</td>
                     <td className="py-2 pr-2">
                       <Link to={`/profile/${encodeURIComponent(r.username)}`} className="block truncate font-semibold hover:text-pitch-400">
                         {r.displayName}

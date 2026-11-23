@@ -6,9 +6,9 @@ import { ordinal, type SeasonIndex } from '../../lib/season';
 /** Same single-series colour as the Expected Strength bars (validated against the card surface). */
 const LINE = '#179a53';
 const RESULT_CLASS: Record<string, string> = {
-  W: 'bg-pitch-500 text-night-950',
+  W: 'bg-pitch-500 text-ink',
   D: 'bg-white/25 text-white',
-  L: 'bg-red-500/80 text-white',
+  L: 'bg-red-500/80 text-snow',
 };
 
 /** League position after every matchday (1st at the top), with a hover crosshair, plus the W/D/L strip. */

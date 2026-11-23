@@ -10,7 +10,7 @@ import { TeamName, Trophy } from '../season/parts';
 function AwardCard({ label, icon, children, highlight = false }: { label: string; icon: ReactNode; children: ReactNode; highlight?: boolean }) {
   return (
     <div className={cx('flex min-w-0 flex-col gap-1.5 rounded-2xl p-3 ring-1', highlight ? 'bg-gold-400/10 ring-gold-400/30' : 'bg-night-950/50 ring-white/5')}>
-      <p className="flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-wide text-gold-400">
+      <p className="flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-wide text-gold">
         {icon}
         {label}
       </p>

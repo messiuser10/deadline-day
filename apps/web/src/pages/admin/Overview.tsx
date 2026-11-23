@@ -63,7 +63,7 @@ export function OverviewTab() {
               {health.map((h) => (
                 <li
                   key={h.code}
-                  className={cx('flex gap-2 rounded-xl px-3 py-2 text-sm ring-1 ring-inset', h.level === 'error' ? 'bg-red-500/10 text-red-200 ring-red-400/20' : 'bg-gold-400/10 text-gold-400 ring-gold-400/20')}
+                  className={cx('flex gap-2 rounded-xl px-3 py-2 text-sm ring-1 ring-inset', h.level === 'error' ? 'bg-red-500/10 text-red-200 ring-red-400/20' : 'bg-gold-400/10 text-gold ring-gold-400/20')}
                 >
                   <span aria-hidden="true" className="font-bold">
                     {h.level === 'error' ? '✕' : '!'}

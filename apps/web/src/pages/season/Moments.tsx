@@ -3,7 +3,7 @@ import { Card, CardTitle, cx, Pill } from '../../components/ui';
 import { MOMENT_LABEL, momentText, type SeasonIndex } from '../../lib/season';
 
 const TONE: Record<KeyMomentView['kind'], string> = {
-  auction_derby: 'bg-gold-400/15 text-gold-400',
+  auction_derby: 'bg-gold-400/15 text-gold',
   hat_trick: 'bg-pitch-500/15 text-pitch-400',
   big_win: 'bg-sky-400/15 text-sky-300',
   upset: 'bg-red-500/15 text-red-300',

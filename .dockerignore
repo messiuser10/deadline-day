@@ -1,0 +1,15 @@
+**/node_modules
+**/dist
+**/coverage
+var
+*.sqlite*
+.env
+.env.*
+!.env.example
+.git
+.claude
+.DS_Store
+*.log
+playwright-report
+test-results
+e2e/.tmp

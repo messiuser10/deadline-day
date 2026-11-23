@@ -43,7 +43,7 @@ export function SeasonTeamPage({ snap, me, teamId }: { snap: GameSnapshot; me: U
                 aria-current={s.number === viewing ? 'page' : undefined}
                 className={cx(
                   'grid min-h-9 min-w-9 place-items-center rounded-lg px-2 text-sm font-semibold',
-                  s.number === viewing ? 'bg-pitch-500 text-night-950' : 'bg-white/5 text-white/70 hover:bg-white/10',
+                  s.number === viewing ? 'bg-pitch-500 text-ink' : 'bg-white/5 text-white/70 hover:bg-white/10',
                 )}
               >
                 S{s.number}

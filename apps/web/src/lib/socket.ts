@@ -9,7 +9,8 @@ import type { ClientToServerEvents, ServerToClientEvents } from '@deadline-day/p
 export type AppSocket = Socket<ServerToClientEvents, ClientToServerEvents>;
 export type ConnectionState = 'connecting' | 'online' | 'offline';
 
-export const useConnection = create<{ state: ConnectionState }>(() => ({ state: 'connecting' }));
+/** `everOnline`: the socket has connected at least once, so a later drop is worth telling the player about. */
+export const useConnection = create<{ state: ConnectionState; everOnline: boolean }>(() => ({ state: 'connecting', everOnline: false }));
 
 let socket: AppSocket | null = null;
 /** serverTime - clientTime, in ms. */
@@ -19,7 +20,7 @@ export function getSocket(): AppSocket {
   if (socket) return socket;
   const s: AppSocket = io({ path: '/socket.io', withCredentials: true });
   s.on('connect', () => {
-    useConnection.setState({ state: 'online' });
+    useConnection.setState({ state: 'online', everOnline: true });
     void syncClock(s);
   });
   s.on('disconnect', () => useConnection.setState({ state: 'offline' }));

@@ -48,7 +48,7 @@ export function AdminLayout() {
   return (
     <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-4 px-3 pb-16 pt-3 sm:px-4 lg:flex-row lg:gap-6 lg:pt-6">
       <nav aria-label="Admin" className="-mx-3 shrink-0 overflow-x-auto border-b border-white/5 px-3 pb-2 sm:-mx-4 sm:px-4 lg:mx-0 lg:w-48 lg:overflow-visible lg:border-0 lg:px-0">
-        <p className="mb-2 hidden text-xs font-semibold uppercase tracking-[0.25em] text-gold-400 lg:block">Admin</p>
+        <p className="mb-2 hidden text-xs font-semibold uppercase tracking-[0.25em] text-gold lg:block">Admin</p>
         <ul className="flex gap-1 lg:sticky lg:top-20 lg:flex-col">
           {ADMIN_TABS.map((t) => (
             <li key={t.to} className="shrink-0">
@@ -56,7 +56,7 @@ export function AdminLayout() {
                 to={t.to}
                 end={'end' in t}
                 className={({ isActive }) =>
-                  cx('block whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition', isActive ? 'bg-pitch-500 text-night-950' : 'text-white/70 hover:bg-white/10 hover:text-white')
+                  cx('block whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition', isActive ? 'bg-pitch-500 text-ink' : 'text-white/70 hover:bg-white/10 hover:text-white')
                 }
               >
                 {t.label}

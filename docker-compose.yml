@@ -1,0 +1,20 @@
+# Deadline Day in one container, with the SQLite database on a named volume.
+#   SESSION_SECRET=$(openssl rand -hex 32) docker compose up --build -d
+# then open http://localhost:3001. Register the ADMIN_USERNAME account first to get the admin panel.
+services:
+  app:
+    build: .
+    image: deadline-day
+    restart: unless-stopped
+    ports:
+      - '${PORT:-3001}:3001'
+    environment:
+      SESSION_SECRET: ${SESSION_SECRET:?Set SESSION_SECRET to a long random string}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      # Set to false only to play over plain HTTP on a home network (no HTTPS proxy in front).
+      COOKIE_SECURE: ${COOKIE_SECURE:-auto}
+    volumes:
+      - deadline-day-data:/data
+
+volumes:
+  deadline-day-data:

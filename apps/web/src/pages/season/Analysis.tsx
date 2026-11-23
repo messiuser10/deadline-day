@@ -130,7 +130,7 @@ export function MultiSeason({ code, index }: { code: string; index: SeasonIndex 
             {data.champions.map((c) => (
               <li key={c.season} className="flex items-center gap-1.5 rounded-lg bg-night-950/50 px-2 py-1 text-xs ring-1 ring-white/5">
                 <span className="text-white/45">S{c.season}</span>
-                <Trophy className="size-3.5 text-gold-400" />
+                <Trophy className="size-3.5 text-gold" />
                 <span className="font-semibold">{index.teams.get(c.teamId)?.name}</span>
                 <span className="text-white/45">{c.points} pts</span>
               </li>
@@ -201,7 +201,7 @@ export function SeasonsHistory({
           <li key={s.number} className="flex items-center gap-3 py-2 text-sm">
             <span className="w-20 shrink-0 font-display font-semibold uppercase">Season {s.number}</span>
             <span className="flex min-w-0 flex-1 items-center gap-1.5 text-white/75">
-              <Trophy className="size-4 shrink-0 text-gold-400" />
+              <Trophy className="size-4 shrink-0 text-gold" />
               <span className="truncate">{s.number === latest && hideLatest ? 'Champion revealed at the final whistle' : s.championName}</span>
             </span>
             {s.number === viewing ? (

@@ -88,7 +88,7 @@ export function PitchView({ formation, slots, playersById, size = 'md', onSwap }
                   {p.overall}
                 </span>
                 {s.outOfPosition && (
-                  <span className="absolute -right-2 -top-1 rounded bg-sky-500 px-1 text-[0.55rem] font-bold leading-tight text-night-950" title="Playing an alternate position">
+                  <span className="absolute -right-2 -top-1 rounded bg-sky-500 px-1 text-[0.55rem] font-bold leading-tight text-ink" title="Playing an alternate position">
                     ALT
                   </span>
                 )}
@@ -101,7 +101,7 @@ export function PitchView({ formation, slots, playersById, size = 'md', onSwap }
             {!small && (
               <span className="max-w-[4.5rem] truncate rounded bg-night-950/70 px-1 text-[0.65rem] font-semibold leading-tight">
                 {p ? surname(p.name) : ''}
-                {p && s.priceM !== null && <span className="block text-center font-normal text-gold-400">{s.autoFilled ? 'auto ' : ''}{money(s.priceM)}</span>}
+                {p && s.priceM !== null && <span className="block text-center font-normal text-gold">{s.autoFilled ? 'auto ' : ''}{money(s.priceM)}</span>}
               </span>
             )}
           </button>

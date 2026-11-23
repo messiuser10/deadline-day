@@ -21,7 +21,7 @@ export function AnnouncementsTab() {
         <CardTitle>Site banner</CardTitle>
         <p className="mb-2 text-xs uppercase tracking-wide text-white/45">Now showing</p>
         {current ? (
-          <div className="mb-4 rounded-xl bg-gold-400 px-4 py-2 text-center text-sm font-semibold text-night-950">{current}</div>
+          <div className="mb-4 rounded-xl bg-gold-400 px-4 py-2 text-center text-sm font-semibold text-ink">{current}</div>
         ) : (
           <p className="mb-4 rounded-xl bg-night-950/40 px-4 py-3 text-sm text-white/50">No banner.</p>
         )}

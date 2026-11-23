@@ -133,7 +133,7 @@ function PlayerEditor({ initial, isNew, clubs, onDone }: { initial: Draft; isNew
               type="button"
               aria-pressed={d.altPositions.includes(g)}
               onClick={() => toggleAlt(g)}
-              className={cx('min-h-9 rounded-lg px-2.5 text-xs font-semibold ring-1 ring-inset', d.altPositions.includes(g) ? 'bg-pitch-500 text-night-950 ring-pitch-500' : 'text-white/70 ring-white/15 hover:text-white')}
+              className={cx('min-h-9 rounded-lg px-2.5 text-xs font-semibold ring-1 ring-inset', d.altPositions.includes(g) ? 'bg-pitch-500 text-ink ring-pitch-500' : 'text-white/70 ring-white/15 hover:text-white')}
             >
               {g}
             </button>
@@ -256,7 +256,7 @@ function ImportModal({ open, onClose }: { open: boolean; onClose: () => void }) 
         {preview && (
           <div className="flex flex-col gap-2 rounded-2xl bg-night-950/50 p-3 ring-1 ring-white/5">
             <p className="text-sm">
-              <span className="font-semibold">{preview.rows} rows:</span> <span className="text-pitch-400">{preview.added.length} new</span>, <span className="text-gold-400">{preview.changed.length} changed</span>,{' '}
+              <span className="font-semibold">{preview.rows} rows:</span> <span className="text-pitch-400">{preview.added.length} new</span>, <span className="text-gold">{preview.changed.length} changed</span>,{' '}
               <span className="text-red-300">{preview.deactivated.length} deactivated</span>, {preview.unchanged} unchanged
             </p>
             {preview.errors.length > 0 && (
@@ -272,7 +272,7 @@ function ImportModal({ open, onClose }: { open: boolean; onClose: () => void }) 
               </ErrorText>
             )}
             {preview.warnings.map((w) => (
-              <p key={w} className="rounded-xl bg-gold-400/10 px-3 py-2 text-xs text-gold-400 ring-1 ring-inset ring-gold-400/20">
+              <p key={w} className="rounded-xl bg-gold-400/10 px-3 py-2 text-xs text-gold ring-1 ring-inset ring-gold-400/20">
                 {w}
               </p>
             ))}
@@ -290,7 +290,7 @@ function ImportModal({ open, onClose }: { open: boolean; onClose: () => void }) 
             )}
             {preview.changed.length > 0 && (
               <details open={preview.changed.length <= 10}>
-                <summary className="cursor-pointer text-sm font-semibold text-gold-400">Changes</summary>
+                <summary className="cursor-pointer text-sm font-semibold text-gold">Changes</summary>
                 <ul className="mt-1 flex max-h-56 flex-col gap-1 overflow-y-auto text-xs">
                   {preview.changed.map((c) => (
                     <li key={c.id} className="rounded-lg bg-white/5 px-2 py-1">
@@ -485,7 +485,7 @@ export function PoolTab() {
       />
 
       {q.data.duplicates.length > 0 && (
-        <p className="mb-3 flex flex-wrap items-center gap-2 rounded-xl bg-gold-400/10 px-3 py-2 text-sm text-gold-400 ring-1 ring-inset ring-gold-400/20">
+        <p className="mb-3 flex flex-wrap items-center gap-2 rounded-xl bg-gold-400/10 px-3 py-2 text-sm text-gold ring-1 ring-inset ring-gold-400/20">
           {q.data.duplicates.length} possible duplicate{q.data.duplicates.length === 1 ? '' : 's'} (same name and position).
           <button type="button" className="font-semibold underline" onClick={() => setStatus('duplicates')}>
             Show them

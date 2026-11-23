@@ -63,7 +63,7 @@ export function LotPanel({ ctx, now }: { ctx: RoomCtx; now: number }) {
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-[0.2em] text-pitch-400">
                 Lot {lot.sequence}
-                {lot.autoNominated && <span className="ml-2 text-gold-400">Auto-nominated</span>}
+                {lot.autoNominated && <span className="ml-2 text-gold">Auto-nominated</span>}
               </p>
               <h2 className="truncate font-display text-2xl font-bold uppercase leading-tight sm:text-3xl">{player.name}</h2>
             </div>
@@ -83,7 +83,7 @@ export function LotPanel({ ctx, now }: { ctx: RoomCtx; now: number }) {
         <TimerRing remainingMs={remainingMs} totalMs={totalMs} paused={paused} />
         <div className="min-w-0 flex-1">
           <p className="text-xs uppercase tracking-wider text-white/50">Current bid</p>
-          <p key={lot.currentBidM} className="font-display text-4xl font-bold text-gold-400 tabular-nums origin-left motion-safe:animate-[bump_0.25s_ease-out]">
+          <p key={lot.currentBidM} className="font-display text-4xl font-bold text-gold tabular-nums origin-left motion-safe:animate-[bump_0.25s_ease-out]">
             {money(lot.currentBidM)}
           </p>
           <div className="mt-1 flex items-center gap-2 text-sm">
@@ -137,9 +137,11 @@ function NominationPanel({ ctx, now }: { ctx: RoomCtx; now: number }) {
         </div>
       </div>
       {myTurn && (
-        <Button className="mt-4 hidden w-full lg:flex" onClick={() => document.getElementById('pool-panel')?.scrollIntoView({ behavior: 'smooth' })}>
-          Choose from the pool
-        </Button>
+        <div className="mt-4 hidden lg:block">
+          <Button className="w-full" onClick={() => document.getElementById('pool-panel')?.scrollIntoView({ behavior: 'smooth' })}>
+            Choose from the pool
+          </Button>
+        </div>
       )}
     </Card>
   );
@@ -257,7 +259,7 @@ export function MobileActionBar({ ctx, now, onPickPlayer }: { ctx: RoomCtx; now:
           <div className="min-w-0 flex-1">
             <div className="mb-1 flex items-baseline justify-between gap-2 text-xs text-white/60">
               <span className="truncate">{ctx.playersById.get(auction.lot.playerId)?.name}</span>
-              <span className="font-display text-base text-gold-400 tabular-nums">{money(auction.lot.currentBidM)}</span>
+              <span className="font-display text-base text-gold tabular-nums">{money(auction.lot.currentBidM)}</span>
             </div>
             <BidControls ctx={ctx} compact />
           </div>

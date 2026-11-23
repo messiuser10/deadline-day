@@ -118,14 +118,15 @@ export function remainingFor(auction: AuctionView, now: number): { remainingMs: 
   return { remainingMs: 0, totalMs: 1, paused: false };
 }
 
-export function StarButton({ on, onClick, label }: { on: boolean; onClick: () => void; label: string }) {
+export function StarButton({ on, onClick, label, tabIndex }: { on: boolean; onClick: () => void; label: string; tabIndex?: number }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      tabIndex={tabIndex}
       aria-pressed={on}
       aria-label={on ? `Remove ${label} from watchlist` : `Add ${label} to watchlist`}
-      className={cx('grid size-10 shrink-0 place-items-center rounded-full transition hover:bg-white/10', on ? 'text-gold-400' : 'text-white/35')}
+      className={cx('grid size-10 shrink-0 place-items-center rounded-full transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-pitch-400', on ? 'text-gold' : 'text-white/35')}
     >
       <svg viewBox="0 0 24 24" className="size-5" fill={on ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z" strokeLinejoin="round" />

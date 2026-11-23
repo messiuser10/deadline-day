@@ -90,7 +90,7 @@ export function LobbyPage() {
           </p>
           <h1 className="truncate font-display text-3xl font-bold uppercase tracking-tight sm:text-4xl">{snap.game.name}</h1>
         </div>
-        <p className="font-display text-xl tracking-[0.2em] text-gold-400 lg:hidden">{code}</p>
+        <p className="font-display text-xl tracking-[0.2em] text-gold lg:hidden">{code}</p>
       </div>
 
       <div className="sticky top-14 z-20 -mx-4 mb-4 border-b border-white/5 bg-night-900/90 px-4 backdrop-blur lg:hidden" role="tablist" aria-label="Lobby sections">
@@ -109,7 +109,7 @@ export function LobbyPage() {
             >
               {t.label}
               {t.id === 'chat' && unread > 0 && (
-                <span className="ml-1 rounded-full bg-pitch-500 px-1.5 text-[0.65rem] font-bold text-night-950">{unread}</span>
+                <span className="ml-1 rounded-full bg-pitch-500 px-1.5 text-[0.65rem] font-bold text-ink">{unread}</span>
               )}
             </button>
           ))}
@@ -272,7 +272,7 @@ function StartBar({ ctx, onJoinClick }: { ctx: LobbyCtx; onJoinClick: () => void
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-night-900/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className={cx('text-sm', hard.length && canHost ? 'text-gold-400' : 'text-white/70')} role="status">
+        <p className={cx('text-sm', hard.length && canHost ? 'text-gold' : 'text-white/70')} role="status">
           {message}
         </p>
         {actions}
@@ -303,7 +303,7 @@ function Countdown({ deadline }: { deadline: number }) {
         <p className="font-display text-xl uppercase tracking-[0.3em] text-pitch-400">Auction starts in</p>
         <div className="relative size-44">
           <svg viewBox="0 0 120 120" className="size-full -rotate-90" aria-hidden="true">
-            <circle cx="60" cy="60" r={r} fill="none" stroke="#ffffff15" strokeWidth="8" />
+            <circle cx="60" cy="60" r={r} fill="none" stroke="currentColor" strokeWidth="8" className="text-white/10" />
             <circle cx="60" cy="60" r={r} fill="none" stroke={secs <= 2 ? '#f87171' : '#3ddc84'} strokeWidth="8" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c * (1 - frac)} />
           </svg>
           <span key={secs} className="absolute inset-0 grid place-items-center font-display text-7xl font-bold motion-safe:animate-[pop_300ms_ease-out]">

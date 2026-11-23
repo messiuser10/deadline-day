@@ -9,7 +9,7 @@ import { money, plural } from '../lib/format';
 import { useGame } from '../hooks/useGame';
 import { useMediaQuery, useServerNow } from '../hooks/useClock';
 import { toast } from '../stores/toast';
-import { Button, cx, LinkButton, Skeleton } from '../components/ui';
+import { Button, cx, LinkButton, Modal, Skeleton } from '../components/ui';
 import { ConnectionDot } from '../components/Header';
 import { ChatCard } from './lobby/sections';
 import { LotPanel, MobileActionBar } from './auction/LotPanel';
@@ -74,6 +74,7 @@ function AuctionRoom({ snap, auction, me }: { snap: GameSnapshot; auction: Aucti
   const [tab, setTab] = useState<Tab>('pool');
   const [nominating, setNominating] = useState<string | null>(null);
   const [hostOpen, setHostOpen] = useState(false);
+  const [poolSheet, setPoolSheet] = useState(false);
   const tabsRef = useRef<HTMLDivElement>(null);
   const queryClient = useQueryClient();
 
@@ -145,10 +146,19 @@ function AuctionRoom({ snap, auction, me }: { snap: GameSnapshot; auction: Aucti
   ];
   const active = tabs.some((t) => t.id === tab) ? tab : 'pool';
 
+  // Phones pick a player from the pool in a bottom sheet; it closes itself when the turn is over.
   const goToPool = () => {
+    if (!isDesktop) {
+      setPoolSheet(true);
+      return;
+    }
     setTab('pool');
     requestAnimationFrame(() => tabsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   };
+  const sheetOpen = poolSheet && myTurn && !isDesktop;
+  useEffect(() => {
+    if (!myTurn) setPoolSheet(false);
+  }, [myTurn]);
 
   const nominator = auction.nominatorId ? teamsById.get(auction.nominatorId) : undefined;
   const progress = auction.totalSlots ? (auction.bought / auction.totalSlots) * 100 : 0;
@@ -156,7 +166,7 @@ function AuctionRoom({ snap, auction, me }: { snap: GameSnapshot; auction: Aucti
   return (
     <main className={cx('mx-auto w-full max-w-7xl px-3 pt-3 sm:px-4 lg:pb-10', mine ? 'pb-40' : 'pb-12')}>
       <header className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-2">
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1 basis-full sm:basis-auto">
           <p className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-pitch-400">
             Live auction <ConnectionDot />
           </p>
@@ -194,7 +204,7 @@ function AuctionRoom({ snap, auction, me }: { snap: GameSnapshot; auction: Aucti
             <span className="text-white/50">Lot {lot.sequence}:</span>
             <span className="font-semibold">{playersById.get(lot.playerId)?.name}</span>
             <span className="text-white/50">at</span>
-            <span className="font-display text-gold-400">{money(lot.currentBidM)}</span>
+            <span className="font-display text-gold">{money(lot.currentBidM)}</span>
           </>
         ) : null}
         {myTeam && (
@@ -228,7 +238,7 @@ function AuctionRoom({ snap, auction, me }: { snap: GameSnapshot; auction: Aucti
                   onClick={() => setTab(t.id)}
                   className={cx(
                     'flex min-h-10 shrink-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg px-3 text-sm font-medium transition',
-                    active === t.id ? 'bg-pitch-500 text-night-950' : 'text-white/70 hover:text-white',
+                    active === t.id ? 'bg-pitch-500 text-ink' : 'text-white/70 hover:text-white',
                   )}
                 >
                   {t.label}
@@ -249,6 +259,9 @@ function AuctionRoom({ snap, auction, me }: { snap: GameSnapshot; auction: Aucti
       </div>
 
       <MobileActionBar ctx={ctx} now={now} onPickPlayer={goToPool} />
+      <Modal open={sheetOpen} onClose={() => setPoolSheet(false)} title="Choose a player">
+        <PoolPanel ctx={ctx} bare />
+      </Modal>
       <NominateModal ctx={ctx} playerId={nominating} onClose={() => setNominating(null)} />
       {canHost && <HostSheet ctx={ctx} open={hostOpen} onClose={() => setHostOpen(false)} />}
       <SoldOverlay ctx={ctx} />

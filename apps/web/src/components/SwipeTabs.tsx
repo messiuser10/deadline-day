@@ -50,7 +50,7 @@ export function SwipeTabs({ tabs, label }: { tabs: SwipeTab[]; label: string }) 
               onClick={() => go(i)}
               className={cx(
                 'flex min-h-10 flex-1 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-xl px-3 text-sm font-medium transition',
-                i === active ? 'bg-pitch-500 text-night-950' : 'text-white/70 hover:text-white',
+                i === active ? 'bg-pitch-500 text-ink' : 'text-white/70 hover:text-white',
               )}
             >
               {t.label}

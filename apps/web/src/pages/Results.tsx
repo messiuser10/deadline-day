@@ -142,7 +142,7 @@ export function FinishedGate({
   if (p.clock.finished) return children;
   return (
     <Card className="mx-auto max-w-lg text-center">
-      <Trophy className="mx-auto size-10 text-gold-400" />
+      <Trophy className="mx-auto size-10 text-gold" />
       <h2 className="mt-2 font-display text-2xl font-bold uppercase">Results at the final whistle</h2>
       <p className="mt-2 text-sm text-white/65">
         {subject} appear once season {viewing} has been played to the end
@@ -222,7 +222,7 @@ function ResultsContent({
     <>
       <Confetti run={party} />
       <section className="mb-4 grid gap-3 lg:grid-cols-[1fr_auto]" aria-label="Season summary">
-        <div className="flex flex-wrap items-center gap-3 rounded-2xl bg-gold-400 px-4 py-3 text-night-950 shadow-lg shadow-gold-400/20">
+        <div className="flex flex-wrap items-center gap-3 rounded-2xl bg-gold-400 px-4 py-3 text-ink shadow-lg shadow-gold-400/20">
           <Trophy className="size-9" />
           <div className="min-w-0 flex-1">
             <p className="text-xs font-semibold uppercase tracking-widest">Champions</p>

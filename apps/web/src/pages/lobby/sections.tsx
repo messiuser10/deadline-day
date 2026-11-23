@@ -189,7 +189,7 @@ export function ParticipantsCard({ ctx }: { ctx: LobbyCtx }) {
                 <div className="min-w-0 flex-1">
                   <p className="flex items-center gap-1.5 truncate font-semibold">
                     {p.isHost && (
-                      <span className="text-gold-400" title="Host" aria-label="Host">
+                      <span className="text-gold" title="Host" aria-label="Host">
                         ♛
                       </span>
                     )}
@@ -462,7 +462,7 @@ export function InviteCard({ code }: { code: string }) {
     <Card>
       <CardTitle>Invite</CardTitle>
       <p className="text-xs uppercase tracking-wide text-white/50">Game code</p>
-      <p className="font-display text-4xl font-bold tracking-[0.25em] text-gold-400">{code}</p>
+      <p className="font-display text-4xl font-bold tracking-[0.25em] text-gold">{code}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         <Button size="sm" variant="secondary" onClick={() => void copy()}>
           Copy link

@@ -6,7 +6,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 
 export default tseslint.config(
   {
-    ignores: ['**/node_modules/**', '**/dist/**', '**/coverage/**', 'var/**', 'apps/server/drizzle/**', 'data/**'],
+    ignores: ['**/node_modules/**', '**/dist/**', '**/coverage/**', 'var/**', 'apps/server/drizzle/**', 'data/**', 'playwright-report/**', 'test-results/**', 'e2e/.tmp/**'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

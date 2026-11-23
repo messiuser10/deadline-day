@@ -55,7 +55,7 @@ export function LeagueTable({ index, completed, code, finished, compact = false 
                   <td className="max-w-0 py-1.5">
                     <Link to={`/team/${code}/${team ? teamKey(team) : r.teamId}?s=${index.view.number}`} className="flex min-w-0 items-center gap-1.5 hover:underline">
                       <TeamName team={team} tag="wide" />
-                      {champion && <Trophy className="shrink-0 text-gold-400" />}
+                      {champion && <Trophy className="shrink-0 text-gold" />}
                     </Link>
                   </td>
                   <td className="py-1.5 text-right text-white/70">{r.played}</td>

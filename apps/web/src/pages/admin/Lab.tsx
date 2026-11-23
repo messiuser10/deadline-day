@@ -63,7 +63,7 @@ function TestAuction() {
             <StatTile label="Smallest price" value={result.smallest ? money(result.smallest.priceM) : '–'} hint={result.smallest ? `${result.smallest.name}, ${result.smallest.teamName}` : undefined} />
           </div>
           <p className="text-sm text-white/70">
-            Champions: <span className="font-semibold text-gold-400">{result.championName ?? '–'}</span> · took {(result.ms / 1000).toFixed(1)} s ·{' '}
+            Champions: <span className="font-semibold text-gold">{result.championName ?? '–'}</span> · took {(result.ms / 1000).toFixed(1)} s ·{' '}
             <Link to={`/admin/games/${result.code}`} className="text-pitch-400 hover:underline">
               open game {result.code}
             </Link>
@@ -131,7 +131,7 @@ function Results({ r }: { r: LabResult }) {
                 {many ? (
                   <>
                     <td className="py-1.5 text-right">{t.avgPoints.toFixed(1)}</td>
-                    <td className={cx('py-1.5 text-right', i === 0 && 'font-semibold text-gold-400')}>{pct(t.titleChance, 1)}</td>
+                    <td className={cx('py-1.5 text-right', i === 0 && 'font-semibold text-gold')}>{pct(t.titleChance, 1)}</td>
                     <td className="hidden py-1.5 text-right sm:table-cell">{pct(t.top4Chance)}</td>
                     <td className="py-1.5 pr-3 text-right text-white/70 sm:pr-4">{pct(t.bottom3Chance)}</td>
                   </>

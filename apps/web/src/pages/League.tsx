@@ -98,7 +98,7 @@ function LeagueRow({ team: t, code, chemOn }: { team: LeagueTeamRow; code: strin
       <td className="hidden py-2 text-right text-white/75 md:table-cell">{!chemOn ? '-' : t.chemistry ? `+${t.chemistry.toFixed(1)}` : '0'}</td>
       <td className="py-2 text-right font-display text-base font-bold">
         {empty ? '-' : t.strength.toFixed(1)}
-        {t.provisional && !empty && <span className="block text-[0.6rem] font-normal uppercase text-gold-400">provisional</span>}
+        {t.provisional && !empty && <span className="block text-[0.6rem] font-normal uppercase text-gold">provisional</span>}
       </td>
     </tr>
   );
@@ -154,7 +154,7 @@ function AuctionTeamPage() {
               <Stat label="Attack" value={team.filled ? team.attack.toFixed(1) : '-'} />
               <Stat label="Defense" value={team.filled ? team.defense.toFixed(1) : '-'} />
             </dl>
-            {team.provisional && <p className="mt-2 text-xs text-gold-400">{team.filled}/11 players so far: ratings are provisional.</p>}
+            {team.provisional && <p className="mt-2 text-xs text-gold">{team.filled}/11 players so far: ratings are provisional.</p>}
             <div className="mt-4">
               <SeasonPitch formation={team.formation} players={team.players} />
             </div>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react';
 import { GROUPS, type Group } from '@deadline-day/engine';
 import type { AuctionPlayerView } from '@deadline-day/protocol';
 import { Button, Card, CardTitle, cx, Input, Modal, Pill, Toggle } from '../../components/ui';
@@ -19,7 +19,14 @@ const MIN_OVERALLS = [0, 75, 78, 80, 82, 85, 88];
 const selectClass =
   'min-h-11 rounded-xl bg-night-950/70 px-3 text-base ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-pitch-400 sm:text-sm';
 
-export function PoolPanel({ ctx, className }: { ctx: RoomCtx; className?: string }) {
+const isTyping = (el: Element | null) => !!el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || (el as HTMLElement).isContentEditable);
+
+/**
+ * The auction pool with search, position chips and filters. Keyboard: / focuses the search, the arrow keys
+ * (and Home, End, Page Up, Page Down) move through the players, Enter nominates on your turn, W stars.
+ * `bare` drops the card chrome for use inside the phone bottom sheet.
+ */
+export function PoolPanel({ ctx, className, bare = false }: { ctx: RoomCtx; className?: string; bare?: boolean }) {
   const { auction, mine, buy } = ctx;
   const [q, setQ] = useState('');
   const [groups, setGroups] = useState<Set<Group>>(new Set());
@@ -72,13 +79,57 @@ export function PoolPanel({ ctx, className }: { ctx: RoomCtx; className?: string
 
   const available = auction.players.filter((p) => p.status === 'available').length;
 
+  // Roving focus over the rows: one row is in the tab order, the arrow keys move between them.
+  const listRef = useRef<HTMLUListElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const [active, setActive] = useState(0);
+  const activeIndex = Math.min(active, Math.max(0, list.length - 1));
+  useEffect(() => {
+    if (bare) return;
+    const onKey = (e: globalThis.KeyboardEvent) => {
+      if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey || isTyping(document.activeElement)) return;
+      if (document.querySelector('dialog[open]')) return;
+      e.preventDefault();
+      searchRef.current?.focus();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [bare]);
+  const onListKey = (e: KeyboardEvent<HTMLUListElement>) => {
+    const rows = [...(listRef.current?.querySelectorAll<HTMLElement>('[data-pool-row]') ?? [])];
+    const row = (e.target as HTMLElement).closest<HTMLElement>('[data-pool-row]');
+    const i = row ? rows.indexOf(row) : -1;
+    if (i < 0) return;
+    const page = 8;
+    const to =
+      e.key === 'ArrowDown' ? i + 1 : e.key === 'ArrowUp' ? i - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? rows.length - 1 : e.key === 'PageDown' ? i + page : e.key === 'PageUp' ? i - page : null;
+    if (to !== null) {
+      e.preventDefault();
+      const next = Math.max(0, Math.min(rows.length - 1, to));
+      setActive(next);
+      rows[next]?.focus();
+      return;
+    }
+    if (e.target !== row) return; // keys on the row's own buttons keep their normal meaning
+    const p = list[i];
+    if (!p) return;
+    if (e.key === 'Enter' && myTurn && p.status === 'available' && buy?.get(p.id)?.ok) {
+      e.preventDefault();
+      ctx.openNominate(p.id);
+    } else if ((e.key === 'w' || e.key === 'W') && mine) {
+      e.preventDefault();
+      ctx.toggleWatch(p.id);
+    }
+  };
+
+  const Shell = bare ? 'div' : Card;
   return (
-    <Card className={cx('flex flex-col', className)} id="pool-panel">
-      <CardTitle action={<Pill>{available} available</Pill>}>Pool</CardTitle>
+    <Shell className={cx('flex flex-col', className)} id={bare ? undefined : 'pool-panel'}>
+      {!bare && <CardTitle action={<Pill>{available} available</Pill>}>Pool</CardTitle>}
       {myTurn && <p className="mb-3 rounded-xl bg-pitch-500/15 px-3 py-2 text-sm text-pitch-400 ring-1 ring-pitch-400/30">Your turn: tap Nominate on a player you can buy.</p>}
 
       <div className="flex flex-col gap-2">
-        <Input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search players or clubs" aria-label="Search players" />
+        <Input ref={searchRef} type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search players or clubs" aria-label="Search players" aria-keyshortcuts="/" />
         <div className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1" role="group" aria-label="Positions (main or alternate)">
           {GROUPS.map((g) => (
             <button
@@ -87,8 +138,8 @@ export function PoolPanel({ ctx, className }: { ctx: RoomCtx; className?: string
               onClick={() => toggleGroup(g)}
               aria-pressed={groups.has(g)}
               className={cx(
-                'min-h-9 shrink-0 rounded-full px-3 text-xs font-bold ring-1 ring-inset transition',
-                groups.has(g) ? 'bg-pitch-500 text-night-950 ring-pitch-500' : 'bg-night-950/50 text-white/70 ring-white/10 hover:text-white',
+                'min-h-10 min-w-12 shrink-0 rounded-full px-3 text-xs font-bold ring-1 ring-inset transition focus-visible:outline-2 focus-visible:outline-pitch-400',
+                groups.has(g) ? 'bg-pitch-500 text-ink ring-pitch-500' : 'bg-night-950/50 text-white/70 ring-white/10 hover:text-white',
               )}
             >
               {g}
@@ -133,24 +184,34 @@ export function PoolPanel({ ctx, className }: { ctx: RoomCtx; className?: string
         </div>
       </div>
 
-      <ul className="mt-3 flex flex-col divide-y divide-white/5" aria-label="Players">
+      <p className="mt-3 hidden text-xs text-white/40 lg:block" id="pool-keys">
+        Keyboard: <kbd className="font-sans">/</kbd> search · <kbd className="font-sans">↑ ↓</kbd> move · <kbd className="font-sans">Enter</kbd> nominate · <kbd className="font-sans">W</kbd> star
+      </p>
+      <ul ref={listRef} onKeyDown={onListKey} className="mt-2 flex flex-col divide-y divide-white/5" aria-label="Players" aria-describedby="pool-keys">
         {list.length === 0 && <li className="py-8 text-center text-sm text-white/45">No players match these filters.</li>}
-        {list.map((p) => (
-          <PoolRow key={p.id} p={p} ctx={ctx} myTurn={myTurn} />
+        {list.map((p, i) => (
+          <PoolRow key={p.id} p={p} ctx={ctx} myTurn={myTurn} focusable={i === activeIndex} onFocus={() => setActive(i)} />
         ))}
       </ul>
-    </Card>
+    </Shell>
   );
 }
 
-function PoolRow({ p, ctx, myTurn }: { p: AuctionPlayerView; ctx: RoomCtx; myTurn: boolean }) {
+function PoolRow({ p, ctx, myTurn, focusable, onFocus }: { p: AuctionPlayerView; ctx: RoomCtx; myTurn: boolean; focusable: boolean; onFocus: () => void }) {
   const { mine, buy, teamsById, watch } = ctx;
   const done = p.status === 'sold' || p.status === 'unsold';
   const b = buy?.get(p.id);
   const starred = watch.has(p.id);
   const lostToRival = starred && p.status === 'sold' && p.soldTo !== mine?.id;
+  const state = p.status === 'sold' ? `sold for ${money(p.priceM ?? 0)}` : p.status === 'unsold' ? 'unsold' : p.status === 'live' ? 'on the block now' : `base ${money(p.basePriceM)}`;
   return (
-    <li className={cx('flex items-center gap-3 py-2', done && 'opacity-55')}>
+    <li
+      data-pool-row
+      tabIndex={focusable ? 0 : -1}
+      onFocus={(e) => e.target === e.currentTarget && onFocus()}
+      aria-label={`${p.name}, ${p.position}, overall ${p.overall}, ${state}${starred ? ', starred' : ''}`}
+      className={cx('-mx-2 flex items-center gap-3 rounded-lg px-2 py-2 outline-none focus-visible:bg-white/5 focus-visible:ring-2 focus-visible:ring-pitch-400', done && 'opacity-55')}
+    >
       <TierBadge overall={p.overall} size="md" />
       <div className="min-w-0 flex-1">
         <p className={cx('truncate font-semibold', lostToRival && 'line-through decoration-red-400 decoration-2')}>{p.name}</p>
@@ -161,7 +222,7 @@ function PoolRow({ p, ctx, myTurn }: { p: AuctionPlayerView; ctx: RoomCtx; myTur
         {p.status === 'sold' ? (
           <p className="mt-0.5 flex items-center gap-1.5 text-xs text-white/60">
             <TeamTag team={teamsById.get(p.soldTo ?? '')} className="text-xs" />
-            <span className="font-display text-gold-400">{money(p.priceM ?? 0)}</span>
+            <span className="font-display text-gold">{money(p.priceM ?? 0)}</span>
             {p.autoFilled && <Pill>Auto-filled</Pill>}
           </p>
         ) : (
@@ -175,11 +236,11 @@ function PoolRow({ p, ctx, myTurn }: { p: AuctionPlayerView; ctx: RoomCtx; myTur
         {p.status === 'live' && <Pill tone="gold">Live</Pill>}
         {p.status === 'unsold' && <Pill>Unsold</Pill>}
         {myTurn && p.status === 'available' && (
-          <Button size="sm" disabled={!b?.ok} onClick={() => ctx.openNominate(p.id)} title={b?.reason ?? undefined}>
+          <Button size="sm" className="min-h-10" disabled={!b?.ok} onClick={() => ctx.openNominate(p.id)} title={b?.reason ?? undefined} tabIndex={focusable ? 0 : -1}>
             Nominate
           </Button>
         )}
-        {mine && <StarButton on={starred} onClick={() => ctx.toggleWatch(p.id)} label={p.name} />}
+        {mine && <StarButton on={starred} onClick={() => ctx.toggleWatch(p.id)} label={p.name} tabIndex={focusable ? 0 : -1} />}
       </div>
     </li>
   );

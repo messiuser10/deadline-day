@@ -91,10 +91,10 @@ export const TIER_LABEL: Record<RatingTier, string> = { elite: 'Elite', gold: 'G
 
 /** Generic tier colours (no card design from any existing game). */
 export const TIER_CLASS: Record<RatingTier, string> = {
-  elite: 'bg-gradient-to-br from-fuchsia-400 to-violet-600 text-white',
-  gold: 'bg-gold-400 text-night-950',
-  silver: 'bg-slate-300 text-night-950',
-  bronze: 'bg-amber-700 text-white',
+  elite: 'bg-gradient-to-br from-fuchsia-400 to-violet-600 text-snow',
+  gold: 'bg-gold-400 text-ink',
+  silver: 'bg-slate-300 text-ink',
+  bronze: 'bg-amber-700 text-snow',
 };
 
 export const TIER_RING: Record<RatingTier, string> = {

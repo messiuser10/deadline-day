@@ -161,3 +161,22 @@ Choices the spec leaves open, one line each, newest milestone last.
 - The overview's data health checks: pool supply for a 12-team game in the worst case, prices off the curve, possible duplicates, clubs with fewer than 11 squad players, the banner being on and registrations being closed.
 - The audit CSV export holds the newest 10,000 matching entries, oldest first.
 - The admin panel is a lazy-loaded chunk (about 86 kB), so players never download it.
+
+## M7: polish
+
+- The light theme flips the night surface colours and the "white" ink through CSS variables, so every existing utility follows. Text on accent fills uses a fixed `ink` colour, gold text uses a darker `gold` token in light mode, and the pitch stays a dark surface in both themes. Dark is the default; the choice is applied before the first paint.
+- Theme, sound and "walkthrough seen" are per-device preferences in localStorage (guarded, so blocked storage falls back to the defaults), not account settings.
+- Sounds are synthesised with the Web Audio API (gavel knock on each sale, one whistle at kick-off, three at full time), so there are no audio files to license. Off by default; turning sound on plays the gavel once so the player knows it works.
+- Both switches sit in the header on every page. On a phone the account button shows only the initial to make room (the menu shows the full name).
+- The first-visit walkthrough reuses the five How to Play steps. It opens once per device on the first page that is not an auction, reveal, season, results, admin or login page, so a player following an invite link mid-auction is not interrupted.
+- Pool keyboard navigation uses a roving focus: one row is in the tab order; arrows, Home, End, Page Up and Page Down move; Enter nominates on your turn; W stars; `/` focuses the search.
+- On a phone, "Your turn: choose a player" opens the pool in a bottom sheet; the Pool tab stays for browsing between turns.
+- A reconnecting banner appears after the live connection has been down for 2 seconds (only once it has connected at least once).
+- Production runs the TypeScript sources with `tsx` (now a server runtime dependency) instead of a separate compile step. The workspaces export `.ts` files and the startup cost is small.
+- The server serves `apps/web/dist` only when `NODE_ENV=production`; in development Vite serves the client. Missing files and `/api` paths keep their 404s; every other GET without a file extension gets `index.html`. A small Vite plugin writes `.br` and `.gz` copies at build time, and the libraries are split into `react` and `vendor` chunks for longer caching.
+- An empty database is seeded from `data/` when the server starts, so a new deployment needs no separate seed step. A seeded database is left alone (admin edits survive restarts).
+- `COOKIE_SECURE` (default `auto`, Secure in production) exists because browsers drop Secure cookies over plain HTTP on anything but localhost. Without it, a game hosted on a home network IP would fail at login.
+- The production `SESSION_SECRET` check also rejects the `.env.example` value.
+- Basic security headers (`nosniff`, `SAMEORIGIN` framing, a referrer policy) are added when serving the web app. A Content Security Policy is left out for now: the inline theme script and the inline styles for team colours would need nonces or hashes.
+- The Docker image builds with the full dependency set, then reinstalls runtime dependencies only. It runs as the `node` user with the database on a `/data` volume. Docker is not installed on the development machine, so the image itself was not built here; the same steps (install, build, `npm ci --omit=dev`, start) were run in a clean copy of the repo and served the app.
+- The Playwright smoke test runs at a phone size (Pixel 7 in Chromium) against the production build through `e2e/server.ts`. That harness lowers the admin-editable game limits (3 s lots, 5 s nominations) and uses quick bots, so a full game takes about two minutes. It is not part of `npm test`: it needs a downloaded browser and a build.

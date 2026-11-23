@@ -125,7 +125,7 @@ export function SettingsForm({
                 onClick={() => set('forcedFormation', f)}
                 className={cx(
                   'min-h-10 rounded-lg px-3 font-display text-sm tracking-wide ring-1 ring-inset',
-                  value.forcedFormation === f ? 'bg-pitch-500 text-night-950 ring-pitch-500' : 'ring-white/15 hover:ring-white/40',
+                  value.forcedFormation === f ? 'bg-pitch-500 text-ink ring-pitch-500' : 'ring-white/15 hover:ring-white/40',
                 )}
               >
                 {f}

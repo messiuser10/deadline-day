@@ -59,7 +59,7 @@ export function HomePage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-4 pb-16">
       <section className="relative overflow-hidden py-12 text-center sm:py-20">
-        <div className="pitch-stripes absolute inset-0 -z-10 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
+        <div className="hero-glow absolute inset-0 -z-10 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-pitch-400 sm:text-sm">Live football auction</p>
         <h1 className="mt-3 font-display text-6xl font-bold uppercase leading-none tracking-tight sm:text-8xl">Deadline Day</h1>
         <p className="mx-auto mt-5 max-w-xl text-base text-white/70 sm:text-lg">

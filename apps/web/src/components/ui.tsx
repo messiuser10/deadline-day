@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, type ButtonHTMLAttributes, type HTMLAttributes, type InputHTMLAttributes, type ReactNode } from 'react';
+import { useEffect, useId, useRef, type ButtonHTMLAttributes, type ComponentProps, type HTMLAttributes, type ReactNode } from 'react';
 import { Link, type LinkProps } from 'react-router';
 
 const cx = (...parts: (string | false | null | undefined)[]) => parts.filter(Boolean).join(' ');
@@ -7,11 +7,11 @@ export { cx };
 type Variant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'gold';
 
 const VARIANTS: Record<Variant, string> = {
-  primary: 'bg-pitch-500 text-night-950 hover:bg-pitch-400 shadow-lg shadow-pitch-500/20',
+  primary: 'bg-pitch-500 text-ink hover:bg-pitch-400 shadow-lg shadow-pitch-500/20',
   secondary: 'bg-white/10 text-white hover:bg-white/15 ring-1 ring-inset ring-white/10',
   ghost: 'text-white/80 hover:bg-white/10 hover:text-white',
   danger: 'bg-red-500/15 text-red-300 hover:bg-red-500/25 ring-1 ring-inset ring-red-400/30',
-  gold: 'bg-gold-400 text-night-950 hover:brightness-110 shadow-lg shadow-gold-400/20',
+  gold: 'bg-gold-400 text-ink hover:brightness-110 shadow-lg shadow-gold-400/20',
 };
 
 type Size = 'sm' | 'md' | 'lg';
@@ -97,7 +97,7 @@ export function Field({ label, hint, error, children }: { label: string; hint?: 
   );
 }
 
-export function Input({ className, ...rest }: InputHTMLAttributes<HTMLInputElement>) {
+export function Input({ className, ...rest }: ComponentProps<'input'>) {
   return (
     <input
       {...rest}
@@ -131,7 +131,7 @@ export function Segmented<T extends string>({
           onClick={() => onChange(o.value)}
           className={cx(
             'min-h-9 flex-1 rounded-lg px-3 text-sm font-medium transition',
-            value === o.value ? 'bg-pitch-500 text-night-950' : 'text-white/70 hover:text-white',
+            value === o.value ? 'bg-pitch-500 text-ink' : 'text-white/70 hover:text-white',
           )}
         >
           {o.label}
@@ -155,7 +155,7 @@ export function Toggle({ checked, onChange, label, description }: { checked: boo
         {description && <span className="block text-xs text-white/50">{description}</span>}
       </span>
       <span className={cx('relative h-6 w-11 shrink-0 rounded-full transition', checked ? 'bg-pitch-500' : 'bg-white/15')}>
-        <span className={cx('absolute top-0.5 size-5 rounded-full bg-white shadow transition-all', checked ? 'left-5.5' : 'left-0.5')} />
+        <span className={cx('absolute top-0.5 size-5 rounded-full bg-snow shadow transition-all', checked ? 'left-5.5' : 'left-0.5')} />
       </span>
     </button>
   );
@@ -164,6 +164,7 @@ export function Toggle({ checked, onChange, label, description }: { checked: boo
 /** A dialog that is a bottom sheet on phones and a centred card on larger screens. */
 export function Modal({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: ReactNode }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
   useEffect(() => {
     const d = ref.current;
     if (!d) return;
@@ -173,6 +174,7 @@ export function Modal({ open, onClose, title, children }: { open: boolean; onClo
   return (
     <dialog
       ref={ref}
+      aria-labelledby={titleId}
       onClose={onClose}
       onClick={(e) => {
         if (e.target === ref.current) onClose();
@@ -182,7 +184,9 @@ export function Modal({ open, onClose, title, children }: { open: boolean; onClo
       {open && (
         <div className="flex max-h-[92dvh] flex-col">
           <div className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-4">
-            <h2 className="font-display text-xl font-semibold uppercase tracking-wide">{title}</h2>
+            <h2 id={titleId} className="font-display text-xl font-semibold uppercase tracking-wide">
+              {title}
+            </h2>
             <button type="button" onClick={onClose} className="grid size-10 place-items-center rounded-full text-white/70 hover:bg-white/10" aria-label="Close">
               <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
@@ -209,7 +213,7 @@ export function Pill({ children, tone = 'neutral' }: { children: ReactNode; tone
   const tones = {
     neutral: 'bg-white/10 text-white/70',
     green: 'bg-pitch-500/15 text-pitch-400',
-    gold: 'bg-gold-400/15 text-gold-400',
+    gold: 'bg-gold-400/15 text-gold',
     red: 'bg-red-500/15 text-red-300',
   };
   return <span className={cx('inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold', tones[tone])}>{children}</span>;

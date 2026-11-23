@@ -2,6 +2,7 @@ import { Component, lazy, Suspense, useEffect, type ComponentType, type ReactNod
 import { Route, Routes, useLocation } from 'react-router';
 import { Header } from './components/Header';
 import { Toaster } from './components/Toaster';
+import { FirstVisitWalkthrough } from './components/Walkthrough';
 import { LinkButton, Skeleton } from './components/ui';
 import { AuctionPage } from './pages/Auction';
 import { CreatePage } from './pages/Create';
@@ -62,7 +63,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean
       <main className="mx-auto max-w-md px-4 py-20 text-center">
         <h1 className="font-display text-4xl font-bold uppercase">Something went wrong</h1>
         <p className="mt-3 text-white/60">Reload the page. Your game is saved on the server.</p>
-        <button type="button" onClick={() => window.location.reload()} className="mt-6 min-h-11 rounded-xl bg-pitch-500 px-5 font-semibold text-night-950">
+        <button type="button" onClick={() => window.location.reload()} className="mt-6 min-h-11 rounded-xl bg-pitch-500 px-5 font-semibold text-ink">
           Reload
         </button>
       </main>
@@ -123,6 +124,7 @@ export function App() {
         Deadline Day is an unofficial fan game. It is not affiliated with, endorsed by or connected to any club, league or player.
       </footer>
       <Toaster />
+      <FirstVisitWalkthrough />
     </div>
   );
 }

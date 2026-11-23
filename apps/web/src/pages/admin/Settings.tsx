@@ -276,7 +276,7 @@ export function SettingsTab() {
                     type="button"
                     aria-pressed={on}
                     onClick={() => set(on ? v.filter((x) => x !== f) : view.formations.filter((x) => x === f || v.includes(x)))}
-                    className={cx('min-h-11 rounded-xl px-4 font-display text-base font-bold ring-1 ring-inset', on ? 'bg-pitch-500 text-night-950 ring-pitch-500' : 'text-white/60 ring-white/15')}
+                    className={cx('min-h-11 rounded-xl px-4 font-display text-base font-bold ring-1 ring-inset', on ? 'bg-pitch-500 text-ink ring-pitch-500' : 'text-white/60 ring-white/15')}
                   >
                     {f}
                   </button>
@@ -334,7 +334,7 @@ export function SettingsTab() {
                           type="button"
                           aria-pressed={at >= 0}
                           onClick={() => set({ ...v, manualClubIds: at >= 0 ? v.manualClubIds.filter((x) => x !== c.id) : [...v.manualClubIds, c.id] })}
-                          className={cx('min-h-9 rounded-lg px-2.5 text-xs font-semibold ring-1 ring-inset', at >= 0 ? 'bg-pitch-500 text-night-950 ring-pitch-500' : 'text-white/70 ring-white/15')}
+                          className={cx('min-h-9 rounded-lg px-2.5 text-xs font-semibold ring-1 ring-inset', at >= 0 ? 'bg-pitch-500 text-ink ring-pitch-500' : 'text-white/70 ring-white/15')}
                         >
                           {at >= 0 && `${at + 1}. `}
                           {c.shortName}

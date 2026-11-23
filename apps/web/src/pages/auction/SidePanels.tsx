@@ -71,7 +71,7 @@ export function RivalsPanel({ ctx, className }: { ctx: RoomCtx; className?: stri
                               <span className="text-white/45">{s.key}</span> {pl.name} <span className="text-white/45">{pl.overall}</span>
                               {s.outOfPosition && <span className="ml-1 text-sky-400">ALT</span>}
                             </span>
-                            <span className="font-display text-gold-400">{money(s.priceM ?? 0)}</span>
+                            <span className="font-display text-gold">{money(s.priceM ?? 0)}</span>
                           </li>
                         );
                       })}
@@ -100,7 +100,7 @@ export function FeedPanel({ ctx, className }: { ctx: RoomCtx; className?: string
             <span className="min-w-0 flex-1 truncate">
               {playersById.get(lot.playerId)?.name} nominated by {teamsById.get(lot.nominatorId)?.teamName}
             </span>
-            <span className="font-display text-gold-400">{money(lot.currentBidM)}</span>
+            <span className="font-display text-gold">{money(lot.currentBidM)}</span>
           </li>
         )}
         {sales.length === 0 && !lot && <li className="py-6 text-center text-sm text-white/45">No sales yet.</li>}
@@ -118,7 +118,7 @@ export function FeedPanel({ ctx, className }: { ctx: RoomCtx; className?: string
                   {s.autoFilled && <Pill>Auto-filled</Pill>}
                 </p>
               </div>
-              <span className="font-display text-gold-400 tabular-nums">{money(s.priceM)}</span>
+              <span className="font-display text-gold tabular-nums">{money(s.priceM)}</span>
             </li>
           );
         })}

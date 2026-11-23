@@ -16,6 +16,7 @@ import { registerGameRoutes } from './games/routes';
 import { GameService } from './games/service';
 import { Timers } from './games/timers';
 import { Hub } from './realtime/hub';
+import { isPageRequest, registerWebApp, sendIndex } from './web';
 
 export interface AppOptions {
   db: Db;
@@ -37,6 +38,8 @@ export interface AppOptions {
   autoNominateDelayMs?: number;
   /** Seasons per Expected Strength run (default 1,000). */
   monteCarloRuns?: number;
+  /** Serve the built web app from this folder (production); null or unset leaves it to the Vite dev server. */
+  webDir?: string | null;
 }
 
 export interface DeadlineDayApp extends FastifyInstance {
@@ -50,7 +53,8 @@ export interface DeadlineDayApp extends FastifyInstance {
 export function buildApp(options: AppOptions): DeadlineDayApp {
   const { db } = options;
   const app = Fastify({ logger: options.logger ?? false, bodyLimit: 256 * 1024 });
-  installErrorHandler(app);
+  installErrorHandler(app, options.webDir ? { isPage: isPageRequest, send: sendIndex } : undefined);
+  if (options.webDir) registerWebApp(app, options.webDir);
   void app.register(fastifyCookie, { secret: options.sessionSecret ?? 'dev-only-session-secret-change-me' });
   installAuth(app, db);
 

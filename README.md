@@ -4,7 +4,7 @@ A multiplayer web game. Friends (2 to 12 teams) each get a $1 billion budget and
 
 > Deadline Day is an unofficial fan game. It is not affiliated with, endorsed by or connected to any club, league or player. No official crests, logos or player photos are used.
 
-**Status:** milestones M0 (scaffold and data), M1 (game engine), M2 (server foundation: accounts, guests, lobby, live updates, auction start), M3 (live auction and Team Reveal), M4 (season simulation and playback), M5 (results, awards, profiles and history) and M6 (admin panel and audit log) are done. Deploy and polish are next (M7). See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
+**Status:** milestones M0 (scaffold and data), M1 (game engine), M2 (server foundation: accounts, guests, lobby, live updates, auction start), M3 (live auction and Team Reveal), M4 (season simulation and playback), M5 (results, awards, profiles and history) M6 (admin panel and audit log) and M7 (polish, Docker, single-process production build, smoke test) are done. See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
 
 ## Requirements
 
@@ -44,7 +44,7 @@ npm run seed -- --reset # also overwrites clubs, squads and pool players from da
 npm run db:migrate      # applies pending migrations only
 ```
 
-The server also applies pending migrations when it starts (M6 adds `0004_test_games`, a `games.is_test` flag). Seeding is idempotent: by default it inserts missing rows and leaves existing ones alone, so admin edits survive. Settings keys are only ever added when missing. The SQLite file lives at `var/deadline-day.sqlite` (gitignored).
+The server also applies pending migrations when it starts (M6 adds `0004_test_games`, a `games.is_test` flag), and fills an empty database from `data/` (a fresh deployment needs no separate seed step). Seeding is idempotent: by default it inserts missing rows and leaves existing ones alone, so admin edits survive. Settings keys are only ever added when missing. The SQLite file lives at `var/deadline-day.sqlite` (gitignored).
 
 After changing `apps/server/src/db/schema.ts`, mirror the change in `schema.pg.ts` (a test fails if they drift) and run:
 
@@ -63,6 +63,8 @@ Open http://localhost:5173 on a laptop or a phone-sized window. What works now: 
 The live auction room: nominate on your turn (with an opening bid), bid with quick buttons, a custom amount or your max bid, and watch the server-run lot timer with anti-snipe, "Going once / Going twice" and a SOLD stamp. The pool panel filters by position, rating, price, club and "Only players I can buy"; your pitch fills as you buy and you can swap players between legal slots. Rival budgets and max bids, a sales log, a watchlist with an alert when a starred player comes up, and chat sit in tabs. The host can pause, resume, skip a nomination, add 10 seconds, undo the last sale, end early (auto-fills every open slot) or reset, and hand a disconnected team to a bot. Bots bid and nominate on their own. When every team is full the auction ends by itself and the Team Reveal plays: each team's XI, prices, strength and a grade preview, then the league preview, then a short countdown to the season. On a phone the room becomes one column with tabs and a fixed bid bar at the bottom.
 
 The season (`/season/:code`): the server simulates and saves all 38 matchdays, then everyone watches them play out. Play, pause, 1x/2x/5x/Instant, jump to any matchday or skip to the end. In synchronized mode the host drives one shared clock; in own-pace mode each player has their own. Each matchday shows 10 result cards with live scores and scorers (auction teams first and highlighted); tap one for the minute-by-minute ticker. The live table has position arrows, form and coloured bands; Key Moments lists derbies, hat-tricks, big wins, upsets and new leaders. The host can Run It Back (same teams, new seed; earlier seasons stay viewable), anyone can simulate 2 to 10 more seasons for a titles table, and Expected Strength shows average points and title, top four and bottom three chances over 1,000 seasons. League Teams (`/league/:code`) ranks all 20 teams by strength from the moment the auction starts, and each links to its XI (`/team/:code/:teamId`). On a phone the season page becomes swipeable tabs (Results, Table, Moments, Seasons) with the playback bar fixed at the bottom.
+
+Around the whole app: a dark matchday theme with a light theme switch in the header (dark is the default), optional sound effects (a gavel on each sale, a whistle at kick-off and full time; off by default, synthesised in the browser), a short How to Play walkthrough on the first visit (replay it from `/how-to-play`), keyboard navigation in the auction pool (`/` to search, arrow keys, Enter to nominate, `W` to star), a reconnecting banner when the live connection drops, skeleton loaders, empty states and plain error messages. Reduced motion turns the animations and confetti off. Both theme and sound are stored per device.
 
 Season Complete (`/results/:code`, opens at each viewer's final whistle): the final table with bands, a champion banner and confetti; awards (Champion, Golden Boot, Playmaker, Golden Glove, Player of the Season, Best Buy, Biggest Overpay) and the Team of the Season on a pitch; an auction grade (A+ to F) for every auction team with money spent and left, most expensive signing, best bargain and a Steal / Fair / Overpay tag on each purchase; head to head for every pair of auction teams; Copy Summary and Download Image (a season card). The host can Run It Back, Rematch (new lobby, same people, fresh auction) and export the season as JSON or CSV. Team pages (`/team/:code/:id?s=N`) show the XI on a pitch with each player's rating, goals, assists and clean sheets, a league position timeline with W/D/L, home and away splits, biggest win, longest unbeaten run and top scorer. Profiles (`/profile`, `/profile/:username`) show games, titles, top fours, average finish, best grade, a trophy cabinet and every game played. The Hall of Fame (`/hall-of-fame`) lists finished games with the record book beside it, and the leaderboard (`/leaderboard`) ranks registered players by titles, then average finish. Season 1 of each game is the official result; Run It Back seasons do not count.
 
@@ -116,14 +118,33 @@ npm run sim -- --teams 3 --seed 42
 ## Test, typecheck, lint
 
 ```bash
-npm test
+npm test                # Vitest: engine, server and web unit and integration tests
 npm run typecheck
 npm run lint
+npm run e2e             # Playwright smoke test (builds the web app first)
 ```
+
+The smoke test (`e2e/smoke.spec.ts`) runs in Chromium at a phone size against the production build: a guest dismisses the first-visit walkthrough, creates a game with short timers, adds two bots, plays the whole auction (nominating on their turns), watches the reveal, plays the season to the end and opens the results. `e2e/server.ts` starts that server on port 3199 (`E2E_PORT`) with a fresh seeded database in `e2e/.tmp/` and fast bots. The first run needs a browser: `npx playwright install chromium`. A full run takes about two minutes. Failures leave a trace and screenshot in `test-results/` and a report in `playwright-report/`.
 
 ## Deploy
 
-A Dockerfile, docker-compose file and single-process production build (server serving the web assets) arrive in milestone M7. Until then, `npm run build` builds the web app into `apps/web/dist`.
+In production one Node process serves the API, the realtime socket and the built web app (hashed assets cached for a year, pre-compressed with Brotli and gzip; any page route gets `index.html`).
+
+```bash
+npm ci
+npm run build                                   # web app into apps/web/dist
+NODE_ENV=production SESSION_SECRET=<long random string> npm start   # http://localhost:3001
+```
+
+With Docker (one container, the SQLite database on a named volume `/data`, seeded from `data/` on first start):
+
+```bash
+SESSION_SECRET=$(openssl rand -hex 32) docker compose up --build -d
+```
+
+Then open http://localhost:3001 and register the `ADMIN_USERNAME` account (default `admin`) to get the admin panel. `docker compose down` keeps the volume; `docker compose down -v` deletes the database. The image runs as the unprivileged `node` user and has a health check on `/api/health`.
+
+Put HTTPS in front (Caddy, nginx, a platform load balancer) and forward WebSocket upgrades on `/socket.io`. Session cookies are Secure in production, so plain-HTTP play only works on `localhost`; to host a game on a home network over plain HTTP, set `COOKIE_SECURE=false`.
 
 ## Environment variables
 
@@ -134,10 +155,13 @@ A Dockerfile, docker-compose file and single-process production build (server se
 | `HOST` | `0.0.0.0` | API server bind address |
 | `DATABASE_URL` | `file:./var/deadline-day.sqlite` | `file:<path>` for SQLite (relative to the repo root) or `:memory:`. Postgres URLs are recognised, but the Postgres runtime driver is not wired yet (see DECISIONS.md) |
 | `ADMIN_USERNAME` | `admin` | A user who registers with this username becomes admin |
-| `SESSION_SECRET` | dev-only value | Signs the `dd_session` cookie. Required in production (at least 16 characters); cookies are also marked Secure there |
+| `SESSION_SECRET` | dev-only value | Signs the `dd_session` cookie. Required in production (at least 16 characters, and not the dev-only or `.env.example` value) |
+| `COOKIE_SECURE` | `auto` | `auto` marks the session cookie Secure in production only; `true` or `false` force it. Use `false` only for plain-HTTP play on a home network |
+| `WEB_DIST_DIR` | `apps/web/dist` | Built web app the server serves when `NODE_ENV=production` (relative to the repo root unless absolute) |
 | `WEB_ORIGIN` | `http://localhost:5173` | Reserved, not read yet: in development Vite proxies `/api` and `/socket.io`, so the app is same-origin |
+| `E2E_PORT` | `3199` | Port of the smoke-test server (`npm run e2e` only) |
 
-M3 to M6 add no environment variables. `.env` in the repo root is loaded automatically. Never commit it.
+M3 to M6 add no environment variables; M7 adds `COOKIE_SECURE`, `WEB_DIST_DIR` and `E2E_PORT`. `.env` in the repo root is loaded automatically. Never commit it. In Docker, `NODE_ENV=production`, `PORT=3001` and `DATABASE_URL=file:/data/deadline-day.sqlite` are set by the image.
 
 ## Layout
 
@@ -145,7 +169,9 @@ M3 to M6 add no environment variables. `.env` in the repo root is loaded automat
 packages/engine   pure game logic: positions, formations, prices, pool, lineups, auction rules, bots, clubs, fixtures, match and season sim, Monte Carlo, awards, team reports and head to head; Vitest tests
 packages/protocol API contract shared by server and web: zod request schemas, view types, socket events, limits
 apps/server       Fastify server: auth, games and lobby service, live auction service (serialized per game, server timers, bots), season service (simulate and store, playback clock, Run It Back, Monte Carlo), results service (awards, grades, reports, publishing, rematch, export), history service (profiles, Hall of Fame, leaderboard, records), Socket.IO hub, admin panel API (pool, clubs, games, settings, lab, users, audit, overview), Drizzle schema (SQLite + Postgres mirror), migrations, seed
-apps/web          React + Vite + Tailwind client, mobile first: home, login, create, lobby, kickoff, auction room, Team Reveal, season, League Teams, team pages, Season Complete, profiles, Hall of Fame, leaderboard, how to play, admin panel (its own lazy-loaded chunk)
+apps/web          React + Vite + Tailwind client, mobile first: home, login, create, lobby, kickoff, auction room, Team Reveal, season, League Teams, team pages, Season Complete, profiles, Hall of Fame, leaderboard, how to play, admin panel (its own lazy-loaded chunk); dark and light themes, sound effects
 scripts/          seed, data validation, migrations, simulation CLI
+e2e/              Playwright smoke test and the server it runs against
+Dockerfile        multi-stage image (build the web app, keep runtime dependencies only); docker-compose.yml runs it with a data volume
 data/             supplied player and club data
 ```

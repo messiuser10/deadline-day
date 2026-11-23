@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router';
 import type { GameSnapshot, SeasonInfo, UserView } from '@deadline-day/protocol';
 import { useMe } from '../lib/auth';
@@ -7,6 +7,7 @@ import { useGame } from '../hooks/useGame';
 import { usePlayback } from '../hooks/usePlayback';
 import { useSeasonView } from '../hooks/useSeasonView';
 import { useMediaQuery } from '../hooks/useClock';
+import { playWhistle } from '../lib/sound';
 import { LinkButton, Pill, Skeleton } from '../components/ui';
 import { SwipeTabs } from '../components/SwipeTabs';
 import { ExpectedStrength, MultiSeason, SeasonsHistory } from './season/Analysis';
@@ -65,6 +66,18 @@ function SeasonRoom({ snap, info, me }: { snap: GameSnapshot; info: SeasonInfo; 
   const q = useSeasonView(code, viewing);
   const index = q.index;
   const p = usePlayback({ code, shared: info.playback, viewing, isHost });
+
+  // Whistles (when sound is on): one at kick-off, three at full time of the last matchday.
+  const finished = p.clock.finished;
+  const kickOff = p.playing && p.pos < 0.5;
+  const prev = useRef({ finished, kickOff });
+  useEffect(() => {
+    if (!p.archived && !p.browsing) {
+      if (kickOff && !prev.current.kickOff) playWhistle(1);
+      if (finished && !prev.current.finished) playWhistle(3);
+    }
+    prev.current = { finished, kickOff };
+  }, [finished, kickOff, p.archived, p.browsing]);
 
   const onView = (n: number | null) => {
     const next = new URLSearchParams(search);
@@ -125,7 +138,7 @@ function SeasonRoom({ snap, info, me }: { snap: GameSnapshot; info: SeasonInfo; 
       {snap.game.rematchCode && <RematchBanner code={snap.game.rematchCode} />}
 
       {champion && (
-        <div className="mb-4 flex flex-wrap items-center gap-3 rounded-2xl bg-gold-400 px-4 py-3 text-night-950 shadow-lg shadow-gold-400/20 motion-safe:animate-[rise_0.4s_ease-out]" role="status">
+        <div className="mb-4 flex flex-wrap items-center gap-3 rounded-2xl bg-gold-400 px-4 py-3 text-ink shadow-lg shadow-gold-400/20 motion-safe:animate-[rise_0.4s_ease-out]" role="status">
           <Trophy className="size-8" />
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-widest">Champions</p>

@@ -20,16 +20,16 @@ export function TeamName({ team, size = 'sm', tag = true, className }: { team: T
       <TeamBadge color={team.color} monogram={team.monogram} size={size === 'md' ? 'md' : 'sm'} />
       <span className={cx('min-w-[3.5rem] truncate', team.kind !== 'ai' && 'font-semibold')}>{team.name}</span>
       {tag && team.kind !== 'ai' && (
-        <span className={cx('shrink-0 rounded bg-gold-400/15 px-1.5 py-px text-[0.6rem] font-bold uppercase tracking-wide text-gold-400', tag === 'wide' && 'hidden sm:inline')}>Auction</span>
+        <span className={cx('shrink-0 rounded bg-gold-400/15 px-1.5 py-px text-[0.6rem] font-bold uppercase tracking-wide text-gold', tag === 'wide' && 'hidden sm:inline')}>Auction</span>
       )}
     </span>
   );
 }
 
 const FORM_CLASS: Record<string, string> = {
-  W: 'bg-pitch-500 text-night-950',
+  W: 'bg-pitch-500 text-ink',
   D: 'bg-white/25 text-white',
-  L: 'bg-red-500/80 text-white',
+  L: 'bg-red-500/80 text-snow',
 };
 
 /** Last five results as lettered chips (the letter carries the meaning, colour only helps). */
@@ -84,7 +84,7 @@ export function SeasonPitch({ formation, players, note }: { formation: Formation
               </span>
               {(p.outOfPosition || p.reserve) && (
                 <span
-                  className={cx('absolute -right-2 -top-1 rounded px-1 text-[0.55rem] font-bold leading-tight text-night-950', p.reserve ? 'bg-white' : 'bg-sky-500')}
+                  className={cx('absolute -right-2 -top-1 rounded px-1 text-[0.55rem] font-bold leading-tight text-ink', p.reserve ? 'bg-white' : 'bg-sky-500')}
                   title={p.reserve ? 'Academy Reserve' : 'Playing an alternate position'}
                 >
                   {p.reserve ? 'RES' : 'ALT'}
@@ -93,7 +93,7 @@ export function SeasonPitch({ formation, players, note }: { formation: Formation
             </span>
             <span className="max-w-[4.5rem] truncate rounded bg-night-950/70 px-1 text-center text-[0.65rem] font-semibold leading-tight">
               {p.reserve ? 'Reserve' : surname(p.name)}
-              {extra && <span className="block font-normal text-gold-400">{extra}</span>}
+              {extra && <span className="block font-normal text-gold">{extra}</span>}
             </span>
           </div>
         );

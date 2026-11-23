@@ -17,7 +17,7 @@ export function gradeTone(g: Grade): 'green' | 'neutral' | 'gold' | 'red' {
 export const GRADE_TEXT: Record<'green' | 'neutral' | 'gold' | 'red', string> = {
   green: 'text-pitch-400',
   neutral: 'text-white',
-  gold: 'text-gold-400',
+  gold: 'text-gold',
   red: 'text-red-300',
 };
 

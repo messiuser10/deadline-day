@@ -1,4 +1,4 @@
-import type { FastifyError, FastifyInstance } from 'fastify';
+import type { FastifyError, FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { ZodError, type ZodType, type z } from 'zod';
 import type { ApiErrorBody } from '@deadline-day/protocol';
 
@@ -47,13 +47,15 @@ export function toApiError(err: unknown): ApiError {
   return new ApiError(500, 'INTERNAL', 'Something went wrong on the server');
 }
 
-export function installErrorHandler(app: FastifyInstance): void {
+/** `spa`: when set, page requests the API does not know get the web app instead of a JSON 404. */
+export function installErrorHandler(app: FastifyInstance, spa?: { isPage: (request: FastifyRequest) => boolean; send: (reply: FastifyReply) => void }): void {
   app.setErrorHandler((err, request, reply) => {
     const api = toApiError(err);
     if (api.status >= 500) request.log.error(err);
     void reply.status(api.status).send(api.body());
   });
   app.setNotFoundHandler((request, reply) => {
+    if (spa?.isPage(request)) return spa.send(reply);
     void reply.status(404).send(notFound('NOT_FOUND', `No route for ${request.method} ${request.url}`).body());
   });
 }

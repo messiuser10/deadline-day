@@ -89,7 +89,7 @@ function ProfileScreen({ path, own = false }: { path: string; own?: boolean }) {
       {own && p.isGuest && (
         <p className="mb-4 rounded-2xl bg-gold-400/10 px-4 py-3 text-sm ring-1 ring-gold-400/25">
           You are playing as a guest, so you are not on the leaderboard.{' '}
-          <Link to="/login?tab=register&next=/profile" className="font-semibold text-gold-400 underline-offset-2 hover:underline">
+          <Link to="/login?tab=register&next=/profile" className="font-semibold text-gold underline-offset-2 hover:underline">
             Create an account
           </Link>{' '}
           to keep this history.
@@ -123,7 +123,7 @@ function ProfileScreen({ path, own = false }: { path: string; own?: boolean }) {
                     <span className="min-w-0 flex-1">
                       <span className="flex min-w-0 items-center gap-1.5 font-semibold">
                         <span className="truncate">{g.teamName}</span>
-                        {g.champion && <Trophy className="size-4 shrink-0 text-gold-400" />}
+                        {g.champion && <Trophy className="size-4 shrink-0 text-gold" />}
                       </span>
                       <span className="block truncate text-xs text-white/50">
                         {g.gameCode ? g.gameName : 'Private game'} · {dateOf(g.playedAt)} · {plural(g.auctionTeams, 'auction team')}
@@ -175,9 +175,9 @@ function TrophyCabinet({ profile, own }: { profile: ProfileView; own: boolean })
                   code={t.gameCode}
                   className={`flex h-full gap-3 rounded-xl px-3 py-2.5 ring-1 ${t.kind === 'title' ? 'bg-gold-400/10 ring-gold-400/30' : 'bg-night-950/50 ring-white/5'}`}
                 >
-                  <TrophyIcon kind={t.kind} className="mt-0.5 size-6 shrink-0 text-gold-400" />
+                  <TrophyIcon kind={t.kind} className="mt-0.5 size-6 shrink-0 text-gold" />
                   <span className="min-w-0">
-                    <span className="block text-[0.7rem] font-semibold uppercase tracking-wide text-gold-400">{TROPHY_LABEL[t.kind]}</span>
+                    <span className="block text-[0.7rem] font-semibold uppercase tracking-wide text-gold">{TROPHY_LABEL[t.kind]}</span>
                     <span className="block text-sm font-semibold leading-snug">{t.kind === 'title' ? t.teamName : t.detail.replace(/^[^:]+:\s*/, '')}</span>
                     <span className="block truncate text-xs text-white/60">{t.kind === 'title' ? t.detail : t.teamName}</span>
                     <span className="block truncate text-xs text-white/45">

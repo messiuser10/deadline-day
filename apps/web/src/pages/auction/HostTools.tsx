@@ -8,6 +8,7 @@ import { money } from '../../lib/format';
 import { seconds } from '../../lib/auction';
 import { serverNow } from '../../lib/socket';
 import { useGameStore } from '../../stores/game';
+import { playGavel } from '../../lib/sound';
 import type { RoomCtx } from './parts';
 
 /** A button that asks "Sure?" on the first tap and acts on the second. */
@@ -164,7 +165,7 @@ export function PausedBanner({ ctx }: { ctx: RoomCtx }) {
   if (!auction.paused) return null;
   const what = auction.paused.timer === 'lot' ? 'lot' : auction.paused.timer === 'nomination' ? 'nomination' : 'season countdown';
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gold-400 px-4 py-3 text-night-950 shadow-lg shadow-gold-400/20" role="status">
+    <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gold-400 px-4 py-3 text-ink shadow-lg shadow-gold-400/20" role="status">
       <div>
         <p className="font-display text-xl font-bold uppercase tracking-wide">Paused</p>
         <p className="text-sm">
@@ -186,6 +187,7 @@ export function SoldOverlay({ ctx }: { ctx: RoomCtx }) {
   const clear = useGameStore((s) => s.clearSale);
   useEffect(() => {
     if (!sale) return;
+    playGavel();
     const id = setTimeout(clear, 2400);
     return () => clearTimeout(id);
   }, [sale, clear]);
@@ -196,7 +198,7 @@ export function SoldOverlay({ ctx }: { ctx: RoomCtx }) {
   return (
     <div className="pointer-events-none fixed inset-0 z-40 grid place-items-center bg-night-950/50 px-4 backdrop-blur-[2px]" role="status" aria-live="assertive">
       <div className="flex max-w-sm flex-col items-center gap-2 rounded-3xl bg-night-800 px-8 py-6 text-center shadow-2xl ring-2 ring-gold-400 motion-safe:animate-[bump_0.35s_ease-out]">
-        <p className={cx('-rotate-3 font-display text-6xl font-bold uppercase tracking-widest', mine ? 'text-pitch-400' : 'text-gold-400')}>Sold</p>
+        <p className={cx('-rotate-3 font-display text-6xl font-bold uppercase tracking-widest', mine ? 'text-pitch-400' : 'text-gold')}>Sold</p>
         <p className="font-display text-2xl font-semibold uppercase">{p?.name}</p>
         {team && (
           <p className="flex items-center gap-2 text-sm text-white/75">
@@ -204,7 +206,7 @@ export function SoldOverlay({ ctx }: { ctx: RoomCtx }) {
             {mine ? 'to you' : `to ${team.teamName}`}
           </p>
         )}
-        <p className="font-display text-4xl font-bold text-gold-400">{money(sale.priceM)}</p>
+        <p className="font-display text-4xl font-bold text-gold">{money(sale.priceM)}</p>
       </div>
     </div>
   );

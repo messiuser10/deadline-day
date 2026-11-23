@@ -106,9 +106,9 @@ export function HallEntry({ e, compact = false }: { e: HallOfFameEntry; compact?
       </p>
       <div className={`mt-2 grid gap-2 ${auctionWon || compact ? '' : 'sm:grid-cols-2'}`}>
         <div className="flex min-w-0 items-center gap-2 rounded-xl bg-gold-400/10 px-3 py-2 ring-1 ring-gold-400/25">
-          <Trophy className="size-5 shrink-0 text-gold-400" />
+          <Trophy className="size-5 shrink-0 text-gold" />
           <div className="min-w-0 flex-1">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-wide text-gold-400">Champions</p>
+            <p className="text-[0.65rem] font-semibold uppercase tracking-wide text-gold">Champions</p>
             <TeamName team={e.champion} className="text-sm" />
             <p className="truncate text-xs text-white/55">
               {e.champion.kind === 'ai' ? 'AI club' : (e.champion.managerName ?? 'Bot')} · {e.champion.points} pts
@@ -153,7 +153,7 @@ function RecordBook() {
         <div className="flex flex-col gap-4">
           {RECORDS.map((r) => (
             <section key={r.key} aria-labelledby={`rec-${r.key}`}>
-              <h3 id={`rec-${r.key}`} className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-gold-400">
+              <h3 id={`rec-${r.key}`} className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-gold">
                 {r.title}
               </h3>
               {q.data[r.key].length === 0 ? (
@@ -178,7 +178,7 @@ function RecordBook() {
 function RecordRow({ rank, e, value, player }: { rank: number; e: RecordEntry; value: string; player: boolean }) {
   return (
     <GameLink code={e.gameCode} className="flex min-h-12 items-center gap-2 py-1.5">
-      <span className={`w-5 shrink-0 text-center font-display font-bold ${rank === 1 ? 'text-gold-400' : 'text-white/45'}`}>{rank}</span>
+      <span className={`w-5 shrink-0 text-center font-display font-bold ${rank === 1 ? 'text-gold' : 'text-white/45'}`}>{rank}</span>
       <TeamBadge color={e.color} monogram={e.monogram} size="sm" />
       <span className="min-w-0 flex-1">
         <span className="block truncate text-sm font-semibold">{e.holder}</span>

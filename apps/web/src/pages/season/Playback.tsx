@@ -137,7 +137,7 @@ export function PlaybackBar({ p }: { p: Playback }) {
             <button
               type="button"
               onClick={p.playing ? p.pause : p.play}
-              className="grid size-10 shrink-0 place-items-center rounded-xl bg-pitch-500 text-night-950"
+              className="grid size-10 shrink-0 place-items-center rounded-xl bg-pitch-500 text-ink"
               aria-label={p.playing ? 'Pause' : 'Play'}
             >
               <Icon name={p.playing ? 'pause' : 'play'} />

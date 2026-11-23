@@ -113,7 +113,7 @@ function SquadPlayerForm({ clubId, player, onDone }: { clubId: string; player?: 
               type="button"
               aria-pressed={alts.includes(p)}
               onClick={() => setAlts(alts.includes(p) ? alts.filter((a) => a !== p) : [...alts, p])}
-              className={cx('min-h-8 rounded-lg px-2 text-xs font-semibold ring-1 ring-inset', alts.includes(p) ? 'bg-pitch-500 text-night-950 ring-pitch-500' : 'text-white/70 ring-white/15')}
+              className={cx('min-h-8 rounded-lg px-2 text-xs font-semibold ring-1 ring-inset', alts.includes(p) ? 'bg-pitch-500 text-ink ring-pitch-500' : 'text-white/70 ring-white/15')}
             >
               {p}
             </button>
@@ -223,7 +223,7 @@ export function ClubsTab() {
           <span>{MIN_TEAMS}</span>
           <span>{MAX_TEAMS}</span>
         </div>
-        {method === 'random' && <p className="mt-2 text-xs text-gold-400">Random selection draws the AI clubs from each game's seed, so no fixed list applies.</p>}
+        {method === 'random' && <p className="mt-2 text-xs text-gold">Random selection draws the AI clubs from each game's seed, so no fixed list applies.</p>}
       </Card>
       <Card className="!p-0 sm:!p-0">
         <ol className="divide-y divide-white/5">
@@ -242,7 +242,7 @@ export function ClubsTab() {
                   </span>
                   <span className="shrink-0 text-right tabular-nums">
                     <span className="block font-display text-lg font-bold">{c.strength}</span>
-                    {c.override !== null ? <span className="block text-[0.7rem] text-gold-400">override</span> : <span className="block text-[0.7rem] text-white/40">computed</span>}
+                    {c.override !== null ? <span className="block text-[0.7rem] text-gold">override</span> : <span className="block text-[0.7rem] text-white/40">computed</span>}
                   </span>
                   <span className="hidden w-16 shrink-0 text-right sm:block">{ai && (isAi ? <Pill tone="green">AI</Pill> : <Pill>out</Pill>)}</span>
                 </button>

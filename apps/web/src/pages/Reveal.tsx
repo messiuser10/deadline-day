@@ -114,7 +114,7 @@ function Reveal({ snap, auction, me }: { snap: GameSnapshot; auction: AuctionVie
               type="button"
               onClick={() => go(last)}
               aria-current={step === last ? 'step' : undefined}
-              className={cx('rounded-full px-2 text-xs font-semibold transition', step === last ? 'bg-gold-400 text-night-950' : 'bg-white/10 text-white/70')}
+              className={cx('rounded-full px-2 text-xs font-semibold transition', step === last ? 'bg-gold-400 text-ink' : 'bg-white/10 text-white/70')}
             >
               League
             </button>
@@ -184,7 +184,7 @@ function TeamReveal({ team, auction, total, index, mine }: { team: RevealTeam; a
                 </p>
               </div>
               <div className="text-right">
-                <p className="font-display text-gold-400 tabular-nums">{money(s.priceM)}</p>
+                <p className="font-display text-gold tabular-nums">{money(s.priceM)}</p>
                 <p className="text-[0.7rem] text-white/40">value {money(s.marketValueM)}</p>
               </div>
             </li>
@@ -275,7 +275,7 @@ function SeasonCountdown({ snap, auction, me, now }: { snap: GameSnapshot; aucti
       : 'Waiting for the host to start the season';
   return (
     <div className="flex flex-col items-start gap-2 sm:items-end">
-      <p className={cx('rounded-xl px-3 py-1 text-sm font-semibold', remaining !== null && remaining <= 10_000 && !held ? 'bg-gold-400 text-night-950' : 'bg-white/10 text-white/80')} role="timer">
+      <p className={cx('rounded-xl px-3 py-1 text-sm font-semibold', remaining !== null && remaining <= 10_000 && !held ? 'bg-gold-400 text-ink' : 'bg-white/10 text-white/80')} role="timer">
         {label}
       </p>
       {canHost && (
@@ -306,7 +306,7 @@ function Stat({ label, value, highlight = false }: { label: string; value: strin
   return (
     <div className={cx('rounded-xl px-2 py-2 ring-1', highlight ? 'bg-gold-400/15 ring-gold-400/30' : 'bg-night-950/50 ring-white/5')}>
       <dt className="text-[0.65rem] uppercase tracking-wide text-white/50">{label}</dt>
-      <dd className={cx('font-display text-lg font-semibold tabular-nums', highlight && 'text-gold-400')}>{value}</dd>
+      <dd className={cx('font-display text-lg font-semibold tabular-nums', highlight && 'text-gold')}>{value}</dd>
     </div>
   );
 }
