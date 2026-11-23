@@ -1,6 +1,7 @@
 /** zod schemas for every request body. The server validates with these; the web app reuses them for forms. */
 import { z } from 'zod';
 import { FORMATION_IDS, MAX_TEAMS, MIN_TEAMS } from '@deadline-day/engine';
+import { PLAYBACK_SPEEDS, SEASON_MATCHDAYS } from './playback';
 
 const collapse = (s: string) => s.trim().replace(/\s+/g, ' ');
 
@@ -181,3 +182,21 @@ export const joinCodeSchema = z
 export const adminUserPatchSchema = z
   .object({ role: z.enum(['admin', 'user']).optional(), banned: z.boolean().optional() })
   .refine((v) => v.role !== undefined || v.banned !== undefined, 'Nothing to change');
+
+export const playbackActionSchema = z.discriminatedUnion('action', [
+  z.object({ action: z.literal('play') }),
+  z.object({ action: z.literal('pause') }),
+  z.object({ action: z.literal('speed'), speed: z.enum(PLAYBACK_SPEEDS) }),
+  /** Show matchday N at full time (0 = before kick-off of matchday 1). */
+  z.object({ action: z.literal('seek'), matchday: int().min(0).max(SEASON_MATCHDAYS) }),
+  z.object({ action: z.literal('end') }),
+]);
+export type PlaybackAction = z.input<typeof playbackActionSchema>;
+
+export const seasonQuerySchema = z.object({ number: z.coerce.number().int().min(1).max(10_000).optional() });
+
+export const multiSeasonQuerySchema = z.object({
+  seasons: z.coerce.number().int().min(2).max(10),
+  run: z.coerce.number().int().min(1).max(10_000).default(1),
+});
+export type MultiSeasonQuery = z.input<typeof multiSeasonQuerySchema>;

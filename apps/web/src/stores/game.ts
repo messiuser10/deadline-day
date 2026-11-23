@@ -1,10 +1,10 @@
 /**
  * The game this tab is watching. The server snapshot is the source of truth; lobby updates, auction
- * states and single bids from REST responses and socket events are applied only when they are newer
- * than what we hold.
+ * states, single bids and the season playback clock from REST responses and socket events are applied
+ * only when they are newer than what we hold.
  */
 import { create } from 'zustand';
-import type { ApiErrorBody, AuctionView, BidEvent, ChatMessageView, GameSnapshot, LobbyUpdate, PresenceEvent, SaleView } from '@deadline-day/protocol';
+import type { ApiErrorBody, AuctionView, BidEvent, ChatMessageView, GameSnapshot, LobbyUpdate, PlaybackView, PresenceEvent, SaleView } from '@deadline-day/protocol';
 
 interface GameStore {
   code: string | null;
@@ -19,6 +19,7 @@ interface GameStore {
   applyAuction: (view: AuctionView) => void;
   applyBid: (bid: BidEvent) => void;
   applySold: (sale: SaleView) => void;
+  applyPlayback: (playback: PlaybackView) => void;
   clearSale: () => void;
   applyPresence: (p: PresenceEvent) => void;
   addChat: (m: ChatMessageView) => void;
@@ -41,7 +42,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
   applyState: (u) => {
     const cur = get().snapshot;
     if (!cur || u.game.id !== cur.game.id || u.serverTime < cur.serverTime) return;
-    set({ snapshot: { ...u, chat: cur.chat, auction: cur.auction } });
+    // Keep a newer playback clock than the one in this update (they travel on separate events).
+    const keepClock = u.season && cur.season && cur.season.playback.version > u.season.playback.version;
+    const season = keepClock ? { ...u.season!, playback: cur.season!.playback } : u.season;
+    set({ snapshot: { ...u, season, chat: cur.chat, auction: cur.auction } });
   },
   applyAuction: (view) => {
     const cur = get().snapshot;
@@ -61,6 +65,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
   applySold: (sale) => {
     if (sale.autoFilled || sale.sequence === null) return;
     set({ lastSale: sale });
+  },
+  applyPlayback: (playback) => {
+    const cur = get().snapshot;
+    if (!cur?.season || playback.version <= cur.season.playback.version) return;
+    set({ snapshot: { ...cur, season: { ...cur.season, playback } } });
   },
   clearSale: () => set({ lastSale: null }),
   applyPresence: ({ participantId, isConnected, disconnectedAt }) => {

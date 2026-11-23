@@ -17,6 +17,7 @@ export * from './fixtures';
 export * from './match';
 export * from './season';
 export * from './montecarlo';
+export * from './moments';
 export * from './awards';
 export * from './league';
 export * from './testGame';

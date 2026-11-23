@@ -1,6 +1,7 @@
 /** Shapes the server sends: REST responses, the game snapshot, and Socket.IO events. */
-import type { FormationId, Group, SlotType } from '@deadline-day/engine';
+import type { FormationId, Group, KeyMomentKind, Position, SlotType } from '@deadline-day/engine';
 import type { GameLimits } from './limits';
+import type { PlaybackClock } from './playback';
 import type { GameSettings } from './schemas';
 
 export type Role = 'admin' | 'user';
@@ -320,6 +321,8 @@ export interface GameSnapshot {
   chat: ChatMessageView[];
   /** Live auction state once the auction has started. */
   auction: AuctionView | null;
+  /** Seasons played and the playback clock, once the first season has been simulated. */
+  season: SeasonInfo | null;
 }
 
 /** Lobby state pushed after every lobby change: the snapshot without chat history or auction state. */
@@ -339,6 +342,7 @@ export interface ServerToClientEvents {
   'auction:state': (view: AuctionView) => void;
   'auction:bid': (bid: BidEvent) => void;
   'auction:sold': (sale: SaleView) => void;
+  'season:playback': (playback: PlaybackView) => void;
   'game:kicked': (p: { code: string }) => void;
   'game:notice': (p: { code: string; level: 'info' | 'error'; message: string }) => void;
 }
@@ -349,4 +353,195 @@ export interface ClientToServerEvents {
   'game:watch': (p: { code: string }, ack: (res: WatchAck) => void) => void;
   'game:unwatch': (p: { code: string }) => void;
   'time:sync': (ack: (serverTime: number) => void) => void;
+}
+
+// ---------------------------------------------------------------------------
+// Season (section 10)
+
+export type PlaybackMode = 'synchronized' | 'own_pace';
+
+/** The shared playback clock. In own-pace mode every client keeps its own clock and this one is unused. */
+export interface PlaybackView extends PlaybackClock {
+  mode: PlaybackMode;
+  /** Season number the clock belongs to (the latest season). */
+  season: number;
+  version: number;
+}
+
+export interface SeasonSummary {
+  number: number;
+  championId: string;
+  championName: string;
+  createdAt: number;
+}
+
+export interface SeasonInfo {
+  /** Oldest first. */
+  seasons: SeasonSummary[];
+  playback: PlaybackView;
+}
+
+export interface SeasonPlayerView {
+  /** pool:<id>, seed:<id> or reserve:<club>:<slot>. */
+  ref: string;
+  name: string;
+  slotKey: string;
+  slotType: SlotType;
+  position: Position;
+  /** Effective overall in this slot. */
+  overall: number;
+  baseOverall: number;
+  outOfPosition: boolean;
+  reserve: boolean;
+}
+
+export interface SeasonTeamView {
+  /** Season team id (stable within a season). */
+  id: string;
+  kind: 'human' | 'bot' | 'ai';
+  participantId: string | null;
+  clubId: string | null;
+  name: string;
+  managerName: string | null;
+  color: string;
+  secondaryColor: string;
+  monogram: string;
+  formation: FormationId;
+  attack: number;
+  defense: number;
+  chemistry: number;
+  strength: number;
+  /** Pre-season strength rank, 1 = strongest. */
+  rank: number;
+  players: SeasonPlayerView[];
+}
+
+export interface MatchEventView {
+  minute: number;
+  type: 'goal' | 'assist' | 'yellow' | 'red';
+  playerRef: string;
+  teamId: string;
+}
+
+export interface FixtureView {
+  id: number;
+  matchday: number;
+  homeId: string;
+  awayId: string;
+  homeGoals: number;
+  awayGoals: number;
+  /** In minute order. */
+  events: MatchEventView[];
+}
+
+export interface StandingView {
+  teamId: string;
+  played: number;
+  won: number;
+  drawn: number;
+  lost: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  goalDifference: number;
+  points: number;
+  position: number;
+  /** Last five, oldest first, e.g. "WWDLW". */
+  form: string;
+}
+
+export interface KeyMomentView {
+  matchday: number;
+  minute: number;
+  kind: KeyMomentKind;
+  fixtureId: number | null;
+  teamId: string;
+  otherTeamId: string | null;
+  playerRef: string | null;
+  goals: number | null;
+  conceded: number | null;
+  teamPosition: number | null;
+  otherPosition: number | null;
+}
+
+export type TableBandTone = 'gold' | 'green' | 'blue' | 'red';
+
+/** A coloured band of table positions (admin-editable). */
+export interface TableBand {
+  from: number;
+  to: number;
+  label: string;
+  tone: TableBandTone;
+  enabled: boolean;
+}
+
+export interface SeasonView {
+  number: number;
+  seed: number;
+  matchdays: number;
+  /** Ordered by pre-season strength. */
+  teams: SeasonTeamView[];
+  /** Players who are not in a starting XI (injury cover), by ref. */
+  extras: { ref: string; name: string; teamId: string }[];
+  fixtures: FixtureView[];
+  /** standings[i] is the table after matchday i + 1. */
+  standings: StandingView[][];
+  moments: KeyMomentView[];
+  championId: string;
+  bands: TableBand[];
+  goalsPerMatch: number;
+}
+
+export interface ExpectedStrengthTeam {
+  teamId: string;
+  avgPoints: number;
+  avgPosition: number;
+  titleChance: number;
+  top4Chance: number;
+  bottom3Chance: number;
+}
+
+/** Monte Carlo over the latest season's 20 teams ("Expected Strength"). */
+export interface ExpectedStrengthView {
+  season: number;
+  runs: number;
+  goalsPerMatch: number;
+  teams: ExpectedStrengthTeam[];
+}
+
+export interface MultiSeasonView {
+  seasons: number;
+  run: number;
+  /** One entry per simulated season. */
+  champions: { season: number; teamId: string; points: number }[];
+  titles: { teamId: string; titles: number; avgPoints: number; avgPosition: number; bestFinish: number }[];
+}
+
+export interface LeagueTeamRow {
+  /** Season team id once a season exists, else the participant or club id. */
+  id: string;
+  kind: 'human' | 'bot' | 'ai';
+  participantId: string | null;
+  clubId: string | null;
+  name: string;
+  managerName: string | null;
+  color: string;
+  monogram: string;
+  formation: FormationId;
+  attack: number;
+  defense: number;
+  chemistry: number;
+  strength: number;
+  rank: number;
+  /** Players in the XI so far (11 once complete). */
+  filled: number;
+  /** Rated on an incomplete XI while the auction runs. */
+  provisional: boolean;
+  players: SeasonPlayerView[];
+}
+
+/** The League Teams page: all 20 teams ranked by strength. */
+export interface LeagueView {
+  /** Season the teams come from, or null while the auction runs. */
+  season: number | null;
+  teams: LeagueTeamRow[];
 }

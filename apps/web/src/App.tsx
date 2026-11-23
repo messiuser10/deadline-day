@@ -7,9 +7,11 @@ import { AuctionPage } from './pages/Auction';
 import { CreatePage } from './pages/Create';
 import { HomePage } from './pages/Home';
 import { HowToPlayPage } from './pages/HowToPlay';
+import { LeaguePage, TeamPage } from './pages/League';
 import { LobbyPage } from './pages/Lobby';
 import { LoginPage } from './pages/Login';
 import { RevealPage } from './pages/Reveal';
+import { SeasonPage } from './pages/Season';
 
 /** New page, new scroll: start every route at the top. */
 function ScrollToTop() {
@@ -65,6 +67,9 @@ export function App() {
           <Route path="/lobby/:code" element={<LobbyPage />} />
           <Route path="/auction/:code" element={<AuctionPage />} />
           <Route path="/reveal/:code" element={<RevealPage />} />
+          <Route path="/season/:code" element={<SeasonPage />} />
+          <Route path="/league/:code" element={<LeaguePage />} />
+          <Route path="/team/:code/:teamId" element={<TeamPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         </ErrorBoundary>

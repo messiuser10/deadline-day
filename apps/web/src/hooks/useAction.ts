@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import type { AuctionView, BidEvent, LobbyUpdate } from '@deadline-day/protocol';
+import type { AuctionView, BidEvent, LobbyUpdate, PlaybackView } from '@deadline-day/protocol';
 import { errorMessage } from '../lib/api';
 import { useGameStore } from '../stores/game';
 import { toast } from '../stores/toast';
@@ -14,11 +14,12 @@ export function useAction() {
     setPending(key);
     try {
       const res = await fn();
-      const out = res as { state?: LobbyUpdate; auction?: AuctionView; bid?: BidEvent } | undefined;
+      const out = res as { state?: LobbyUpdate; auction?: AuctionView; bid?: BidEvent; playback?: PlaybackView } | undefined;
       const store = useGameStore.getState();
       if (out?.state) store.applyState(out.state);
       if (out?.auction) store.applyAuction(out.auction);
       if (out?.bid) store.applyBid(out.bid);
+      if (out?.playback) store.applyPlayback(out.playback);
       if (success) toast(success, 'success');
       return res;
     } catch (err) {

@@ -10,6 +10,7 @@ import { poolPlayers } from './db/schema';
 import { installErrorHandler } from './errors';
 import { ReferenceData } from './games/reference';
 import { registerAuctionRoutes } from './games/auctionRoutes';
+import { registerSeasonRoutes } from './games/seasonRoutes';
 import { registerGameRoutes } from './games/routes';
 import { GameService } from './games/service';
 import { Timers } from './games/timers';
@@ -33,6 +34,8 @@ export interface AppOptions {
   botDelayMs?: readonly [number, number] | null;
   /** Delay before an auto-nominate-only team nominates (default 1.5 s). */
   autoNominateDelayMs?: number;
+  /** Seasons per Expected Strength run (default 1,000). */
+  monteCarloRuns?: number;
 }
 
 export interface DeadlineDayApp extends FastifyInstance {
@@ -58,6 +61,7 @@ export function buildApp(options: AppOptions): DeadlineDayApp {
     chatMinIntervalMs: options.chatMinIntervalMs,
     botDelayMs: options.botDelayMs,
     autoNominateDelayMs: options.autoNominateDelayMs,
+    monteCarloRuns: options.monteCarloRuns,
   });
   const hub = new Hub(app.server, games, (header) => userFromCookieHeader(app, db, header));
   games.broadcaster = hub;
@@ -75,6 +79,7 @@ export function buildApp(options: AppOptions): DeadlineDayApp {
   });
   registerGameRoutes(app, games);
   registerAuctionRoutes(app, games);
+  registerSeasonRoutes(app, games);
   registerAdminRoutes(app, db);
 
   app.addHook('preClose', async () => {

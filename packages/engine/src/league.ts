@@ -10,10 +10,12 @@ import { rateTeams, type LeagueTeam, type RatedTeam, type TeamKind } from './sea
 import { withSimDefaults, type SimParams } from './params';
 import type { AuctionPlayer, AuctionTeam } from './auction';
 
+/** An auction team's XI. With `allowEmpty`, open slots are left out (a provisional team mid-auction). */
 export function leagueTeamFromAuction(
   team: AuctionTeam,
   players: Readonly<Record<string, AuctionPlayer>>,
   kind: Exclude<TeamKind, 'ai'>,
+  options: { allowEmpty?: boolean } = {},
 ): LeagueTeam {
   const slots = FORMATIONS[team.formation].slots;
   return {
@@ -21,10 +23,13 @@ export function leagueTeamFromAuction(
     name: team.name,
     kind,
     formation: team.formation,
-    players: slots.map((slot) => {
+    players: slots.flatMap((slot) => {
       const id = team.lineup[slot.key];
       const p = id ? players[id] : undefined;
-      if (!p) throw new Error(`${team.name} has no player in ${slot.key}`);
+      if (!p) {
+        if (options.allowEmpty) return [];
+        throw new Error(`${team.name} has no player in ${slot.key}`);
+      }
       return {
         ref: `pool:${p.id}`,
         name: p.name,
@@ -88,6 +93,8 @@ export interface BuildLeagueInput {
   /** Remove bought players from AI squads (default on). */
   removeBought?: boolean;
   xiOptions?: XiOptions;
+  /** Allow auction teams with open slots (the League Teams page while the auction runs). */
+  allowIncomplete?: boolean;
 }
 
 export interface BuiltLeague {
@@ -113,7 +120,9 @@ export function buildLeague(input: BuildLeagueInput): BuiltLeague {
     aiXis[id] = xi;
     return leagueTeamFromClub(club, xi);
   });
-  const auctionTeams = input.auctionTeams.map(({ team, kind }) => leagueTeamFromAuction(team, input.players, kind));
+  const auctionTeams = input.auctionTeams.map(({ team, kind }) =>
+    leagueTeamFromAuction(team, input.players, kind, { allowEmpty: input.allowIncomplete }),
+  );
   return { teams: [...auctionTeams, ...aiTeams], aiXis };
 }
 

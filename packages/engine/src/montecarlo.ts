@@ -23,10 +23,24 @@ export interface MonteCarloResult {
   teams: MonteCarloTeam[];
 }
 
-export function monteCarlo(
+export interface MonteCarloRun {
+  readonly runs: number;
+  /** Seasons simulated so far. */
+  done(): number;
+  /** Simulate up to `count` more seasons; true once all runs are done. */
+  step(count: number): boolean;
+  /** Result over the seasons simulated so far. */
+  result(): MonteCarloResult;
+}
+
+/**
+ * Monte Carlo in steps, so a server can spread 1,000 seasons over several event-loop turns.
+ * Run i always uses `hash(seed, 'montecarlo', i)`, so stepping never changes the result.
+ */
+export function createMonteCarlo(
   teams: readonly LeagueTeam[],
   options: { seed: number; runs?: number; params?: Partial<SimParams> },
-): MonteCarloResult {
+): MonteCarloRun {
   const runs = options.runs ?? 1000;
   const n = teams.length;
   const acc = new Map(
@@ -34,38 +48,59 @@ export function monteCarlo(
   );
   let goals = 0;
   let matches = 0;
-  for (let i = 0; i < runs; i++) {
-    const season = simulateSeason({
-      teams,
-      seed: deriveSeed(options.seed, 'montecarlo', i),
-      params: options.params,
-      options: { events: false, snapshots: false },
-    });
-    goals += season.totalGoals;
-    matches += season.fixtures.length;
-    for (const row of season.table) {
-      const a = acc.get(row.teamId)!;
-      a.points += row.points;
-      a.positions += row.position;
-      a.counts[row.position - 1]!++;
-    }
-  }
-  const out = teams.map((t) => {
-    const a = acc.get(t.id)!;
-    const share = (from: number, to: number) => a.counts.slice(from, to).reduce((s, v) => s + v, 0) / runs;
-    return {
-      teamId: t.id,
-      name: t.name,
-      avgPoints: a.points / runs,
-      avgPosition: a.positions / runs,
-      titleChance: share(0, 1),
-      top4Chance: share(0, 4),
-      bottom3Chance: share(n - 3, n),
-      positionCounts: a.counts,
-    };
-  });
-  out.sort((x, y) => y.avgPoints - x.avgPoints || x.avgPosition - y.avgPosition);
-  return { runs, goalsPerMatch: matches ? goals / matches : 0, teams: out };
+  let i = 0;
+  return {
+    runs,
+    done: () => i,
+    step(count: number): boolean {
+      const end = Math.min(runs, i + Math.max(0, Math.floor(count)));
+      for (; i < end; i++) {
+        const season = simulateSeason({
+          teams,
+          seed: deriveSeed(options.seed, 'montecarlo', i),
+          params: options.params,
+          options: { events: false, snapshots: false },
+        });
+        goals += season.totalGoals;
+        matches += season.fixtures.length;
+        for (const row of season.table) {
+          const a = acc.get(row.teamId)!;
+          a.points += row.points;
+          a.positions += row.position;
+          a.counts[row.position - 1]!++;
+        }
+      }
+      return i >= runs;
+    },
+    result(): MonteCarloResult {
+      const done = Math.max(1, i);
+      const out = teams.map((t) => {
+        const a = acc.get(t.id)!;
+        const share = (from: number, to: number) => a.counts.slice(from, to).reduce((s, v) => s + v, 0) / done;
+        return {
+          teamId: t.id,
+          name: t.name,
+          avgPoints: a.points / done,
+          avgPosition: a.positions / done,
+          titleChance: share(0, 1),
+          top4Chance: share(0, 4),
+          bottom3Chance: share(n - 3, n),
+          positionCounts: [...a.counts],
+        };
+      });
+      out.sort((x, y) => y.avgPoints - x.avgPoints || x.avgPosition - y.avgPosition);
+      return { runs: i, goalsPerMatch: matches ? goals / matches : 0, teams: out };
+    },
+  };
+}
+
+export function monteCarlo(
+  teams: readonly LeagueTeam[],
+  options: { seed: number; runs?: number; params?: Partial<SimParams> },
+): MonteCarloResult {
+  const run = createMonteCarlo(teams, options);
+  run.step(run.runs);
+  return run.result();
 }
 
 export interface MultiSeasonEntry {

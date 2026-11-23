@@ -29,6 +29,7 @@ import {
   type GameView,
   type LobbyUpdate,
   type ParticipantView,
+  type PlaybackView,
   type PoolPreview,
   type PresenceEvent,
   type PublicLobby,
@@ -47,6 +48,7 @@ import { readAppSettings } from '../settings/store';
 import { findProfanity, maskProfanity } from '../text/profanity';
 import { AuctionService } from './auction';
 import { cryptoShuffle, randomJoinCode } from './codes';
+import { SeasonService } from './season';
 import { selectAiClubIds, type RankedClub, type ReferenceData } from './reference';
 import type { Timers } from './timers';
 
@@ -64,6 +66,7 @@ export interface Broadcaster {
   auctionState(gameId: string, view: AuctionView): void;
   auctionBid(gameId: string, bid: BidEvent): void;
   auctionSold(gameId: string, sale: SaleView): void;
+  seasonPlayback(gameId: string, playback: PlaybackView): void;
 }
 
 const SILENT: Broadcaster = {
@@ -76,6 +79,7 @@ const SILENT: Broadcaster = {
   auctionState: () => {},
   auctionBid: () => {},
   auctionSold: () => {},
+  seasonPlayback: () => {},
 };
 
 export interface StrengthSnapshot {
@@ -100,6 +104,8 @@ export interface GameServiceOptions {
   /** Bot think time; null switches automatic bot actions off (tests drive them with botTick). */
   botDelayMs?: readonly [number, number] | null;
   autoNominateDelayMs?: number;
+  /** Seasons per Expected Strength run (default 1,000). */
+  monteCarloRuns?: number;
 }
 
 const startTimerKey = (gameId: string) => `start:${gameId}`;
@@ -108,6 +114,7 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 export class GameService {
   broadcaster: Broadcaster = SILENT;
   readonly auction: AuctionService;
+  readonly season: SeasonService;
   private readonly db: Db;
   private readonly lastChat = new Map<string, number>();
 
@@ -120,6 +127,7 @@ export class GameService {
       botDelayMs: opts.botDelayMs,
       autoNominateDelayMs: opts.autoNominateDelayMs,
     });
+    this.season = new SeasonService(this, { db: opts.db, timers: opts.timers, monteCarloRuns: opts.monteCarloRuns });
   }
 
   // -------------------------------------------------------------------------
@@ -393,6 +401,7 @@ export class GameService {
       pool,
       aiClubs,
       startBlockers,
+      season: this.season.info(game),
     };
   }
 
@@ -742,6 +751,7 @@ export class GameService {
     const game = this.findGame(code);
     this.requireHost(game, user);
     if (game.status === 'cancelled' || game.status === 'completed') throw conflict('GAME_OVER', 'This game is already over');
+    if (game.status === 'simulating') throw conflict('SEASON_PLAYED', 'The season has been played; it can no longer be cancelled');
     this.opts.timers.cancel(startTimerKey(game.id));
     this.auction.stopTimers(game.id);
     this.db
@@ -925,6 +935,8 @@ export class GameService {
       .where(inArray(games.status, ['auctioning', 'auction_complete']))
       .all();
     for (const g of live) this.auction.resumeTimers(g.id);
+    const playing = this.db.select({ id: games.id }).from(games).where(eq(games.status, 'simulating')).all();
+    for (const g of playing) this.season.resumeTimer(g.id);
   }
 
   private touch(gameId: string): void {

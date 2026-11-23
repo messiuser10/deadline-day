@@ -1,7 +1,7 @@
 /**
  * Socket.IO: one room per game. A client watches a game by code and immediately receives the full
  * authoritative snapshot; after that it gets small events (lobby updates, presence, chat, notices,
- * auction state, single bids and sales).
+ * auction state, single bids and sales, and the season playback clock).
  * The session cookie from the handshake identifies the user; anyone may watch (spectate) by code.
  */
 import type { Server as HttpServer } from 'node:http';
@@ -146,6 +146,10 @@ export class Hub implements Broadcaster {
 
   auctionSold: Broadcaster['auctionSold'] = (gameId, sale) => {
     this.io.to(gameRoom(gameId)).emit('auction:sold', sale);
+  };
+
+  seasonPlayback: Broadcaster['seasonPlayback'] = (gameId, playback) => {
+    this.io.to(gameRoom(gameId)).emit('season:playback', playback);
   };
 
   kicked: Broadcaster['kicked'] = (userId, gameId, code) => {

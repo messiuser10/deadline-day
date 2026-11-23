@@ -4,7 +4,7 @@ A multiplayer web game. Friends (2 to 12 teams) each get a $1 billion budget and
 
 > Deadline Day is an unofficial fan game. It is not affiliated with, endorsed by or connected to any club, league or player. No official crests, logos or player photos are used.
 
-**Status:** milestones M0 (scaffold and data), M1 (game engine), M2 (server foundation: accounts, guests, lobby, live updates, auction start) and M3 (live auction and Team Reveal) are done. The season simulation and results screens are next (M4). See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
+**Status:** milestones M0 (scaffold and data), M1 (game engine), M2 (server foundation: accounts, guests, lobby, live updates, auction start), M3 (live auction and Team Reveal) and M4 (season simulation and playback) are done. Awards and the end screen are next (M5). See `AUCTION_SPEC.md` section 13 for the milestone plan and `DECISIONS.md` for choices the spec left open.
 
 ## Requirements
 
@@ -60,7 +60,9 @@ npm run dev             # API server on :3001 and web app on http://localhost:51
 
 Open http://localhost:5173 on a laptop or a phone-sized window. What works now: sign up, log in or play as a guest; create a game or a one-click solo game against three bots; join by code, link, QR or the public lobby list; edit your team (name, colour, badge, formation); watch the live pool preview and AI club list change as teams join; host controls (rules, bots, kick, transfer host, nomination order, cancel); lobby chat; Ready and Start with a 5-second countdown; and the kickoff screen with the frozen pool and AI clubs.
 
-The live auction room: nominate on your turn (with an opening bid), bid with quick buttons, a custom amount or your max bid, and watch the server-run lot timer with anti-snipe, "Going once / Going twice" and a SOLD stamp. The pool panel filters by position, rating, price, club and "Only players I can buy"; your pitch fills as you buy and you can swap players between legal slots. Rival budgets and max bids, a sales log, a watchlist with an alert when a starred player comes up, and chat sit in tabs. The host can pause, resume, skip a nomination, add 10 seconds, undo the last sale, end early (auto-fills every open slot) or reset, and hand a disconnected team to a bot. Bots bid and nominate on their own. When every team is full the auction ends by itself and the Team Reveal plays: each team's XI, prices, strength and a grade preview, then the league preview, then a short countdown to the season (the season itself arrives in M4). On a phone the room becomes one column with tabs and a fixed bid bar at the bottom.
+The live auction room: nominate on your turn (with an opening bid), bid with quick buttons, a custom amount or your max bid, and watch the server-run lot timer with anti-snipe, "Going once / Going twice" and a SOLD stamp. The pool panel filters by position, rating, price, club and "Only players I can buy"; your pitch fills as you buy and you can swap players between legal slots. Rival budgets and max bids, a sales log, a watchlist with an alert when a starred player comes up, and chat sit in tabs. The host can pause, resume, skip a nomination, add 10 seconds, undo the last sale, end early (auto-fills every open slot) or reset, and hand a disconnected team to a bot. Bots bid and nominate on their own. When every team is full the auction ends by itself and the Team Reveal plays: each team's XI, prices, strength and a grade preview, then the league preview, then a short countdown to the season. On a phone the room becomes one column with tabs and a fixed bid bar at the bottom.
+
+The season (`/season/:code`): the server simulates and saves all 38 matchdays, then everyone watches them play out. Play, pause, 1x/2x/5x/Instant, jump to any matchday or skip to the end. In synchronized mode the host drives one shared clock; in own-pace mode each player has their own. Each matchday shows 10 result cards with live scores and scorers (auction teams first and highlighted); tap one for the minute-by-minute ticker. The live table has position arrows, form and coloured bands; Key Moments lists derbies, hat-tricks, big wins, upsets and new leaders. The host can Run It Back (same teams, new seed; earlier seasons stay viewable), anyone can simulate 2 to 10 more seasons for a titles table, and Expected Strength shows average points and title, top four and bottom three chances over 1,000 seasons. League Teams (`/league/:code`) ranks all 20 teams by strength from the moment the auction starts, and each links to its XI (`/team/:code/:teamId`). On a phone the season page becomes swipeable tabs (Results, Table, Moments, Seasons) with the playback bar fixed at the bottom.
 
 ## Accounts and admin
 
@@ -80,8 +82,10 @@ All changes go through REST (JSON, validated with the zod schemas in `packages/p
 | Host | `PATCH :code/settings`, `POST :code/bots`, `PATCH`/`DELETE :code/participants/:id`, `POST :code/host`, `PUT :code/order`, `POST :code/order/randomize`, `POST :code/start`, `POST :code/cancel` |
 | Auction | `POST :code/auction/nominate`, `POST :code/auction/bid`, `POST :code/lineup/swap`, `GET :code/watchlist`, `PUT`/`DELETE :code/watchlist/:playerId`, `GET :code/reveal` |
 | Auction host | `POST :code/auction/pause`, `/resume`, `/skip`, `/extend`, `/undo`, `/end`, `/reset`, `POST :code/participants/:id/control` (bot, auto-nominate or human), `POST :code/season/start` |
+| Season | `GET :code/season?number=N` (full season: fixtures, events, tables, key moments), `GET :code/season/expected`, `GET :code/season/multi?seasons=2..10&run=R`, `GET :code/league` (no login needed for these) |
+| Season host | `POST :code/season/playback` (`play`, `pause`, `speed`, `seek`, `end`), `POST :code/season/rerun` (Run It Back) |
 
-Socket.IO (path `/socket.io`, same cookie): the client emits `game:watch { code }` and gets the full snapshot in the reply, then receives `lobby:update`, `presence`, `chat:message`, `game:snapshot` (on start), `game:kicked`, `game:notice`, and during the auction `auction:state` (the full versioned auction view), `auction:bid` (a small delta per bid) and `auction:sold`. `time:sync` returns the server clock so countdowns agree across devices.
+Socket.IO (path `/socket.io`, same cookie): the client emits `game:watch { code }` and gets the full snapshot in the reply, then receives `lobby:update`, `presence`, `chat:message`, `game:snapshot` (on start), `game:kicked`, `game:notice`, during the auction `auction:state` (the full versioned auction view), `auction:bid` (a small delta per bid) and `auction:sold`, and during the season `season:playback` (the versioned shared playback clock). `time:sync` returns the server clock so countdowns agree across devices.
 
 ## Simulation CLI
 
@@ -125,15 +129,15 @@ A Dockerfile, docker-compose file and single-process production build (server se
 | `SESSION_SECRET` | dev-only value | Signs the `dd_session` cookie. Required in production (at least 16 characters); cookies are also marked Secure there |
 | `WEB_ORIGIN` | `http://localhost:5173` | Reserved, not read yet: in development Vite proxies `/api` and `/socket.io`, so the app is same-origin |
 
-M3 adds no environment variables. `.env` in the repo root is loaded automatically. Never commit it.
+M3 and M4 add no environment variables. `.env` in the repo root is loaded automatically. Never commit it.
 
 ## Layout
 
 ```
 packages/engine   pure game logic: positions, formations, prices, pool, lineups, auction rules, bots, clubs, fixtures, match and season sim, Monte Carlo, awards; Vitest tests
 packages/protocol API contract shared by server and web: zod request schemas, view types, socket events, limits
-apps/server       Fastify server: auth, games and lobby service, live auction service (serialized per game, server timers, bots), Socket.IO hub, admin routes, Drizzle schema (SQLite + Postgres mirror), migrations, seed
-apps/web          React + Vite + Tailwind client, mobile first: home, login, create, lobby, kickoff, auction room, Team Reveal, how to play
+apps/server       Fastify server: auth, games and lobby service, live auction service (serialized per game, server timers, bots), season service (simulate and store, playback clock, Run It Back, Monte Carlo), Socket.IO hub, admin routes, Drizzle schema (SQLite + Postgres mirror), migrations, seed
+apps/web          React + Vite + Tailwind client, mobile first: home, login, create, lobby, kickoff, auction room, Team Reveal, season, League Teams, team XI, how to play
 scripts/          seed, data validation, migrations, simulation CLI
 data/             supplied player and club data
 ```

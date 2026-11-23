@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import type { AuctionView, GameSnapshot, RevealTeam, RevealView, UserView } from '@deadline-day/protocol';
@@ -25,6 +25,15 @@ export function RevealPage() {
     if (snap?.game.status === 'lobby') void navigate(`/lobby/${code}`, { replace: true });
     else if (phase && phase !== 'complete') void navigate(`/auction/${code}`, { replace: true });
   }, [snap?.game.status, phase, code, navigate]);
+
+  // Watching the reveal when the season starts: go straight to it. Opened later, the page offers a link.
+  const sawPreseason = useRef(false);
+  const hasSeason = !!snap?.season;
+  useEffect(() => {
+    if (!snap) return;
+    if (!hasSeason) sawPreseason.current = true;
+    else if (sawPreseason.current) void navigate(`/season/${code}`);
+  }, [snap, hasSeason, code, navigate]);
 
   if (error) {
     return (
@@ -245,13 +254,25 @@ function SeasonCountdown({ snap, auction, me, now }: { snap: GameSnapshot; aucti
   const deadline = auction.countdownDeadline;
   const remaining = deadline ? deadline - now : null;
   // The countdown only shows for its last 10 seconds; before that the reveal plays.
+  if (snap.season) {
+    return (
+      <div className="flex flex-wrap gap-2 sm:justify-end">
+        <LinkButton to={`/league/${snap.game.code}`} variant="secondary" size="sm">
+          League Teams
+        </LinkButton>
+        <LinkButton to={`/season/${snap.game.code}`} variant="gold" size="sm">
+          Go to the season
+        </LinkButton>
+      </div>
+    );
+  }
   const label = held
     ? `Season countdown held by ${auction.paused!.byName}`
     : remaining !== null
       ? remaining > 10_000
         ? 'Season starts after the reveal'
         : `Season starts in ${seconds(remaining)}`
-      : 'The season simulation arrives in the next update';
+      : 'Waiting for the host to start the season';
   return (
     <div className="flex flex-col items-start gap-2 sm:items-end">
       <p className={cx('rounded-xl px-3 py-1 text-sm font-semibold', remaining !== null && remaining <= 10_000 && !held ? 'bg-gold-400 text-night-950' : 'bg-white/10 text-white/80')} role="timer">

@@ -33,6 +33,7 @@ import {
   runStallGuard,
   sellLot,
   swapTeamSlots,
+  withSimDefaults,
   type AuctionPlayer,
   type AuctionState,
   type BotLevel,
@@ -66,6 +67,7 @@ import type { Db } from '../db/client';
 import { bids, clubs, gamePool, games, lineupSlots, lots, participants, users, watchlist } from '../db/schema';
 import { ApiError, badRequest, conflict, forbidden, notFound } from '../errors';
 import type { ReferenceData } from './reference';
+import type { GameLeague } from './season';
 import { normalizeOrder, type GameRow, type GameService, type ParticipantRow } from './service';
 import type { Timers } from './timers';
 
@@ -155,6 +157,11 @@ export class AuctionService {
     private readonly opts: AuctionServiceOptions,
   ) {
     this.db = opts.db;
+  }
+
+  /** Run a task in this game's queue, after every auction action already queued (the season service uses it too). */
+  serialized<T>(gameId: string, task: () => T): Promise<T> {
+    return this.queue.run(gameId, task);
   }
 
   // -------------------------------------------------------------------------
@@ -925,18 +932,47 @@ export class AuctionService {
     audit(tx, { actorUserId: null, action: 'game.auction.complete', target: l.game.joinCode, gameId: l.game.id, details: { lots: l.lots.length + 1 } });
   }
 
-  /** M3 stops at the Team Reveal; the season simulation (M4) plugs in here. */
+  /** Simulate and save season 1, then hand over to season playback. */
   private seasonStart(l: Loaded, actorUserId: string | null): AuctionView {
-    const now = Date.now();
-    const playback = { ...((l.game.playbackState ?? {}) as Record<string, unknown>), seasonRequestedAt: now };
-    this.db.update(games).set({ countdownDeadline: null, playbackState: playback, updatedAt: now }).where(eq(games.id, l.game.id)).run();
-    audit(this.db, { actorUserId, action: 'game.season.start', target: l.game.joinCode, gameId: l.game.id, details: { simulated: false } });
-    this.games.broadcaster.notice(l.game.id, {
-      code: 'SEASON_PENDING',
-      level: 'info',
-      message: 'The season simulation is not built yet. It arrives with the next update.',
+    this.games.season.startFirst(l.game.id, this.leagueOf(l, false), actorUserId);
+    const view = this.afterChange(l.game.id);
+    this.games.broadcastLobby(l.game.id);
+    return view;
+  }
+
+  /** The 20 league teams as the auction stands. `partial` allows auction teams with open slots. */
+  gameLeague(gameId: string, partial: boolean): GameLeague {
+    return this.leagueOf(this.load(gameId), partial);
+  }
+
+  private leagueOf(l: Loaded, partial: boolean): GameLeague {
+    const app = this.games.appSettings();
+    const params = withSimDefaults(app.sim_params);
+    const rows = new Map(l.teams.map((t) => [t.id, t]));
+    const { teams } = buildLeague({
+      auctionTeams: l.state.teams.map((team) => ({ team, kind: rows.get(team.id)!.isBot ? ('bot' as const) : ('human' as const) })),
+      players: l.state.players,
+      clubs: this.opts.reference.clubSquads(),
+      aiClubIds: l.game.aiClubIds ?? [],
+      removeBought: l.settings.removeBoughtFromAi,
+      allowIncomplete: partial,
+      xiOptions: {
+        formations: app.formations_enabled,
+        compatibility: app.slot_compatibility,
+        outOfPositionPenalty: params.outOfPositionPenalty,
+        reserveRating: params.reserveRating,
+      },
     });
-    return this.afterChange(l.game.id);
+    const clubRows = new Map(this.db.select().from(clubs).all().map((c) => [c.id, c]));
+    const meta: GameLeague['meta'] = {};
+    for (const t of teams) {
+      const p = rows.get(t.id);
+      const c = clubRows.get(t.id);
+      meta[t.id] = p
+        ? { participantId: p.id, clubId: null, color: p.color ?? '#22c55e', secondaryColor: '#f8fafc', monogram: p.monogram ?? t.name.slice(0, 3).toUpperCase() }
+        : { participantId: null, clubId: t.id, color: c?.primaryColor ?? '#888888', secondaryColor: c?.secondaryColor ?? '#f8fafc', monogram: c?.monogram ?? t.name.slice(0, 3).toUpperCase() };
+    }
+    return { teams, meta, params };
   }
 
   /** Write every player status, budget and lineup slot that differs between the loaded state and `next`. */
@@ -1151,17 +1187,8 @@ export class AuctionService {
       throw conflict('NOT_COMPLETE', 'The Team Reveal starts when the auction is finished');
     }
     const l = this.load(game.id);
-    const app = this.games.appSettings();
-    const rows = new Map(l.teams.map((t) => [t.id, t]));
-    const { teams: league } = buildLeague({
-      auctionTeams: l.state.teams.map((team) => ({ team, kind: rows.get(team.id)!.isBot ? ('bot' as const) : ('human' as const) })),
-      players: l.state.players,
-      clubs: this.opts.reference.clubSquads(),
-      aiClubIds: game.aiClubIds ?? [],
-      removeBought: l.settings.removeBoughtFromAi,
-      xiOptions: { formations: app.formations_enabled, compatibility: app.slot_compatibility },
-    });
-    const ranked = rankLeague(league);
+    const { teams: league, params } = this.leagueOf(l, false);
+    const ranked = rankLeague(league, params);
     const rankById = new Map(ranked.map((r) => [r.id, r]));
     const clubRows = new Map(this.db.select().from(clubs).all().map((c) => [c.id, c]));
     const views = this.games.participantViewsFor(game);

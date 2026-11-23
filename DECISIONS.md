@@ -97,3 +97,26 @@ Choices the spec leaves open, one line each, newest milestone last.
 - Starting the season is a placeholder until M4: it clears the countdown, records the request, writes an audit entry and tells players the simulation arrives in the next update.
 - "Can buy" in the pool and the max-bid hints are an engine preview in the browser, recomputed only when the market changes. The server re-checks every bid and nomination.
 - Price and SOLD animations scale or slide without fading, so they stay readable if the browser pauses animations in a background tab.
+
+## M4: season
+
+- Playback position is counted in matchdays (0 = kick-off of matchday 1, 38 = final whistle). One matchday lasts 10 s at 1x, 5 s at 2x and 2 s at 5x. "Instant" shows each matchday straight at full time, one per second; "Skip to end" is a separate control.
+- Within a matchday the minutes tick over the first 85% of its time (`LIVE_SHARE`), then the results hold at full time so they can be read.
+- The client receives the whole simulated season at once and works out what to show from the clock. A determined user could read ahead in the network data; the screens never show anything early.
+- The latest season's champion is hidden on screen (history, banner) until playback reaches the final whistle, even though the lobby data names it.
+- Synchronized mode: the host's clock is stored in `games.playback_state` with a version, and the server timer moves the game from `simulating` to `completed` when playback ends. Own-pace mode: the game becomes `completed` at once and each browser keeps its own clock in localStorage.
+- Replaying a finished season (play from the start, seek back) never moves a completed game back to `simulating`.
+- In synchronized mode, non-host players can still step to any matchday to look around; "Back to live" returns them to the host's clock.
+- Every host playback control is written to the audit log as `game.playback.<action>`; the season finishing is `game.season.complete`.
+- A game cannot be cancelled once a season has been simulated.
+- Seeds: season n uses `deriveSeed(game seed, 'season', n)`, Expected Strength uses `deriveSeed(game seed, 'expected')`, and multi-season run r uses `deriveSeed(game seed, 'multiseason', r)`.
+- Each season team stores its engine id and its order in the league, so any season can be re-simulated exactly from the stored seed and lineups.
+- Run It Back keeps the same 20 teams and uses the current simulation settings. A game can have at most 25 seasons.
+- Multi-season (2 to 10 seasons) and Expected Strength are not stored. Expected Strength runs 1,000 seasons in slices of 100 so other games keep running, and the result is cached in memory per season. Stored season views are cached in memory too (at most 40).
+- New app settings `sim_params` and `table_bands` (admin UI in M6). Default bands: Champions (1), Top four (2-4), Europe (5-6), Bottom three (18-20).
+- Key Moments: a derby (two auction teams meet) appears at kick-off; a hat-trick appears at the minute of the third goal; a 4+ goal margin, an upset and a new leader appear at full time.
+- An upset is a team at least 6 places lower beating a top-5 side, using the table before that matchday, or the pre-season strength ranks on matchday 1.
+- The League Teams page opens when the auction starts. During the auction, auction teams are rated on the players bought so far and marked provisional until they have 11.
+- Chemistry is off by default in the simulation settings, so the Chem column shows "-" with a note.
+- The Expected Strength bar colour is pitch-600 (#179a53), checked with the dataviz palette validator against the card surface.
+- On a phone, the table drops the "Auction" tag and marks auction teams with a bold name on a tinted row, explained in the key under the table.

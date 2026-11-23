@@ -28,8 +28,9 @@ export function AuctionPage() {
 
   useEffect(() => {
     if (snap?.game.status === 'lobby') void navigate(`/lobby/${code}`, { replace: true });
+    else if (snap?.season) void navigate(`/season/${code}`, { replace: true });
     else if (phase === 'complete') void navigate(`/reveal/${code}`, { replace: true });
-  }, [snap?.game.status, phase, code, navigate]);
+  }, [snap?.game.status, snap?.season, phase, code, navigate]);
 
   if (error) {
     return (
@@ -172,6 +173,9 @@ function AuctionRoom({ snap, auction, me }: { snap: GameSnapshot; auction: Aucti
             <div className="h-full rounded-full bg-pitch-400 transition-all" style={{ width: `${progress}%` }} />
           </div>
         </div>
+        <LinkButton to={`/league/${snap.game.code}`} variant="ghost" size="sm">
+          League Teams
+        </LinkButton>
         {canHost && (
           <Button variant="secondary" size="sm" onClick={() => setHostOpen(true)}>
             Host controls
