@@ -1,12 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router';
-import { useQuery } from '@tanstack/react-query';
-import type { GameSnapshot, SeasonInfo, SeasonView, UserView } from '@deadline-day/protocol';
+import type { GameSnapshot, SeasonInfo, UserView } from '@deadline-day/protocol';
 import { useMe } from '../lib/auth';
-import { get } from '../lib/api';
-import { indexSeason, ordinal } from '../lib/season';
+import { ordinal } from '../lib/season';
 import { useGame } from '../hooks/useGame';
 import { usePlayback } from '../hooks/usePlayback';
+import { useSeasonView } from '../hooks/useSeasonView';
 import { useMediaQuery } from '../hooks/useClock';
 import { LinkButton, Pill, Skeleton } from '../components/ui';
 import { SwipeTabs } from '../components/SwipeTabs';
@@ -16,6 +15,7 @@ import { PlaybackBar, PlaybackCard } from './season/Playback';
 import { MatchdayResults, TickerModal } from './season/Results';
 import { LeagueTable } from './season/Table';
 import { TeamName, Trophy } from './season/parts';
+import { RematchBanner } from './Results';
 
 export function SeasonPage() {
   const params = useParams();
@@ -62,12 +62,8 @@ function SeasonRoom({ snap, info, me }: { snap: GameSnapshot; info: SeasonInfo; 
   const wide = useMediaQuery('(min-width: 1024px)');
   const [fixtureId, setFixtureId] = useState<number | null>(null);
 
-  const q = useQuery({
-    queryKey: ['season', code, viewing],
-    queryFn: () => get<{ season: SeasonView }>(`/api/games/${code}/season?number=${viewing}`).then((r) => r.season),
-    staleTime: Infinity,
-  });
-  const index = useMemo(() => (q.data ? indexSeason(q.data) : null), [q.data]);
+  const q = useSeasonView(code, viewing);
+  const index = q.index;
   const p = usePlayback({ code, shared: info.playback, viewing, isHost });
 
   const onView = (n: number | null) => {
@@ -126,6 +122,8 @@ function SeasonRoom({ snap, info, me }: { snap: GameSnapshot; info: SeasonInfo; 
         </nav>
       </header>
 
+      {snap.game.rematchCode && <RematchBanner code={snap.game.rematchCode} />}
+
       {champion && (
         <div className="mb-4 flex flex-wrap items-center gap-3 rounded-2xl bg-gold-400 px-4 py-3 text-night-950 shadow-lg shadow-gold-400/20 motion-safe:animate-[rise_0.4s_ease-out]" role="status">
           <Trophy className="size-8" />
@@ -134,10 +132,17 @@ function SeasonRoom({ snap, info, me }: { snap: GameSnapshot; info: SeasonInfo; 
             <p className="truncate font-display text-2xl font-bold uppercase">{champion.name}</p>
           </div>
           {myRow && myTeam && myTeam.id !== champion.id && (
-            <p className="ml-auto text-sm font-medium">
+            <p className="text-sm font-medium sm:ml-auto">
               {myTeam.name} finished {ordinal(myRow.position)} with {myRow.points} points
             </p>
           )}
+          <LinkButton
+            to={`/results/${code}${viewing === latest ? '' : `?s=${viewing}`}`}
+            size="sm"
+            className={`w-full sm:w-auto ${myRow && myTeam && myTeam.id !== champion.id ? '' : 'sm:ml-auto'}`}
+          >
+            See awards and grades
+          </LinkButton>
         </div>
       )}
 

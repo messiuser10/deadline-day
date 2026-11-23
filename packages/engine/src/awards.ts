@@ -120,8 +120,9 @@ function ratingByOverall(stats: readonly PlayerSeasonStat[]): (overall: number) 
   return (overall) => my + slope * (overall - mx);
 }
 
+/** Works on a fresh simulation or on a stored season: only the champion and the player stats are read. */
 export function computeAwards(
-  season: SeasonResult,
+  season: Pick<SeasonResult, 'championId' | 'playerStats'>,
   purchases: readonly Purchase[] = [],
   priceParams: PriceParams = DEFAULT_PRICE_PARAMS,
 ): SeasonAwards {

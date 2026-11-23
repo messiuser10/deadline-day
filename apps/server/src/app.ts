@@ -10,6 +10,7 @@ import { poolPlayers } from './db/schema';
 import { installErrorHandler } from './errors';
 import { ReferenceData } from './games/reference';
 import { registerAuctionRoutes } from './games/auctionRoutes';
+import { registerResultsRoutes } from './games/resultsRoutes';
 import { registerSeasonRoutes } from './games/seasonRoutes';
 import { registerGameRoutes } from './games/routes';
 import { GameService } from './games/service';
@@ -80,6 +81,7 @@ export function buildApp(options: AppOptions): DeadlineDayApp {
   registerGameRoutes(app, games);
   registerAuctionRoutes(app, games);
   registerSeasonRoutes(app, games);
+  registerResultsRoutes(app, games, db);
   registerAdminRoutes(app, db);
 
   app.addHook('preClose', async () => {

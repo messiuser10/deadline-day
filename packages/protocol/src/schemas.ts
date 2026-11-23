@@ -200,3 +200,13 @@ export const multiSeasonQuerySchema = z.object({
   run: z.coerce.number().int().min(1).max(10_000).default(1),
 });
 export type MultiSeasonQuery = z.input<typeof multiSeasonQuerySchema>;
+
+export const EXPORT_TABLES = ['table', 'fixtures', 'players', 'grades'] as const;
+export const exportQuerySchema = z.object({
+  format: z.enum(['json', 'csv']).default('json'),
+  table: z.enum(EXPORT_TABLES).default('table'),
+  number: z.coerce.number().int().min(1).max(10_000).optional(),
+});
+export type ExportQuery = z.output<typeof exportQuerySchema>;
+
+export const hallOfFameQuerySchema = z.object({ before: z.coerce.number().int().positive().optional() });

@@ -1,13 +1,14 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { joinCodeSchema, type PublicLobby } from '@deadline-day/protocol';
+import { joinCodeSchema, type HallOfFameView, type PublicLobby } from '@deadline-day/protocol';
 import { errorMessage, get, post } from '../lib/api';
 import { useMe } from '../lib/auth';
 import { plural } from '../lib/format';
 import { Button, Card, CardTitle, ErrorText, Input, LinkButton, Modal, Skeleton } from '../components/ui';
 import { SignInGate } from '../components/SignInGate';
 import { randomTeamDraft } from '../components/team';
+import { HallEntry } from './HallOfFame';
 
 export function HomePage() {
   const navigate = useNavigate();
@@ -20,6 +21,12 @@ export function HomePage() {
     queryKey: ['public-lobbies'],
     queryFn: async () => (await get<{ lobbies: PublicLobby[] }>('/api/games/public')).lobbies,
     refetchInterval: 10_000,
+  });
+
+  const hall = useQuery({
+    queryKey: ['hall-of-fame', 'home'],
+    queryFn: async () => (await get<{ hallOfFame: HallOfFameView }>('/api/hall-of-fame')).hallOfFame.games.slice(0, 2),
+    staleTime: 60_000,
   });
 
   const solo = useMutation({
@@ -137,10 +144,25 @@ export function HomePage() {
 
         <div className="flex flex-col gap-4">
           <Card>
-            <CardTitle>Hall of Fame</CardTitle>
-            <p className="rounded-xl bg-night-950/40 px-4 py-6 text-center text-sm text-white/50">
-              No champions yet. Win a season to put your name here.
-            </p>
+            <CardTitle action={<Link to="/leaderboard" className="text-xs text-pitch-400 hover:underline">Leaderboard</Link>}>Hall of Fame</CardTitle>
+            {hall.isLoading ? (
+              <Skeleton className="h-28" />
+            ) : hall.data?.length ? (
+              <ul className="flex flex-col gap-2">
+                {hall.data.map((e, i) => (
+                  <li key={`${e.gameCode ?? 'private'}-${i}`}>
+                    <HallEntry e={e} compact />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="rounded-xl bg-night-950/40 px-4 py-6 text-center text-sm text-white/50">
+                No champions yet. Win a season to put your name here.
+              </p>
+            )}
+            <LinkButton to="/hall-of-fame" variant="secondary" size="sm" className="mt-3 w-full">
+              Hall of Fame and record book
+            </LinkButton>
           </Card>
           <Card className="flex items-center justify-between gap-3">
             <div>

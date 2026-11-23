@@ -70,12 +70,12 @@ export interface GameLeague {
   params: SimParams;
 }
 
-type SeasonRow = typeof seasons.$inferSelect;
-type SeasonTeamRow = typeof seasonTeams.$inferSelect;
+export type SeasonRow = typeof seasons.$inferSelect;
+export type SeasonTeamRow = typeof seasonTeams.$inferSelect;
 type Tx = Parameters<Parameters<Db['transaction']>[0]>[0];
 
 /** season_teams.lineup: the XI exactly as simulated, plus what the views need. */
-interface StoredLineup {
+export interface StoredLineup {
   /** League team id used by the engine (participant id or club id); the same in every season of a game. */
   sourceId: string;
   /** Position in the engine's team list; fixtures depend on it, so a season can be reproduced exactly. */
@@ -107,7 +107,7 @@ const VIEW_CACHE = 40;
 const timerKey = (gameId: string) => `playback:${gameId}`;
 const round1 = (n: number) => Math.round(n * 10) / 10;
 const round3 = (n: number) => Math.round(n * 1000) / 1000;
-const lineupOf = (t: SeasonTeamRow) => t.lineup as unknown as StoredLineup;
+export const lineupOf = (t: SeasonTeamRow) => t.lineup as unknown as StoredLineup;
 
 function playerView(p: LeaguePlayer): SeasonPlayerView {
   return {
@@ -139,7 +139,7 @@ export class SeasonService {
   // -------------------------------------------------------------------------
   // Reading
 
-  private seasonRows(gameId: string): SeasonRow[] {
+  seasonRows(gameId: string): SeasonRow[] {
     return this.db.select().from(seasons).where(eq(seasons.gameId, gameId)).orderBy(asc(seasons.seasonNumber)).all();
   }
 
@@ -156,7 +156,7 @@ export class SeasonService {
     return row;
   }
 
-  private teamsOf(seasonId: string): SeasonTeamRow[] {
+  teamsOf(seasonId: string): SeasonTeamRow[] {
     return this.db.select().from(seasonTeams).where(eq(seasonTeams.seasonId, seasonId)).all();
   }
 
@@ -339,6 +339,8 @@ export class SeasonService {
         details: { season: number, seed, seasonId, champion: league.teams.find((t) => t.id === result.championId)?.name ?? null, mode },
       });
     });
+    // Own-pace games are completed at once, so their official result is published now.
+    if (mode !== 'synchronized') this.games.results.publish(game.id);
     this.syncTimer(game.id);
   }
 
@@ -515,6 +517,7 @@ export class SeasonService {
     const view: PlaybackView = { ...current, ...next, version: Math.max(now, current.version + 1) };
     const stored: StoredPlayback = { ...((g.playbackState ?? {}) as Partial<StoredPlayback>), ...view };
     this.db.update(games).set({ playbackState: stored as unknown as Record<string, unknown>, status, updatedAt: now }).where(eq(games.id, g.id)).run();
+    if (status === 'completed' && g.status !== 'completed') this.games.results.publish(g.id);
     this.games.broadcaster.seasonPlayback(g.id, view);
     if (status !== g.status) this.games.broadcastLobby(g.id);
     this.syncTimer(g.id);

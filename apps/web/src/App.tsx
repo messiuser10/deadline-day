@@ -5,11 +5,15 @@ import { Toaster } from './components/Toaster';
 import { LinkButton } from './components/ui';
 import { AuctionPage } from './pages/Auction';
 import { CreatePage } from './pages/Create';
+import { HallOfFamePage } from './pages/HallOfFame';
 import { HomePage } from './pages/Home';
 import { HowToPlayPage } from './pages/HowToPlay';
 import { LeaguePage, TeamPage } from './pages/League';
+import { LeaderboardPage } from './pages/Leaderboard';
 import { LobbyPage } from './pages/Lobby';
 import { LoginPage } from './pages/Login';
+import { MyProfilePage, UserProfilePage } from './pages/Profile';
+import { ResultsPage } from './pages/Results';
 import { RevealPage } from './pages/Reveal';
 import { SeasonPage } from './pages/Season';
 
@@ -70,6 +74,11 @@ export function App() {
           <Route path="/season/:code" element={<SeasonPage />} />
           <Route path="/league/:code" element={<LeaguePage />} />
           <Route path="/team/:code/:teamId" element={<TeamPage />} />
+          <Route path="/results/:code" element={<ResultsPage />} />
+          <Route path="/profile" element={<MyProfilePage />} />
+          <Route path="/profile/:username" element={<UserProfilePage />} />
+          <Route path="/hall-of-fame" element={<HallOfFamePage />} />
+          <Route path="/leaderboard" element={<LeaderboardPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         </ErrorBoundary>

@@ -3,6 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import type { LeagueTeamRow, LeagueView } from '@deadline-day/protocol';
 import { get } from '../lib/api';
 import { useGame } from '../hooks/useGame';
+import { useMe } from '../lib/auth';
+import { SeasonTeamPage } from './team/SeasonTeam';
 import { Card, CardTitle, cx, LinkButton, Pill, Skeleton } from '../components/ui';
 import { SeasonPitch, TeamName } from './season/parts';
 
@@ -103,6 +105,15 @@ function LeagueRow({ team: t, code, chemOn }: { team: LeagueTeamRow; code: strin
 }
 
 export function TeamPage() {
+  const params = useParams();
+  const { snapshot: snap } = useGame(params.code ?? '');
+  const { data: me } = useMe();
+  if (snap?.season) return <SeasonTeamPage snap={snap} me={me} teamId={params.teamId ?? ''} />;
+  return <AuctionTeamPage />;
+}
+
+/** Before any season: the team as the auction has built it so far. */
+function AuctionTeamPage() {
   const params = useParams();
   const { code, snapshot: snap } = useGame(params.code ?? '');
   const live = !!snap && ['auctioning', 'paused'].includes(snap.game.status);

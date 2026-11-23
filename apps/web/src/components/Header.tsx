@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { useLogout, useMe, usePublicSettings } from '../lib/auth';
 import { useConnection } from '../lib/socket';
@@ -11,7 +11,23 @@ export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [open, setOpen] = useState(false);
+  const menu = useRef<HTMLDivElement>(null);
   const loginHref = `/login?next=${encodeURIComponent(location.pathname)}`;
+
+  // Close the account menu on a tap or click outside it, or on Escape (phones have no mouse-leave).
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: PointerEvent) => {
+      if (!menu.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    document.addEventListener('pointerdown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
 
   return (
     <>
@@ -25,11 +41,17 @@ export function Header() {
             <span className="hidden min-[360px]:inline">Deadline Day</span>
           </Link>
           <nav className="flex items-center gap-1">
+            <Link to="/hall-of-fame" className="hidden rounded-lg px-3 py-2 text-sm text-white/70 hover:text-white md:block">
+              Hall of Fame
+            </Link>
+            <Link to="/leaderboard" className="hidden rounded-lg px-3 py-2 text-sm text-white/70 hover:text-white md:block">
+              Leaderboard
+            </Link>
             <Link to="/how-to-play" className="hidden rounded-lg px-3 py-2 text-sm text-white/70 hover:text-white sm:block">
               How to play
             </Link>
             {me ? (
-              <div className="relative">
+              <div className="relative" ref={menu}>
                 <button
                   type="button"
                   onClick={() => setOpen((v) => !v)}
@@ -43,6 +65,19 @@ export function Header() {
                 </button>
                 {open && (
                   <div className="absolute right-0 mt-2 w-56 rounded-xl bg-night-800 p-2 shadow-2xl ring-1 ring-white/10" onMouseLeave={() => setOpen(false)}>
+                    <MenuLink to="/profile" onClick={() => setOpen(false)}>
+                      My profile
+                    </MenuLink>
+                    <MenuLink to="/hall-of-fame" onClick={() => setOpen(false)} className="md:hidden">
+                      Hall of Fame
+                    </MenuLink>
+                    <MenuLink to="/leaderboard" onClick={() => setOpen(false)} className="md:hidden">
+                      Leaderboard
+                    </MenuLink>
+                    <MenuLink to="/how-to-play" onClick={() => setOpen(false)} className="sm:hidden">
+                      How to play
+                    </MenuLink>
+                    <div className="my-1 h-px bg-white/10" />
                     {me.isGuest && (
                       <Link to={`${loginHref}&tab=register`} onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2 text-sm hover:bg-white/10">
                         Save progress: create an account
@@ -68,6 +103,14 @@ export function Header() {
         </div>
       </header>
     </>
+  );
+}
+
+function MenuLink({ to, onClick, className, children }: { to: string; onClick: () => void; className?: string; children: string }) {
+  return (
+    <Link to={to} onClick={onClick} className={cx('block rounded-lg px-3 py-2 text-sm hover:bg-white/10', className)}>
+      {children}
+    </Link>
   );
 }
 

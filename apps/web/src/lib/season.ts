@@ -31,6 +31,9 @@ export function indexSeason(view: SeasonView): SeasonIndex {
   };
 }
 
+/** Team page key that survives Run It Back: participant for auction teams, club for AI clubs. */
+export const teamKey = (t: SeasonTeamView) => t.participantId ?? t.clubId ?? t.id;
+
 export const isAuctionTeam = (t: SeasonTeamView | undefined) => !!t && t.kind !== 'ai';
 
 /** Events that have happened by `minute` (all of them at full time). */

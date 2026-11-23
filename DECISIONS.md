@@ -120,3 +120,22 @@ Choices the spec leaves open, one line each, newest milestone last.
 - Chemistry is off by default in the simulation settings, so the Chem column shows "-" with a note.
 - The Expected Strength bar colour is pitch-600 (#179a53), checked with the dataviz palette validator against the card surface.
 - On a phone, the table drops the "Auction" tag and marks auction teams with a bold name on a tinted row, explained in the key under the table.
+
+## M5: results
+
+- Season 1 is a game's official result. It goes into `game_results` once, when the game first reaches `completed` (end of playback in synchronized mode, at once in own-pace mode). Games finished before M5 are backfilled at server start. Run It Back seasons never count for profiles, the Hall of Fame, the leaderboard or records.
+- Awards are worked out from the stored player stats and lineups (no re-simulation) and cached on the season row (`seasons.awards`).
+- Auction grade weights: pre-season strength rank 35%, final position 45%, market value bought per budget 20%. Purchases use market values frozen when the auction started.
+- Best bargain is the purchase with the lowest price to market value ratio, ignoring players auto-filled at base price. Auto-filled players are still tagged (Steal, Fair or Overpay).
+- Head to head covers every pair of auction teams: both meetings this season, plus the all-time record across every season of the game when there is more than one.
+- Results, team stats, awards and grades stay hidden until the viewer's playback reaches the final whistle, like the champion. The results header says "Season N results" so it gives nothing away before then.
+- Confetti plays once per browser session per season (sessionStorage) and never under reduced motion.
+- The share image is drawn on a canvas in the browser (1080x1350 PNG, no libraries). Copy Summary is plain text: champion, every auction team's finish, points and grade, and the awards.
+- Rematch opens a new lobby with the same name, settings (checked against the current app settings) and host, and adds the same managers and bots. Humans start not ready, banned users are left out and a disabled formation falls back to the first enabled one. Pressing it again returns the same lobby. The old game links to it.
+- Export (JSON or CSV for table, fixtures, players or grades) is for the host and admins, is audited as `game.export`, and CSV cells that start with `=`, `+`, `-` or `@` are prefixed with `'` so spreadsheets do not run them.
+- A private game's code and name are shown only to its participants and admins. Its results still count in the leaderboard and record book, with the game unnamed; the Hall of Fame lists only games the viewer may see.
+- The leaderboard ranks registered, unbanned users by titles, then average finish (then more games); equal titles and average share a rank. It shows the top 100. Guests can see their own profile but are not ranked.
+- Profile trophies: each league title, plus Golden Boot, Playmaker, Golden Glove, Player of the Season and Best Buy when the winning player was on your team.
+- The record book keeps the top 5 for most points in a season, most goals by a bought player and best goal difference, counting auction teams only.
+- Team page links use the participant id (auction teams) or club id (AI clubs), so the same link works for every season of a game; `?s=N` picks the season.
+- The form timeline is league position after each matchday plus a W/D/L strip, in the same validated green (#179a53) as the other single-series charts.

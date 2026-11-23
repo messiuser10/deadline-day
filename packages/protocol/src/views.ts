@@ -1,5 +1,5 @@
 /** Shapes the server sends: REST responses, the game snapshot, and Socket.IO events. */
-import type { FormationId, Group, KeyMomentKind, Position, SlotType } from '@deadline-day/engine';
+import type { FormationId, FormResult, Grade, Group, KeyMomentKind, Position, PurchaseTag, SlotType } from '@deadline-day/engine';
 import type { GameLimits } from './limits';
 import type { PlaybackClock } from './playback';
 import type { GameSettings } from './schemas';
@@ -121,6 +121,8 @@ export interface GameView {
   nominationOrder: string[];
   /** Start countdown deadline (epoch ms) while the 5-second countdown runs. */
   countdownDeadline: number | null;
+  /** Join code of the rematch lobby once the host has started one. */
+  rematchCode: string | null;
   createdAt: number;
 }
 
@@ -544,4 +546,238 @@ export interface LeagueView {
   /** Season the teams come from, or null while the auction runs. */
   season: number | null;
   teams: LeagueTeamRow[];
+}
+
+// ---------------------------------------------------------------------------
+// Results (M5): awards, auction grades, team reports and head to head. Team ids are season team ids;
+// names, colours and the final table come from the SeasonView of the same season.
+
+export interface AwardPlayerView {
+  ref: string;
+  name: string;
+  teamId: string;
+  value: number;
+}
+
+export interface BuyAwardView extends AwardPlayerView {
+  priceM: number;
+  /** Rating his price implied, and his season average minus that. */
+  impliedRating: number;
+  gap: number;
+}
+
+export interface TeamOfSeasonSlotView {
+  slotKey: string;
+  slotType: SlotType;
+  ref: string;
+  name: string;
+  teamId: string;
+  avgRating: number;
+}
+
+export interface SeasonAwardsView {
+  championId: string;
+  goldenBoot: AwardPlayerView | null;
+  playmaker: AwardPlayerView | null;
+  goldenGlove: AwardPlayerView | null;
+  playerOfTheSeason: AwardPlayerView | null;
+  teamOfTheSeason: { formation: FormationId; slots: TeamOfSeasonSlotView[] };
+  bestBuy: BuyAwardView | null;
+  biggestOverpay: BuyAwardView | null;
+}
+
+export interface PurchaseView {
+  ref: string;
+  name: string;
+  position: Position;
+  slotKey: string;
+  overall: number;
+  priceM: number;
+  marketValueM: number;
+  tag: PurchaseTag;
+  autoFilled: boolean;
+}
+
+export interface AuctionGradeView {
+  teamId: string;
+  participantId: string;
+  grade: Grade;
+  score: number;
+  /** 0..1 parts of the score: pre-season strength rank, final position, market value bought per dollar. */
+  strengthScore: number;
+  finishScore: number;
+  valueScore: number;
+  preRank: number;
+  finalPosition: number;
+  budgetM: number;
+  spentM: number;
+  leftM: number;
+  purchases: PurchaseView[];
+  mostExpensive: PurchaseView | null;
+  /** Lowest price against market value among players won at auction. */
+  bestBargain: PurchaseView | null;
+}
+
+export interface PlayerStatView {
+  ref: string;
+  name: string;
+  teamId: string;
+  /** Slot in the XI, or null for injury cover. */
+  slotKey: string | null;
+  appearances: number;
+  goals: number;
+  assists: number;
+  cleanSheets: number;
+  yellows: number;
+  reds: number;
+  avgRating: number;
+}
+
+export interface SplitView {
+  played: number;
+  won: number;
+  drawn: number;
+  lost: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  points: number;
+}
+
+export interface TeamReportView {
+  teamId: string;
+  positions: number[];
+  results: FormResult[];
+  home: SplitView;
+  away: SplitView;
+  biggestWin: { fixtureId: number; matchday: number; opponentId: string; home: boolean; goalsFor: number; goalsAgainst: number } | null;
+  longestUnbeaten: { length: number; from: number; to: number } | null;
+  topScorer: { ref: string; name: string; goals: number } | null;
+}
+
+export interface HeadToHeadView {
+  aId: string;
+  bId: string;
+  /** Both meetings this season, in matchday order. */
+  legs: { fixtureId: number; matchday: number; homeId: string; awayId: string; homeGoals: number; awayGoals: number }[];
+  /** Every meeting across all seasons of this game, counted from team a's side. */
+  allTime: { seasons: number; played: number; aWins: number; draws: number; bWins: number; aGoals: number; bGoals: number };
+}
+
+export interface ResultsView {
+  number: number;
+  /** Season 1 is the official result that counts on profiles and the leaderboard. */
+  official: boolean;
+  awards: SeasonAwardsView;
+  /** Auction teams, best final position first. */
+  grades: AuctionGradeView[];
+  players: PlayerStatView[];
+  reports: TeamReportView[];
+  headToHead: HeadToHeadView[];
+}
+
+// ---------------------------------------------------------------------------
+// Profiles, Hall of Fame, leaderboard and record book
+
+export interface ResultTeamView {
+  name: string;
+  color: string;
+  monogram: string;
+  kind: 'human' | 'bot' | 'ai';
+  managerName: string | null;
+}
+
+export interface ProfileGameView {
+  /** Null for a private game the viewer did not play in. */
+  gameCode: string | null;
+  gameName: string;
+  teamName: string;
+  color: string;
+  monogram: string;
+  position: number;
+  points: number;
+  grade: Grade;
+  champion: boolean;
+  auctionTeams: number;
+  playedAt: number;
+}
+
+export type TrophyKind = 'title' | 'golden_boot' | 'playmaker' | 'golden_glove' | 'player_of_the_season' | 'best_buy';
+
+export interface TrophyView {
+  kind: TrophyKind;
+  /** e.g. "Golden Boot: Kane, 31 goals". */
+  detail: string;
+  teamName: string;
+  gameCode: string | null;
+  gameName: string;
+  at: number;
+}
+
+export interface ProfileStats {
+  games: number;
+  titles: number;
+  topFour: number;
+  avgFinish: number | null;
+  bestGrade: Grade | null;
+}
+
+export interface ProfileView {
+  username: string;
+  displayName: string;
+  isGuest: boolean;
+  joinedAt: number;
+  stats: ProfileStats;
+  trophies: TrophyView[];
+  games: ProfileGameView[];
+}
+
+export interface HallOfFameEntry {
+  gameCode: string | null;
+  gameName: string;
+  playedAt: number;
+  auctionTeams: number;
+  /** League champion (may be an AI club). */
+  champion: ResultTeamView & { points: number };
+  /** Best-placed auction team. */
+  bestAuctionTeam: ResultTeamView & { position: number; points: number; grade: Grade };
+}
+
+export interface HallOfFameView {
+  games: HallOfFameEntry[];
+  /** Pass as ?before= for the next page; null at the end. */
+  nextBefore: number | null;
+}
+
+export interface LeaderboardRow {
+  rank: number;
+  username: string;
+  displayName: string;
+  games: number;
+  titles: number;
+  topFour: number;
+  avgFinish: number;
+  bestGrade: Grade;
+}
+
+export interface LeaderboardView {
+  rows: LeaderboardRow[];
+}
+
+export interface RecordEntry {
+  value: number;
+  /** Player name for player records, else the team name. */
+  holder: string;
+  teamName: string;
+  color: string;
+  monogram: string;
+  managerName: string | null;
+  gameCode: string | null;
+  gameName: string;
+  at: number;
+}
+
+export interface RecordBookView {
+  mostPoints: RecordEntry[];
+  mostGoalsByBoughtPlayer: RecordEntry[];
+  bestGoalDifference: RecordEntry[];
 }

@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import type { TableBand, TableBandTone } from '@deadline-day/protocol';
 import { Card, CardTitle, cx, Pill } from '../../components/ui';
-import { movement, tableAfter, type SeasonIndex } from '../../lib/season';
+import { movement, tableAfter, teamKey, type SeasonIndex } from '../../lib/season';
 import { FormGuide, TeamName, Trophy } from './parts';
 
 const BAND_BAR: Record<TableBandTone, string> = {
@@ -53,7 +53,7 @@ export function LeagueTable({ index, completed, code, finished, compact = false 
                     </span>
                   </td>
                   <td className="max-w-0 py-1.5">
-                    <Link to={`/team/${code}/${r.teamId}`} className="flex min-w-0 items-center gap-1.5 hover:underline">
+                    <Link to={`/team/${code}/${team ? teamKey(team) : r.teamId}?s=${index.view.number}`} className="flex min-w-0 items-center gap-1.5 hover:underline">
                       <TeamName team={team} tag="wide" />
                       {champion && <Trophy className="shrink-0 text-gold-400" />}
                     </Link>

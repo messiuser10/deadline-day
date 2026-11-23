@@ -139,6 +139,10 @@ export const games = sqliteTable(
     strengthSnapshot: json<Record<string, unknown>>('strength_snapshot'),
     aiClubIds: json<string[]>('ai_club_ids'),
     playbackState: json<Record<string, unknown>>('playback_state'),
+    /** First time the game reached completed; its official results are published then (game_results). */
+    completedAt: integer('completed_at', { mode: 'number' }),
+    /** Join code of the rematch lobby, once the host starts one. */
+    rematchCode: text('rematch_code'),
     createdAt: createdAt(),
     updatedAt: integer('updated_at', { mode: 'number' })
       .notNull()
@@ -287,6 +291,8 @@ export const seasons = sqliteTable(
       .default('pending'),
     parametersSnapshot: json<Record<string, unknown>>('parameters_snapshot').notNull(),
     championSeasonTeamId: text('champion_season_team_id'),
+    /** Awards worked out from the stored stats, saved the first time they are asked for. */
+    awards: json<Record<string, unknown>>('awards'),
     createdAt: createdAt(),
   },
   (t) => [uniqueIndex('seasons_game_number_uq').on(t.gameId, t.seasonNumber)],
@@ -399,6 +405,51 @@ export const playerSeasonStats = sqliteTable(
 
 // ---------------------------------------------------------------------------
 // Settings, audit, chat
+
+// Official results: one row per auction team of a completed game (season 1), for profiles,
+// the leaderboard, the Hall of Fame and the record book.
+export const gameResults = sqliteTable(
+  'game_results',
+  {
+    id: id(),
+    gameId: text('game_id')
+      .notNull()
+      .references(() => games.id, { onDelete: 'cascade' }),
+    seasonId: text('season_id')
+      .notNull()
+      .references(() => seasons.id, { onDelete: 'cascade' }),
+    seasonTeamId: text('season_team_id')
+      .notNull()
+      .references(() => seasonTeams.id, { onDelete: 'cascade' }),
+    participantId: text('participant_id')
+      .notNull()
+      .references(() => participants.id, { onDelete: 'cascade' }),
+    userId: text('user_id').references(() => users.id, { onDelete: 'set null' }),
+    isBot: bool('is_bot').notNull().default(false),
+    teamName: text('team_name').notNull(),
+    color: text('color').notNull(),
+    monogram: text('monogram').notNull(),
+    position: integer('position').notNull(),
+    points: integer('points').notNull(),
+    won: integer('won').notNull(),
+    drawn: integer('drawn').notNull(),
+    lost: integer('lost').notNull(),
+    goalsFor: integer('goals_for').notNull(),
+    goalsAgainst: integer('goals_against').notNull(),
+    goalDifference: integer('goal_difference').notNull(),
+    preRank: integer('pre_rank').notNull(),
+    grade: text('grade').notNull(),
+    gradeScore: real('grade_score').notNull(),
+    spentM: integer('spent_m').notNull(),
+    budgetM: integer('budget_m').notNull(),
+    champion: bool('champion').notNull().default(false),
+    createdAt: createdAt(),
+  },
+  (t) => [
+    uniqueIndex('game_results_game_participant_uq').on(t.gameId, t.participantId),
+    index('game_results_user_idx').on(t.userId),
+  ],
+);
 
 export const appSettings = sqliteTable('app_settings', {
   key: text('key').primaryKey(),

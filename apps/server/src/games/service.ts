@@ -48,6 +48,7 @@ import { readAppSettings } from '../settings/store';
 import { findProfanity, maskProfanity } from '../text/profanity';
 import { AuctionService } from './auction';
 import { cryptoShuffle, randomJoinCode } from './codes';
+import { ResultsService } from './results';
 import { SeasonService } from './season';
 import { selectAiClubIds, type RankedClub, type ReferenceData } from './reference';
 import type { Timers } from './timers';
@@ -115,6 +116,7 @@ export class GameService {
   broadcaster: Broadcaster = SILENT;
   readonly auction: AuctionService;
   readonly season: SeasonService;
+  readonly results: ResultsService;
   private readonly db: Db;
   private readonly lastChat = new Map<string, number>();
 
@@ -128,6 +130,7 @@ export class GameService {
       autoNominateDelayMs: opts.autoNominateDelayMs,
     });
     this.season = new SeasonService(this, { db: opts.db, timers: opts.timers, monteCarloRuns: opts.monteCarloRuns });
+    this.results = new ResultsService(this, opts.db);
   }
 
   // -------------------------------------------------------------------------
@@ -302,6 +305,7 @@ export class GameService {
       settings: this.gameSettings(game),
       nominationOrder: normalizeOrder(game.nominationOrder, teams),
       countdownDeadline: game.countdownDeadline,
+      rematchCode: game.rematchCode,
       createdAt: game.createdAt,
     };
   }
@@ -767,6 +771,65 @@ export class GameService {
   // -------------------------------------------------------------------------
   // Chat and presence
 
+  /**
+   * Rematch (section 10): a new lobby with the same settings, host and teams (managers and bots), ready
+   * for a fresh auction. Asking again returns the same lobby.
+   */
+  rematch(user: UserRow, code: string): { code: string } {
+    const game = this.findGame(code);
+    this.requireHost(game, user);
+    if (game.status !== 'simulating' && game.status !== 'completed') throw conflict('NOT_PLAYED', 'A rematch needs a finished auction and a season');
+    if (game.rematchCode) return { code: game.rematchCode };
+    const app = this.appSettings();
+    const settings = this.validateSettings({ ...app.game_defaults, ...this.gameSettings(game) }, app);
+    const formationFor = (f: string | null): FormationId => {
+      if (settings.formationRule === 'forced' && settings.forcedFormation) return settings.forcedFormation;
+      const requested = (f ?? '') as FormationId;
+      return app.formations_enabled.includes(requested) ? requested : app.formations_enabled[0]!;
+    };
+    const banned = new Set(
+      this.db
+        .select({ id: users.id })
+        .from(users)
+        .where(eq(users.banned, true))
+        .all()
+        .map((u) => u.id),
+    );
+    const teams = this.teams(game.id).filter((p) => p.isBot || (p.userId && !banned.has(p.userId)));
+    const rematchCode = this.uniqueCode();
+    const now = Date.now();
+    this.db.transaction((tx) => {
+      const fresh = tx.insert(games).values({ joinCode: rematchCode, name: game.name, hostUserId: game.hostUserId, settings, nominationOrder: [] }).returning().get();
+      const order = teams.map(
+        (p, i) =>
+          tx
+            .insert(participants)
+            .values({
+              gameId: fresh.id,
+              userId: p.isBot ? null : p.userId,
+              teamName: p.teamName,
+              color: p.color,
+              monogram: p.monogram,
+              formation: formationFor(p.formation),
+              isBot: p.isBot,
+              botLevel: p.isBot ? p.botLevel : null,
+              isReady: p.isBot,
+              isConnected: p.isBot,
+              budgetRemainingM: settings.budgetM,
+              createdAt: now + i,
+            })
+            .returning({ id: participants.id })
+            .get().id,
+      );
+      tx.update(games).set({ nominationOrder: order }).where(eq(games.id, fresh.id)).run();
+      tx.update(games).set({ rematchCode, updatedAt: now }).where(eq(games.id, game.id)).run();
+      audit(tx, { actorUserId: user.id, action: 'game.rematch', target: game.joinCode, gameId: game.id, details: { rematchCode, teams: order.length } });
+    });
+    this.broadcastLobby(game.id);
+    this.broadcaster.notice(game.id, { code: 'REMATCH', level: 'info', message: 'The host opened a rematch lobby with the same teams' });
+    return { code: rematchCode };
+  }
+
   chat(user: UserRow, code: string, body: string): ChatMessageView {
     const game = this.findGame(code);
     this.requireParticipant(game, user);
@@ -937,6 +1000,7 @@ export class GameService {
     for (const g of live) this.auction.resumeTimers(g.id);
     const playing = this.db.select({ id: games.id }).from(games).where(eq(games.status, 'simulating')).all();
     for (const g of playing) this.season.resumeTimer(g.id);
+    this.results.backfill();
   }
 
   private touch(gameId: string): void {
