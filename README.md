@@ -133,18 +133,26 @@ In production one Node process serves the API, the realtime socket and the built
 ```bash
 npm ci
 npm run build                                   # web app into apps/web/dist
-NODE_ENV=production SESSION_SECRET=<long random string> npm start   # http://localhost:3001
+NODE_ENV=production npm start                   # http://localhost:3001
 ```
 
 With Docker (one container, the SQLite database on a named volume `/data`, seeded from `data/` on first start):
 
 ```bash
-SESSION_SECRET=$(openssl rand -hex 32) docker compose up --build -d
+docker compose up --build -d
 ```
 
 Then open http://localhost:3001 and register the `ADMIN_USERNAME` account (default `admin`) to get the admin panel. `docker compose down` keeps the volume; `docker compose down -v` deletes the database. The image runs the server as the unprivileged `node` user (its entrypoint starts as root only to take ownership of the mounted `/data` disk) and has a health check on `/api/health`.
 
-### Deploy on Render
+### Deploy on Render (Web Service, no settings needed)
+
+1. Push the repository to GitHub.
+2. In the Render dashboard choose **New > Web Service** and pick the repository. Render detects the `Dockerfile`; keep the defaults (any instance type, including Free) and click **Deploy**.
+3. When it is live, open `https://<service-name>.onrender.com` and register the username `admin` first to get the admin panel.
+
+Nothing has to be set: Render supplies `PORT`, the server generates a session secret on first start and keeps it beside the database, and the empty database is filled from `data/`. Without a disk the service's filesystem is wiped on every deploy and restart (and Free services sleep after 15 minutes idle), so accounts and games last only until then. To keep them, add a disk in the service's **Disks** settings with mount path `/data` (needs a paid instance), or use the Blueprint below.
+
+### Deploy on Render with a persistent disk (Blueprint)
 
 `render.yaml` is a Render Blueprint: one Docker web service with the SQLite database on a 1 GB persistent disk at `/data`. Disks need a paid instance type (the Blueprint uses `starter`). Postgres hosts such as Neon do not work yet: the server's runtime database layer is SQLite only (see DECISIONS.md).
 
@@ -166,7 +174,7 @@ Put HTTPS in front (Caddy, nginx, a platform load balancer) and forward WebSocke
 | `HOST` | `0.0.0.0` | API server bind address |
 | `DATABASE_URL` | `file:./var/deadline-day.sqlite` | `file:<path>` for SQLite (relative to the repo root) or `:memory:`. Postgres URLs are recognised, but the Postgres runtime driver is not wired yet (see DECISIONS.md) |
 | `ADMIN_USERNAME` | `admin` | A user who registers with this username becomes admin |
-| `SESSION_SECRET` | dev-only value | Signs the `dd_session` cookie. Required in production (at least 16 characters, and not the dev-only or `.env.example` value) |
+| `SESSION_SECRET` | generated | Signs the `dd_session` cookie (at least 16 characters). When unset, production generates one on first start and saves it as `session-secret` beside the SQLite file; development uses a dev-only value. The dev-only and `.env.example` values are refused in production |
 | `COOKIE_SECURE` | `auto` | `auto` marks the session cookie Secure in production only; `true` or `false` force it. Use `false` only for plain-HTTP play on a home network |
 | `WEB_DIST_DIR` | `apps/web/dist` | Built web app the server serves when `NODE_ENV=production` (relative to the repo root unless absolute) |
 | `WEB_ORIGIN` | `http://localhost:5173` | Reserved, not read yet: in development Vite proxies `/api` and `/socket.io`, so the app is same-origin |

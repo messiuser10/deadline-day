@@ -1,5 +1,5 @@
 import { buildApp } from './app';
-import { loadConfig, secureCookies, webDistDir } from './config';
+import { loadConfig, secureCookies, sessionSecret, webDistDir } from './config';
 import { loadData } from './data/load';
 import { isSeeded, openDb, runMigrations, seedDatabase } from './db';
 import { findWebBuild } from './web';
@@ -19,7 +19,7 @@ const app = buildApp({
   db,
   logger: true,
   adminUsername: config.ADMIN_USERNAME,
-  sessionSecret: config.SESSION_SECRET,
+  sessionSecret: sessionSecret(config),
   secureCookies: secureCookies(config),
   webDir,
 });

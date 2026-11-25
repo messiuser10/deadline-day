@@ -185,3 +185,4 @@ Choices the spec leaves open, one line each, newest milestone last.
 
 - Hosting target is Render with a persistent disk for the SQLite file (`render.yaml`), chosen over Render plus Neon: the server's 241 database calls use the synchronous SQLite API, and running on Postgres would mean rewriting that layer as async. The Postgres schema and migrations stay in place for that later move.
 - The container starts as root only to `chown` the mounted `/data` disk (Render and Fly mount disks owned by root) and then drops to the `node` user with `setpriv`.
+- `SESSION_SECRET` is optional, so the app deploys as a plain Render Web Service with no settings (the same way as Draft XI). When it is unset, production generates a random secret on first start and saves it as `session-secret` (mode 600) beside the SQLite file. Logins then last exactly as long as the database: for ever on a disk, until the next deploy or restart without one. A secret set in the environment always wins.

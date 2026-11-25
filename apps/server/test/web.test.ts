@@ -1,9 +1,9 @@
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { loadConfig, secureCookies } from '../src/config';
+import { loadConfig, secureCookies, sessionSecret } from '../src/config';
 import { findWebBuild } from '../src/web';
 import { testApp, type TestApp } from './helpers';
 
@@ -71,9 +71,21 @@ describe('production config', () => {
   const base = { NODE_ENV: 'production', SESSION_SECRET: 'a-long-random-production-secret' } as NodeJS.ProcessEnv;
 
   it('refuses the development and example session secrets', () => {
-    expect(() => loadConfig({ NODE_ENV: 'production' } as NodeJS.ProcessEnv)).toThrow(/SESSION_SECRET/);
+    expect(() => loadConfig({ NODE_ENV: 'production', SESSION_SECRET: 'dev-only-session-secret-change-me' } as NodeJS.ProcessEnv)).toThrow(/SESSION_SECRET/);
     expect(() => loadConfig({ NODE_ENV: 'production', SESSION_SECRET: 'change-me-to-a-long-random-string' } as NodeJS.ProcessEnv)).toThrow(/SESSION_SECRET/);
-    expect(loadConfig(base).SESSION_SECRET).toBe('a-long-random-production-secret');
+    expect(sessionSecret(loadConfig(base))).toBe('a-long-random-production-secret');
+  });
+
+  it('creates a session secret beside the database when none is set, and reuses it', () => {
+    const dbDir = mkdtempSync(join(tmpdir(), 'dd-secret-'));
+    const env = { NODE_ENV: 'production', DATABASE_URL: `file:${join(dbDir, 'db.sqlite')}` } as NodeJS.ProcessEnv;
+    const first = sessionSecret(loadConfig(env));
+    expect(first).toMatch(/^[0-9a-f]{64}$/);
+    expect(readFileSync(join(dbDir, 'session-secret'), 'utf8').trim()).toBe(first);
+    expect(sessionSecret(loadConfig(env))).toBe(first);
+    expect(sessionSecret(loadConfig({ ...env, SESSION_SECRET: '' }))).toBe(first);
+    expect(sessionSecret(loadConfig({} as NodeJS.ProcessEnv))).toBe('dev-only-session-secret-change-me');
+    rmSync(dbDir, { recursive: true, force: true });
   });
 
   it('uses Secure cookies in production unless COOKIE_SECURE=false', () => {
