@@ -150,16 +150,7 @@ Then open http://localhost:3001 and register the `ADMIN_USERNAME` account (defau
 2. In the Render dashboard choose **New > Web Service** and pick the repository. Render detects the `Dockerfile`; keep the defaults (any instance type, including Free) and click **Deploy**.
 3. When it is live, open `https://<service-name>.onrender.com` and register the username `admin` first to get the admin panel.
 
-Nothing has to be set: Render supplies `PORT`, the server generates a session secret on first start and keeps it beside the database, and the empty database is filled from `data/`. Without a disk the service's filesystem is wiped on every deploy and restart (and Free services sleep after 15 minutes idle), so accounts and games last only until then. To keep them, add a disk in the service's **Disks** settings with mount path `/data` (needs a paid instance), or use the Blueprint below.
-
-### Deploy on Render with a persistent disk (Blueprint)
-
-`render.yaml` is a Render Blueprint: one Docker web service with the SQLite database on a 1 GB persistent disk at `/data`. Disks need a paid instance type (the Blueprint uses `starter`). Postgres hosts such as Neon do not work yet: the server's runtime database layer is SQLite only (see DECISIONS.md).
-
-1. Put the repository on GitHub (or GitLab). A private repository is fine.
-2. Optionally change `region` in `render.yaml` to the one nearest your players. It cannot change after the first deploy.
-3. In the Render dashboard choose **New > Blueprint**, connect the repository and apply. Render builds the Dockerfile, creates the disk, generates `SESSION_SECRET` and sets `ADMIN_USERNAME=admin`.
-4. When the deploy is live, open `https://<service-name>.onrender.com` and register the username `admin` first to get the admin panel. The first start fills the database from `data/`.
+Nothing has to be set: Render supplies `PORT`, the server generates a session secret on first start and keeps it beside the database, and the empty database is filled from `data/`. Without a disk the service's filesystem is wiped on every deploy and restart (and Free services sleep after 15 minutes idle), so accounts and games last only until then. To keep them, add a disk in the service's **Disks** settings with mount path `/data` (needs a paid instance). Postgres hosts such as Neon do not work yet: the server's runtime database layer is SQLite only (see DECISIONS.md).
 
 Every push to the default branch redeploys. A service with a disk restarts in place, so a deploy briefly interrupts live games; they carry on from the database when it is back. Keep the service at one instance. Render takes daily snapshots of the disk; you can also download `/data/deadline-day.sqlite` from the service shell.
 
@@ -192,6 +183,6 @@ apps/web          React + Vite + Tailwind client, mobile first: home, login, cre
 scripts/          seed, data validation, migrations, simulation CLI
 e2e/              Playwright smoke test and the server it runs against
 Dockerfile        multi-stage image (build the web app, keep runtime dependencies only); docker-compose.yml runs it with a data volume
-deploy/           container entrypoint; render.yaml is the Render Blueprint
+deploy/           container entrypoint
 data/             supplied player and club data
 ```

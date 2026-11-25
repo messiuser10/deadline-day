@@ -1,7 +1,7 @@
 # Deadline Day: one container runs the API, the realtime server and the web app.
 #   docker compose up --build        (see docker-compose.yml)
 #   docker build -t deadline-day . && docker run -p 3001:3001 -e SESSION_SECRET=... -v dd-data:/data deadline-day
-#   Render: see render.yaml
+#   Render: New > Web Service, pick the repository (see README.md)
 
 # --- Build: install everything and build the web app -------------------------------------------------
 FROM node:22-bookworm-slim AS build
